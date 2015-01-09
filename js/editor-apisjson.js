@@ -90,7 +90,7 @@ function loadJSONEditor()
 			 $apiTags = apiVal['tags'];
 			 
              $html = getAPIListing($apiName,$apiHumanURL)
-             $('#apilisting').append($html); 	
+             $('#jsonEditorTable').append($html); 	
 			
 			 $apiProperties = apiVal['properties'];
 			 $.each($apiProperties, function(propertyKey, propertyVal) { 
@@ -102,8 +102,7 @@ function loadJSONEditor()
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	}); 				 	                                           
-            				 					 				 	 				 					 								
-			
+            				 					 				 	 				 					 											
 			 $apiContact = apiVal['contact'];
 			 										
 		});
