@@ -98,19 +98,19 @@ function loadJSONEditor()
 	 	
 	 	// Build a Header
         html = getHeader(companyName,companyDesc,companyURL,companyLogo,$apisjsonURL);
-        $('#apisjsonView').append(html); 
+        $('#jsonEditorTable').append(html); 
         
         companyTags = company['tags'];            
         companyAPIs = company['apis'];
         
 		 // Divider Row
 	 	 html = getRow();
-         $('#apisjsonView').append(html);             
+         $('#jsonEditorTable').append(html);             
         
 		 // Open Table
 	 	 html = getOpen();
 	 	 //alert(html);
-         $('#apisjsonView').append(html);                                 
+         $('#jsonEditorTable').append(html);                                 
         
          $.each(companyAPIs, function(key, val) { 
          	
@@ -173,11 +173,11 @@ function loadJSONEditor()
 		 // Close Table
 	 	 html = getClose();
 	 	 //alert(html);
-         $('#apisjsonView').append(html);  			
+         $('#jsonEditorTable').append(html);  			
 	
 		 // Divider Row
 	 	 html = getRow();
-         $('#apisjsonView').append(html);   			
+         $('#jsonEditorTable').append(html);   			
 		
 	});	
 
@@ -802,167 +802,167 @@ function loadJSONEditor()
 		 	{
 			 // Set the title
 		 	 html = getTitle('Onboarding');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($Onboarding);  	  					 		
+             $('#jsonEditorTable').append($Onboarding);  	  					 		
 		 	}				
 
 		 if($AnyDocumentation==1)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Documentation');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($Documentation);  	  					 		
+             $('#jsonEditorTable').append($Documentation);  	  					 		
 		 	}			
 		
 		 if($AnyAuth>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Authentication');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($Auth);  	  					 		
+             $('#jsonEditorTable').append($Auth);  	  					 		
 		 	}				
 		
 		 if($AnyCodeManage>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Code Management');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($CodeManage);  	  					 		
+             $('#jsonEditorTable').append($CodeManage);  	  					 		
 		 	}				
 			
 		 if($AnyCodeLibrary>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Code Libraries');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($CodeLibrary);  	  					 		
+             $('#jsonEditorTable').append($CodeLibrary);  	  					 		
 		 	}				
 			
 		 if($AnyCodeSDK>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Code Libraries');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($CodeSDK);  	  					 		
+             $('#jsonEditorTable').append($CodeSDK);  	  					 		
 		 	}					
 			
 		 if($AnyMobile>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Mobile SDKs');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($Mobile);  	  					 		
+             $('#jsonEditorTable').append($Mobile);  	  					 		
 		 	}				
 			
 		 if($AnyPDK>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Platform Development Kits (PDK)');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($PDK);  	  					 		
+             $('#jsonEditorTable').append($PDK);  	  					 		
 		 	}				
 		
 		 if($AnySelfServiceSupport>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Self-Service Support');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($SelfServiceSupport);  	  					 		
+             $('#jsonEditorTable').append($SelfServiceSupport);  	  					 		
 		 	}				
 		
 		 if($AnyDirectSupport>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Direct Support');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the support building blocks we've just build
-             $('#apisjsonView').append($DirectSupport);  	  					 		
+             $('#jsonEditorTable').append($DirectSupport);  	  					 		
 		 	}				
 			
 		 if($AnyComm>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Communication');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the comm building blocks
-             $('#apisjsonView').append($Comm);  	  					 		
+             $('#jsonEditorTable').append($Comm);  	  					 		
 		 	}				           	
         
 		 if($AnyUpdates>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Communication');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the comm building blocks
-             $('#apisjsonView').append($Updates);  	  					 		
+             $('#jsonEditorTable').append($Updates);  	  					 		
 		 	}			
 
 		 if($AnyServiceLevels>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Communication');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the comm building blocks
-             $('#apisjsonView').append($ServiceLevels);  	  					 		
+             $('#jsonEditorTable').append($ServiceLevels);  	  					 		
 		 	}			
 
 		 if($AnyResources>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Resources');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the comm building blocks
-             $('#apisjsonView').append($Resources);  	  					 		
+             $('#jsonEditorTable').append($Resources);  	  					 		
 		 	}			 	
 
 		 if($AnyLegal>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Legal');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the comm building blocks
-             $('#apisjsonView').append($Legal);  	  					 		
+             $('#jsonEditorTable').append($Legal);  	  					 		
 		 	}			 				
 
 		 if($AnyEmbeddables>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Embeddable');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the comm building blocks
-             $('#apisjsonView').append($Embeddables);  	  					 		
+             $('#jsonEditorTable').append($Embeddables);  	  					 		
 		 	}			
 
 		 if($AnyEnvironment>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Environment');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the comm building blocks
-             $('#apisjsonView').append($Environment);  	  					 		
+             $('#jsonEditorTable').append($Environment);  	  					 		
 		 	}			
 
 		if($AnyRateLimits>0)
 		 	{
 			 // Set the title
 		 	 html = getTitle('Rate Limits');
-             $('#apisjsonView').append(html);  		             
+             $('#jsonEditorTable').append(html);  		             
 			 // add the comm building blocks
-             $('#apisjsonView').append($RateLimits);  	  					 		
+             $('#jsonEditorTable').append($RateLimits);  	  					 		
 		 	}
         
 		 // Divider Row
 	 	 html = getRow();
-         $('#apisjsonView').append(html);            
+         $('#jsonEditorTable').append(html);            
         
         });		  
          	  	
