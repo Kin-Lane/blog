@@ -33,9 +33,11 @@ function getTitle(title)
 function getBuildingBlockListing(name,url,type)
 	{		
 		
+	type = type.toLowerCase();
+	console.long(type);
     html = '<tr>';
     html = html + '<td width="175"></td>';
-    html = html + '<td width="150" align="center"><a href="' + url + '" title="' + name + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + type.toLowerCase(); + '.png" width="50"" /></a></td>';
+    html = html + '<td width="150" align="center"><a href="' + url + '" title="' + name + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + type + '.png" width="50"" /></a></td>';
     html = html + '<td align="left"">';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a>';
     html = html + '</td>';
@@ -69,14 +71,7 @@ function getAPIListing(name,url,machineurl)
 	{		
 
     html = '<tr>';
-    html = html + '<td width="50" align="center"><a href="' + url + '" title="Documentation"><img style="padding: 5px;" src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/building-blocks/bw-documentation.png" width="50" /></a></td>';
-    html = html + '<td width="50" align="center">';
-  	if(machineurl!='')
-    	{
-    	html = html + '<a href="' + machineurl + '" title="Swagger""><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-swagger-round.png" width="50" /></a>';
-    	}
-    html = html + '</td>';
-    html = html + '<td align="left"><a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
+    html = html + '<td align="left" colspan="3"><a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
     html = html + '</tr>';
     	
 	return html; 			
@@ -112,9 +107,12 @@ function loadJSONEditor()
          	 $apiBaseURL = val['baseURL'];               	
                          	 
 			 $apiTags = val['tags'];
-
-			 $apiProperties = val['properties'];
 			 
+             html = getAPIListing($apiName)
+             $('#apilisting').append(html); 	
+			
+			 // I want to build an array of all properties = building blocks
+			 $apiProperties = val['properties'];
 			 $.each($apiProperties, function(key2, val2) { 
 			 	
 			 	$propertyType = val2['type'];
@@ -123,18 +121,14 @@ function loadJSONEditor()
 				$Property = getBuildingBlockListing($propertyType,$propertyURL,$propertyType); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
-			 	}); 				 	                                                       				 					 				 	 				 					 								
+			 	}); 				 	                                           
+            				 					 				 	 				 					 								
 			
 			 $apiContact = val['contact'];
 			 
 			 $companyMaintainers = company['maintainers'];								
 		});
-		
-		 // Close Table
-	 	 html = getClose();
-	 	 //alert(html);
-         $('#jsonEditorTable').append(html);  				
-		
+
 	});	
 
 	// Set another completion function for the request above
