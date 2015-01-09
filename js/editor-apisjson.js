@@ -26,7 +26,7 @@ function getRow()
 
 function getTitle(title)
 	{
-	html = '<tr><td colspan="2" style="padding-left:175px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong></span></td></tr>';
+	html = '<tr><td colspan="2" style="padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong></span></td></tr>';
 	return html; 			
 	}
 	
@@ -73,15 +73,15 @@ function loadJSONEditor()
 	 	$apisJSONLogo = apisJSON['image'];
 	 	$apisJSONURL = apisJSON['url'];
 	 	
-	 	// Header
-	 	$html = getTitle('APIs');
-	 	$('#jsonEditorTable').append($html); 
-	 	
+	 	// Header	 	
         $html = getHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
         $('#jsonEditorTable').append($html); 
         
         apisJSONTags = apisJSON['tags'];            
         apisJSONAPIs = apisJSON['apis'];
+        
+	 	$html = getTitle('APIs');
+	 	$('#jsonEditorTable').append($html);         
         
          $.each(apisJSONAPIs, function(apiKey, apiVal) { 
          	
