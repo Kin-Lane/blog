@@ -19,7 +19,7 @@
       "get": {
         "summary": "retrieves all blogs",
         "description": "pulls all blogs, with filter by keyword",
-        "operationId": "getInstance",
+        "operationId": "getBlogs",
         "parameters": [
           {
             "name": "query",
@@ -37,12 +37,6 @@
               "items": {
                 "$ref": "#/definitions/blog"
               }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "schema": {
-              "$ref": "#/definitions/errorModel"
             }
           }
         },
@@ -93,12 +87,6 @@
                 "$ref": "#/definitions/blog"
               }
             }
-          },
-          "default": {
-            "description": "unexpected error",
-            "schema": {
-              "$ref": "#/definitions/errorModel"
-            }
           }
         },
         "tags": [
@@ -128,12 +116,6 @@
               "items": {
                 "$ref": "#/definitions/blog"
               }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "schema": {
-              "$ref": "#/definitions/errorModel"
             }
           }
         },
@@ -184,12 +166,6 @@
                 "$ref": "#/definitions/blog"
               }
             }
-          },
-          "default": {
-            "description": "unexpected error",
-            "schema": {
-              "$ref": "#/definitions/errorModel"
-            }
           }
         },
         "tags": [
@@ -217,12 +193,6 @@
               "items": {
                 "$ref": "#/definitions/blog"
               }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "schema": {
-              "$ref": "#/definitions/errorModel"
             }
           }
         },
