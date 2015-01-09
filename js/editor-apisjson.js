@@ -30,7 +30,7 @@ function getTitle(title)
 	return html; 			
 	}
 	
-function getBuildingBlockListing(name,url,type)
+function getPropertyListing(name,url,type)
 	{		
 		
 	type = type.toLowerCase();
@@ -46,26 +46,6 @@ function getBuildingBlockListing(name,url,type)
 	return html; 			
 	}		
 	
-function getOpen()
-	{		
-
-    html = '<tr>';
-    html = html + '<td align="center" colspan="4">';
-    html = html + '<table border="1" id="apilisting">'
-    
-	return html; 			
-	}		
-	
-	
-function getClose()
-	{		
-
-    html = '</table>';
-    html = html + '</td>';
-    html = html + '</tr>';
-    	
-	return html; 			
-	}		
 	
 function getAPIListing(name,url,machineurl)
 	{		
@@ -81,53 +61,53 @@ function loadJSONEditor()
     {
 
     $apisjsonURL = '/blogapi/apis.json';
-    //$apisjsonURL = getUrlVar('apisjson');	
-    console.log($apisjsonURL);
-	var jqxhr = $.getJSON($apisjsonURL, function(company) { 													
 
-	 	companyName = company['name'];
-	 	console.log(companyName);
-	 	companyDesc = company['description'];
-	 	companyLogo = company['image'];
-	 	companyURL = company['url'];
+    console.log($apisjsonURL);
+    
+	var jqxhr = $.getJSON($apisjsonURL, function(apisJSON) { 													
+
+	 	$apisJSONName = apisJSON['name'];
+	 	console.log($apisJSONName);
+	 	$apisJSONDesc = apisJSON['description'];
+	 	$apisJSONLogo = apisJSON['image'];
+	 	$apisJSONURL = apisJSON['url'];
 	 	
-	 	// Build a Header
-        html = getHeader(companyName,companyDesc,companyURL,companyLogo,$apisjsonURL);
+	 	// Header
+        html = getHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
         $('#jsonEditorTable').append(html); 
         
-        companyTags = company['tags'];            
-        companyAPIs = company['apis'];
+        apisJSONTags = apisJSON['tags'];            
+        apisJSONAPIs = apisJSON['apis'];
         
-         $.each(companyAPIs, function(key, val) { 
+         $.each(apisJSONAPIs, function(apiKey, apiVal) { 
          	
-         	 $apiName = val['name']; 
-         	 $apiDesc = val['description'];
-         	 $apiImage = val['image']; 
-         	 $apiHumanURL = val['humanURL']; 
-         	 $apiBaseURL = val['baseURL'];               	
-                         	 
-			 $apiTags = val['tags'];
+         	 $apiName = apiVal['name']; 
+         	 $apiDesc = apiVal['description'];
+         	 $apiImage = apiVal['image']; 
+         	 $apiHumanURL = apiVal['humanURL']; 
+         	 $apiBaseURL = apiVal['baseURL'];               	                         	 
+			 $apiTags = apiVal['tags'];
 			 
-             html = getAPIListing($apiName)
-             $('#apilisting').append(html); 	
+             $html = getAPIListing($apiName)
+             $('#apilisting').append($html); 	
 			
-			 // I want to build an array of all properties = building blocks
-			 $apiProperties = val['properties'];
-			 $.each($apiProperties, function(key2, val2) { 
+			 $apiProperties = apiVal['properties'];
+			 $.each($apiProperties, function(propertyKey, propertyVal) { 
 			 	
-			 	$propertyType = val2['type'];
-			 	$propertyURL = val2['url'];		
+			 	$propertyType = propertyVal['type'];
+			 	$propertyURL = propertyVal['url'];		
 			 	
-				$Property = getBuildingBlockListing($propertyType,$propertyURL,$propertyType); 			
+				$Property = getPropertyListing($propertyType,$propertyURL,$propertyType); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	}); 				 	                                           
             				 					 				 	 				 					 								
 			
-			 $apiContact = val['contact'];
-			 
-			 $companyMaintainers = company['maintainers'];								
+			 $apiContact = apiVal['contact'];
+			 										
 		});
+		
+		$apisJSONMaintainers = apisJSON['maintainers'];	
 
 	});	
 
