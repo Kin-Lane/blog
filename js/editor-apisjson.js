@@ -132,36 +132,7 @@ function loadJSONEditor()
 			 	$propertyURL = val2['url'];		
 			 	
 				$Property = getBuildingBlockListing($propertyType,thisURL,$propertyType); 			
-				$('#jsonEditorTable').append($Property); 			 			 		
-					 		 	
-			 	$URLAlreadyExist = 0;
-				$.each($PropertyArray['buildingblocks'], function(key3, val3) { 
-					
-					$thisType = val3['type'];
-					$thisURL = val3['url'];														 	
-					if($propertyURL==$thisURL)
-						{
-						$URLAlreadyExist = 1;	
-						}
-						
-					});
-
-				if($URLAlreadyExist==0)
-					{	 	
-				 	$A = {};
-				 	$A['type'] = $propertyType;
-				 	$A['url'] = $propertyURL;
-				 	
-				 	$PropertyArray['buildingblocks'].push($A);
-			 		}
-
-			 	if($propertyType=='Swagger')
-				 	{
-				 	if($propertyURL!='')
-				 		{
-			 			$apiMachineURL = $propertyURL;
-			 			} 
-			 		}				 	
+				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	}); 				 	                                           
             				 					 	
