@@ -37,8 +37,8 @@ function loadJSONEditor()
 		
          	$.each($API_Properties, function(propertyKey, propertyVal) {
          		
-         		$API_Property_Type = apiVal['type'];
-         		$API_Property_URL = apiVal['url'];
+         		$API_Property_Type = propertyVal['type'];
+         		$API_Property_URL = propertyVal['url'];
          		
          		console.log($API_Property_Type + ' - ' + $API_Property_URL);  
          		
