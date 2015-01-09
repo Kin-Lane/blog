@@ -8,7 +8,7 @@ $PropertyArray['buildingblocks'] = new Array();
 function getHeader(name,description,url,image,apijsonurl)
 	{		
     html = '<tr>';
-    html = html + '<td align="left" valign="top" colspan="4">';
+    html = html + '<td align="left" valign="top" colspan="3">';
     html = html + '<a href="' + apijsonurl + '" id="apisjsonicon" title="APIs.json"><img src="https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png" width="100" align="right" style="padding: 5px;" /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;
@@ -103,15 +103,6 @@ function loadJSONEditor()
         companyTags = company['tags'];            
         companyAPIs = company['apis'];
         
-		 // Divider Row
-	 	 html = getRow();
-         $('#jsonEditorTable').append(html);             
-        
-		 // Open Table
-	 	 html = getOpen();
-	 	 //alert(html);
-         $('#jsonEditorTable').append(html);                                 
-        
          $.each(companyAPIs, function(key, val) { 
          	
          	 $apiName = val['name']; 
@@ -121,11 +112,9 @@ function loadJSONEditor()
          	 $apiBaseURL = val['baseURL'];               	
                          	 
 			 $apiTags = val['tags'];
-			 
-			 $apiMachineURL = "";
-			
-			 // I want to build an array of all properties = building blocks
+
 			 $apiProperties = val['properties'];
+			 
 			 $.each($apiProperties, function(key2, val2) { 
 			 	
 			 	$propertyType = val2['type'];
@@ -134,10 +123,7 @@ function loadJSONEditor()
 				$Property = getBuildingBlockListing($propertyType,$propertyURL,$propertyType); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
-			 	}); 				 	                                           
-            				 					 	
-             html = getAPIListing($apiName,$apiHumanURL,$apiMachineURL)
-             $('#apilisting').append(html); 				 	 				 					 								
+			 	}); 				 	                                                       				 					 				 	 				 					 								
 			
 			 $apiContact = val['contact'];
 			 
@@ -147,11 +133,7 @@ function loadJSONEditor()
 		 // Close Table
 	 	 html = getClose();
 	 	 //alert(html);
-         $('#jsonEditorTable').append(html);  			
-	
-		 // Divider Row
-	 	 html = getRow();
-         $('#jsonEditorTable').append(html);   			
+         $('#jsonEditorTable').append(html);  				
 		
 	});	
 
