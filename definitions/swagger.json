@@ -129,6 +129,13 @@
         "operationId": "updateBlog",
         "parameters": [
           {
+            "name": "slug",
+            "in": "path",
+            "description": "unique slug for the blog",
+            "required": true,
+            "type": "string"
+          },        
+          {
             "name": "name",
             "in": "query",
             "description": "name of the blog",
