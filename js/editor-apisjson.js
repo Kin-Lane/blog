@@ -26,7 +26,7 @@ function getRow()
 
 function getTitle(title)
 	{
-	html = '<tr><td colspan="4" style="padding-left:175px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong></span></td></tr>';
+	html = '<tr><td colspan="2" style="padding-left:175px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong></span></td></tr>';
 	return html; 			
 	}
 	
@@ -52,7 +52,7 @@ function getAPIListing(name,url)
 	{		
 
     html = '<tr>';
-    html = html + '<td align="left" colspan="2"><a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
+    html = html + '<td align="left" colspan="2" style="padding-left:175px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></span></td>';
     html = html + '</tr>';
     	
 	return html; 			
