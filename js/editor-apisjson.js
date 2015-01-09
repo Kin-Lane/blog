@@ -131,7 +131,7 @@ function loadJSONEditor()
 			 	$propertyType = val2['type'];
 			 	$propertyURL = val2['url'];		
 			 	
-				$Property = $Onboarding + getBuildingBlockListing($propertyType,thisURL,$propertyType); 			
+				$Property = getBuildingBlockListing($propertyType,thisURL,$propertyType); 			
 				$('#jsonEditorTable').append($Property); 			 			 		
 					 		 	
 			 	$URLAlreadyExist = 0;
