@@ -30,16 +30,16 @@ function getTitle(title)
 	return html; 			
 	}
 	
-function getPropertyListing(name,url,type)
+function getPropertyListing($thisname,$thisurl,$thistype)
 	{		
 		
-	type = type.toLowerCase();
-	console.long(type);
+	$thistype = $thistype.toLowerCase();
+	
     html = '<tr>';
     html = html + '<td width="175"></td>';
-    html = html + '<td width="150" align="center"><a href="' + url + '" title="' + name + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + type + '.png" width="50"" /></a></td>';
+    html = html + '<td width="150" align="center"><a href="' + url + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50"" /></a></td>';
     html = html + '<td align="left"">';
-    html = html + '<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a>';
+    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a>';
     html = html + '</td>';
     html = html + '</tr>';
     	
