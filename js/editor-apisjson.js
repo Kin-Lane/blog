@@ -41,7 +41,7 @@ function getPropertyListing($thisname,$thisurl,$thistype)
     html = '<tr>';
     html = html + '<td width="50%" align="right"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50"" /></a></td>';
     html = html + '<td align="left"">';
-    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a>';
+    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a>(<a href="">Edit Property</a>) ';
     html = html + '</td>';
     html = html + '</tr>';
     	
@@ -53,8 +53,7 @@ function getAPIListing(name,url)
 	{		
 
     html = '<tr>';
-    html = html + '<td align="right" style="padding-right:75px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> (<a href="">Add Property</a>)</span></td>';
-    html = html + '<td align="left" style="padding-left:75px; padding-top: 5px; padding-bottom: 5px;"><a href="' + url + '" title="Documentation"><img style="padding: 5px;" src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/building-blocks/bw-documentation.png" width="50" /></a></td>';
+    html = html + '<td align="center" style="padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> (<a href="">Edit API</a>)  (<a href="">Add Property</a>)</span></td>';
     html = html + '</tr>';
     	
 	return html; 			
