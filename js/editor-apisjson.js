@@ -53,7 +53,7 @@ function getAPIListing(name,url)
 	{		
 
     html = '<tr>';
-    html = html + '<td align="center" style="padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> (<a href="">Edit API</a>)  (<a href="">Add Property</a>)</span></td>';
+    html = html + '<td align="center" style="padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> (<a href="">Edit API</a>)  (<a href="">Add Property</a>)</span></td>';
     html = html + '</tr>';
     	
 	return html; 			
