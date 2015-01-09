@@ -26,7 +26,7 @@
       "properties": [
         {
           "type": "Swagger",
-          "url": "https://github.com/Stack-Network/blogapi/gh-pages/definitions/swagger.json"
+          "url": "https://github.com/Stack-Network/blogapi/blame/gh-pages/definitions/swagger.json"
         }
       ],
       "contact": [
