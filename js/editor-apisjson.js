@@ -4,12 +4,13 @@ function loadJSONEditor()
 	
 	$APIsJSON_Path = "/blogapi/apis.json"
 	
-	console.log(data);
+	console.log($APIsJSON_Path);
 	
-    $.getJSON($APIsJSON_Path, function(apisjson) {
+    $.getJSON($APIsJSON_Path, function($apisjson) {    	  
     	  
+    	console.log($apisjson);  
 
-    	$("#debugme").val(apisjson);
+    	$("#debugme").val($apisjson);
     	
                                                
         });
