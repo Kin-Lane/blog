@@ -205,28 +205,24 @@
   "definitions": {
     "blog": {
       "properties": {
-        "server": {
-          "description": "server of the blog",
+        "name": {
+          "description": "name of the blog",
           "type": "string"
         },
-        "app": {
-          "description": "app of the blog",
+        "description": {
+          "description": "description of the blog",
           "type": "string"
         },
-        "sld": {
-          "description": "sld for the blog",
+        "url": {
+          "description": "url for the blog",
           "type": "string"
         },
-        "tld": {
-          "description": "tld for the blog",
-          "type": "string"
-        },
-        "sub": {
-          "description": "sub for the blog",
+        "tags": {
+          "description": "tags for the blog",
           "type": "string"
         },
         "slug": {
-          "description": "unique slug for the blog",
+          "description": "slug for the blog",
           "type": "string"
         }
       }
