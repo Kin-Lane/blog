@@ -22,22 +22,20 @@ function loadJSONEditor()
     	$html = "";
     	
     	$APIsJSON_Name = $apisjson['name'];
-    	$label = "Name";
-    	$html.concat($tr,$td,$st,$label,$st2,$td2,$td,$APIsJSON_Name,$td2,$tr2);
+    	$row = '<tr><td><strong>Name:</td><td>' + $APIsJSON_Name + '</td></tr>'
+    	$('#jsonEditorTable').append($row);  
     	
     	$APIsJSON_Desc = $apisjson['description'];
-    	$label = "Description";
-    	$html.concat($tr,$td,$st,$label,$st2,$td2,$td,$APIsJSON_Desc,$td2,$tr2);
+    	$row = '<tr><td><strong>Description:</td><td>' + $APIsJSON_Desc + '</td></tr>'
+    	$('#jsonEditorTable').append($row);  
     	
     	$APIsJSON_Image = $apisjson['image'];
-    	$label = "Image";
-    	$html.concat($tr,$td,$st,$label,$st2,$td2,$td,$APIsJSON_Image,$td2,$tr2);
+    	$row = '<tr><td><strong>Image:</td><td>' + $APIsJSON_Image + '</td></tr>'
+    	$('#jsonEditorTable').append($row);  
     	
     	$APIsJSON_Tags = $apisjson['tags'];
-    	$label = "Tags";
-    	$html.concat($tr,$td,$st,$label,$st2,$td2,$td,$APIsJSON_Tags,$td2,$tr2);
-
-    	$('#jsonEditorTable').append($html);  
+    	$row = '<tr><td><strong>Tags:</td><td>' + $APIsJSON_Tags + '</td></tr>'
+    	$('#jsonEditorTable').append($row);  
     	
     	$APIsJSON_APIs = $apisjson['apis'];
     	$APIsJSON_Includes = $apisjson['include'];
