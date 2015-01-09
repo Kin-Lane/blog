@@ -31,7 +31,18 @@ function loadJSONEditor()
             $API_BaseURL = apiVal['baseURL'];   
             $API_Tags = apiVal['tags'];   
             $API_Properties = apiVal['properties'];   
-            $API_Contact = apiVal['contact'];       
+            $API_Contact = apiVal['contact'];    
+            
+			console.log("Lets loop through each property for this api...");  
+		
+         	$.each($API_Properties, function(propertyKey, propertyVal) {
+         		
+         		$API_Property_Type = apiVal['type'];
+         		$API_Property_URL = apiVal['url'];
+         		
+         		console.log($API_Property_Type + ' - ' + $API_Property_URL);  
+         		
+             	});         	                
             
              });	          	
                                                
