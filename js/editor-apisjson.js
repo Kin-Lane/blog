@@ -74,8 +74,11 @@ function loadJSONEditor()
 	 	$apisJSONURL = apisJSON['url'];
 	 	
 	 	// Header
-        html = getHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
-        $('#jsonEditorTable').append(html); 
+	 	$html = getTitle('APIs');
+	 	$('#jsonEditorTable').append($html); 
+	 	
+        $html = getHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+        $('#jsonEditorTable').append($html); 
         
         apisJSONTags = apisJSON['tags'];            
         apisJSONAPIs = apisJSON['apis'];
