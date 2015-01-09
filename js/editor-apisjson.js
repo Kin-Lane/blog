@@ -6,11 +6,10 @@ function loadJSONEditor()
 	
 	console.log(data);
 	
-    $.getJSON($APIsJSON_Path, function(data) {
-    	
-    	console.log("herE:"+data);
+    $.getJSON($APIsJSON_Path, function(apisjson) {
+    	  
 
-    	$("#debugme").val(data);
+    	$("#debugme").val(apisjson);
     	
                                                
         });
