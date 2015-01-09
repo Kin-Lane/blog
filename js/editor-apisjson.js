@@ -37,7 +37,7 @@ function getPropertyListing($thisname,$thisurl,$thistype)
 	
     html = '<tr>';
     html = html + '<td width="175"></td>';
-    html = html + '<td width="150" align="center"><a href="' + url + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50"" /></a></td>';
+    html = html + '<td width="150" align="center"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50"" /></a></td>';
     html = html + '<td align="left"">';
     html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a>';
     html = html + '</td>';
