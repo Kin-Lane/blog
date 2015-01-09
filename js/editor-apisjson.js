@@ -24,9 +24,10 @@ function getRow()
 	return html; 			
 	}	
 
-function getTitle(title)
+function getAPITitle(title)
 	{
-	html = '<tr><td colspan="2" style="padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong></span></td></tr>';
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong> (<a href="">Add API</a>)</span></td></tr>';
 	return html; 			
 	}
 	
@@ -52,7 +53,7 @@ function getAPIListing(name,url)
 	{		
 
     html = '<tr>';
-    html = html + '<td align="right" style="padding-right:75px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></span></td>';
+    html = html + '<td align="right" style="padding-right:75px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> (<a href="">Add Property</a>)</span></td>';
     html = html + '<td align="left" style="padding-left:75px; padding-top: 5px; padding-bottom: 5px;"><a href="' + url + '" title="Documentation"><img style="padding: 5px;" src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/building-blocks/bw-documentation.png" width="50" /></a></td>';
     html = html + '</tr>';
     	
@@ -81,7 +82,7 @@ function loadJSONEditor()
         apisJSONTags = apisJSON['tags'];            
         apisJSONAPIs = apisJSON['apis'];
         
-	 	$html = getTitle('APIs');
+	 	$html = getAPITitle('APIs');
 	 	$('#jsonEditorTable').append($html);         
         
          $.each(apisJSONAPIs, function(apiKey, apiVal) { 
