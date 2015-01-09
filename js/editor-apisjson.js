@@ -52,7 +52,8 @@ function getAPIListing(name,url)
 	{		
 
     html = '<tr>';
-    html = html + '<td align="left" colspan="2" style="padding-left:175px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></span></td>';
+    html = html + '<td align="right" style="padding-right:175px; padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></span></td>';
+     html = html + '<td align="left" style="padding-left:175px; padding-top: 5px; padding-bottom: 5px;"><a href="' + url + '" title="Documentation"><img style="padding: 5px;" src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/building-blocks/bw-documentation.png" width="50" /></a></td>';
     html = html + '</tr>';
     	
 	return html; 			
