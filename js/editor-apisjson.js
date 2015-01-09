@@ -48,7 +48,7 @@ function getPropertyListing($thisname,$thisurl,$thistype)
 	}		
 	
 	
-function getAPIListing(name,url,machineurl)
+function getAPIListing(name,url)
 	{		
 
     html = '<tr>';
@@ -89,7 +89,7 @@ function loadJSONEditor()
          	 $apiBaseURL = apiVal['baseURL'];               	                         	 
 			 $apiTags = apiVal['tags'];
 			 
-             $html = getAPIListing($apiName)
+             $html = getAPIListing($apiName,$apiHumanURL)
              $('#apilisting').append($html); 	
 			
 			 $apiProperties = apiVal['properties'];
