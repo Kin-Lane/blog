@@ -1,5 +1,14 @@
 function loadJSONEditor()
 	{
+	
+	// Setting some base html formatting values	
+	$tr = "<tr>";
+	$tr2 = "</tr>";	
+	$td = "<td>";
+	$td2 = "</td>";
+	$st = "<strong>";
+	$st2 = "</strong>";
+	    			
 	console.log("starting...");	
 	
 	$APIsJSON_Path = "/blogapi/apis.json"
@@ -10,10 +19,25 @@ function loadJSONEditor()
     	  
     	console.log($apisjson);  
     	
+    	$html = "";
+    	
     	$APIsJSON_Name = $apisjson['name'];
+    	$label = "Name";
+    	$html.concat($tr,$td,$st,$label,$st2,$td2,$td,$APIsJSON_Name,$td2,$tr2);
+    	
     	$APIsJSON_Desc = $apisjson['description'];
+    	$label = "Description";
+    	$html.concat($tr,$td,$st,$label,$st2,$td2,$td,$APIsJSON_Desc,$td2,$tr2);
+    	
     	$APIsJSON_Image = $apisjson['image'];
+    	$label = "Image";
+    	$html.concat($tr,$td,$st,$label,$st2,$td2,$td,$APIsJSON_Image,$td2,$tr2);
+    	
     	$APIsJSON_Tags = $apisjson['tags'];
+    	$label = "Tags";
+    	$html.concat($tr,$td,$st,$label,$st2,$td2,$td,$APIsJSON_Tags,$td2,$tr2);
+
+    	$('#jsonEditorTable').append($html);  
     	
     	$APIsJSON_APIs = $apisjson['apis'];
     	$APIsJSON_Includes = $apisjson['include'];
