@@ -1,0 +1,49 @@
+{
+  "name": "Stack Network - Blog",
+  "description": "This is a blog API on the Stack Network.",
+  "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+  "tags": [
+    "application programming interface",
+    "API",
+    "Blog"
+  ],
+  "created": "2014-04-07",
+  "modified": "2014-07-09",
+  "url": "https://github.com/Stack-Network/blogapi/gh-pages/apis.json",
+  "SpecificationVersion": "0.14",
+  "apis": [
+    {
+      "name": "Blog",
+      "description": "This is the API for the blog",
+      "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+      "humanURL": "https://github.com/Stack-Network/blogapi/gh-pages/apis.json",
+      "baseURL": "https://github.com/Stack-Network/blogapi/gh-pages/apis.json",
+      "tags": [
+        "API",
+        "Application Programming Interface",
+        "Tools"
+      ],
+      "properties": [
+        {
+          "type": "Swagger",
+          "url": "https://github.com/Stack-Network/blogapi/gh-pages/definitions/swagger.json"
+        }
+      ],
+      "contact": [
+        {
+          "FN": "API Evangliest",
+          "email": "info@apievangelist.com",
+          "X-twitter": "apievangelist"
+        }
+      ]
+    }
+  ],
+  "include": [],
+  "maintainers": [
+    {
+      "FN": "Kin",
+      "X-twitter": "apievangelist",
+      "email": "info@apievangelist.com"
+    }
+  ]
+}
