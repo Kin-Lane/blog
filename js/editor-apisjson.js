@@ -35,6 +35,8 @@ function getPropertyListing($thisname,$thisurl,$thistype)
 		
 	$thistype = $thistype.toLowerCase();
 	
+	console.log("type:" + $thistype);
+	
     html = '<tr>';
     html = html + '<td width="175"></td>';
     html = html + '<td width="150" align="center"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50"" /></a></td>';
