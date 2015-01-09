@@ -35,7 +35,7 @@ function getBuildingBlockListing(name,url,type)
 		
     html = '<tr>';
     html = html + '<td width="175"></td>';
-    html = html + '<td width="150" align="center"><a href="' + url + '" title="' + name + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + type + '.png" width="50"" /></a></td>';
+    html = html + '<td width="150" align="center"><a href="' + url + '" title="' + name + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + type.toLowerCase(); + '.png" width="50"" /></a></td>';
     html = html + '<td align="left"">';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a>';
     html = html + '</td>';
@@ -49,7 +49,7 @@ function getOpen()
 
     html = '<tr>';
     html = html + '<td align="center" colspan="4">';
-    html = html + '<table border="0" id="apilisting">'
+    html = html + '<table border="1" id="apilisting">'
     
 	return html; 			
 	}		
