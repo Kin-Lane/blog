@@ -80,7 +80,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	$thisslug = $thisslug.replace(" ", "-");
 	//console.log("-api (get) slug: " + $thisslug);				
 
-	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit APIs.json</strong>';
     html = html + '<table border="1" width="90%">';
