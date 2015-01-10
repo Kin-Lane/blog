@@ -106,11 +106,11 @@ function getAddAPIListing(name,url,description,url)
 function getEditAPIListing(name,url,description,image)
 	{		
 
-	html = '<tr><td align="center" colspan="2">';
+	html = '<tr><td align="center" colspan="2" style="font-size: 12px;">';
 
     html = html + '<table border="1" width="100%">';
     html = html + '<tr>';
-    html = html + '<td align="right" style="" width="35%"><strong>Name:</strong></td>';
+    html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
     html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
