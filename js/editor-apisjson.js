@@ -5,7 +5,7 @@ $PropertyArray['buildingblocks'] = new Array();
 
 function showme($row)
 	{
-	console.log('1:' + $thisrow.id);	
+	console.log('1:' + $row.id);	
 	$thisrow = document.getElementById($row.id);
 	console.log('2:' + $thisrow);
 	if($thisrow=='none')
@@ -175,7 +175,6 @@ function getPropertyListing($thistype,$thisurl)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
-
 	$thisslug = $thistype.replace(" ", "-");
 	//console.log("-property slug: " + $thisslug);
 	
