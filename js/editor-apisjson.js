@@ -102,7 +102,7 @@ function getAPIListing(name,url,description,url)
     html = html + '<span style="font-size:20px;">';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
     html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-property' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
     html = html + '</span>';
     
     html = html + '</td>';
@@ -206,7 +206,7 @@ function getPropertyAddListing($thistype)
 	$thisslug = $thistype.replace(" ", "-");
 	//console.log("-property slug: " + $thisslug);		
 		
-	html = '<tr id="add-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-api-property' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add Property</strong>';
     html = html + '<table border="1" width="90%">';
