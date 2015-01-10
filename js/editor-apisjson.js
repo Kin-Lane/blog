@@ -24,19 +24,7 @@ function showme($row)
 	
 function viewedit()
 	{
-	
-	$viewer = document.getElementById("jsonViewer");
-	
-	if($viewer.style.display=='')
-		{
-		document.getElementById("jsonViewer").style.display='none';
-		document.getElementById("jsonEditor")style.display='';	
-		}	
-	else
-		{
-		document.getElementById("jsonViewer").style.display='';
-		document.getElementById("jsonEditor")style.display='none';				
-		}
+		
 	}
 
 function getRow()
