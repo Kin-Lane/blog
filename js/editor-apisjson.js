@@ -29,11 +29,11 @@ function viewedit()
 	console.log('viewer: ' + $viewer);
 	if($viewer.style.display=='')
 		{
-		
+		document.getElementById("jsonEditor").style.display = 'none';
 		}	
 	else
 		{
-					
+		document.getElementById("jsonEditor").style.display = '';			
 		}
 	}
 
