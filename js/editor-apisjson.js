@@ -25,7 +25,15 @@ function showme($row)
 function viewedit()
 	{
 	$viewer = document.getElementById("jsonViewer");
-	console.log($viewer);
+	if($viewer.style.display=='')
+		{
+		console.log('switching to viewer');
+		}	
+	else
+		{
+		console.log('switching to editor');			
+		}
+	}	
 	}
 
 function getRow()
