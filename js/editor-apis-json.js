@@ -61,7 +61,7 @@ function getAPITitle(title)
 	return html; 			
 	}
 
-function SaveAPIsJSON()
+function SaveAPIsJSONHeader()
 	{
 
 	$apisJSONName1 = document.getElementById("apisjsonName").value;
@@ -120,7 +120,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
     html = html + '</tr>'   
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values" onclick="SaveAPIsJSON();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values" onclick="SaveAPIsJSONHeader();" /></td>';
     html = html + '</tr>'       
         
     html = html + '</table>';
