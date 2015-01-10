@@ -46,6 +46,40 @@ function getPropertyListing($thisname,$thisurl,$thistype)
     html = html + '</tr>';
     	
 	return html; 			
+	}	
+	
+function getPropertyAddListing($thisname,$thisurl,$thistype)
+	{		
+		
+	$thistype = $thistype.toLowerCase();
+	
+	console.log("type:" + $thistype);
+	
+    html = '<tr>';
+    html = html + '<td width="25%" align="right"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
+    html = html + '<td align="left"">';
+    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '</td>';
+    html = html + '</tr>';
+    	
+	return html; 			
+	}	
+	
+function getPropertyEditListing($thisname,$thisurl,$thistype)
+	{		
+		
+	$thistype = $thistype.toLowerCase();
+	
+	console.log("type:" + $thistype);
+	
+    html = '<tr>';
+    html = html + '<td width="25%" align="right"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
+    html = html + '<td align="left"">';
+    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '</td>';
+    html = html + '</tr>';
+    	
+	return html; 			
 	}		
 	
 	
@@ -57,7 +91,37 @@ function getAPIListing(name,url,description,url)
     html = html + '</tr>';
     	
 	return html; 			
-	}					
+	}	
+	
+function getAddAPIListing(name,url,description,url)
+	{		
+
+    html = '<tr>';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td>';
+    html = html + '</tr>';
+    	
+	return html; 			
+	}	
+	
+function getEditAPIListing(name,url,description,url)
+	{		
+
+	html = '<tr><td align="center">';
+
+    html = html + '<table border="1"><tr>';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
+    html = html + '</tr>';
+    html = '<tr>';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
+    html = html + '</tr>';
+    html = '<tr>';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
+    html = html + '</tr></table>';
+    
+    html = html + '</td></tr>';          
+    	
+	return html; 			
+	}							
 
 function loadJSONEditor()
     {
@@ -95,7 +159,10 @@ function loadJSONEditor()
 			 
              $html = getAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage)
              $('#jsonEditorTable').append($html); 	
-			
+             
+             $html = getEditAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage)
+             $('#jsonEditorTable').append($html);              
+                         			
 			 $apiProperties = apiVal['properties'];
 			 $.each($apiProperties, function(propertyKey, propertyVal) { 
 			 	
