@@ -107,8 +107,8 @@ function getAPIListing(name,url,description,url)
     
     html = html + '<span style="font-size:20px;">';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-property' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="showme(this); return false;" id="editapi-property-' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-property-' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
     html = html + '</span>';
     
     html = html + '</td>';
@@ -154,7 +154,7 @@ function getEditAPIListing(name,url,description,image)
 	$thisslug = $thisslug.replace(" ", "-");
 	console.log("-api (edit) slug: " + $thisslug);
 
-	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-api-property-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit API</strong>';
     html = html + '<table border="1" width="90%">';
