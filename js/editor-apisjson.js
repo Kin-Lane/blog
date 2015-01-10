@@ -23,6 +23,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 
 	html = '<tr><td align="center" colspan="2" style="font-size: 12px;">';
 
+	html = html + '<strong>Edit APIs.json</strong>';
     html = html + '<table border="1" width="100%">';
     html = html + '<tr>';
     html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
@@ -141,6 +142,7 @@ function getEditAPIListing(name,url,description,image)
 
 	html = '<tr><td align="center" colspan="2" style="font-size: 12px;">';
 
+	html = html + '<strong>Edit ' + name + '</strong>';
     html = html + '<table border="1" width="100%">';
     html = html + '<tr>';
     html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
