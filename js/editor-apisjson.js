@@ -51,7 +51,7 @@ function getAPITitle(title)
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + title + '</strong>';
-	html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-listing-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-listing-icon" title="Toggle APIs.json Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
@@ -64,7 +64,7 @@ function getHeader(name,description,url,image,apijsonurl)
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2">';
     //html = html + '<a href="#" onclick="viewedit(this); return false;" id="apis-json-icon" title="APIs.json"><img src="https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png" width="50" align="right" /></a>';
-    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-header-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;
     html = html + '</td>';
@@ -162,9 +162,9 @@ function getAPIListing(name,url,description,url)
     html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2">';
     
     html = html + '<span style="font-size:20px;">';
-    html = html + '<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-property' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
+    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-property' + $thisslug + '-icon" title="Add API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
     html = html + '</span>';
     
     html = html + '</td>';
@@ -249,7 +249,7 @@ function getPropertyListing($apiName,$thistype,$thisurl)
     html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
     html = html + '<td align="left"">';
     html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
-    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + '-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '</td>';
     html = html + '</tr>';
     	
