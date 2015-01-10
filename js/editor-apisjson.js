@@ -34,7 +34,7 @@ function getAPITitle(title)
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + title + '</strong>';
-	html = html + '<a href="#" onclick="showme();" id=""add-api-listing"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '<a href="#" onclick="showme();" id="add-api-listing"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
@@ -100,7 +100,7 @@ function getAPIListing(name,url,description,url)
 		
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api (get) slug: " + $thisslug);				
+	//console.log("-api (get) slug: " + $thisslug);				
 
     html = '<tr>';
     html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2">';
