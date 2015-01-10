@@ -67,25 +67,17 @@ function getAPITitle(title)
 
 function SaveAPIsJSONHeader()
 	{
+	$apisJSONName = document.getElementById("apisjsonName").value;
+	$apisJSONDescription = document.getElementById("apisjsonDescription").value;
+	$apisJSONImage = document.getElementById("apisjsonImage").value;
+	$apisJSONUrl = document.getElementById("apisjsonUrl").value;
 
-	$apisJSONName1 = document.getElementById("apisjsonName").value;
-	$apisJSONDescription1 = document.getElementById("apisjsonDescription").value;
-	$apisJSONImage1 = document.getElementById("apisjsonImage").value;
-	$apisJSONUrl1 = document.getElementById("apisjsonUrl").value;
-	
-	// What we are setting
-	//$apisJSONName2 = $MasterAPISJSON['name'];
- 	//$apisJSONDesc2 = $MasterAPISJSON['description'];
- 	//$apisJSONLogo2 = $MasterAPISJSON['image'];
- 	//$apisJSONUR2L = $MasterAPISJSON['url'];
- 	
- 	//console.log($apisJSONName2 + ' change to ' + $apisJSONName1);
- 	
- 	$MasterAPISJSON['name'] = $apisJSONName1;
- 	//console.log("set");
- 	
- 	$html = getHeaderCell($apisJSONName1,$apisJSONDescription1,$apisJSONUrl1,$apisJSONImage1);
- 	console.log($html);
+ 	$MasterAPISJSON['name'] = $apisJSONName;
+ 	$MasterAPISJSON['description'] = $apisJSONDescription;
+ 	$MasterAPISJSON['image'] = $apisJSONImage;
+ 	$MasterAPISJSON['url'] = $apisJSONUrl;
+
+ 	$html = getHeaderCell($apisJSONName,$apisJSONDescription,$apisJSONUrl,$apisJSONImage);
  	document.getElementById("apisjsonHeaderCell").innerHTML = $html;	
 	}
 
