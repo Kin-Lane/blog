@@ -119,7 +119,7 @@ function getDisplayAPIsJSON()
 	$thisslug = $thisslug.replace(" ", "-");
 	//console.log("-api (get) slug: " + $thisslug);				
 
-	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit APIs.json</strong>';
     html = html + '<table border="1" width="90%">';
@@ -176,7 +176,7 @@ function getAPIListing(name,url,description,url)
 function getAddAPIListing(name)
 	{		
 		
-	html = '<tr id="add-api-listing"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-api-listing" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add API</strong>';
     html = html + '<table border="1" width="90%">';
@@ -210,7 +210,7 @@ function getEditAPIListing(name,url,description,image)
 	$thisslug = $thisslug.replace(" ", "-");
 	//console.log("-api (edit) slug: " + $thisslug);
 
-	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit API</strong>';
     html = html + '<table border="1" width="90%">';
@@ -264,7 +264,7 @@ function getPropertyAddListing($apiName,$thistype)
 	$thisslug = $apiName.replace(" ", "-");
 	//console.log("-property slug: " + $thisslug);		
 		
-	html = '<tr id="add-api-property' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-api-property' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add Property</strong>';
     html = html + '<table border="1" width="90%">';
@@ -296,7 +296,7 @@ function getPropertyEditListing($apiName,$thistype,$thisurl)
 	$thistype = $thistype.toLowerCase();	
 	//console.log("type:" + $thistype);
 	
-	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit Property</strong>';
     html = html + '<table border="1" width="90%">';
