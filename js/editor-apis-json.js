@@ -397,7 +397,8 @@ function loadAPIsJSONEditor()
 	// Set another completion function for the request above
 	jqxhr.complete(function() {
 		
-	  	console.log( "second complete" );
+	  	console.log( "show editor" );
+	  	document.getElementById("jsonEditor").style.display=''; 
 	  	                 
         });		  
          	  	
