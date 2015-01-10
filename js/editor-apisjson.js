@@ -111,19 +111,19 @@ function getEditAPIListing(name,url,description,image)
     html = html + '<table border="1" width="100%">';
     html = html + '<tr>';
     html = html + '<td align="right" style="" width="35%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" /></td>';
+    html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
     html = html + '<td align="right" style=""><strong>Description:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" /></td>';
+    html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
     html = html + '<td align="right" style=""><strong>Image:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" /></td>';
+    html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'
     html = html + '<tr>';
     html = html + '<td align="right" style=""><strong>URL:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" /></td>';
+    html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'    
     html = html + '</table>';
     
