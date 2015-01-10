@@ -61,9 +61,24 @@ function getAPITitle(title)
 	return html; 			
 	}
 
-function saveAPISJSON()
+function SaveAPIsJSON()
 	{
-		
+	// What we are setting them to
+	$apisJSONName1 = document.apisjsonHeader.apisjsonName.value;
+	$apisJSONDescription1 = document.apisjsonHeader.apisjsonDescription.value;
+	$apisJSONImage1 = document.apisjsonHeader.apisjsonImage.value;
+	$apisJSONUrl1 = document.apisjsonHeader.apisjsonUrl.value;
+	
+	// What we are setting
+	$apisJSONName2 = apisJSON['name'];
+ 	$apisJSONDesc2 = apisJSON['description'];
+ 	$apisJSONLogo2 = apisJSON['image'];
+ 	$apisJSONUR2L = apisJSON['url'];
+ 	
+ 	console.log($apisJSONName2 + ' changen to ' + $apisJSONName1);
+ 	
+ 	$MasterAPISJSON['name'] = $apisJSONName1;
+ 	console.log("set");
 	}
 
 // Localize Templating, making as editable as possible	
@@ -91,31 +106,37 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit APIs.json</strong>';
+	html = html + '<form action="" method="get" name="apisjsonHeader"';
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="apisjsonName" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="apisjsonDescription" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="apisjsonImage" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="apisjsonUrl" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'   
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values" onclick="saveAPISJSON();" /></td>';
+    html = html + '</tr>'       
         
     html = html + '</table>';
+    html = html + '</form>';
     
-    html = html + '<br /></td></tr>'; 	
+    html = html + '<br /></td></tr>'; 
 	
 	return html; 			
 	}		
