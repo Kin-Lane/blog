@@ -9,24 +9,24 @@
   ],
   "created": "2014-04-07",
   "modified": "2014-07-09",
-  "url": "https://github.com/Stack-Network/blogapi/gh-pages/apis.json",
+  "url": "http://stack-network.github.io/blogapi/apis.json",
   "SpecificationVersion": "0.14",
   "apis": [
     {
       "name": "Blog",
-      "description": "This is the API for the blog",
+      "description": "This is my default blog API, using it to manage posts in a single API.",
       "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
-      "humanURL": "https://github.com/Stack-Network/blogapi/gh-pages/apis.json",
-      "baseURL": "https://github.com/Stack-Network/blogapi/gh-pages/apis.json",
+      "humanURL": "http://stack-network.github.io/blogapi/",
+      "baseURL": "http://blog.api.kinlane.com",
       "tags": [
         "API",
         "Application Programming Interface",
-        "Tools"
+        "Blog"
       ],
       "properties": [
         {
           "type": "Swagger",
-          "url": "https://github.com/Stack-Network/blogapi/blame/gh-pages/definitions/swagger.json"
+          "url": "http://stack-network.github.io/blogapi/definitions/swagger.json"
         }
       ],
       "contact": [
@@ -41,7 +41,7 @@
   "include": [],
   "maintainers": [
     {
-      "FN": "Kin",
+      "FN": "API Evangliest",
       "X-twitter": "apievangelist",
       "email": "info@apievangelist.com"
     }
