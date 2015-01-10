@@ -31,7 +31,13 @@ function getRow()
 function getAPITitle(title)
 	{
 	html = '<tr>';
-	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td></tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + title + '</strong>';
+	html = html + '<a href="#" onclick="showme();" id=""add-api-listing-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '</span>';
+	html = html + '</td>';
+	html = html + '</tr>';
 	return html; 			
 	}
 
@@ -114,11 +120,7 @@ function getAPIListing(name,url,description,url)
 function getAddAPIListing(name)
 	{		
 		
-	$thisslug = name.toLowerCase();	
-	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api (add) slug: " + $thisslug);		
-
-	html = '<tr id="add-api-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-api-listing"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add API</strong>';
     html = html + '<table border="1" width="90%">';
