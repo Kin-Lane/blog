@@ -3,7 +3,7 @@
 $PropertyArray = {};
 $PropertyArray['buildingblocks'] = new Array();
 
-function showme($row)
+function showmeSwagger($row)
 	{
 	 $thisrow = $row.id;	
 		
@@ -22,7 +22,7 @@ function showme($row)
 		}			
 	}	
 	
-function viewedit()
+function vieweditSwagger()
 	{
 	$viewer = document.getElementById("jsonViewer");
 	if(document.getElementById("jsonViewer").style.display=='')
@@ -39,13 +39,13 @@ function viewedit()
 		}
 	}
 
-function getRow()
+function getRowSwagger()
 	{
 	html = '<tr><td colspan="4"><hr style="padding: 5px; margin: 5px;" /></td></tr>';
 	return html; 			
 	}	
 
-function getAPITitle(title)
+function getAPITitleSwagger(title)
 	{
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
@@ -59,7 +59,7 @@ function getAPITitle(title)
 	}
 
 // Localize Templating, making as editable as possible	
-function getHeader(name,description,url,image,apijsonurl)
+function getHeaderSwagger(name,description,url,image,apijsonurl)
 	{		
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2">';
@@ -73,7 +73,7 @@ function getHeader(name,description,url,image,apijsonurl)
 	return html; 			
 	}
 	
-function getEditHeader(name,description,url,image,apijsonurl)
+function getEditHeaderSwagger(name,description,url,image,apijsonurl)
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -112,7 +112,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	return html; 			
 	}		
 	
-function getDisplayAPIsJSON()
+function getDisplaySwaggerJSON()
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -151,7 +151,7 @@ function getDisplayAPIsJSON()
 	return html; 			
 	}				
 	
-function getAPIListing(name,url,description,url)
+function getAPIListingSwagger(name,url,description,url)
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -173,7 +173,7 @@ function getAPIListing(name,url,description,url)
 	return html; 			
 	}	
 	
-function getAddAPIListing(name)
+function getAddAPIListingSwagger(name)
 	{		
 		
 	html = '<tr id="add-api-listing" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
@@ -203,7 +203,7 @@ function getAddAPIListing(name)
 	return html; 			
 	}	
 	
-function getEditAPIListing(name,url,description,image)
+function getEditAPIListingSwagger(name,url,description,image)
 	{		
 
 	$thisslug = name.toLowerCase();	
@@ -237,7 +237,7 @@ function getEditAPIListing(name,url,description,image)
 	return html; 			
 	}		
 	
-function getPropertyListing($apiName,$thistype,$thisurl)
+function getPropertyListingSwagger($apiName,$thistype,$thisurl)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -256,7 +256,7 @@ function getPropertyListing($apiName,$thistype,$thisurl)
 	return html; 			
 	}	
 	
-function getPropertyAddListing($apiName,$thistype)
+function getPropertyAddListingSwagger($apiName,$thistype)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -286,7 +286,7 @@ function getPropertyAddListing($apiName,$thistype)
 	return html; 			
 	}	
 	
-function getPropertyEditListing($apiName,$thistype,$thisurl)
+function getPropertyEditListingSwagger($apiName,$thistype,$thisurl)
 	{		
 		
 	$thisslug = $thistype.toLowerCase();	
@@ -318,7 +318,7 @@ function getPropertyEditListing($apiName,$thistype,$thisurl)
 	return html; 			
 	}								
 
-function loadJSONEditor()
+function loadSwaggerJSONEditor()
     {
 
     $apisjsonURL = '/blogapi/apis.json';
