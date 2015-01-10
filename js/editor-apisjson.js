@@ -181,7 +181,7 @@ function getEditAPIListing(name,url,description,image)
 	return html; 			
 	}		
 	
-function getPropertyListing($thistype,$thisurl)
+function getPropertyListing($apiName,$thistype,$thisurl)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -200,12 +200,12 @@ function getPropertyListing($thistype,$thisurl)
 	return html; 			
 	}	
 	
-function getPropertyAddListing($thistype)
+function getPropertyAddListing($apiName,$thistype)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
-
-	$thisslug = $thistype.replace(" ", "-");
+	$apiName = $apiName.toLowerCase();
+	$thisslug = $apiName.replace(" ", "-");
 	//console.log("-property slug: " + $thisslug);		
 		
 	html = '<tr id="add-api-property' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
@@ -230,7 +230,7 @@ function getPropertyAddListing($thistype)
 	return html; 			
 	}	
 	
-function getPropertyEditListing($thistype,$thisurl)
+function getPropertyEditListing($apiName,$thistype,$thisurl)
 	{		
 		
 	$thisslug = $thistype.toLowerCase();	
@@ -314,13 +314,13 @@ function loadJSONEditor()
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];		
 			 	
-				$Property = getPropertyAddListing($propertyType); 			
+				$Property = getPropertyAddListing($apiName,$propertyType); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 				 	
-				$Property = getPropertyListing($propertyType,$propertyURL); 			
+				$Property = getPropertyListing($apiName,$propertyType,$propertyURL); 			
 				$('#jsonEditorTable').append($Property); 		
 				
-				$Property = getPropertyEditListing($propertyType,$propertyURL); 			
+				$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	}); 				 	                                           
