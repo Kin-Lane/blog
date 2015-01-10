@@ -40,23 +40,23 @@ function getEditHeader(name,description,url,image,apijsonurl)
     html = html + '<table border="1" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>Description:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>Image:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'
     
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>URL:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'   
         
     html = html + '</table>';
@@ -94,20 +94,20 @@ function getEditAPIListing(name,url,description,image)
 	html = html + '<strong>Edit API</strong>';
     html = html + '<table border="1" width="90%">';
     html = html + '<tr>';
-    html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>Description:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>Image:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>URL:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'    
     html = html + '</table>';
     
@@ -163,13 +163,13 @@ function getPropertyEditListing($thisname,$thisurl,$thistype)
     html = html + '<table border="1" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>Type:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="image" value="' + $thistype + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Type:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="' + $thistype + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>URL:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="description" value="' + $thisurl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="' + $thisurl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '</table>';
