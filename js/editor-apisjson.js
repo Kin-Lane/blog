@@ -7,7 +7,7 @@ function showme($row)
 	{
 	console.log('1:' + $row.id);	
 	$thisrow = document.getElementById($row.id);
-	console.log('2:' + $thisrow);
+	console.log('2:' + $thisrow.style.display);
 	if($thisrow=='none')
 		{
 		$row.style.display = '';	
