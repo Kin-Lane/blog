@@ -85,7 +85,8 @@ function SaveAPIsJSONHeader()
  	//console.log("set");
  	
  	$html = getHeaderCell($apisJSONName1,$apisJSONDescription1,$apisJSONUrl1,$apisJSONImage1);
- 	document.getElementById("apisjsonName").innerHTML = $html;	
+ 	console.log($html);
+ 	document.getElementById("apisjsonHeaderCell").innerHTML = $html;	
 	}
 
 // Localize Templating, making as editable as possible	
