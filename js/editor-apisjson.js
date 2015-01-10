@@ -158,7 +158,7 @@ function getAPIListing(name,url,description,url)
 	$thisslug = $thisslug.replace(" ", "-");
 	//console.log("-api (get) slug: " + $thisslug);				
 
-    html = '<tr>';
+    html = '<tr style="background-color:#CCC;">';
     html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2">';
     
     html = html + '<span style="font-size:20px;">';
