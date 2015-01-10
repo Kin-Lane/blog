@@ -29,7 +29,7 @@ function viewedit()
 		{
 		console.log('switching to viewer');
 		document.getElementById("jsonViewer").style.display='none';
-		document.getElementById("jsonEditor").style.display='		
+		document.getElementById("jsonEditor").style.display='';
 		}	
 	else
 		{
