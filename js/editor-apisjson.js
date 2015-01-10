@@ -108,22 +108,22 @@ function getEditAPIListing(name,url,description,image)
 
 	html = '<tr><td align="center">';
 
-    html = html + '<table border="1">';
+    html = html + '<table border="1" width="100%">';
     html = html + '<tr>';
     html = html + '<td align="right" style=""><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="">' + name + '</td>';
+    html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
     html = html + '<td align="right" style="">strong>Description:</strong></td>';
-    html = html + '<td align="left" style="">' + name + '</td>';
+    html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
     html = html + '<td align="right" style="">strong>Image:</strong></td>';
-    html = html + '<td align="left" style="">' + image + '</td>';
+    html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" /></td>';
     html = html + '</tr>'
     html = html + '<tr>';
     html = html + '<td align="right" style="">strong>URL:</strong></td>';
-    html = html + '<td align="left" style="">' + url + '</td>';
+    html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" /></td>';
     html = html + '</tr>'    
     html = html + '</table>';
     
