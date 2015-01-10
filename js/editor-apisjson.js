@@ -24,14 +24,7 @@ function showme($row)
 	
 function viewedit()
 	{
-	if(document.getElementById("jsonViewer").style.display=='')
-		{
-		//console.log('switching to viewer');
-		}	
-	else
-		{
-		//console.log('switching to editor');			
-		}
+	console.log(document.getElementById("jsonViewer").style.display);
 	}	
 	}
 
