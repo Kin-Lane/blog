@@ -49,11 +49,11 @@ function getPropertyListing($thisname,$thisurl,$thistype)
 	}		
 	
 	
-function getAPIListing(name,url)
+function getAPIListing(name,url,description,url)
 	{		
 
     html = '<tr>';
-    html = html + '<td align="center" style="padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="50" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="50" align="right"  /></a></span></td>';
+    html = html + '<td align="left" style="padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="50" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="50" align="right"  /></a></span></td>';
     html = html + '</tr>';
     	
 	return html; 			
@@ -93,7 +93,7 @@ function loadJSONEditor()
          	 $apiBaseURL = apiVal['baseURL'];               	                         	 
 			 $apiTags = apiVal['tags'];
 			 
-             $html = getAPIListing($apiName,$apiHumanURL)
+             $html = getAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage)
              $('#jsonEditorTable').append($html); 	
 			
 			 $apiProperties = apiVal['properties'];
