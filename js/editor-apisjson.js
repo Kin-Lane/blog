@@ -47,7 +47,7 @@ function getHeader(name,description,url,image,apijsonurl)
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2">';
     html = html + '<a href="' + apijsonurl + '" id="apisjsonicon" title="APIs.json"><img src="https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png" width="50" align="right" /></a>';
-    html = html + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="showme(this);" id="edit-header-icon"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;
     html = html + '</td>';
@@ -63,7 +63,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	$thisslug = $thisslug.replace(" ", "-");
 	console.log("-api (get) slug: " + $thisslug);				
 
-	html = '<tr id="add-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit APIs.json</strong>';
     html = html + '<table border="1" width="90%">';
