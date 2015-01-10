@@ -9,9 +9,9 @@ function showme($row)
 		
 	console.log('1:' + $thisrow);	
 	$thisslug = $thisrow.replace(" ", "-icon");
-	
+	console.log('2:' + $thisrow);	
 	$thisrow = document.getElementById($thisslug);
-	console.log('2:' + $thisrow.style.display);
+	console.log('3:' + $thisrow);
 	if($thisrow=='none')
 		{
 		$row.style.display = '';	
