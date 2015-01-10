@@ -24,7 +24,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit APIs.json</strong>';
-    html = html + '<table border="1" width="100%">';
+    html = html + '<table border="1" width="90%">';
     html = html + '<tr>';
     html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
     html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
@@ -47,7 +47,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
     html = html + '</tr>'      
     html = html + '</table>';
     
-    html = html + '</td></tr>'; 	
+    html = html + '<br /></td></tr>'; 	
 	
 	return html; 			
 	}				
@@ -143,7 +143,7 @@ function getEditAPIListing(name,url,description,image)
 	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit ' + name + '</strong>';
-    html = html + '<table border="1" width="100%">';
+    html = html + '<table border="1" width="90%">';
     html = html + '<tr>';
     html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
     html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
@@ -162,7 +162,7 @@ function getEditAPIListing(name,url,description,image)
     html = html + '</tr>'    
     html = html + '</table>';
     
-    html = html + '</td></tr>';          
+    html = html + '<br /></td></tr>';          
     	
 	return html; 			
 	}							
