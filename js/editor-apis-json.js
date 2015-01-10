@@ -64,21 +64,7 @@ function getAPITitle(title)
 function SaveAPIsJSON()
 	{
 	// What we are setting them to
-	$apisJSONName1 = document.apisjsonHeader.apisjsonName.value;
-	$apisJSONDescription1 = document.apisjsonHeader.apisjsonDescription.value;
-	$apisJSONImage1 = document.apisjsonHeader.apisjsonImage.value;
-	$apisJSONUrl1 = document.apisjsonHeader.apisjsonUrl.value;
-	
-	// What we are setting
-	$apisJSONName2 = apisJSON['name'];
- 	$apisJSONDesc2 = apisJSON['description'];
- 	$apisJSONLogo2 = apisJSON['image'];
- 	$apisJSONUR2L = apisJSON['url'];
- 	
- 	console.log($apisJSONName2 + ' changen to ' + $apisJSONName1);
- 	
- 	$MasterAPISJSON['name'] = $apisJSONName1;
- 	console.log("set");
+
 	}
 
 // Localize Templating, making as editable as possible	
