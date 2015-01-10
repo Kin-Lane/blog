@@ -6,7 +6,7 @@ $PropertyArray['buildingblocks'] = new Array();
 // The Master 
 $MasterAPISJSON = "";
 
-function showme($row)
+function APIJSONShowMe($row)
 	{
 	 $thisrow = $row.id;	
 		
@@ -15,6 +15,7 @@ function showme($row)
 	console.log('2:' + $thisslug);	
 	$thisrow = document.getElementById($thisslug).style.display;
 	console.log('3:' + $thisrow);
+	
 	if($thisrow=='none')
 		{
 		document.getElementById($thisslug).style.display = '';	
@@ -25,7 +26,7 @@ function showme($row)
 		}			
 	}	
 	
-function viewedit()
+function APIJSONViewEdit()
 	{
 	//console.log(document.getElementById("jsonViewer"));
 	if(document.getElementById("jsonViewer").style.display=='')
@@ -46,24 +47,7 @@ function viewedit()
 		}
 	}
 
-function getRow()
-	{
-	html = '<tr><td colspan="4"><hr style="padding: 5px; margin: 5px;" /></td></tr>';
-	return html; 			
-	}	
-
-function getAPITitle(title)
-	{
-	html = '<tr>';
-	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
-	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + title + '</strong>';
-	html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-listing-icon" title="Toggle APIs.json Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
-	html = html + '</span>';
-	html = html + '</td>';
-	html = html + '</tr>';
-	return html; 			
-	}
+// Header
 
 function SaveAPIsJSONHeader()
 	{
@@ -85,7 +69,7 @@ function SaveAPIsJSONHeader()
 function getHeaderCell(name,description,url,image,apijsonurl)
 	{		
 	html = "";
-    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;  	
 	
@@ -97,7 +81,7 @@ function getHeader(name,description,url,image,apijsonurl)
 	{		
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
-    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;
     html = html + '</td>';
@@ -150,7 +134,23 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	
 	return html; 			
 	}		
-				
+	
+// Filler		
+
+function getAPITitle(title)
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + title + '</strong>';
+	html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-api-listing-icon" title="Toggle APIs.json Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '</span>';
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}				
+	
+// API Level	
 	
 function getAPIListing(name,url,description,url)
 	{	
@@ -164,8 +164,8 @@ function getAPIListing(name,url,description,url)
     
     html = html + '<span style="font-size:20px;">';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="showme(this); return false;" id="add-api-property' + $thisslug + '-icon" title="Add API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-api-property' + $thisslug + '-icon" title="Add API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
     html = html + '</span>';
     
     html = html + '</td>';
@@ -238,6 +238,8 @@ function getEditAPIListing(name,url,description,image)
 	return html; 			
 	}		
 	
+// Properties	
+	
 function getPropertyListing($apiName,$thistype,$thisurl)
 	{		
 		
@@ -249,7 +251,7 @@ function getPropertyListing($apiName,$thistype,$thisurl)
     html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
     html = html + '<td align="left"">';
     html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
-    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '</td>';
     html = html + '</tr>';
     	
