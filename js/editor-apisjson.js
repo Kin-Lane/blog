@@ -24,7 +24,17 @@ function showme($row)
 	
 function viewedit()
 	{
+	
+	$viewer = document.getElementById("jsonViewer");
+	
+	if($viewer.style.display=='')
+		{
 		
+		}	
+	else
+		{
+					
+		}
 	}
 
 function getRow()
