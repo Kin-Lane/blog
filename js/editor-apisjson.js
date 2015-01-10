@@ -90,7 +90,7 @@ function getAPIListing(name,url,description,url)
 		
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api slug: " + $thisslug);				
+	console.log("-api (get) slug: " + $thisslug);				
 
     html = '<tr>';
     html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2">';
@@ -112,7 +112,7 @@ function getAddAPIListing(name)
 		
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	//console.log("-api slug: " + $thisslug);		
+	console.log("-api (add) slug: " + $thisslug);		
 
 	html = '<tr id="add-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -146,7 +146,7 @@ function getEditAPIListing(name,url,description,image)
 
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	//console.log("-api slug: " + $thisslug);
+	console.log("-api (edit) slug: " + $thisslug);
 
 	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
