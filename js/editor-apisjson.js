@@ -76,12 +76,32 @@ function getAPIListing(name,url,description,url)
 	return html; 			
 	}	
 	
-function getAddAPIListing(name,url,description,url)
+function getAddAPIListing()
 	{		
 
-    html = '<tr>';
-    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td>';
+	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Add API</strong>';
+    html = html + '<table border="1" width="90%">';
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="url" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'    
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>';  
     	
 	return html; 			
 	}	
@@ -133,19 +153,27 @@ function getPropertyListing($thisname,$thisurl,$thistype)
 	return html; 			
 	}	
 	
-function getPropertyAddListing($thisname,$thisurl,$thistype)
+function getPropertyAddListing()
 	{		
 		
-	$thistype = $thistype.toLowerCase();
-	
-	console.log("type:" + $thistype);
-	
-    html = '<tr>';
-    html = html + '<td width="25%" align="right"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
-    html = html + '<td align="left"">';
-    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '</td>';
+	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Add Property</strong>';
+    html = html + '<table border="1" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Type:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'      
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>'; 
     	
 	return html; 			
 	}	
@@ -216,6 +244,9 @@ function loadJSONEditor()
          	 $apiBaseURL = apiVal['baseURL'];               	                         	 
 			 $apiTags = apiVal['tags'];
 			 
+             $html = getAddAPIListing()
+             $('#jsonEditorTable').append($html);  			 
+			 
              $html = getAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage)
              $('#jsonEditorTable').append($html); 	
              
@@ -228,6 +259,9 @@ function loadJSONEditor()
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];		
 			 	
+				$Property = getPropertyAddListing(); 			
+				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
+			 				 	
 				$Property = getPropertyListing($propertyType,$propertyURL,$propertyType); 			
 				$('#jsonEditorTable').append($Property); 		
 				
