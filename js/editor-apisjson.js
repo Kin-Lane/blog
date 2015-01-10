@@ -106,12 +106,25 @@ function getPropertyEditListing($thisname,$thisurl,$thistype)
 	
 	console.log("type:" + $thistype);
 	
-    html = '<tr>';
-    html = html + '<td width="25%" align="right"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
-    html = html + '<td align="left"">';
-    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '</td>';
+	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Edit ' + name + '</strong>';
+    html = html + '<table border="1" width="90%">';
+    html = html + '<tr>';
+    html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="name" value="' + $thisname + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>URL:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="description" value="' + $thisurl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>Type:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="image" value="' + $thistype + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>'; 
     	
 	return html; 			
 	}		
@@ -217,6 +230,9 @@ function loadJSONEditor()
 			 	$propertyURL = propertyVal['url'];		
 			 	
 				$Property = getPropertyListing($propertyType,$propertyURL,$propertyType); 			
+				$('#jsonEditorTable').append($Property); 		
+				
+				$Property = getPropertyEditListing($propertyType,$propertyURL,$propertyType); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	}); 				 	                                           
