@@ -75,7 +75,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 		
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api (get) slug: " + $thisslug);				
+	//console.log("-api (get) slug: " + $thisslug);				
 
 	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -114,7 +114,7 @@ function getDisplayAPIsJSON()
 		
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api (get) slug: " + $thisslug);				
+	//console.log("-api (get) slug: " + $thisslug);				
 
 	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -205,7 +205,7 @@ function getEditAPIListing(name,url,description,image)
 
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api (edit) slug: " + $thisslug);
+	//console.log("-api (edit) slug: " + $thisslug);
 
 	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -239,7 +239,7 @@ function getPropertyListing($apiName,$thistype,$thisurl)
 		
 	$thistype = $thistype.toLowerCase();
 	$thisslug = $thistype.replace(" ", "-");
-	console.log("-property slug: " + $thisslug);
+	//console.log("-property slug: " + $thisslug);
 	
     html = '<tr>';
     html = html + '<td width="25%" align="right">';
@@ -288,7 +288,7 @@ function getPropertyEditListing($apiName,$thistype,$thisurl)
 		
 	$thisslug = $thistype.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-property slug: " + $thisslug);
+	//console.log("-property slug: " + $thisslug);
 	
 	$thistype = $thistype.toLowerCase();	
 	//console.log("type:" + $thistype);
@@ -320,14 +320,14 @@ function loadJSONEditor()
 
     $apisjsonURL = '/blogapi/apis.json';
 
-    console.log($apisjsonURL);
+    //console.log($apisjsonURL);
     
 	var jqxhr = $.getJSON($apisjsonURL, function(apisJSON) { 													
 
 		document.getElementById("jsonViewer").value = jsonViewer;
 
 	 	$apisJSONName = apisJSON['name'];
-	 	console.log($apisJSONName);
+	 	//console.log($apisJSONName);
 	 	$apisJSONDesc = apisJSON['description'];
 	 	$apisJSONLogo = apisJSON['image'];
 	 	$apisJSONURL = apisJSON['url'];
