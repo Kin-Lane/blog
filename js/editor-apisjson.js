@@ -5,8 +5,9 @@ $PropertyArray['buildingblocks'] = new Array();
 
 function showme($row)
 	{
-	$thisrow = document.getElementById($row).style.display;
-	console.log($thisrow);
+	console.log('1:' + $thisrow);	
+	$thisrow = document.getElementById($row);
+	console.log('2:' + $thisrow);
 	if($thisrow=='none')
 		{
 		$row.style.display = '';	
