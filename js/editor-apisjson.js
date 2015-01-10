@@ -83,7 +83,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit APIs.json</strong>';
-    html = html + '<table border="1" width="90%">';
+    html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
@@ -122,7 +122,7 @@ function getDisplayAPIsJSON()
 	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit APIs.json</strong>';
-    html = html + '<table border="1" width="90%">';
+    html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
@@ -179,7 +179,7 @@ function getAddAPIListing(name)
 	html = '<tr id="add-api-listing" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add API</strong>';
-    html = html + '<table border="1" width="90%">';
+    html = html + '<table border="0" width="90%">';
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
@@ -213,7 +213,7 @@ function getEditAPIListing(name,url,description,image)
 	html = '<tr id="edit-' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit API</strong>';
-    html = html + '<table border="1" width="90%">';
+    html = html + '<table border="0" width="90%">';
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
@@ -267,7 +267,7 @@ function getPropertyAddListing($apiName,$thistype)
 	html = '<tr id="add-api-property' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add Property</strong>';
-    html = html + '<table border="1" width="90%">';
+    html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Type:</strong></td>';
@@ -299,7 +299,7 @@ function getPropertyEditListing($apiName,$thistype,$thisurl)
 	html = '<tr id="edit-' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit Property</strong>';
-    html = html + '<table border="1" width="90%">';
+    html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Type:</strong></td>';
