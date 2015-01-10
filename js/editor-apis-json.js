@@ -74,24 +74,36 @@ function SaveAPIsJSONHeader()
 	$apisJSONUrl1 = document.getElementById("apisjsonUrl").value;
 	
 	// What we are setting
-	$apisJSONName2 = $MasterAPISJSON['name'];
- 	$apisJSONDesc2 = $MasterAPISJSON['description'];
- 	$apisJSONLogo2 = $MasterAPISJSON['image'];
- 	$apisJSONUR2L = $MasterAPISJSON['url'];
+	//$apisJSONName2 = $MasterAPISJSON['name'];
+ 	//$apisJSONDesc2 = $MasterAPISJSON['description'];
+ 	//$apisJSONLogo2 = $MasterAPISJSON['image'];
+ 	//$apisJSONUR2L = $MasterAPISJSON['url'];
  	
- 	console.log($apisJSONName2 + ' change to ' + $apisJSONName1);
+ 	//console.log($apisJSONName2 + ' change to ' + $apisJSONName1);
  	
  	$MasterAPISJSON['name'] = $apisJSONName1;
- 	console.log("set");
- 		
+ 	//console.log("set");
+ 	
+ 	$html = getHeaderCell($apisJSONName1,$apisJSONDescription1,$apisJSONUrl1,$apisJSONImage1);
+ 	document.getElementById("apisjsonName").innerHTML = $html;	
+	}
+
+// Localize Templating, making as editable as possible	
+function getHeaderCell(name,description,url,image,apijsonurl)
+	{		
+    html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
+    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
+    html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;  	
+	
+	return html; 			
 	}
 
 // Localize Templating, making as editable as possible	
 function getHeader(name,description,url,image,apijsonurl)
 	{		
     html = '<tr>';
-    html = html + '<td align="left" valign="top" colspan="2">';
-    //html = html + '<a href="#" onclick="viewedit(this); return false;" id="apis-json-icon" title="APIs.json"><img src="https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png" width="50" align="right" /></a>';
+    html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
     html = html + '<a href="#" onclick="showme(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;
