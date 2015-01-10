@@ -1067,7 +1067,7 @@ function loadJSONEditor()
 		$viewer = JSON.stringify(apisJSON);
 		$displayViewer = prettyPrint($viewer);
 		console.log($displayViewer);
-		document.getElementById("jsonViewer").innerHTML = $displayViewer;
+		$('#jsonViewer').append($displayViewer); 
 		
 		//$('#jsonViewer').append(apisJSON); 
 
