@@ -318,7 +318,7 @@ function getPropertyEditListing($apiName,$thistype,$thisurl)
 	return html; 			
 	}								
 
-function loadJSONEditor()
+function loadAPIsJSONEditor()
     {
 
     $apisjsonURL = '/blogapi/apis.json';
