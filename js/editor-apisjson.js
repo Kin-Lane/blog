@@ -202,7 +202,7 @@ function getPropertyAddListing($thistype)
 	$thisslug = $thistype.replace(" ", "-");
 	//console.log("-property slug: " + $thisslug);		
 		
-	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add Property</strong>';
     html = html + '<table border="1" width="90%">';
