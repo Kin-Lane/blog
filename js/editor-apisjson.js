@@ -4,7 +4,6 @@ $PropertyArray = {};
 $PropertyArray['buildingblocks'] = new Array();
 
 // Localize Templating, making as editable as possible	
-
 function getHeader(name,description,url,image,apijsonurl)
 	{		
     html = '<tr>';
