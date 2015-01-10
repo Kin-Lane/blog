@@ -70,10 +70,10 @@ function SaveAPIsJSONHeader()
 	$apisJSONUrl1 = document.getElementById("apisjsonUrl").value;
 	
 	// What we are setting
-	$apisJSONName2 = apisJSON['name'];
- 	$apisJSONDesc2 = apisJSON['description'];
- 	$apisJSONLogo2 = apisJSON['image'];
- 	$apisJSONUR2L = apisJSON['url'];
+	$apisJSONName2 = $MasterAPISJSON['name'];
+ 	$apisJSONDesc2 = $MasterAPISJSON['description'];
+ 	$apisJSONLogo2 = $MasterAPISJSON['image'];
+ 	$apisJSONUR2L = $MasterAPISJSON['url'];
  	
  	console.log($apisJSONName2 + ' change to ' + $apisJSONName1);
  	
