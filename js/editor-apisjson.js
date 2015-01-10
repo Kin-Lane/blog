@@ -8,7 +8,7 @@ function showme($row)
 	 $thisrow = $row.id;	
 		
 	console.log('1:' + $thisrow);	
-	$thisslug = $thisrow.replace(" ", "-icon");
+	$thisslug = $thisrow.replace("-icon","");
 	console.log('2:' + $thisslug);	
 	$thisrow = document.getElementById($thisslug);
 	console.log('3:' + $thisrow);
