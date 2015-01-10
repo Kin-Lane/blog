@@ -106,23 +106,23 @@ function getAddAPIListing(name,url,description,url)
 function getEditAPIListing(name,url,description,image)
 	{		
 
-	html = '<tr><td align="center">';
+	html = '<tr><td align="center" colspan="2">';
 
     html = html + '<table border="1" width="100%">';
     html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>Name:</strong></td>';
+    html = html + '<td align="right" style="" width="35%"><strong>Name:</strong></td>';
     html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
-    html = html + '<td align="right" style="">strong>Description:</strong></td>';
+    html = html + '<td align="right" style=""><strong>Description:</strong></td>';
     html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" /></td>';
     html = html + '</tr>';
     html = html + '<tr>';
-    html = html + '<td align="right" style="">strong>Image:</strong></td>';
+    html = html + '<td align="right" style=""><strong>Image:</strong></td>';
     html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" /></td>';
     html = html + '</tr>'
     html = html + '<tr>';
-    html = html + '<td align="right" style="">strong>URL:</strong></td>';
+    html = html + '<td align="right" style=""><strong>URL:</strong></td>';
     html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" /></td>';
     html = html + '</tr>'    
     html = html + '</table>';
