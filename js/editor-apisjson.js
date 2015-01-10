@@ -24,14 +24,13 @@ function showme($row)
 	
 function viewedit()
 	{
-	$viewer = document.getElementById("jsonViewer");
 	if(document.getElementById("jsonViewer").style.display=='')
 		{
-		console.log('switching to viewer');
+		//console.log('switching to viewer');
 		}	
 	else
 		{
-		console.log('switching to editor');			
+		//console.log('switching to editor');			
 		}
 	}	
 	}
