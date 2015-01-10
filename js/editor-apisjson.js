@@ -24,7 +24,8 @@ function showme($row)
 	
 function viewedit()
 	{
-
+	$viewer = document.getElementById("jsonViewer");
+	console.log($viewer);
 	}
 
 function getRow()
