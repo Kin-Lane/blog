@@ -24,16 +24,15 @@ function showme($row)
 	
 function viewedit()
 	{
-	
-	$viewer = document.getElementById("jsonViewer");
-	console.log('viewer: ' + $viewer);
-	if($viewer.style.display=='')
+	if(document.getElementById("jsonViewer")=='')
 		{
 		document.getElementById("jsonEditor").style.display = 'none';
+		document.getElementById("jsonViewer").style.display = '';
 		}	
 	else
 		{
-		document.getElementById("jsonEditor").style.display = '';			
+		document.getElementById("jsonEditor").style.display = '';
+		document.getElementById("jsonViewer").style.display = 'none';			
 		}
 	}
 
