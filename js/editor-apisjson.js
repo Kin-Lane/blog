@@ -3,6 +3,20 @@
 $PropertyArray = {};
 $PropertyArray['buildingblocks'] = new Array();
 
+function showme($row)
+	{
+	$thisrow = $row.style.display;
+	console.log($thisrow);
+	if($thisrow=='none')
+		{
+		$row.style.display = '';	
+		}
+	else
+		{
+		$row.style.display = 'none';	
+		}			
+	}	
+
 function getRow()
 	{
 	html = '<tr><td colspan="4"><hr style="padding: 5px; margin: 5px;" /></td></tr>';
@@ -76,10 +90,14 @@ function getAPIListing(name,url,description,url)
 	return html; 			
 	}	
 	
-function getAddAPIListing()
+function getAddAPIListing(name)
 	{		
+		
+	$thisslug = name.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");
+	console.log("-api slug: " + $thisslug);		
 
-	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add API</strong>';
     html = html + '<table border="1" width="90%">';
@@ -113,7 +131,7 @@ function getEditAPIListing(name,url,description,image)
 	$thisslug = $thisslug.replace(" ", "-");
 	console.log("-api slug: " + $thisslug);
 
-	html = '<tr id="' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit API</strong>';
     html = html + '<table border="1" width="90%">';
@@ -140,12 +158,13 @@ function getEditAPIListing(name,url,description,image)
 	return html; 			
 	}		
 	
-function getPropertyListing($thisname,$thisurl,$thistype)
+function getPropertyListing($thistype,$thisurl)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
-	
-	console.log("type:" + $thistype);
+
+	$thisslug = $thistype.replace(" ", "-");
+	console.log("-property slug: " + $thisslug);
 	
     html = '<tr>';
     html = html + '<td width="25%" align="right"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
@@ -157,10 +176,15 @@ function getPropertyListing($thisname,$thisurl,$thistype)
 	return html; 			
 	}	
 	
-function getPropertyAddListing()
+function getPropertyAddListing($thistype)
 	{		
 		
-	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	$thistype = $thistype.toLowerCase();
+
+	$thisslug = $thistype.replace(" ", "-");
+	console.log("-property slug: " + $thisslug);		
+		
+	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add Property</strong>';
     html = html + '<table border="1" width="90%">';
@@ -182,17 +206,17 @@ function getPropertyAddListing()
 	return html; 			
 	}	
 	
-function getPropertyEditListing($thisname,$thisurl,$thistype)
+function getPropertyEditListing($thistype,$thisurl)
 	{		
 		
 	$thisslug = $thisname.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
 	console.log("-property slug: " + $thisslug);
-	$thistype = $thistype.toLowerCase();
 	
+	$thistype = $thistype.toLowerCase();	
 	console.log("type:" + $thistype);
 	
-	html = '<tr id="' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit Property</strong>';
     html = html + '<table border="1" width="90%">';
@@ -251,7 +275,7 @@ function loadJSONEditor()
          	 $apiBaseURL = apiVal['baseURL'];               	                         	 
 			 $apiTags = apiVal['tags'];
 			 
-             $html = getAddAPIListing()
+             $html = getAddAPIListing($apiName)
              $('#jsonEditorTable').append($html);  			 
 			 
              $html = getAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage)
@@ -266,13 +290,13 @@ function loadJSONEditor()
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];		
 			 	
-				$Property = getPropertyAddListing(); 			
+				$Property = getPropertyAddListing($propertyType); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 				 	
-				$Property = getPropertyListing($propertyType,$propertyURL,$propertyType); 			
+				$Property = getPropertyListing($propertyType,$propertyURL); 			
 				$('#jsonEditorTable').append($Property); 		
 				
-				$Property = getPropertyEditListing($propertyType,$propertyURL,$propertyType); 			
+				$Property = getPropertyEditListing($propertyType,$propertyURL); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	}); 				 	                                           
