@@ -37,6 +37,10 @@ function viewedit()
 	else
 		{
 		//console.log('switching to editor');		
+
+		$viewer = JSON.stringify($MasterAPISJSON, null, 4);
+		document.getElementById("jsonViewerDetails").value = $viewer;		
+		
 		document.getElementById("jsonViewer").style.display='';
 		document.getElementById("jsonEditor").style.display='none';			
 		}
