@@ -14,11 +14,11 @@ function showme($row)
 	console.log('3:' + $thisrow);
 	if($thisrow=='none')
 		{
-		$row.style.display = '';	
+		document.getElementById($thisslug).style.display; = '';	
 		}
 	else
 		{
-		$row.style.display = 'none';	
+		document.getElementById($thisslug).style.display; = 'none';	
 		}			
 	}	
 
