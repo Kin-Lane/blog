@@ -75,6 +75,7 @@ function SaveAPIsJSON()
  	$apisJSONLogo2 = apisJSON['image'];
  	$apisJSONUR2L = apisJSON['url'];
 
+ 	$MasterAPISJSON['name'] = $apisJSONName1;
 	}
 
 // Localize Templating, making as editable as possible	
