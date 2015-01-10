@@ -69,13 +69,6 @@ function SaveAPIsJSON()
 	$apisJSONImage1 = document.apisjsonHeader.apisjsonImage.value;
 	$apisJSONUrl1 = document.apisjsonHeader.apisjsonUrl.value;
 	
-	// What we are setting
-	$apisJSONName2 = apisJSON['name'];
- 	$apisJSONDesc2 = apisJSON['description'];
- 	$apisJSONLogo2 = apisJSON['image'];
- 	$apisJSONUR2L = apisJSON['url'];
-
- 	$MasterAPISJSON['name'] = $apisJSONName1;
 	}
 
 // Localize Templating, making as editable as possible	
