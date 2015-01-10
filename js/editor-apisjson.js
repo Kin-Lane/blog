@@ -16,7 +16,40 @@ function getHeader(name,description,url,image,apijsonurl)
     html = html + '</tr>';   	
 	
 	return html; 			
-	}		
+	}
+	
+function getEditHeader(name,description,url,image,apijsonurl)
+	{		
+
+	html = '<tr><td align="center" colspan="2" style="font-size: 12px;">';
+
+    html = html + '<table border="1" width="100%">';
+    html = html + '<tr>';
+    html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>Description:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>Image:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>URL:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'   
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>APIs.json URL:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="url" value="' + apijsonurl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'      
+    html = html + '</table>';
+    
+    html = html + '</td></tr>'; 	
+	
+	return html; 			
+	}				
 
 function getRow()
 	{
@@ -151,6 +184,9 @@ function loadJSONEditor()
         $html = getHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
         $('#jsonEditorTable').append($html); 
         
+        $html = getEditHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+        $('#jsonEditorTable').append($html);         
+                
         apisJSONTags = apisJSON['tags'];            
         apisJSONAPIs = apisJSON['apis'];
         
