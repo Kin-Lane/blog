@@ -92,6 +92,7 @@ function SaveAPIsJSONHeader()
 // Localize Templating, making as editable as possible	
 function getHeaderCell(name,description,url,image,apijsonurl)
 	{		
+	html = "";
     html = html + '<a href="#" onclick="showme(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;  	
