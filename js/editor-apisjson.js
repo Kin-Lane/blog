@@ -103,20 +103,29 @@ function getAddAPIListing(name,url,description,url)
 	return html; 			
 	}	
 	
-function getEditAPIListing(name,url,description,url)
+function getEditAPIListing(name,url,description,image)
 	{		
 
 	html = '<tr><td align="center">';
 
-    html = html + '<table border="1"><tr>';
-    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
+    html = html + '<table border="1">';
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="">' + name + '</td>';
     html = html + '</tr>';
-    html = '<tr>';
-    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style="">strong>Description:</strong></td>';
+    html = html + '<td align="left" style="">' + name + '</td>';
     html = html + '</tr>';
-    html = '<tr>';
-    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a></td>';
-    html = html + '</tr></table>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style="">strong>Image:</strong></td>';
+    html = html + '<td align="left" style="">' + image + '</td>';
+    html = html + '</tr>'
+    html = html + '<tr>';
+    html = html + '<td align="right" style="">strong>URL:</strong></td>';
+    html = html + '<td align="left" style="">' + url + '</td>';
+    html = html + '</tr>'    
+    html = html + '</table>';
     
     html = html + '</td></tr>';          
     	
