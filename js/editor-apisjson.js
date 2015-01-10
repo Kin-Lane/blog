@@ -1065,7 +1065,7 @@ function loadJSONEditor()
 	var jqxhr = $.getJSON($apisjsonURL, function(apisJSON) { 													
 
 		$viewer = JSON.stringify(apisJSON);
-		document.getElementById("jsonViewer").innerHTML = $viewer;
+		document.getElementById("jsonViewer").innerHTML = prettyPrint($viewer);
 		
 		//$('#jsonViewer').append(apisJSON); 
 
