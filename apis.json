@@ -1,6 +1,6 @@
 {
   "name": "Stack Network - Blog",
-  "description": "This is a blog API on the Stack Network.",
+  "description": "This is my default blog API, using it to manage posts in a single API. It is a Stack Network API resource, with supporting docker container for the API.",
   "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
   "tags": [
     "application programming interface",
@@ -14,7 +14,7 @@
   "apis": [
     {
       "name": "Blog",
-      "description": "This is my default blog API, using it to manage posts in a single API.",
+      "description": "A blog API resource.",
       "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
       "humanURL": "http://stack-network.github.io/blogapi/",
       "baseURL": "http://blog.api.kinlane.com",
