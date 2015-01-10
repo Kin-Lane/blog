@@ -27,13 +27,13 @@ function viewedit()
 	if(document.getElementById("jsonViewer").style.display=='')
 		{
 		console.log('switching to viewer');
-		document.getElementById("jsonViewer").style.display='none';
+		//document.getElementById("jsonViewer").style.display='none';
 		//document.getElementById("jsonEditor").style.display='';
 		}	
 	else
 		{
 		console.log('switching to editor');		
-		document.getElementById("jsonViewer").style.display='';
+		//document.getElementById("jsonViewer").style.display='';
 		//document.getElementById("jsonEditor").style.display='none';			
 		}
 	}
