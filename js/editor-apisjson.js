@@ -180,9 +180,9 @@ function getPropertyListing($thistype,$thisurl)
 	
     html = '<tr>';
     html = html + '<td width="25%" align="right">';
-    html = html + '<a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
+    html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
     html = html + '<td align="left"">';
-    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a>';
+    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
     html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + ');"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '</td>';
     html = html + '</tr>';
