@@ -223,7 +223,7 @@ function getPropertyAddListing($thistype)
 function getPropertyEditListing($thistype,$thisurl)
 	{		
 		
-	$thisslug = $thisname.toLowerCase();	
+	$thisslug = $thistype.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
 	console.log("-property slug: " + $thisslug);
 	
