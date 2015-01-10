@@ -24,18 +24,18 @@ function showme($row)
 	
 function viewedit()
 	{
-	console.log(document.getElementById("jsonViewer"));
+	//console.log(document.getElementById("jsonViewer"));
 	if(document.getElementById("jsonViewer").style.display=='')
 		{
-		console.log('switching to viewer');
-		//document.getElementById("jsonViewer").style.display='none';
-		//document.getElementById("jsonEditor").style.display='';
+		//console.log('switching to viewer');
+		document.getElementById("jsonViewer").style.display='none';
+		document.getElementById("jsonEditor").style.display='';
 		}	
 	else
 		{
-		console.log('switching to editor');		
-		//document.getElementById("jsonViewer").style.display='';
-		//document.getElementById("jsonEditor").style.display='none';			
+		//console.log('switching to editor');		
+		document.getElementById("jsonViewer").style.display='';
+		document.getElementById("jsonEditor").style.display='none';			
 		}
 	}
 
