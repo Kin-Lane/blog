@@ -109,7 +109,11 @@ function getAddAPIListing()
 function getEditAPIListing(name,url,description,image)
 	{		
 
-	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	$thisslug = name.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");
+	console.log("-api slug: " + $thisslug);
+
+	html = '<tr id="' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit API</strong>';
     html = html + '<table border="1" width="90%">';
@@ -181,11 +185,14 @@ function getPropertyAddListing()
 function getPropertyEditListing($thisname,$thisurl,$thistype)
 	{		
 		
+	$thisslug = $thisname.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");
+	console.log("-property slug: " + $thisslug);
 	$thistype = $thistype.toLowerCase();
 	
 	console.log("type:" + $thistype);
 	
-	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit Property</strong>';
     html = html + '<table border="1" width="90%">';
