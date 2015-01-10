@@ -155,8 +155,14 @@
   	<script src="/blogapi/js/editor-apis-json.js" type="text/javascript"></script>
   	<script src="/blogapi/js/editor-swagger-json.js" type="text/javascript"></script>      	
 	<script type="text/javascript">
-		loadAPIsJSONEditor();
-		loadSwaggerJSONEditor();
+		if(document.getElementById("jsonEditor"))
+			{
+			loadAPIsJSONEditor();
+			}
+		if(document.getElementById("swaggerjsonEditor"))
+			{			
+			loadSwaggerJSONEditor();
+			}
 	</script>
   </body>
 </html>
