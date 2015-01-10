@@ -131,8 +131,8 @@ function getEditHeader(name,description,url,image,apijsonurl)
     html = html + '</tr>'       
         
     html = html + '</table>';
-    html = html + '</form>';
-    	
+    
+    html = html + '<br /></td></tr>'; 	
 	
 	return html; 			
 	}		
