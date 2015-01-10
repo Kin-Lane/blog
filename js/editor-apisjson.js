@@ -5,8 +5,8 @@ $PropertyArray['buildingblocks'] = new Array();
 
 function showme($row)
 	{
-	console.log('1:' + $thisrow);	
-	$thisrow = document.getElementById($row);
+	console.log('1:' + $thisrow.id);	
+	$thisrow = document.getElementById($row.id);
 	console.log('2:' + $thisrow);
 	if($thisrow=='none')
 		{
@@ -86,15 +86,15 @@ function getAPIListing(name,url,description,url)
 		
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api slug: " + $thisslug);				
+	//console.log("-api slug: " + $thisslug);				
 
     html = '<tr>';
     html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2">';
     
     html = html + '<span style="font-size:20px;">';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    html = html + '<a href="#" onclick="showme(this);" id="edit-' + $thisslug + '); return false;"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="showme(this);" id="add-' + $thisslug + '); return false;"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="" onclick="showme(this);" id="edit-' + $thisslug + '); return false;"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="" onclick="showme(this);" id="add-' + $thisslug + '); return false;"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
     html = html + '</span>';
     
     html = html + '</td>';
@@ -108,7 +108,7 @@ function getAddAPIListing(name)
 		
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api slug: " + $thisslug);		
+	//console.log("-api slug: " + $thisslug);		
 
 	html = '<tr id="add-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -142,7 +142,7 @@ function getEditAPIListing(name,url,description,image)
 
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	console.log("-api slug: " + $thisslug);
+	//console.log("-api slug: " + $thisslug);
 
 	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -177,7 +177,7 @@ function getPropertyListing($thistype,$thisurl)
 	$thistype = $thistype.toLowerCase();
 
 	$thisslug = $thistype.replace(" ", "-");
-	console.log("-property slug: " + $thisslug);
+	//console.log("-property slug: " + $thisslug);
 	
     html = '<tr>';
     html = html + '<td width="25%" align="right">';
@@ -197,7 +197,7 @@ function getPropertyAddListing($thistype)
 	$thistype = $thistype.toLowerCase();
 
 	$thisslug = $thistype.replace(" ", "-");
-	console.log("-property slug: " + $thisslug);		
+	//console.log("-property slug: " + $thisslug);		
 		
 	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -229,7 +229,7 @@ function getPropertyEditListing($thistype,$thisurl)
 	console.log("-property slug: " + $thisslug);
 	
 	$thistype = $thistype.toLowerCase();	
-	console.log("type:" + $thistype);
+	//console.log("type:" + $thistype);
 	
 	html = '<tr id="edit-' + $thisslug + '"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
