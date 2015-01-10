@@ -3,6 +3,19 @@
 $PropertyArray = {};
 $PropertyArray['buildingblocks'] = new Array();
 
+function getRow()
+	{
+	html = '<tr><td colspan="4"><hr style="padding: 5px; margin: 5px;" /></td></tr>';
+	return html; 			
+	}	
+
+function getAPITitle(title)
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td></tr>';
+	return html; 			
+	}
+
 // Localize Templating, making as editable as possible	
 function getHeader(name,description,url,image,apijsonurl)
 	{		
@@ -52,19 +65,56 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	
 	return html; 			
 	}				
+	
+function getAPIListing(name,url,description,url)
+	{		
 
-function getRow()
-	{
-	html = '<tr><td colspan="4"><hr style="padding: 5px; margin: 5px;" /></td></tr>';
+    html = '<tr>';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td>';
+    html = html + '</tr>';
+    	
 	return html; 			
 	}	
+	
+function getAddAPIListing(name,url,description,url)
+	{		
 
-function getAPITitle(title)
-	{
-	html = '<tr>';
-	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;"><span style="font-size:20px;"><strong>' + title + '</strong> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td></tr>';
+    html = '<tr>';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td>';
+    html = html + '</tr>';
+    	
 	return html; 			
-	}
+	}	
+	
+function getEditAPIListing(name,url,description,image)
+	{		
+
+	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Edit API</strong>';
+    html = html + '<table border="1" width="90%">';
+    html = html + '<tr>';
+    html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>Description:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>Image:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'
+    html = html + '<tr>';
+    html = html + '<td align="right" style=""><strong>URL:</strong></td>';
+    html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'    
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>';          
+    	
+	return html; 			
+	}		
 	
 function getPropertyListing($thisname,$thisurl,$thistype)
 	{		
@@ -109,7 +159,7 @@ function getPropertyEditListing($thisname,$thisurl,$thistype)
 	
 	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Edit ' + name + '</strong>';
+	html = html + '<strong>Edit Property</strong>';
     html = html + '<table border="1" width="90%">';
     
     html = html + '<tr>';
@@ -127,58 +177,7 @@ function getPropertyEditListing($thisname,$thisurl,$thistype)
     html = html + '<br /></td></tr>'; 
     	
 	return html; 			
-	}		
-	
-	
-function getAPIListing(name,url,description,url)
-	{		
-
-    html = '<tr>';
-    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td>';
-    html = html + '</tr>';
-    	
-	return html; 			
-	}	
-	
-function getAddAPIListing(name,url,description,url)
-	{		
-
-    html = '<tr>';
-    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td>';
-    html = html + '</tr>';
-    	
-	return html; 			
-	}	
-	
-function getEditAPIListing(name,url,description,image)
-	{		
-
-	html = '<tr><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
-
-	html = html + '<strong>Edit ' + name + '</strong>';
-    html = html + '<table border="1" width="90%">';
-    html = html + '<tr>';
-    html = html + '<td align="right" style="" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>';
-    html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>Description:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>';
-    html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>Image:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'
-    html = html + '<tr>';
-    html = html + '<td align="right" style=""><strong>URL:</strong></td>';
-    html = html + '<td align="left" style=""><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'    
-    html = html + '</table>';
-    
-    html = html + '<br /></td></tr>';          
-    	
-	return html; 			
-	}							
+	}								
 
 function loadJSONEditor()
     {
