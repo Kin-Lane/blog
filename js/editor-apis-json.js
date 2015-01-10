@@ -1,7 +1,7 @@
 // Purposely keeping this verbose, and expanded, until I figure out best patterns for config and extensability
 
-$PropertyArray = {};
-$PropertyArray['buildingblocks'] = new Array();
+// The Master Storage for the APIs.json we will be editing, viewing and ultimately saving
+$MasterAPISJSON = "";
 
 function showme($row)
 	{
@@ -58,6 +58,26 @@ function getAPITitle(title)
 	return html; 			
 	}
 
+function SaveAPIsJSON()
+	{
+	// What we are setting them to
+	$apisJSONName1 = document.apisjsonHeader.apisjsonName.value;
+	$apisJSONDescription1 = document.apisjsonHeader.apisjsonDescription.value;
+	$apisJSONImage1 = document.apisjsonHeader.apisjsonImage.value;
+	$apisJSONUrl1 = document.apisjsonHeader.apisjsonUrl.value;
+	
+	// What we are setting
+	$apisJSONName2 = apisJSON['name'];
+ 	$apisJSONDesc2 = apisJSON['description'];
+ 	$apisJSONLogo2 = apisJSON['image'];
+ 	$apisJSONUR2L = apisJSON['url'];
+ 	
+ 	console.log($apisJSONName2 + ' changen to ' + $apisJSONName1);
+ 	
+ 	$MasterAPISJSON['name'] = $apisJSONName1;
+ 	console.log("set");
+	}
+
 // Localize Templating, making as editable as possible	
 function getHeader(name,description,url,image,apijsonurl)
 	{		
@@ -83,73 +103,41 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit APIs.json</strong>';
+	html = html + '<form action="" method="get" name="apisjsonHeader"';
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="apisjsonName" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="apisjsonDescription" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="apisjsonImage" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="apisjsonUrl" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'   
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values" onclick="saveAPISJSON();" /></td>';
+    html = html + '</tr>'       
         
     html = html + '</table>';
+    html = html + '</form>';
     
     html = html + '<br /></td></tr>'; 	
 	
 	return html; 			
 	}		
-	
-function getDisplayAPIsJSON()
-	{	
-		
-	$thisslug = name.toLowerCase();	
-	$thisslug = $thisslug.replace(" ", "-");
-	//console.log("-api (get) slug: " + $thisslug);				
-
-	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
-
-	html = html + '<strong>Edit APIs.json</strong>';
-    html = html + '<table border="0" width="90%">';
-    
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>';
-    
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>';
-    
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'
-    
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'   
-        
-    html = html + '</table>';
-    
-    html = html + '<br /></td></tr>'; 	
-	
-	return html; 			
-	}				
+					
 	
 function getAPIListing(name,url,description,url)
 	{	
@@ -242,7 +230,6 @@ function getPropertyListing($apiName,$thistype,$thisurl)
 		
 	$thistype = $thistype.toLowerCase();
 	$thisslug = $thistype.replace(" ", "-");
-	//console.log("-property slug: " + $thisslug);
 	
     html = '<tr>';
     html = html + '<td width="25%" align="right">';
@@ -261,8 +248,7 @@ function getPropertyAddListing($apiName,$thistype)
 		
 	$thistype = $thistype.toLowerCase();
 	$apiName = $apiName.toLowerCase();
-	$thisslug = $apiName.replace(" ", "-");
-	//console.log("-property slug: " + $thisslug);		
+	$thisslug = $apiName.replace(" ", "-");	
 		
 	html = '<tr id="add-api-property' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -291,10 +277,8 @@ function getPropertyEditListing($apiName,$thistype,$thisurl)
 		
 	$thisslug = $thistype.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	//console.log("-property slug: " + $thisslug);
 	
 	$thistype = $thistype.toLowerCase();	
-	//console.log("type:" + $thistype);
 	
 	html = '<tr id="edit-' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -327,6 +311,9 @@ function loadAPIsJSONEditor()
     
 	var jqxhr = $.getJSON($apisjsonURL, function(apisJSON) { 													
 
+		// Set our Master Store
+		$MasterAPISJSON = apisJSON;
+
 		$viewer = JSON.stringify(apisJSON, null, 4);
 		document.getElementById("jsonViewerDetails").value = $viewer;
 		//$('#jsonViewer').append($viewer); 
@@ -350,10 +337,14 @@ function loadAPIsJSONEditor()
         apisJSONAPIs = apisJSON['apis'];
         
 	 	$html = getAPITitle('APIs');
-	 	$('#jsonEditorTable').append($html);         
+	 	$('#jsonEditorTable').append($html);   
+	 	
+	 	$apicount = 0;      
         
          $.each(apisJSONAPIs, function(apiKey, apiVal) { 
          	
+         	 $propertycount = 0;
+         	 
          	 $apiName = apiVal['name']; 
          	 $apiDesc = apiVal['description'];
          	 $apiImage = apiVal['image']; 
@@ -385,10 +376,12 @@ function loadAPIsJSONEditor()
 				$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
+			 	$propertycount++;
+			 	
 			 	}); 				 	                                           
             				 					 				 	 				 					 											
 			 $apiContact = apiVal['contact'];
-			 										
+			 $apicount++;										
 		});
 		
 		$apisJSONMaintainers = apisJSON['maintainers'];	
