@@ -130,7 +130,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
     html = html + '</tr>'   
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values (2)" onclick="saveAPISJSON();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values" onclick="saveAPISJSON();" /></td>';
     html = html + '</tr>'       
         
     html = html + '</table>';
@@ -175,11 +175,7 @@ function getDisplayAPIsJSON()
     
     html = html + '<tr>';
     html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values" onclick="saveAPISJSON();" /></td>';
-    html = html + '</tr>'   
-    
-    html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values (2)" onclick="saveAPISJSON();" /></td>';
-    html = html + '</tr>'      
+    html = html + '</tr>'     
         
     html = html + '</table>';
     
