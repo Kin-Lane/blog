@@ -5,7 +5,7 @@ $PropertyArray['buildingblocks'] = new Array();
 
 function showme($row)
 	{
-	$thisrow = $row.style.display;
+	$thisrow = document.getElementById($row).style.display;
 	console.log($thisrow);
 	if($thisrow=='none')
 		{
@@ -81,10 +81,22 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	}				
 	
 function getAPIListing(name,url,description,url)
-	{		
+	{	
+		
+	$thisslug = name.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");
+	console.log("-api slug: " + $thisslug);				
 
     html = '<tr>';
-    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2"><span style="font-size:20px;"<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description + '<a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>  <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a></span></td>';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2">';
+    
+    html = html + '<span style="font-size:20px;">';
+    html = html + '<a href="' + url + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
+    html = html + '<a href="#" onclick="showme(this);" id="edit-' + $thisslug + '); return false;"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="showme(this);" id="add-' + $thisslug + '); return false;"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '</span>';
+    
+    html = html + '</td>';
     html = html + '</tr>';
     	
 	return html; 			
@@ -167,9 +179,11 @@ function getPropertyListing($thistype,$thisurl)
 	console.log("-property slug: " + $thisslug);
 	
     html = '<tr>';
-    html = html + '<td width="25%" align="right"><a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
+    html = html + '<td width="25%" align="right">';
+    html = html + '<a href="' + $thisurl + '" title="' + $thisname + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
     html = html + '<td align="left"">';
-    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a> <a href=""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thisname + '"><strong>' + $thisname + '</strong></a>';
+    html = html + '<a href="#" onclick="showme(this); return false;" id="edit-' + $thisslug + ');"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '</td>';
     html = html + '</tr>';
     	
