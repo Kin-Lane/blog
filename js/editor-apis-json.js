@@ -58,6 +58,7 @@ function APISJSONSave()
 	
 	var year = date.getFullYear();
 	var month = date.getMonth(); // beware: January = 0; February = 1, etc.
+	month = month + 1;
 	var day = date.getDate();		
 	
 	$backupFile = 'definitions/backups/api-' + month + '-' + day + '-' + year + '-' + hour + '-' + minutes + '.json';
