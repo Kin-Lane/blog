@@ -12,9 +12,6 @@ if(savefile=='1')
 	
 	$backup = getUrlVar('backup');
 
-	console.log($backup);
-	console.log($oAuth_Token);
-
     var github = new Github({
         token: $oAuth_Token,
         auth: "oauth"
@@ -22,7 +19,11 @@ if(savefile=='1')
             
 	var repo = github.getRepo('Stack-Network','blogapi'); 	
 	
+	repo.read('gh-pages', "apis.json", function(err, data) {
 		
+		console.log(data);
+	
+		});	
 	}
 
 </script> 
