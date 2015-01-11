@@ -1,6 +1,6 @@
 // Purposely keeping this verbose, and expanded, until I figure out best patterns for config and extensability
 
-$apicount = 0;  
+$pathcount = 0;  
 $propertycount = 0;
 	 	
 // The Master 
@@ -233,13 +233,51 @@ function SwaggerGetPathTitle($pathTitle)
 	return html; 			
 	}	
 	
-function SwaggerGetPath($path)
+function SwaggerAddPath()
+	{
+		
+	$path_name = document.getElementById("add-path-name").value;	
+		
+	$APIArray = { $path_name };	  
+
+	$MasterAPISJSON['paths'].push($APIArray);
+	
+	// Need a Rebuild
+
+	}	
+	
+function SwaggerGetAddPath()
+	{		
+		
+	html = '<tr id="add-api-listing" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Add Path</strong>';
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Path:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-path-name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addPathButton" value="Add This Path" onclick="SwaggerAddPath();" /></td>';
+    html = html + '</tr>'
+
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>';  
+    	
+	return html; 			
+	}	
+	
+function SwaggerGetPath($path,$pathcount)
 	{
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $path + '</strong>';
-	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-verb-icon" title="Add a Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-verb-icon" title="Add a Verb"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-icon" title="Edit Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
@@ -286,14 +324,19 @@ function loadSwaggerditor()
 	 		 	
 	    $pathTitle = "Paths";
  		$html = SwaggerGetPathTitle($pathTitle);
-    	$('#swaggerEditorTable').append($html);     		 		 	
+    	$('#swaggerEditorTable').append($html); 
+    	    	
+ 		$html = SwaggerGetAddPath();
+    	$('#swaggerEditorTable').append($html);     	
+    	
+    	SwaggerGetAddPathTitle    		 		 	
 	 		 	
 	 	// Paths
      	$.each($SwaggerAPIPaths, function(pathKey, pathValue) { 
 
      	 	$SwaggerAPIPathName = pathKey;
 
- 			$html = SwaggerGetPath($SwaggerAPIPathName);
+ 			$html = SwaggerGetPath($path,$pathcount)
     		$('#swaggerEditorTable').append($html);        	 	
      	 	
 		 	// Verbs
@@ -341,7 +384,10 @@ function loadSwaggerditor()
 
     	 			});       	 				 			
     	 			
-     	 		});     	 
+     	 		}); 
+     	 		
+     	 	$pathcount++;	
+     	 		    	 
      	 	});	
      	 	
 	 	// Definitions
@@ -374,75 +420,6 @@ function loadSwaggerditor()
 function rebuildSwaggerditor()
     {
     	
-	$apicount = 0;  
-	$propertycount = 0;    	
-
-	document.getElementById("swaggerEditor").innerHTML = '';
 	
-	document.getElementById("swaggerEditor").innerHTML = '<table cellpadding="3" cellspacing="2" border="0" width="95%" id="swaggerEditorTable" style="margin-left: 15px;"></table>';
-
-	// Pull From our Master Store
-	Swagger = $MasterSwagger;
-
- 	$SwaggerName = Swagger['name'];
- 	$SwaggerDesc = Swagger['description'];
- 	$SwaggerLogo = Swagger['image'];
- 	$SwaggerURL = Swagger['url'];
- 	
- 	// Header	 	
-    $html = SwaggerGetHeader($SwaggerName,$SwaggerDesc,$SwaggerURL,$SwaggerLogo,$apisjsonURL);
-    $('#swaggerEditorTable').append($html); 
-    
-    $html = SwaggerGetEditHeader($SwaggerName,$SwaggerDesc,$SwaggerURL,$SwaggerLogo,$apisjsonURL);
-    $('#swaggerEditorTable').append($html);         
-            
-    SwaggerTags = Swagger['tags'];            
-    SwaggerAPIs = Swagger['apis'];
-    
- 	$html = SwaggerGetAPITitle('APIs');
- 	$('#swaggerEditorTable').append($html);   	 
-
-    $html = SwaggerGetAddAPIListing()
-    $('#swaggerEditorTable').append($html);  			 	    
-
-     $.each(SwaggerAPIs, function(apiKey, apiVal) { 
-
-     	 $apiName = apiVal['name']; 
-     	 $apiDesc = apiVal['description'];
-     	 $apiImage = apiVal['image']; 
-     	 $apiHumanURL = apiVal['humanURL']; 
-     	 $apiBaseURL = apiVal['baseURL'];               	                         	 
-		 $apiTags = apiVal['tags'];			 	 
-		 
-         $html = SwaggerGetAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
-         $('#swaggerEditorTable').append($html); 	
-
-         $html = SwaggerGetEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
-         $('#swaggerEditorTable').append($html);              
-         
-		 $Property = SwaggerPropertyAddListing($apiName,$apicount); 			
-		 $('#swaggerEditorTable').append($Property); 	               			
-                     			
-		 $apiProperties = apiVal['properties'];
-		 $.each($apiProperties, function(propertyKey, propertyVal) { 
-		 	
-		 	$propertyType = propertyVal['type'];
-		 	$propertyURL = propertyVal['url'];				 			 			 							 		 					 	
-		 				 	
-			$Property = SwaggerPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-			$('#swaggerEditorTable').append($Property); 		
-			
-			$Property = SwaggerGetPropertyEditListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-			$('#swaggerEditorTable').append($Property); 			 			 							 		 					 	
-		 	
-		 	$propertycount++;
-		 	
-		 	}); 				 	                                           
-        				 					 				 	 				 					 											
-		 $apiContact = apiVal['contact'];
-		 $apicount++;										
-	});
-	
-	$SwaggerMaintainers = Swagger['maintainers'];
 		
 	}
