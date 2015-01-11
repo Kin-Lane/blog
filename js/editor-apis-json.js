@@ -363,10 +363,9 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
 	return html; 			
 	}	
 	
-function getPropertyAddListing($apiName,$thistype,$apicount,$propertycount)
+function getPropertyAddListing($apiName,$apicount)
 	{		
 		
-	$thistype = $thistype.toLowerCase();
 	$apiName = $apiName.toLowerCase();
 	$thisslug = $apiName.replace(" ", "-");	
 		
@@ -498,8 +497,9 @@ function loadAPIsJSONEditor()
                         
              $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
              $('#jsonEditorTable').append($html);              
-             
-             console.log('before apicount: ' + $apicount);            			
+
+			 $Property = getPropertyAddListing($apiName,$apicount); 			
+			 $('#jsonEditorTable').append($Property);                        			
                          			
 			 $apiProperties = apiVal['properties'];
 			 $.each($apiProperties, function(propertyKey, propertyVal) { 
@@ -507,10 +507,7 @@ function loadAPIsJSONEditor()
 			 	console.log('in apicount: ' + $apicount + ' and ' + $propertycount);
 			 	
 			 	$propertyType = propertyVal['type'];
-			 	$propertyURL = propertyVal['url'];		
-			 	
-				$Property = getPropertyAddListing($apiName,$propertyType,$apicount,$propertycount); 			
-				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
+			 	$propertyURL = propertyVal['url'];					 				 			 							 		 					 	
 			 				 	
 				$Property = getPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 		
@@ -586,7 +583,8 @@ function rebuildAPIsJSONEditor()
          $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
          $('#jsonEditorTable').append($html);              
          
-         console.log('before apicount: ' + $apicount);            			
+		 $Property = getPropertyAddListing($apiName,$apicount); 			
+		 $('#jsonEditorTable').append($Property); 	               			
                      			
 		 $apiProperties = apiVal['properties'];
 		 $.each($apiProperties, function(propertyKey, propertyVal) { 
@@ -594,10 +592,7 @@ function rebuildAPIsJSONEditor()
 		 	console.log('in apicount: ' + $apicount + ' and ' + $propertycount);
 		 	
 		 	$propertyType = propertyVal['type'];
-		 	$propertyURL = propertyVal['url'];		
-		 	
-			$Property = getPropertyAddListing($apiName,$propertyType,$apicount,$propertycount); 			
-			$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
+		 	$propertyURL = propertyVal['url'];				 			 			 							 		 					 	
 		 				 	
 			$Property = getPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 			$('#jsonEditorTable').append($Property); 		
