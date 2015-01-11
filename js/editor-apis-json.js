@@ -48,7 +48,7 @@ function APIJSONViewEdit()
 
 // Header
 
-function SaveAPIsJSONHeader()
+function APIJSONAPIJSONSaveAPIs()
 	{
 	$apisJSONName = document.getElementById("apisjsonName").value;
 	$apisJSONDescription = document.getElementById("apisjsonDescription").value;
@@ -60,12 +60,12 @@ function SaveAPIsJSONHeader()
  	$MasterAPISJSON['image'] = $apisJSONImage;
  	$MasterAPISJSON['url'] = $apisJSONUrl;
 
- 	$html = getHeaderCell($apisJSONName,$apisJSONDescription,$apisJSONUrl,$apisJSONImage);
+ 	$html = APIJSONGetHeaderCell($apisJSONName,$apisJSONDescription,$apisJSONUrl,$apisJSONImage);
  	document.getElementById("apisjsonHeaderCell").innerHTML = $html;	
 	}
 
 // Localize Templating, making as editable as possible	
-function getHeaderCell(name,description,url,image,apijsonurl)
+function APIJSONGetHeaderCell(name,description,url,image,apijsonurl)
 	{		
 	html = "";
     html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
@@ -76,7 +76,7 @@ function getHeaderCell(name,description,url,image,apijsonurl)
 	}
 
 // Localize Templating, making as editable as possible	
-function getHeader(name,description,url,image,apijsonurl)
+function APIJSONGetHeader(name,description,url,image,apijsonurl)
 	{		
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
@@ -89,7 +89,7 @@ function getHeader(name,description,url,image,apijsonurl)
 	return html; 			
 	}
 	
-function getEditHeader(name,description,url,image,apijsonurl)
+function APIJSONGetEditHeader(name,description,url,image,apijsonurl)
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -123,7 +123,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
     html = html + '</tr>'   
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Values" onclick="SaveAPIsJSONHeader();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="APIJSONSaveAPIsJSON" value="Save Values" onclick="APIJSONAPIJSONSaveAPIs();" /></td>';
     html = html + '</tr>'       
         
     html = html + '</table>';
@@ -136,7 +136,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	
 // Filler		
 
-function getAPITitle(title,$apicount)
+function APIJSONGetAPITitle(title,$apicount)
 	{
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
@@ -151,7 +151,7 @@ function getAPITitle(title,$apicount)
 	
 // API Level	
 	
-function getAPIListingCell(name,description,image,url,$apicount)
+function APIJSONGetAPIListingCell(name,description,image,url,$apicount)
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -167,7 +167,7 @@ function getAPIListingCell(name,description,image,url,$apicount)
 	return $html; 			
 	}		
 	
-function getAPIListing(name,description,image,url,$apicount)
+function APIJSONGetAPIListing(name,description,image,url,$apicount)
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -188,7 +188,7 @@ function getAPIListing(name,description,image,url,$apicount)
 	return html; 			
 	}	
 
-function AddAPI()
+function APIJSONAddAPI()
 	{
 	$apiName = document.getElementById("add-api-name").value;
 	$apiDesc = document.getElementById("add-api-description").value;
@@ -213,7 +213,7 @@ function AddAPI()
 
 	}
 	
-function getAddAPIListing()
+function APIJSONGetAddAPIListing()
 	{		
 		
 	html = '<tr id="add-api-listing" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
@@ -247,7 +247,7 @@ function getAddAPIListing()
     html = html + '</tr>'      
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This API" onclick="AddAPI();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This API" onclick="APIJSONAddAPI();" /></td>';
     html = html + '</tr>'         
      
     html = html + '</table>';
@@ -257,7 +257,7 @@ function getAddAPIListing()
 	return html; 			
 	}	
 	
-function SaveAPI($apicount)
+function APIJSONSaveAPI($apicount)
 	{
 	$apiName = document.getElementById("apiname"+$apicount).value;
 	$apiDesc = document.getElementById("apidescription"+$apicount).value;
@@ -269,11 +269,11 @@ function SaveAPI($apicount)
  	$MasterAPISJSON['apis'][$apicount]['image'] = $apiImage;
  	$MasterAPISJSON['apis'][$apicount]['url'] = $apiUrl;
 
- 	$html = getAPIListingCell($apiName,$apiDesc,$apiImage,$apiUrl,$apicount);
+ 	$html = APIJSONGetAPIListingCell($apiName,$apiDesc,$apiImage,$apiUrl,$apicount);
  	document.getElementById("api-cell-"+$apicount).innerHTML = $html;	
 	}	
 	
-function getEditAPIListing($name,$description,$image,$humanUrl,$machineUrl,$apicount)
+function APIJSONGetEditAPIListing($name,$description,$image,$humanUrl,$machineUrl,$apicount)
 	{		
 
 	$thisslug = $name.toLowerCase();	
@@ -310,7 +310,7 @@ function getEditAPIListing($name,$description,$image,$humanUrl,$machineUrl,$apic
     html = html + '</tr>'     
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPI(' + $apicount + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="APIJSONSaveAPIsJSON" value="Save Changes" onclick="APIJSONSaveAPI(' + $apicount + ');" /></td>';
     html = html + '</tr>'
      
     html = html + '</table>';
@@ -323,7 +323,7 @@ function getEditAPIListing($name,$description,$image,$humanUrl,$machineUrl,$apic
 // Properties	
 	
 	
-function getPropertyListingCell1($thistype,$thisurl,$apicount,$propertycount)
+function APIJSONPropertyListingCell1($thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -335,7 +335,7 @@ function getPropertyListingCell1($thistype,$thisurl,$apicount,$propertycount)
 	return $thishtml; 			
 	}	
 		
-function getPropertyListingCell2($thistype,$thisurl,$apicount,$propertycount)
+function APIJSONPropertyListingCell2($thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -348,7 +348,7 @@ function getPropertyListingCell2($thistype,$thisurl,$apicount,$propertycount)
 	return $thishtml; 			
 	}	
 	
-function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
+function APIJSONPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -367,7 +367,7 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
 	return html; 			
 	}	
 	
-function AddAPIProperty($apicount)
+function APIJSONAddAPIProperty($apicount)
 	{
 		
 	console.log("add api property: " + $apicount);	
@@ -386,7 +386,7 @@ function AddAPIProperty($apicount)
 
 	}	
 	
-function getPropertyAddListing($apiName,$apicount)
+function APIJSONPropertyAddListing($apiName,$apicount)
 	{		
 		
 	$apiName = $apiName.toLowerCase();
@@ -408,7 +408,7 @@ function getPropertyAddListing($apiName,$apicount)
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="AddAPIProperty(' + $apicount + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="APIJSONAddAPIProperty(' + $apicount + ');" /></td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
@@ -418,7 +418,7 @@ function getPropertyAddListing($apiName,$apicount)
 	return html; 			
 	}	
 	
-function SaveAPIProperty($apicount,$propertycount)
+function APIJSONSaveAPIProperty($apicount,$propertycount)
 	{
 	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = "";	
 	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = ""; 
@@ -429,14 +429,14 @@ function SaveAPIProperty($apicount,$propertycount)
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['type'] = $propertyType;
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['url'] = $propertyUrl;
 
-	$html2 = getPropertyListingCell1($propertyType,$propertyUrl,$apicount,$propertycount); 			
+	$html2 = APIJSONPropertyListingCell1($propertyType,$propertyUrl,$apicount,$propertycount); 			
 	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = $html2;
 
-	$html3 = getPropertyListingCell2($propertyType,$propertyUrl,$apicount,$propertycount); 					
+	$html3 = APIJSONPropertyListingCell2($propertyType,$propertyUrl,$apicount,$propertycount); 					
 	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = $html3;				
 	}	
 	
-function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
+function APIJSONGetPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thisslug = $thistype.toLowerCase();	
@@ -460,7 +460,7 @@ function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertyc
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPIProperty(' + $apicount + ',' + $propertycount + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="APIJSONSaveAPIsJSON" value="Save Changes" onclick="APIJSONSaveAPIProperty(' + $apicount + ',' + $propertycount + ');" /></td>';
     html = html + '</tr>'    
     
     html = html + '</table>';
@@ -495,19 +495,19 @@ function loadAPIsJSONEditor()
 	 	$apisJSONURL = apisJSON['url'];
 	 	
 	 	// Header	 	
-        $html = getHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+        $html = APIJSONGetHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
         $('#jsonEditorTable').append($html); 
         
-        $html = getEditHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+        $html = APIJSONGetEditHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
         $('#jsonEditorTable').append($html);         
                 
         apisJSONTags = apisJSON['tags'];            
         apisJSONAPIs = apisJSON['apis'];
         
-	 	$html = getAPITitle('APIs');
+	 	$html = APIJSONGetAPITitle('APIs');
 	 	$('#jsonEditorTable').append($html);   	 
 	
-	    $html = getAddAPIListing()
+	    $html = APIJSONGetAddAPIListing()
 	    $('#jsonEditorTable').append($html);  			 	    
 
          $.each(apisJSONAPIs, function(apiKey, apiVal) { 
@@ -519,13 +519,13 @@ function loadAPIsJSONEditor()
          	 $apiBaseURL = apiVal['baseURL'];               	                         	 
 			 $apiTags = apiVal['tags'];			 	 
 			 
-             $html = getAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
+             $html = APIJSONGetAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
              $('#jsonEditorTable').append($html); 	
                         
-             $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
+             $html = APIJSONGetEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
              $('#jsonEditorTable').append($html);              
 
-			 $Property = getPropertyAddListing($apiName,$apicount); 			
+			 $Property = APIJSONPropertyAddListing($apiName,$apicount); 			
 			 $('#jsonEditorTable').append($Property);                        			
                          			
 			 $apiProperties = apiVal['properties'];
@@ -536,10 +536,10 @@ function loadAPIsJSONEditor()
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];					 				 			 							 		 					 	
 			 				 	
-				$Property = getPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+				$Property = APIJSONPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 		
 				
-				$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+				$Property = APIJSONGetPropertyEditListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	$propertycount++;
@@ -583,19 +583,19 @@ function rebuildAPIsJSONEditor()
  	$apisJSONURL = apisJSON['url'];
  	
  	// Header	 	
-    $html = getHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+    $html = APIJSONGetHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
     $('#jsonEditorTable').append($html); 
     
-    $html = getEditHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+    $html = APIJSONGetEditHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
     $('#jsonEditorTable').append($html);         
             
     apisJSONTags = apisJSON['tags'];            
     apisJSONAPIs = apisJSON['apis'];
     
- 	$html = getAPITitle('APIs');
+ 	$html = APIJSONGetAPITitle('APIs');
  	$('#jsonEditorTable').append($html);   	 
 
-    $html = getAddAPIListing()
+    $html = APIJSONGetAddAPIListing()
     $('#jsonEditorTable').append($html);  			 	    
 
      $.each(apisJSONAPIs, function(apiKey, apiVal) { 
@@ -607,13 +607,13 @@ function rebuildAPIsJSONEditor()
      	 $apiBaseURL = apiVal['baseURL'];               	                         	 
 		 $apiTags = apiVal['tags'];			 	 
 		 
-         $html = getAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
+         $html = APIJSONGetAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
          $('#jsonEditorTable').append($html); 	
 
-         $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
+         $html = APIJSONGetEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
          $('#jsonEditorTable').append($html);              
          
-		 $Property = getPropertyAddListing($apiName,$apicount); 			
+		 $Property = APIJSONPropertyAddListing($apiName,$apicount); 			
 		 $('#jsonEditorTable').append($Property); 	               			
                      			
 		 $apiProperties = apiVal['properties'];
@@ -622,10 +622,10 @@ function rebuildAPIsJSONEditor()
 		 	$propertyType = propertyVal['type'];
 		 	$propertyURL = propertyVal['url'];				 			 			 							 		 					 	
 		 				 	
-			$Property = getPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+			$Property = APIJSONPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 			$('#jsonEditorTable').append($Property); 		
 			
-			$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+			$Property = APIJSONGetPropertyEditListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 			$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 		 	
 		 	$propertycount++;
