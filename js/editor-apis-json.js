@@ -9,7 +9,10 @@ $MasterAPISJSON = "";
 function APIJSONShowMe($row)
 	{
 	$thisrow = $row.id;			
-	$thisslug = $thisrow.replace("-icon","");	
+	$thisslug = $thisrow.replace("-icon","");
+	
+	console.log('viewing: ' + $thisslug);
+		
 	$thisrow = document.getElementById($thisslug).style.display;
 
 	if($thisrow=='none')
