@@ -50,7 +50,20 @@ function APIJSONViewEdit()
 
 function APISJSONSave()
 	{
-	console.log("saving: " + $oAuth_Token);
+		
+	var date = new Date;
+	date.setTime(result_from_Date_getTime);
+	
+	var minutes = date.getMinutes();
+	var hour = date.getHours();
+	
+	var year = date.getFullYear();
+	var month = date.getMonth(); // beware: January = 0; February = 1, etc.
+	var day = date.getDate();		
+	
+	$backupFile = 'definitions/backups/api-' + month + '-' + day + '-' + year + '-' + hour + '-' + minutes + '.json';
+			
+	console.log("saving: " + $backupFile);
 	
   	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON);
     $WriteAPIsJSON = JSON.stringify(JSON.parse($WriteAPIsJSON),null,2); 	
@@ -64,7 +77,7 @@ function APISJSONSave()
         
 	var repo = github.getRepo('Stack-Network','blogapi');  	
 
-	    repo.write('gh-pages', 'api.json', $WriteAPIsJSON, 'Saving...', function(err) {
+	    repo.write('gh-pages', $backupFile, $WriteAPIsJSON, 'Saving...', function(err) {
 	
 	        console.log("Saving File");
 	        
