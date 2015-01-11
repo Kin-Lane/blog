@@ -220,18 +220,31 @@ function SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$
 	
 // Filler		
 
-function SwaggerGetAPITitle(title,$apicount)
+function SwaggerGetPathTitle($pathTitle)
 	{
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + title + '</strong>';
-	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-api-listing-icon" title="Toggle APIs.json Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '<strong>' + $pathTitle + '</strong>';
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-listing-icon" title="Add a Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
 	return html; 			
-	}				
+	}	
+	
+function SwaggerGetPath($path)
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + $path + '</strong>';
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-listing-icon" title="Add a Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '</span>';
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}					
 	
 // API Level	
 	
@@ -601,10 +614,10 @@ function loadSwaggerditor()
 	 	$SwaggerAPIHost = Swagger['host'];
 	 	$SwaggerAPIBasePath = Swagger['basePath'];
 	 	
- 		$html = SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)	 	
+ 		$html = SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath);	 	
     	$('#swaggerEditorTable').append($html); 
     	
- 		$html = SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)	 	
+ 		$html = SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath);	 	
     	$('#swaggerEditorTable').append($html);     		 	
 	 	
 	 	$SwaggerAPISchemes = Swagger['schemes'];
@@ -612,16 +625,19 @@ function loadSwaggerditor()
 	 	
 	 	$SwaggerAPIPaths = Swagger['paths'];
 	 	$SwaggerAPIDefinitions = Swagger['definitions'];
-	 	
+	 		 	
+	    $pathTitle = "Paths";
+ 		$html = SwaggerGetPathTitle($pathTitle);
+    	$('#swaggerEditorTable').append($html);     		 		 	
+	 		 	
 	 	// Paths
      	$.each($SwaggerAPIPaths, function(pathKey, pathValue) { 
 
      	 	$SwaggerAPIPathName = pathKey;
+
+ 			$html = SwaggerGetPath($SwaggerAPIPathName);
+    		$('#swaggerEditorTable').append($html);        	 	
      	 	
-     	 	console.log("path: " + $SwaggerAPIPathName);
-     	 	
-     	 	console.log("value: " + pathValue);
-     	 
 		 	// Verbs
 	     	$.each(pathValue, function(verbKey, verbValue) { 
 	
