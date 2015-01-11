@@ -279,7 +279,31 @@ function getEditAPIListing(name,description,image,url,$apicount)
 	
 // Properties	
 	
-function getPropertyListing($apiName,$thistype,$thisurl,$propertycount)
+	
+function getPropertyListingCell1($apiName,$thistype,$thisurl,$apicount,$propertycount)
+	{		
+		
+	$thistype = $thistype.toLowerCase();
+	$thisslug = $thistype.replace(" ", "-");
+
+    html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
+    	
+	return html; 			
+	}	
+		
+function getPropertyListingCell2($apiName,$thistype,$thisurl,$apicount,$propertycount)
+	{		
+		
+	$thistype = $thistype.toLowerCase();
+	$thisslug = $thistype.replace(" ", "-");
+
+    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    	
+	return html; 			
+	}	
+	
+function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -297,7 +321,7 @@ function getPropertyListing($apiName,$thistype,$thisurl,$propertycount)
 	return html; 			
 	}	
 	
-function getPropertyAddListing($apiName,$thistype,$propertycount)
+function getPropertyAddListing($apiName,$thistype,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -326,7 +350,22 @@ function getPropertyAddListing($apiName,$thistype,$propertycount)
 	return html; 			
 	}	
 	
-function getPropertyEditListing($apiName,$thistype,$thisurl,$propertycount)
+function SaveAPIProperty($apicount,$propertycount)
+	{
+	$propertyType = document.getElementById("property-type-"+$apicount+"-"+$propertycount).value;
+	$propertyUrl = document.getElementById("property-url-"+$apicount+"-"+$propertycount).value;
+
+ 	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['type'] = $propertyType;
+ 	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['url'] = $propertyUrl;
+
+	$Property = getPropertyListingCell1($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+	$('#jsonEditorTable').append($Property);
+	
+	$Property = getPropertyListingCell2($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+	$('#jsonEditorTable').append($Property);				
+	}	
+	
+function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$apicount,$propertycount)
 	{		
 		
 	$thisslug = $thistype.toLowerCase();	
@@ -341,13 +380,17 @@ function getPropertyEditListing($apiName,$thistype,$thisurl,$propertycount)
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Type:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="' + $thistype + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="property-type-' + $apicount + '-' + $propertycount + '" value="' + $thistype + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="' + $thisurl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="property-url-' + $apicount + '-' + $propertycount + '" value="' + $thisurl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPIProperty(' + $apicount + ',' + $propertycount + ');" /></td>';
+    html = html + '</tr>'    
     
     html = html + '</table>';
     
@@ -421,13 +464,13 @@ function loadAPIsJSONEditor()
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];		
 			 	
-				$Property = getPropertyAddListing($apiName,$propertyType,$propertycount); 			
+				$Property = getPropertyAddListing($apiName,$propertyType,$apicount,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 				 	
-				$Property = getPropertyListing($apiName,$propertyType,$propertyURL,$propertycount); 			
+				$Property = getPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 		
 				
-				$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL,$propertycount); 			
+				$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	$propertycount++;
