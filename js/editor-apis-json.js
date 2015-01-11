@@ -269,10 +269,10 @@ function SaveAPI($apicount)
  	document.getElementById("api-cell-"+$apicount).innerHTML = $html;	
 	}	
 	
-function getEditAPIListing(name,description,image,url,$apicount)
+function getEditAPIListing($name,$description,$image,$humanUrl,$machineUrl,$apicount)
 	{		
 
-	$thisslug = name.toLowerCase();	
+	$thisslug = $name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
 
 	html = '<tr id="edit-' + $thisslug + '-' + $apicount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
@@ -281,24 +281,29 @@ function getEditAPIListing(name,description,image,url,$apicount)
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>name:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiname' + $apicount + '" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';$
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apidescription' + $apicount + '" value="' + $description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apidescription' + $apicount + '" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>image:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiimage' + $apicount + '" value="' + $image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiimage' + $apicount + '" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>';
-    
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiurl' + $apicount + '" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>humanURL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiurl' + $apicount + '" value="' + $humanUrl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>' 
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>machineURL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiurl' + $apicount + '" value="' + $machineUrl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'     
     
     html = html + '<tr>';
     html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPI(' + $apicount + ');" /></td>';
@@ -490,8 +495,8 @@ function loadAPIsJSONEditor()
 			 
              $html = getAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
              $('#jsonEditorTable').append($html); 	
-             
-             $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apicount)
+                        
+             $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
              $('#jsonEditorTable').append($html);              
              
              console.log('before apicount: ' + $apicount);            			
@@ -577,8 +582,8 @@ function rebuildAPIsJSONEditor()
 		 
          $html = getAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
          $('#jsonEditorTable').append($html); 	
-         
-         $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apicount)
+
+         $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
          $('#jsonEditorTable').append($html);              
          
          console.log('before apicount: ' + $apicount);            			
