@@ -353,8 +353,8 @@ function APIJSONPropertyListingCell2($thistype,$thisurl,$apicount,$propertycount
 function APIJSONPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
-	//$thistype = $thistype.toLowerCase();
-	$thisslug = $thistype.replace(" ", "-");
+	$thisslug = $thistype.toLowerCase();
+	$thisslug = $thisslug.replace(" ", "-");
 	
     html = '<tr>';
     html = html + '<td width="25%" align="right" id="api-' + $apicount + '-property-' + $propertycount + '-1">';
