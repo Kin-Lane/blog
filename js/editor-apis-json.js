@@ -283,7 +283,7 @@ function getPropertyListingCell1($thistype,$thisurl,$apicount,$propertycount)
 	$thisslug = $thistype.replace(" ", "-");
 
 	$html = "";
-    $html = $html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
+    $html = $html + '<a href="' + $thisurl + '" title="foo"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
     	
 	return $html; 			
 	}	
