@@ -20,18 +20,24 @@ if(savefile=='1')
             
 	var repo = github.getRepo('Stack-Network','blogapi'); 	
 	
-	repo.read('gh-pages', $backup, function(err, data) {
+	repo.read('gh-pages', $backup, function(err, $NewPage) {
 		
-		//console.log(data);
+		//console.log($NewPage);
 
-	    repo.write('gh-pages','app5.json', data, 'Save', function(err) {
+		repo.read('gh-pages', 'app1.json', function(err, data) {
+			
+			//console.log(data);
 	
-			//console.log(err);
-	        console.log("Overwriting-new!");
-
-			//location.href = 'editor-apis-json.html?oAuth_Token=' + $oAuth_Token;
-
-	    	});			
+		    repo.write('gh-pages','app1.json', $NewPage, 'Save', function(err) {
+		
+				//console.log(err);
+		        console.log("Overwriting-new2!");
+	
+				//location.href = 'editor-apis-json.html?oAuth_Token=' + $oAuth_Token;
+	
+		    	});			
+			
+			});			
 		
 		});	
 	}
