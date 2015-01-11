@@ -352,6 +352,8 @@ function getPropertyAddListing($apiName,$thistype,$apicount,$propertycount)
 	
 function SaveAPIProperty($apicount,$propertycount)
 	{
+	console.log($apicount + ' - ' + $propertycount);	
+		
 	$propertyType = document.getElementById("property-type-"+$apicount+"-"+$propertycount).value;
 	$propertyUrl = document.getElementById("property-url-"+$apicount+"-"+$propertycount).value;
 
