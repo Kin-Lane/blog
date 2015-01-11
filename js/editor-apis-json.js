@@ -566,6 +566,9 @@ function loadAPIsJSONEditor()
     
 function rebuildAPIsJSONEditor()
     {
+    	
+	$apicount = 0;  
+	$propertycount = 0;    	
 
 	document.getElementById("jsonEditor").innerHTML = '';
 	
