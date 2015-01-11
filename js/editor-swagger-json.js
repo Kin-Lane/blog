@@ -604,13 +604,14 @@ function loadSwaggerditor()
     	 			});    
     	 			
 			 	// Tags
-		     	$.each($SwaggerAPIPathVerbResponses, function(tagKey, tagValue) { 	     	 		     	 	
-	 
-	 				alert(dodump(tagValue));
+		     	$.each($SwaggerAPIPathVerbResponses, function(tagKey, tagValue) { 	     	 		     	 		 
+	 				
+	 				
+			     	console.log("tag1: " + tagKey + ' = ' + tagValue);  	
 	 
 			     	$.each(tagValue, function(eachTagKey, eachTagValue) { 	     	 		     	 	
 			     	 	
-			     	 	console.log("tag: " + eachTagValue); 	 
+			     	 	console.log("tag2: " + eachTagKey + ' = ' + eachTagValue); 	 
 	    	 
 	    	 			});       	 				 			
     	 			    	 
