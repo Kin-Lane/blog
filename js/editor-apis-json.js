@@ -51,8 +51,11 @@ function APIJSONViewEdit()
 function APISJSONSave()
 	{
 	console.log("saving: " + $oAuth_Token);
-	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON, null, 4);
-	//console.log("saving: " + $WriteAPIsJSON);
+	
+  	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON);
+    $WriteAPIsJSON = JSON.stringify(JSON.parse($WriteAPIsJSON),null,2); 	
+	
+	console.log("saving: " + $WriteAPIsJSON);
 	
     var github = new Github({
         token: $oAuth_Token,
