@@ -282,6 +282,8 @@ function getPropertyListingCell1($thistype,$thisurl,$apicount,$propertycount)
 	$thistype = $thistype.toLowerCase();
 	$thisslug = $thistype.replace(" ", "-");
 
+	console.log("rewrite urlL" + $thisurl);
+
 	$html = "";
     $html = $html + '<a href="' + $thisurl + '" title="foo"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
     	
