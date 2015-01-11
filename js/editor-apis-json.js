@@ -63,10 +63,7 @@ function APISJSONSave()
             });
         
 	var repo = github.getRepo('Stack-Network','blogapi');  	
-
-  	repo.write('master','apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
-                                   
-    	});    	
+  	  	
 
 	}
 

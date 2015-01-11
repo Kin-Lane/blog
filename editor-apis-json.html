@@ -61,8 +61,8 @@ if(login=='1')
             
 		var repo = github.getRepo('Stack-Network','blogapi');  
 
-		repo.read('master','api-config.json',function(err, data){	
-			
+	    repo.read('master', 'README.md', function(err, res) {
+	         
 			if(err=='not found')
 				{				
 				console.log('NO ACCESS!');				
