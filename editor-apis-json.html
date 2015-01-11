@@ -16,9 +16,15 @@ title: APIs.json Editor
             
 		var repo = github.getRepo('Stack-Network', 'blogapi');  
 		repo.read('master','api-config.json',function(err, data){	
-				
-				console.log(data);
-							
+			
+			if(err=='not found')
+				{				
+				console.log("NO ACCESS!!");
+				}
+			else
+				{				
+				console.log("ACCESS!!");
+				}						
 			});
 						
 		}
