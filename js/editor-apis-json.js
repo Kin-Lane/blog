@@ -51,11 +51,10 @@ function APIJSONViewEdit()
 function APISJSONSave()
 	{
 	console.log("saving: " + $oAuth_Token);
-	console.log("saving: " + repo);
 	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON, null, 4);
-	console.log("saving: " + $WriteAPIsJSON);
+	//console.log("saving: " + $WriteAPIsJSON);
 	
-  	repo.write('gh-pages','apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
+  	repo.write('gh-pages','/blogapi/data/apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
                                    
     	});    	
 
