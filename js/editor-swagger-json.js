@@ -313,13 +313,13 @@ function SwaggerGetEditPath($pathname,$pathcount)
 		
 	html = '<tr id="edit-path-' + $pathcount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Edit This Verb</strong>';
+	html = html + '<strong>Edit This Path</strong>';
     html = html + '<table border="0" width="90%">';
-    
+;
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Verb:</strong></td>';
-	html = html + '<td align="left" style="background-color:#FFF;"><select id="add-path-verb-' + $pathcount + '"><option value="' + $pathname + '">' + $pathname + '</option><option value="get">get</option><option value="post">post</option><option value="put">put</option><option value="delete">delete</option></select></td>';        
-     html = html + '</tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Path:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="edit-path-' + $pathcount + '" value="' + $pathname + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'     
 
     html = html + '<tr>';
     html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addPathButton" value="Add This Path" onclick="SwaggerAddPath();" /></td>';
