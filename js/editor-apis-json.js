@@ -63,7 +63,7 @@ function APISJSONSave()
 	var repo = github.getRepo('Stack-Network','blogapi'); 	
 	
 	
-   repo.write('gh-pages','apisjson.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
+  	 repo.write('gh-pages','apisjson.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
         
         if(err){
             if(err['error']=='404'){
@@ -75,8 +75,7 @@ function APISJSONSave()
             console.log("saved!");                                    
                                                                                                                                 
             }                             
-        });   
-    }); 	
+    	});    	
 
 	}
 
