@@ -24,17 +24,12 @@ if(savefile=='1')
 		
 		//console.log($NewPage);
 
-		repo.getSha('gh-pages','api10.json', function(err, sha) {
-			
-			console.log("err: " + err);
-			console.log("sha: " + sha);
-			
-		});
+		repo.remove('gh-pages','app1.json', function(err) {});
 
-	    repo.write('gh-pages','app1.json', $NewPage, 'Saving.', function(err) {
+	    repo.write('gh-pages','app10.json', $NewPage, 'Saving.', function(err) {
 	
 			//console.log(err);
-	        console.log("Overwriting-new3!");
+	        console.log("Overwriting-new4!");
 
 			//location.href = 'editor-apis-json.html?oAuth_Token=' + $oAuth_Token;
 
