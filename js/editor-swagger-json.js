@@ -233,19 +233,6 @@ function SwaggerGetPathTitle($pathTitle)
 	return html; 			
 	}	
 	
-function SwaggerAddPath()
-	{
-		
-	$path_name = document.getElementById("add-path-name").value;	
-		
-	var $PathArray = [$path_name];	 
-
-	$MasterSwagger['paths'].push($PathArray);
-	
-	// Need a Rebuild
-
-	}	
-	
 function SwaggerGetAddPath()
 	{		
 		
@@ -277,28 +264,41 @@ function SwaggerGetPath($path,$pathcount)
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $path + '</strong>';
 	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-verb-' + $pathcount + '-icon" title="Add a Verb"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
-	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-icon" title="Edit Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+	//html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-icon" title="Edit Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
 	return html; 			
 	}					
 	
+function SwaggerAddPathVerb()
+	{
+		
+	$path_name = document.getElementById("add-path-name").value;	
+		
+	var $PathArray = [$path_name];	 
+
+	$MasterSwagger['paths'].push($PathArray);
+	
+	// Need a Rebuild
+
+	}		
+	
 function SwaggerGetAddPathVerb($pathcount)
 	{		
 		
 	html = '<tr id="add-path-verb-' + $pathcount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Add Verb for This Path</strong>';
+	html = html + '<strong>Add a Verb:</strong>';
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Verb:</strong></td>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="45%"><strong>Verb:</strong></td>';
 	html = html + '<td align="left" style="background-color:#FFF;"><select id="add-path-verb-' + $pathcount + '"><option value="get">get</option><option value="post">post</option><option value="put">put</option><option value="delete">delete</option></select></td>';        
      html = html + '</tr>';
 
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addPathButton" value="Add This Path" onclick="SwaggerAddPath();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addPathButton" value="Add" onclick="SwaggerAddPathVerb();" /></td>';
     html = html + '</tr>'
 
     html = html + '</table>';
@@ -308,29 +308,18 @@ function SwaggerGetAddPathVerb($pathcount)
 	return html; 			
 	}	
 	
-function SwaggerGetEditPath($pathname,$pathcount)
-	{		
+function SwaggerSavePath($pathcount)
+	{
 		
-	html = '<tr id="edit-path-' + $pathcount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	$path_name = document.getElementById("edit-path-' + $pathcount + '").value;	
+		
+	var $PathArray = [$path_name];	 
 
-	html = html + '<strong>Edit This Path</strong>';
-    html = html + '<table border="0" width="90%">';
-;
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Path:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="edit-path-' + $pathcount + '" value="' + $pathname + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'     
+	$MasterSwagger['paths'].push($PathArray);
+	
+	// Need a Rebuild
 
-    html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addPathButton" value="Add This Path" onclick="SwaggerAddPath();" /></td>';
-    html = html + '</tr>'
-
-    html = html + '</table>';
-    
-    html = html + '<br /></td></tr>';  
-    	
-	return html; 			
-	}	
+	}		
 	
 
 function loadSwaggerditor()
