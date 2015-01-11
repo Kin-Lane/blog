@@ -137,7 +137,7 @@ function getEditHeader(name,description,url,image,apijsonurl)
 	
 // Filler		
 
-function getAPITitle(title)
+function getAPITitle(title,$apicount)
 	{
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
@@ -152,20 +152,35 @@ function getAPITitle(title)
 	
 // API Level	
 	
-function getAPIListing(name,url,description,url)
+function getAPIListingCell(name,url,description,url,$apicount)
 	{	
 		
 	$thisslug = name.toLowerCase();	
-	$thisslug = $thisslug.replace(" ", "-");
-	//console.log("-api (get) slug: " + $thisslug);				
+	$thisslug = $thisslug.replace(" ", "-");			
+
+    html = html + '<span style="font-size:20px;">';
+    html = html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-' + $apicount + '-icon" title="Edit API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-api-property' + $thisslug + '-' + $apicount + '-icon" title="Add API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '</span>';
+
+    	
+	return html; 			
+	}		
+	
+function getAPIListing(name,url,description,url,$apicount)
+	{	
+		
+	$thisslug = name.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");			
 
     html = '<tr style="background-color:#CCC;">';
-    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2">';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2" id="api-cell-' + $apicount + '">';
     
     html = html + '<span style="font-size:20px;">';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-api-property' + $thisslug + '-icon" title="Add API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-' + $apicount + '-icon" title="Edit API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-api-property' + $thisslug + '-' + $apicount + '-icon" title="Add API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
     html = html + '</span>';
     
     html = html + '</td>';
@@ -174,10 +189,10 @@ function getAPIListing(name,url,description,url)
 	return html; 			
 	}	
 	
-function getAddAPIListing(name)
+function getAddAPIListing(name,$apicount)
 	{		
 		
-	html = '<tr id="add-api-listing" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-api-listing-' + $apicount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add API</strong>';
     html = html + '<table border="0" width="90%">';
@@ -204,33 +219,57 @@ function getAddAPIListing(name)
 	return html; 			
 	}	
 	
-function getEditAPIListing(name,url,description,image)
+function SaveAPI($apicount)
+	{
+	$apisJSONName = document.getElementById("apiname"+$apicount).value;
+	$apisJSONDescription = document.getElementById("apidescription"+$apicount).value;
+	$apisJSONImage = document.getElementById("apiimage"+$apicount).value;
+	$apisJSONUrl = document.getElementById("apiurl"+$apicount).value;
+
+ 	$MasterAPISJSON['apis'][$apicount]['name'] = $apisJSONName;
+ 	$MasterAPISJSON['apis'][$apicount]['description'] = $apisJSONDescription;
+ 	$MasterAPISJSON['apis'][$apicount]['image'] = $apisJSONImage;
+ 	$MasterAPISJSON['apis'][$apicount]['url'] = $apisJSONUrl;
+
+ 	$html = getAPIListingCell($apisJSONName,$apisJSONDescription,$apisJSONUrl,$apisJSONImage);
+ 	document.getElementById("api-cell-"+$apicount).innerHTML = $html;	
+	}	
+	
+function getEditAPIListing(name,url,description,image,$apicount)
 	{		
 
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
-	//console.log("-api (edit) slug: " + $thisslug);
 
-	html = '<tr id="edit-' + $thisslug + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-' + $thisslug + '-' + $apicount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit API</strong>';
     html = html + '<table border="0" width="90%">';
+    
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiname' + $apicount + '" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apidescription' + $apicount + '" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiimage' + $apicount + '" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="url" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'    
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiurl' + $apicount + 'l" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>' 
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPI(' + $apicount + ');" /></td>';
+    html = html + '</tr>'
+     
     html = html + '</table>';
     
     html = html + '<br /></td></tr>';          
@@ -240,7 +279,7 @@ function getEditAPIListing(name,url,description,image)
 	
 // Properties	
 	
-function getPropertyListing($apiName,$thistype,$thisurl)
+function getPropertyListing($apiName,$thistype,$thisurl,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -258,7 +297,7 @@ function getPropertyListing($apiName,$thistype,$thisurl)
 	return html; 			
 	}	
 	
-function getPropertyAddListing($apiName,$thistype)
+function getPropertyAddListing($apiName,$thistype,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -287,7 +326,7 @@ function getPropertyAddListing($apiName,$thistype)
 	return html; 			
 	}	
 	
-function getPropertyEditListing($apiName,$thistype,$thisurl)
+function getPropertyEditListing($apiName,$thistype,$thisurl,$propertycount)
 	{		
 		
 	$thisslug = $thistype.toLowerCase();	
@@ -367,13 +406,13 @@ function loadAPIsJSONEditor()
          	 $apiBaseURL = apiVal['baseURL'];               	                         	 
 			 $apiTags = apiVal['tags'];
 			 
-             $html = getAddAPIListing($apiName)
+             $html = getAddAPIListing($apiName,$apicount)
              $('#jsonEditorTable').append($html);  			 
 			 
-             $html = getAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage)
+             $html = getAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage,$apicount)
              $('#jsonEditorTable').append($html); 	
              
-             $html = getEditAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage)
+             $html = getEditAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage,$apicount)
              $('#jsonEditorTable').append($html);              
                          			
 			 $apiProperties = apiVal['properties'];
@@ -382,13 +421,13 @@ function loadAPIsJSONEditor()
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];		
 			 	
-				$Property = getPropertyAddListing($apiName,$propertyType); 			
+				$Property = getPropertyAddListing($apiName,$propertyType,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 				 	
-				$Property = getPropertyListing($apiName,$propertyType,$propertyURL); 			
+				$Property = getPropertyListing($apiName,$propertyType,$propertyURL,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 		
 				
-				$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL); 			
+				$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL,$propertycount); 			
 				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
 			 	
 			 	$propertycount++;
