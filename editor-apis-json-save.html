@@ -20,7 +20,10 @@ if(savefile=='1')
             
 	var repo = github.getRepo('Stack-Network','blogapi'); 	
 	
-	repo.move('gh-pages',$backup,$path, function(err) {});
+	console.log($backup);
+	console.log($path);
+	
+	//repo.move('gh-pages',$backup,$path, function(err) {});
 	
 	}
 
