@@ -353,8 +353,8 @@ function APIJSONPropertyListingCell2($thistype,$thisurl,$apicount,$propertycount
 function APIJSONPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
-	$thisslug = $thistype.toLowerCase();
-	$thisslug = $thisslug.replace(" ", "-");
+	$thistype = $thistype.toLowerCase();
+	$thisslug = $thistype.replace(" ", "-");
 	
     html = '<tr>';
     html = html + '<td width="25%" align="right" id="api-' + $apicount + '-property-' + $propertycount + '-1">';
@@ -371,7 +371,9 @@ function APIJSONPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertyc
 	
 function APIJSONAddAPIProperty($apicount)
 	{
-			
+		
+	console.log("add api property: " + $apicount);	
+		
 	$apiPropertyType = document.getElementById("api-" + $apicount + "-property-type").value;
 	$apiPropertyURL = document.getElementById("api-" + $apicount + "-property-url").value;	
 		

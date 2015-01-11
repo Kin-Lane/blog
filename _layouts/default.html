@@ -14,16 +14,33 @@
         <div class="colophon">
           <ul class="colophon-links">
             <li>
-              <a href="index.html">Home</a>
+              <a href="index.html" id="home-nav">Home</a>
             </li>
             <li>
-              <a href="editor-apis-json.html">APIs.json Editor</a>
+              <a href="editor-apis-json.html" id="apis-json-editor-nav">APIs.json Editor</a>
             </li>   
             <li style="padding-top: 15px;">
               <a href="http://apievangelist.com"><< Return to API Evangelist</a>
             </li>                                                                       
           </ul>
-        </div>         
+        </div>   
+	        
+	    <script type="text/javascript">
+	    
+	    	$oAuth_Token = getUrlVar('oAuth_Token');
+	    	
+	    	if($oAuth_Token!='')
+	    		{
+	    		console.log("HAS:" + $oAuth_Token); 
+		
+				document.getElementById("home-nav").href = document.getElementById("home-nav").href + '?oAuth_Token=' + $oAuth_Token;
+				document.getElementById("apis-json-editor-nav").href = document.getElementById("apis-json-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;		
+				//document.getElementById("login-nav").innerHTML = 'Logged In';			    	
+				    		
+	    		}
+	    		
+	    </script>           
+              
         <script id="parterListingTemplate" type="text/template"> 
             {% raw  %}  
             <a href="{{url}}" target="_blank" title="{{title}}">
