@@ -52,8 +52,7 @@ if(login=='1')
 
 	if($oAuth_Token!='')
 		{
-		//console.log($oAuth_Token); 
-	    
+
 	    var github = new Github({
 	        token: $oAuth_Token,
 	        auth: "oauth"
@@ -62,18 +61,15 @@ if(login=='1')
 		var repo = github.getRepo('Stack-Network','blogapi');  
 
 	    repo.read('gh-pages', 'apis.json', function(err, res) {
-	         
-	        console.log("Doing Access!!");
 		
-		    repo.write('gh-pages', 'ap.json', 'doi it?', 'Saving API.json', function(err) {
+		    repo.write('gh-pages', 'app.json', 'save me', 'Saving...', function(err) {
 		
 		        console.log("Doing Write!!");
 		        
 		    	});		
 										
 			});	
-												
-						
+																		
 		}
 	else
 		{
