@@ -276,7 +276,7 @@ function getEditAPIListing(name,description,image,url,$apicount)
 // Properties	
 	
 	
-function getPropertyListingCell1($apiName,$thistype,$thisurl,$apicount,$propertycount)
+function getPropertyListingCell1($thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -301,7 +301,7 @@ function getPropertyListingCell2($thistype,$thisurl,$apicount,$propertycount)
 	return $html; 			
 	}	
 	
-function getPropertyListing($thistype,$thisurl,$apicount,$propertycount)
+function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
