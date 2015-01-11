@@ -363,7 +363,7 @@ function SaveAPIProperty($apicount,$propertycount)
 	$('#jsonEditorTable').append($Property);				
 	}	
 	
-function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$apicount,$propertycount)
+function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	console.log('2) ' + $apicount + ' - ' + $propertycount);	
