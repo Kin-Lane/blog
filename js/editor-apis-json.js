@@ -606,5 +606,6 @@ function rebuildAPIsJSONEditor()
 		 $apicount++;										
 	});
 	
-	$apisJSONMaintainers = apisJSON['maintainers'];	
-}
+	$apisJSONMaintainers = apisJSON['maintainers'];
+		
+	}
