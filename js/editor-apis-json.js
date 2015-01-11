@@ -61,7 +61,7 @@ function APISJSONSave()
         
 	var repo = github.getRepo('Stack-Network','blogapi');  	
 
-  	repo.write('gh-pages','blogapi/data/apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
+  	repo.write('gh-pages','blogapi/apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
                                    
     	});    	
 
