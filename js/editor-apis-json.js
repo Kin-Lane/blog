@@ -1,8 +1,8 @@
 // Purposely keeping this verbose, and expanded, until I figure out best patterns for config and extensability
 
-$PropertyArray = {};
-$PropertyArray['buildingblocks'] = new Array();
-
+$apicount = 0;  
+$propertycount = 0;
+	 	
 // The Master 
 $MasterAPISJSON = "";
 
@@ -432,14 +432,10 @@ function loadAPIsJSONEditor()
         apisJSONAPIs = apisJSON['apis'];
         
 	 	$html = getAPITitle('APIs');
-	 	$('#jsonEditorTable').append($html);   
-	 	
-	 	$apicount = 0;      
+	 	$('#jsonEditorTable').append($html);   	     
         
-         $.each(apisJSONAPIs, function(apiKey, apiVal,$apicount) { 
-         	
-         	 $propertycount = 0;
-         	 
+         $.each(apisJSONAPIs, function(apiKey, apiVal) { 
+
          	 $apiName = apiVal['name']; 
          	 $apiDesc = apiVal['description'];
          	 $apiImage = apiVal['image']; 
