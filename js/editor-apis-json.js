@@ -310,7 +310,7 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
     html = '<tr>';
     html = html + '<td width="25%" align="right" id="api-' + $apicount + '-property-' + $propertycount + '-1">';
     html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
-    html = html + '<td align="left"" id="api-' + $apicount + '-property-' + $propertycount + '-2">';
+    html = html + '<td align="left" id="api-' + $apicount + '-property-' + $propertycount + '-2">';
     html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
     html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '</td>';
@@ -348,7 +348,7 @@ function getPropertyAddListing($apiName,$thistype,$apicount,$propertycount)
 	return html; 			
 	}	
 	
-function SaveAPIProperty($apicount,$propertycount)
+function SaveAPIProperty($apiName,$apicount,$propertycount)
 	{
 
 	$propertyType = document.getElementById("property-type-"+$apicount+"-"+$propertycount).value;
@@ -388,7 +388,7 @@ function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertyc
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPIProperty(' + $apicount + ',' + $propertycount + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPIProperty(' + $apiName + ',' + $apicount + ',' + $propertycount + ');" /></td>';
     html = html + '</tr>'    
     
     html = html + '</table>';
