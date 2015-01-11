@@ -52,7 +52,7 @@ function APISJSONSave($oAuth_Token)
 	{
 	console.log("saving: " + $oAuth_Token);
 	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON, null, 4);
-	console.log("saving: " + $MasterAPISJSON);
+	console.log("saving: " + $WriteAPIsJSON);
 	
     var github = new Github({
         token: $oAuth_Token,
@@ -61,9 +61,7 @@ function APISJSONSave($oAuth_Token)
         
 	var repo = github.getRepo('Stack-Network','blogapi');  	
 
-  	repo.write('gh-pages','apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
-                                   
-    	});    	
+  	console.log("end");   	
 
 	}
 
