@@ -357,11 +357,7 @@ function SaveAPIProperty($apiName,$apicount,$propertycount)
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['type'] = $propertyType;
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['url'] = $propertyUrl;
 
-	$html = getPropertyListingCell1($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = $html;
-	
-	$html = getPropertyListingCell2($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = $html;				
+				
 	}	
 	
 function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
