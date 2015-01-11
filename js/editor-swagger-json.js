@@ -112,7 +112,9 @@ function SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$Swag
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
 
-    html = html + '<table border="0" width="90%">';
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-header-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Swagger Version:</strong></td>';
@@ -157,7 +159,7 @@ function SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$Swag
 	return html; 			
 	}
 	
-function SwaggerGetEditHeader(name,description,url,image,apijsonurl)
+function SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -166,29 +168,44 @@ function SwaggerGetEditHeader(name,description,url,image,apijsonurl)
 
 	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Edit APIs.json</strong>';
+	html = html + '<strong>Edit Swagger Header</strong>';
 	html = html + '<form action="" method="get" name="apisjsonHeader">';
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonName" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Swagger Version:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonName" value="' + $SwaggerVersion + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Title:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonDescription" value="' + $SwaggerAPITitle + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonDescription" value="' + description + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>';
-    
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonImage" value="' + image + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonImage" value="' + $SwaggerAPIDesc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + url + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'   
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Terms of Service:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + $SwaggerAPITOS + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>API Version:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + $SwaggerAPIVersion + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Host:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + $SwaggerAPIHost + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Base Path:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + $SwaggerAPIBasePath + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'               
     
     html = html + '<tr>';
     html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSaveAPIsJSON" value="Save Values" onclick="SwaggerSwaggerSaveAPIs();" /></td>';
