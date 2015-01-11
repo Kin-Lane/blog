@@ -195,16 +195,18 @@ function AddAPI()
 		
 	$APIArray = {};
 	  
-	$APIArray['name'] = "";
-	$APIArray['description'] = "";
-	$APIArray['image'] = "";
-	$APIArray['humanURL'] = "";
-	$APIArray['baseURL'] = "";
+	$APIArray['name'] = $apiName;
+	$APIArray['description'] = $apiDesc;
+	$APIArray['image'] = $apiImage;
+	$APIArray['humanURL'] = $apiHumanUrl;
+	$APIArray['baseURL'] = $apiBaseUrl;
 	$APIArray['tags'] = new Array();	
 	$APIArray['properties'] = new Array();
 	$APIArray['contact'] = new Array();
 
 	$MasterAPISJSON['apis'].push($APIArray);
+	
+	rebuildAPIsJSONEditor();
 
 	}
 function getAddAPIListing()
@@ -532,3 +534,76 @@ function loadAPIsJSONEditor()
         });		  
          	  	
     } 
+    
+function rebuildAPIsJSONEditor()
+    {
+
+	document.getElementById("jsonEditorTable").innerhtml = '';
+
+	// Pull From our Master Store
+	apisJSON = $MasterAPISJSON;
+
+ 	$apisJSONName = apisJSON['name'];
+ 	$apisJSONDesc = apisJSON['description'];
+ 	$apisJSONLogo = apisJSON['image'];
+ 	$apisJSONURL = apisJSON['url'];
+ 	
+ 	// Header	 	
+    $html = getHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+    $('#jsonEditorTable').append($html); 
+    
+    $html = getEditHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+    $('#jsonEditorTable').append($html);         
+            
+    apisJSONTags = apisJSON['tags'];            
+    apisJSONAPIs = apisJSON['apis'];
+    
+ 	$html = getAPITitle('APIs');
+ 	$('#jsonEditorTable').append($html);   	 
+
+    $html = getAddAPIListing()
+    $('#jsonEditorTable').append($html);  			 	    
+
+     $.each(apisJSONAPIs, function(apiKey, apiVal) { 
+
+     	 $apiName = apiVal['name']; 
+     	 $apiDesc = apiVal['description'];
+     	 $apiImage = apiVal['image']; 
+     	 $apiHumanURL = apiVal['humanURL']; 
+     	 $apiBaseURL = apiVal['baseURL'];               	                         	 
+		 $apiTags = apiVal['tags'];			 	 
+		 
+         $html = getAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
+         $('#jsonEditorTable').append($html); 	
+         
+         $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apicount)
+         $('#jsonEditorTable').append($html);              
+         
+         console.log('before apicount: ' + $apicount);            			
+                     			
+		 $apiProperties = apiVal['properties'];
+		 $.each($apiProperties, function(propertyKey, propertyVal) { 
+		 	
+		 	console.log('in apicount: ' + $apicount + ' and ' + $propertycount);
+		 	
+		 	$propertyType = propertyVal['type'];
+		 	$propertyURL = propertyVal['url'];		
+		 	
+			$Property = getPropertyAddListing($apiName,$propertyType,$apicount,$propertycount); 			
+			$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
+		 				 	
+			$Property = getPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+			$('#jsonEditorTable').append($Property); 		
+			
+			$Property = getPropertyEditListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+			$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
+		 	
+		 	$propertycount++;
+		 	
+		 	}); 				 	                                           
+        				 					 				 	 				 					 											
+		 $apiContact = apiVal['contact'];
+		 $apicount++;										
+	});
+	
+	$apisJSONMaintainers = apisJSON['maintainers'];	
