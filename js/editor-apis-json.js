@@ -60,8 +60,8 @@ function APISJSONSave($oAuth_Token)
             });
         
 	var repo = github.getRepo('Stack-Network','blogapi');  	
-
-  	console.log("end");   	
+    	
+    repo.write('gh-pages', 'apis.json', $WriteAPIsJSON, 'Save', function(err) {});	
 
 	}
 
