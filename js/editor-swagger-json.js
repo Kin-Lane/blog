@@ -311,7 +311,7 @@ function SwaggerGetAddPathVerb($pathcount)
 function SwaggerGetEditPath($pathname,$pathcount)
 	{		
 		
-	html = '<tr id="edit-path-verb-' + $pathcount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-path-' + $pathcount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit This Verb</strong>';
     html = html + '<table border="0" width="90%">';
