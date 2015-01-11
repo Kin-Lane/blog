@@ -358,10 +358,10 @@ function SaveAPIProperty($apicount,$propertycount)
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['url'] = $propertyUrl;
 
 	//$html = getPropertyListingCell1($propertyType,$propertyURL,$apicount,$propertycount); 			
-	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = "";
+	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = "hello";
 	
 	//$html = getPropertyListingCell2($propertyType,$propertyURL,$apicount,$propertycount); 			
-	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = "";				
+	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = "there";				
 	}	
 	
 function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
