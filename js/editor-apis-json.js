@@ -282,7 +282,7 @@ function getEditAPIListing($name,$description,$image,$humanUrl,$machineUrl,$apic
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiname' + $apicount + '" value="' + name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apiname' + $apicount + '" value="' + $name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';$
     
     html = html + '<tr>';
