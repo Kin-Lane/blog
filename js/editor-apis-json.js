@@ -348,7 +348,7 @@ function getPropertyAddListing($apiName,$thistype,$apicount,$propertycount)
 	
 function SaveAPIProperty($apicount,$propertycount)
 	{
-	console.log($apicount + ' - ' + $propertycount);	
+	console.log('1) ' + $apicount + ' - ' + $propertycount);	
 		
 	$propertyType = document.getElementById("property-type-"+$apicount+"-"+$propertycount).value;
 	$propertyUrl = document.getElementById("property-url-"+$apicount+"-"+$propertycount).value;
@@ -365,6 +365,8 @@ function SaveAPIProperty($apicount,$propertycount)
 	
 function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$apicount,$propertycount)
 	{		
+		
+	console.log('2) ' + $apicount + ' - ' + $propertycount);	
 		
 	$thisslug = $thistype.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
