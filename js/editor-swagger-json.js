@@ -577,18 +577,29 @@ function loadSwaggerditor()
 				$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
 				$SwaggerAPIPathVerbResponses = verbValue['responses'];					
 				$SwaggerAPIPathVerbTags = verbValue['tags'];		     	 		     	 	
+ 	 		     
 	     	 		     	 	
 			 	// Parameters
 		     	$.each($SwaggerAPIPathVerbParameters, function(parameterKey, parameterValue) { 	     	 		     	 	
-		     	 		     	 	
-	     	 		console.log("parameter: " + parameterValue);     	 
+		     		
+            		$parameter_name = parameterValue['name'];
+            		$parameter_in = parameterValue['in']; 
+            		$parameter_desc = parameterValue['description']; 
+            		$parameter_required = parameterValue['required'];
+            		$parameter_type = parameterValue['type'];         	 		
+	     	 		
+	     	 		console.log("parameter: " + $parameter_name);     	 
     	 
     	 			});
     	 			
 			 	// Responses
 		     	$.each($SwaggerAPIPathVerbResponses, function(responseKey, responseValue) { 	     	 		     	 	
+		     	 		     	 
+		     	 	$response_code = responseKey;	 
+		     	 	$response_desc = responseValue['description'];    	 
+		     	 	$response_definition = responseValue['schema']['items'][0];
 		     	 		     	 	
-	     	 		console.log("response: " + responseValue); 	 
+	     	 		console.log("response: " + $response_code + " - " + $response_desc); 	 
     	 
     	 			});    
     	 			
