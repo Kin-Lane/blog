@@ -75,12 +75,7 @@ if(login=='1')
 				document.getElementById("save-apisjson-icon").style.display = '';
 				document.getElementById("login-github-icon").style.display = 'none';
 				}						
-			});
-		
-		$WriteAPIsJSON = JSON.stringify($MasterAPISJSON, null, 4);	
-	  	repo.write('gh-pages','apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
-	                                   
-	    	}); 					
+			});		
 						
 		}
 	else

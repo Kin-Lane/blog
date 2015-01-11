@@ -48,19 +48,13 @@ function APIJSONViewEdit()
 		}
 	}
 
-function APISJSONSave($oAuth_Token)
+function APISJSONSave()
 	{
 	console.log("saving: " + $oAuth_Token);
+	console.log("saving: " + repo);
 	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON, null, 4);
 	console.log("saving: " + $WriteAPIsJSON);
 	
-    var github = new Github({
-        token: $oAuth_Token,
-        auth: "oauth"
-            });
-        
-	var repo = github.getRepo('Stack-Network','blogapi');  	
-
   	repo.write('gh-pages','apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
                                    
     	});    	
