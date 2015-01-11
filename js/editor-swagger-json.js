@@ -596,8 +596,9 @@ function loadSwaggerditor()
 		     	$.each($SwaggerAPIPathVerbResponses, function(responseKey, responseValue) { 	     	 		     	 	
 		     	 		     	 
 		     	 	$response_code = responseKey;	 
-		     	 	$response_desc = responseValue['description'];    	 
-		     	 	$response_definition = responseValue['schema']['items'][0];
+		     	 	$response_desc = responseValue['description'];    	
+		     	 	$ref = '$' + 'ref'; 
+		     	 	$response_definition = responseValue['schema']['items'][$ref];
 		     	 		     	 	
 	     	 		console.log("response: " + $response_code + " - " + $response_desc + " - " + $response_definition); 	 
     	 
