@@ -23,8 +23,13 @@ if(savefile=='1')
 	repo.read('gh-pages', $backup, function(err, $NewPage) {
 		
 		//console.log($NewPage);
+		
+		$committer = {};
+		  
+		$committer['name'] = "kinlane";
+		$committer['email'] = "kinlane@gmail.com";
 
-	    repo.write('master','app1.json', $NewPage, 'Saving.', function(err) {
+	    repo.write('master','app1.json', $NewPage, 'Saving.', $committer, function(err) {
 	
 			//console.log(err);
 	        console.log("Overwriting-new3!");
