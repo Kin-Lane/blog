@@ -282,8 +282,6 @@ function getPropertyListingCell1($thistype,$thisurl,$apicount,$propertycount)
 	$thistype = $thistype.toLowerCase();
 	$thisslug = $thistype.replace(" ", "-");
 
-	console.log("rewrite urlL" + $thisurl);
-
 	$html = "";
     $html = $html + '<a href="' + $thisurl + '" title="foo"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
     	
@@ -359,16 +357,10 @@ function SaveAPIProperty($apicount,$propertycount)
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['type'] = $propertyType;
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['url'] = $propertyUrl;
 
-	console.log("new url: " + $propertyUrl);
-
-	$html = "";
-	$html = getPropertyListingCell1($propertyType,$propertyURL,$apicount,$propertycount); 
-	//console.log($html);			
+	$html = getPropertyListingCell1($propertyType,$propertyUrl,$apicount,$propertycount); 			
 	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = $html;
-	
-	$html = "";
-	$html = getPropertyListingCell2($propertyType,$propertyUrl,$apicount,$propertycount); 			
-	//console.log($html);		
+
+	$html = getPropertyListingCell2($propertyType,$propertyUrl,$apicount,$propertycount); 					
 	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = $html;				
 	}	
 	
