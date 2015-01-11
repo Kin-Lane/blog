@@ -599,7 +599,7 @@ function loadSwaggerditor()
 		     	 	$response_desc = responseValue['description'];    	 
 		     	 	$response_definition = responseValue['schema']['items'][0];
 		     	 		     	 	
-	     	 		console.log("response: " + $response_code + " - " + $response_desc); 	 
+	     	 		console.log("response: " + $response_code + " - " + $response_desc + " - " + $response_definition); 	 
     	 
     	 			});    
     	 			
@@ -620,8 +620,11 @@ function loadSwaggerditor()
 			
 		 	// Definition Properties
 	     	$.each(definitionValue['properties'], function(definitionProperyKey, definitionPropertyValue) {      	 	
-	
-				console.log("definition property: " + definitionProperyKey);
+
+          		$definition_property_desc = definitionPropertyValue['description'];
+          		$definition_property_type = definitionPropertyValue['type'];		
+					
+				console.log("definition property: " + definitionProperyKey + " - " + $definition_property_desc + " - " + $definition_property_type);
 	
 				});	 			
 
