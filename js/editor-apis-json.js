@@ -152,7 +152,7 @@ function getAPITitle(title,$apicount)
 	
 // API Level	
 	
-function getAPIListingCell(name,url,description,url,$apicount)
+function getAPIListingCell(name,description,image,url,$apicount)
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -168,7 +168,7 @@ function getAPIListingCell(name,url,description,url,$apicount)
 	return $html; 			
 	}		
 	
-function getAPIListing(name,url,description,url,$apicount)
+function getAPIListing(name,description,image,url,$apicount)
 	{	
 		
 	$thisslug = name.toLowerCase();	
@@ -221,17 +221,17 @@ function getAddAPIListing(name,$apicount)
 	
 function SaveAPI($apicount)
 	{
-	$apisJSONName = document.getElementById("apiname"+$apicount).value;
-	$apisJSONDescription = document.getElementById("apidescription"+$apicount).value;
-	$apisJSONImage = document.getElementById("apiimage"+$apicount).value;
-	$apisJSONUrl = document.getElementById("apiurl"+$apicount).value;
+	$apiName = document.getElementById("apiname"+$apicount).value;
+	$apiDesc = document.getElementById("apidescription"+$apicount).value;
+	$apiImage = document.getElementById("apiimage"+$apicount).value;
+	$apiUrl = document.getElementById("apiurl"+$apicount).value;
 
- 	$MasterAPISJSON['apis'][$apicount]['name'] = $apisJSONName;
- 	$MasterAPISJSON['apis'][$apicount]['description'] = $apisJSONDescription;
- 	$MasterAPISJSON['apis'][$apicount]['image'] = $apisJSONImage;
- 	$MasterAPISJSON['apis'][$apicount]['url'] = $apisJSONUrl;
+ 	$MasterAPISJSON['apis'][$apicount]['name'] = $apiName;
+ 	$MasterAPISJSON['apis'][$apicount]['description'] = $apiDesc;
+ 	$MasterAPISJSON['apis'][$apicount]['image'] = $apiImage;
+ 	$MasterAPISJSON['apis'][$apicount]['url'] = $apiUrl;
 
- 	$html = getAPIListingCell($apisJSONName,$apisJSONDescription,$apisJSONUrl,$apisJSONImage);
+ 	$html = getAPIListingCell($apiName,$apiDesc,$apiImage,$apiUrl,$apicount);
  	document.getElementById("api-cell-"+$apicount).innerHTML = $html;	
 	}	
 	
@@ -409,10 +409,10 @@ function loadAPIsJSONEditor()
              $html = getAddAPIListing($apiName,$apicount)
              $('#jsonEditorTable').append($html);  			 
 			 
-             $html = getAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage,$apicount)
+             $html = getAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
              $('#jsonEditorTable').append($html); 	
              
-             $html = getEditAPIListing($apiName,$apiHumanURL,$apiDesc,$apiImage,$apicount)
+             $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apicount)
              $('#jsonEditorTable').append($html);              
                          			
 			 $apiProperties = apiVal['properties'];
