@@ -288,7 +288,7 @@ function getPropertyListingCell1($apiName,$thistype,$thisurl,$apicount,$property
 	return $html; 			
 	}	
 		
-function getPropertyListingCell2($apiName,$thistype,$thisurl,$apicount,$propertycount)
+function getPropertyListingCell2($thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -301,7 +301,7 @@ function getPropertyListingCell2($apiName,$thistype,$thisurl,$apicount,$property
 	return $html; 			
 	}	
 	
-function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
+function getPropertyListing($thistype,$thisurl,$apicount,$propertycount)
 	{		
 		
 	$thistype = $thistype.toLowerCase();
@@ -348,12 +348,20 @@ function getPropertyAddListing($apiName,$thistype,$apicount,$propertycount)
 	return html; 			
 	}	
 	
-function SaveAPIProperty($apiName,$apicount,$propertycount)
+function SaveAPIProperty($apicount,$propertycount)
 	{
 
 	$propertyType = document.getElementById("property-type-"+$apicount+"-"+$propertycount).value;
 	$propertyUrl = document.getElementById("property-url-"+$apicount+"-"+$propertycount).value;
-				
+
+ 	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['type'] = $propertyType;
+ 	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['url'] = $propertyUrl;
+
+	$html = getPropertyListingCell1($propertyType,$propertyURL,$apicount,$propertycount); 			
+	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = $html;
+	
+	$html = getPropertyListingCell2($propertyType,$propertyURL,$apicount,$propertycount); 			
+	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = $html;				
 	}	
 	
 function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
@@ -380,7 +388,7 @@ function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertyc
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPIProperty(' + $apiName + ',' + $apicount + ',' + $propertycount + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SaveAPIsJSON" value="Save Changes" onclick="SaveAPIProperty(' + $apicount + ',' + $propertycount + ');" /></td>';
     html = html + '</tr>'    
     
     html = html + '</table>';
