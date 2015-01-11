@@ -61,20 +61,9 @@ if(login=='1')
             
 		var repo = github.getRepo('Stack-Network','blogapi');  
 
-	    repo.read('master', 'api-config.json', function(err, res) {
+	    repo.read('gh-pages', 'apis.json', function(err, res) {
 	         
-			if(err=='not found')
-				{				
-				console.log('NO ACCESS!');				
-				document.getElementById("save-apisjson-icon").style.display = 'none';
-				document.getElementById("login-github-icon").style.display = '';				
-				}
-			else
-				{				
-				console.log('ACCESS!!!');
-				document.getElementById("save-apisjson-icon").style.display = '';
-				document.getElementById("login-github-icon").style.display = 'none';
-				}						
+									
 			});		
 						
 		}
