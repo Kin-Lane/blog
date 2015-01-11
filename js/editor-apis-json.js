@@ -67,9 +67,7 @@ function APISJSONSave()
 	
   	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON);
     $WriteAPIsJSON = JSON.stringify(JSON.parse($WriteAPIsJSON),null,2); 	
-	
-	//console.log("saving: " + $WriteAPIsJSON);
-	
+
     var github = new Github({
         token: $oAuth_Token,
         auth: "oauth"
@@ -77,14 +75,22 @@ function APISJSONSave()
         
 	var repo = github.getRepo('Stack-Network','blogapi');  	
 
-    repo.write('gh-pages', $backupFile, $WriteAPIsJSON, 'Saving...', function(err) {
-
-        console.log("Saving File");
-        
-        location.href = 'editor-apis-json-save.html?oAuth_Token=' + $oAuth_Token + '&savefile=1&backup=' + $backupFile;
-        
-    	});	
-
+	repo.getTree('gh-pages', function(err, tree) {
+		
+		// This is a workaround hack to get sha, as the github.js getSha doesn't seem to be working and I couldn't fix.
+		// I'm looping through the tree to get sha, and then manually passing it to updates, and deletes
+		
+		$.each(tree, function(treeKey, treeValue) {
+			
+			$path = treeValue['path'];
+			$sha = treeValue['sha'];
+			
+			if($path=='apis.json')
+				{								
+			    repo.writemanual('gh-pages', 'apis.json', $WriteAPIsJSON, 'Save', $sha, function(err) { });									
+				}
+			});
+		});  	    	
 	}
 
 // Header
