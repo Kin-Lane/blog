@@ -370,7 +370,9 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
 function AddAPIProperty($apicount)
 	{
 		
+	console.log("1) " + "api-' + $apicount + '-property-type");
 	$apiPropertyType = document.getElementById("api-' + $apicount + '-property-type").value;
+	console.log("2) " + "api-' + $apicount + '-property-url");
 	$apiPropertyURL = document.getElementById("api-' + $apicount + '-property-url").value;	
 		
 	$APIPropertyArray = {};
@@ -397,12 +399,12 @@ function getPropertyAddListing($apiName,$apicount)
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>type:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="api-' + $apicount + '-property-type" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;">api-' + $apicount + '-property-type<input type="text" id="api-' + $apicount + '-property-type" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>url:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="api-' + $apicount + '-property-url" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;">api-' + $apicount + '-property-url<input type="text" id="api-' + $apicount + '-property-url" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
