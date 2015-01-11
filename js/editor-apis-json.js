@@ -8,14 +8,10 @@ $MasterAPISJSON = "";
 
 function APIJSONShowMe($row)
 	{
-	 $thisrow = $row.id;	
-		
-	console.log('1:' + $thisrow);	
-	$thisslug = $thisrow.replace("-icon","");
-	console.log('2:' + $thisslug);	
+	$thisrow = $row.id;			
+	$thisslug = $thisrow.replace("-icon","");	
 	$thisrow = document.getElementById($thisslug).style.display;
-	console.log('3:' + $thisrow);
-	
+
 	if($thisrow=='none')
 		{
 		document.getElementById($thisslug).style.display = '';	
