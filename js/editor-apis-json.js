@@ -185,10 +185,10 @@ function getAPIListing(name,description,image,url,$apicount)
 	return html; 			
 	}	
 	
-function getAddAPIListing(name,$apicount)
+function getAddAPIListing()
 	{		
 		
-	html = '<tr id="add-api-listing-' + $apicount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-api-listing" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add API</strong>';
     html = html + '<table border="0" width="90%">';
@@ -436,8 +436,11 @@ function loadAPIsJSONEditor()
         apisJSONAPIs = apisJSON['apis'];
         
 	 	$html = getAPITitle('APIs');
-	 	$('#jsonEditorTable').append($html);   	     
-        
+	 	$('#jsonEditorTable').append($html);   	 
+	
+	    $html = getAddAPIListing()
+	    $('#jsonEditorTable').append($html);  			 	    
+
          $.each(apisJSONAPIs, function(apiKey, apiVal) { 
 
          	 $apiName = apiVal['name']; 
@@ -445,10 +448,7 @@ function loadAPIsJSONEditor()
          	 $apiImage = apiVal['image']; 
          	 $apiHumanURL = apiVal['humanURL']; 
          	 $apiBaseURL = apiVal['baseURL'];               	                         	 
-			 $apiTags = apiVal['tags'];
-			 
-             $html = getAddAPIListing($apiName,$apicount)
-             $('#jsonEditorTable').append($html);  			 
+			 $apiTags = apiVal['tags'];			 	 
 			 
              $html = getAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
              $('#jsonEditorTable').append($html); 	
