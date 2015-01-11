@@ -371,9 +371,7 @@ function APIJSONPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertyc
 	
 function APIJSONAddAPIProperty($apicount)
 	{
-		
-	console.log("add api property: " + $apicount);	
-		
+			
 	$apiPropertyType = document.getElementById("api-" + $apicount + "-property-type").value;
 	$apiPropertyURL = document.getElementById("api-" + $apicount + "-property-url").value;	
 		
@@ -477,7 +475,7 @@ function loadPropertyTypes()
 
     $PropertiesURL = '/blogapi/data/properties.json';
 
-    console.log($PropertiesURL);
+    //console.log($PropertiesURL);
     
 	$.getJSON($PropertiesURL, function($propertiesJSON) { 													
 
@@ -485,7 +483,7 @@ function loadPropertyTypes()
        
 	    $.each($propertiesJSON, function(propertyKey, propertyValue) { 
 	     	
-	     	console.log(propertyKey + ' - ' + propertyValue);
+	     	//console.log(propertyKey + ' - ' + propertyValue);
 	     	
 	     	$apipropertyoptions = $apipropertyoptions + '<option value="' + propertyValue['slug'] + '">' + propertyValue['name'] + ' (' + propertyValue['category'] + ')</option>';
 	     	
@@ -554,9 +552,7 @@ function loadAPIsJSONEditor()
                          			
 			 $apiProperties = apiVal['properties'];
 			 $.each($apiProperties, function(propertyKey, propertyVal) { 
-			 	
-			 	console.log('in apicount: ' + $apicount + ' and ' + $propertycount);
-			 	
+
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];					 				 			 							 		 					 	
 			 				 	
@@ -581,7 +577,6 @@ function loadAPIsJSONEditor()
 	// Set another completion function for the request above
 	jqxhr.complete(function() {
 		
-	  	console.log( "show editor" );
 	  	document.getElementById("jsonEditor").style.display=''; 
 	  	                 
         });		  
