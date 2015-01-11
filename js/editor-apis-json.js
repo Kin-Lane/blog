@@ -6,7 +6,7 @@ $propertycount = 0;
 // The Master 
 $MasterAPISJSON = "";
 
-$MasterPropertiesJSON = "";
+$apipropertyoptions = "";
 
 function APIJSONShowMe($row)
 	{
@@ -399,17 +399,9 @@ function APIJSONPropertyAddListing($apiName,$apicount)
 	html = html + '<strong>Add Property</strong>';
     html = html + '<table border="0" width="90%">';
     
-    $selectoptions = ""
-    
-    $.each($MasterPropertiesJSON, function(propertyKey, propertyValue) { 
-     	console.log(propertyKey + ' - ' + propertyValue)
-     	//$selectoptions = $selectoptions + '<option value="' + propertyValue['slug'] + '">' + propertyValue['name'] + '</option>';
-     	
-    	});
-    
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>type:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><select id="api-' + $apicount + '-property-type">' + $selectoptions + '</select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><select id="api-' + $apicount + '-property-type">' + $apipropertyoptions + '</select></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
@@ -489,11 +481,16 @@ function loadPropertyTypes()
     
 	$.getJSON($PropertiesURL, function($propertiesJSON) { 													
 
-	  //console.log($propertiesJSON);
-
-       $MasterPropertiesJSON = $propertiesJSON;
+       $apipropertyoptions = $apipropertyoptions + '<option value="X-notsure">Not Sure</option>';
        
-	});		  
+	    $.each($propertiesJSON, function(propertyKey, propertyValue) { 
+	     	
+	     	console.log(propertyKey + ' - ' + propertyValue);
+	     	
+	     	$apipropertyoptions = $apipropertyoptions + '<option value="' + propertyValue['slug'] + '">' + propertyValue['name'] + '</option>';
+	     	
+	    	});              
+		});		  
          	  	
     }
 
