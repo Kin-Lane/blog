@@ -24,6 +24,12 @@ if(savefile=='1')
 		
 		//console.log($NewPage);
 
+		repo.getSha('master', '/path/to/file', function(err, sha) {
+			
+			console.log("sha: " + sha);
+			
+		});
+
 	    repo.write('gh-pages','app1.json', $NewPage, 'Saving.', function(err) {
 	
 			//console.log(err);
