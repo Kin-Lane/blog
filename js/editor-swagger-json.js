@@ -537,7 +537,7 @@ function loadSwaggerditor()
 
 		// Set our Master Store
 		$MasterSwagger = Swagger;
-
+		console.log("Swagger:" + Swagger);
 		$viewer = JSON.stringify(Swagger, null, 4);
 		document.getElementById("jsonViewerDetails").value = $viewer;
 
