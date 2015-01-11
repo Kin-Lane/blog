@@ -50,21 +50,7 @@ function APIJSONViewEdit()
 
 function APISJSONSave()
 	{
-		
-	var date = new Date;
 
-	var minutes = date.getMinutes();
-	var hour = date.getHours();
-	
-	var year = date.getFullYear();
-	var month = date.getMonth(); // beware: January = 0; February = 1, etc.
-	month = month + 1;
-	var day = date.getDate();		
-	
-	$backupFile = 'definitions/backups/api-' + month + '-' + day + '-' + year + '-' + hour + '-' + minutes + '.json';
-			
-	console.log("saving: " + $backupFile);
-	
   	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON);
     $WriteAPIsJSON = JSON.stringify(JSON.parse($WriteAPIsJSON),null,2); 	
 
@@ -407,7 +393,7 @@ function APIJSONPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertyc
     html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
     html = html + '</td>';
     html = html + '<td align="left" id="api-' + $apicount + '-property-' + $propertycount + '-2">';
-    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
+    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a> (<a href="editor-swagger-json.html">edit</a>)';
     html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '</td>';
     html = html + '</tr>';
