@@ -483,7 +483,7 @@ function APIJSONGetPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$pr
 function loadPropertyTypes()
     {
 
-    $PropertiesURL = '/data/properties.json';
+    $PropertiesURL = '/blogapi/data/properties.json';
 
     //console.log($apisjsonURL);
     
