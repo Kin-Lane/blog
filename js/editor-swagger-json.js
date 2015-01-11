@@ -6,8 +6,6 @@ $propertycount = 0;
 // The Master 
 $MasterSwagger = "";
 
-$apipropertyoptions = "";
-
 function SwaggerShowMe($row)
 	{
 	$thisrow = $row.id;			
@@ -110,16 +108,53 @@ function SwaggerGetHeaderCell(name,description,url,image,apijsonurl)
 	}
 
 // Localize Templating, making as editable as possible	
-function SwaggerGetHeader(name,description,url,image,apijsonurl)
+function SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)
 	{		
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
-    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
-    html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;
+
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Swagger Version:</strong></td>';
+    html = html + '<td align="left">' + $SwaggerVersion '</td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Title:</strong></td>';
+    html = html + '<td align="left">' + $SwaggerAPITitle '</td>';
+    html = html + '</tr>';   
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Description:</strong></td>';
+    html = html + '<td align="left">' + $SwaggerAPIDesc '</td>';
+    html = html + '</tr>'; 
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Terms of Service:</strong></td>';
+    html = html + '<td align="left">' + $SwaggerAPITOS '</td>';
+    html = html + '</tr>';    
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>API Version:</strong></td>';
+    html = html + '<td align="left">' + $SwaggerAPIVersion '</td>';
+    html = html + '</tr>';   
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Host:</strong></td>';
+    html = html + '<td align="left">' + $SwaggerAPIHost '</td>';
+    html = html + '</tr>';    
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Base Path:</strong></td>';
+    html = html + '<td align="left">' + $SwaggerAPIBasePath '</td>';
+    html = html + '</tr>';                  
+
+    html = html + '</table>';
+
     html = html + '</td>';
-    html = html + '</tr>';   	
-	
+    html = html + '</tr>';  
+
 	return html; 			
 	}
 	
@@ -541,8 +576,7 @@ function loadSwaggerditor()
 		$viewer = JSON.stringify(Swagger, null, 4);
 		document.getElementById("jsonViewerDetails").value = $viewer;
 
-	 	$SwaggerVersion = Swagger['swagger'];
-	 	
+	 	$SwaggerVersion = Swagger['swagger'];	 	
 	 	$SwaggerAPITitle = Swagger['info']['title'];
 	 	console.log($SwaggerAPITitle);
 	 	$SwaggerAPIDesc = Swagger['info']['description'];
@@ -551,8 +585,13 @@ function loadSwaggerditor()
 	 	
 	 	$SwaggerAPIHost = Swagger['host'];
 	 	$SwaggerAPIBasePath = Swagger['basePath'];
+	 	
+ 		$html = SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)	 	
+    	$('#swaggerEditorTable').append($html); 	 	
+	 	
 	 	$SwaggerAPISchemes = Swagger['schemes'];
 	 	$SwaggerAPIProduces = Swagger['produces'];
+	 	
 	 	$SwaggerAPIPaths = Swagger['paths'];
 	 	$SwaggerAPIDefinitions = Swagger['definitions'];
 	 	
@@ -577,8 +616,7 @@ function loadSwaggerditor()
 				$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
 				$SwaggerAPIPathVerbResponses = verbValue['responses'];					
 				$SwaggerAPIPathVerbTags = verbValue['tags'];		     	 		     	 	
- 	 		     
-	     	 		     	 	
+ 	 		     	     	 		     	 	
 			 	// Parameters
 		     	$.each($SwaggerAPIPathVerbParameters, function(parameterKey, parameterValue) { 	     	 		     	 	
 		     		
