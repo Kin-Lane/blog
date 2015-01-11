@@ -282,9 +282,10 @@ function getPropertyListingCell1($apiName,$thistype,$thisurl,$apicount,$property
 	$thistype = $thistype.toLowerCase();
 	$thisslug = $thistype.replace(" ", "-");
 
-    html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
+	$html = "";
+    $html = $html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
     	
-	return html; 			
+	return $html; 			
 	}	
 		
 function getPropertyListingCell2($apiName,$thistype,$thisurl,$apicount,$propertycount)
@@ -293,10 +294,11 @@ function getPropertyListingCell2($apiName,$thistype,$thisurl,$apicount,$property
 	$thistype = $thistype.toLowerCase();
 	$thisslug = $thistype.replace(" ", "-");
 
-    html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+	$$html = "";
+    $html = $html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
+    $html = $html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     	
-	return html; 			
+	return $html; 			
 	}	
 	
 function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
@@ -306,9 +308,9 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
 	$thisslug = $thistype.replace(" ", "-");
 	
     html = '<tr>';
-    html = html + '<td width="25%" align="right">';
+    html = html + '<td width="25%" align="right" id="api-' + $apicount + '-property-' + $propertycount + '-1">';
     html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
-    html = html + '<td align="left"">';
+    html = html + '<td align="left"" id="api-' + $apicount + '-property-' + $propertycount + '-2">';
     html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
     html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '</td>';
@@ -348,25 +350,22 @@ function getPropertyAddListing($apiName,$thistype,$apicount,$propertycount)
 	
 function SaveAPIProperty($apicount,$propertycount)
 	{
-	console.log('1) ' + $apicount + ' - ' + $propertycount);	
-		
+
 	$propertyType = document.getElementById("property-type-"+$apicount+"-"+$propertycount).value;
 	$propertyUrl = document.getElementById("property-url-"+$apicount+"-"+$propertycount).value;
 
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['type'] = $propertyType;
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['url'] = $propertyUrl;
 
-	$Property = getPropertyListingCell1($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-	$('#jsonEditorTable').append($Property);
+	$html = getPropertyListingCell1($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+	document.getElementById('id="api-' + $apicount + '-property-' + $propertycount + '-1'').innerHTML = $html;
 	
-	$Property = getPropertyListingCell2($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-	$('#jsonEditorTable').append($Property);				
+	$html = getPropertyListingCell2($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
+	document.getElementById('id="api-' + $apicount + '-property-' + $propertycount + '-1'').innerHTML = $html;				
 	}	
 	
 function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
 	{		
-		
-	console.log('2) ' + $apicount + ' - ' + $propertycount);	
 		
 	$thisslug = $thistype.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");
