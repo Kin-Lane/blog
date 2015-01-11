@@ -374,7 +374,7 @@ function getPropertyAddListing($apiName,$apicount)
 		
 	html = '<tr id="add-api-property-' + $thisslug + '-' + $apicount + '-icon" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Add Property</strong>';
+	html = html + '<strong>Add Property - add-api-property-' + $thisslug + '-' + $apicount + '-icon</strong>';
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
