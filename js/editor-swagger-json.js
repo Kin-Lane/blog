@@ -619,7 +619,7 @@ function loadSwaggerditor()
 			console.log("definition: " + definitionKey);
 			
 		 	// Definition Properties
-	     	$.each(definitionValue, function(definitionProperyKey, definitionPropertyValue) {      	 	
+	     	$.each(definitionValue['properties'], function(definitionProperyKey, definitionPropertyValue) {      	 	
 	
 				console.log("definition property: " + definitionProperyKey);
 	
