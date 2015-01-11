@@ -12,6 +12,9 @@ if(savefile=='1')
 	
 	$backup = getUrlVar('backup');
 
+	console.log($backup);
+	console.log($oAuth_Token);
+
     var github = new Github({
         token: $oAuth_Token,
         auth: "oauth"
