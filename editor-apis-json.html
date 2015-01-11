@@ -6,6 +6,27 @@ title: APIs.json Editor
 <script type="text/javascript">  
 
 login = getUrlVar('login');
+savefile = getUrlVar('savefile');
+
+
+if(savefile=='1')
+	{
+	
+	$backup = = getUrlVar('backup');
+	
+    var github = new Github({
+        token: $oAuth_Token,
+        auth: "oauth"
+            });
+            
+	var repo = github.getRepo('Stack-Network','blogapi'); 	
+	
+	repo.read('gh-pages', $backup, function(err, data) {
+		
+		console.log(data);
+		
+		});	
+	}
 
 if(login=='1')
 	{

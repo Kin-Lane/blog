@@ -81,6 +81,8 @@ function APISJSONSave()
 	
 	        console.log("Saving File");
 	        
+	        location.href = 'editor-apis-json.html?oAuth_Token=' + $oAuth_Token + '&savefile=1&backup=' + $backupFile;
+	        
 	    	});	
 
 	}
