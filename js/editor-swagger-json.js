@@ -606,12 +606,11 @@ function loadSwaggerditor()
 			 	// Tags
 		     	$.each($SwaggerAPIPathVerbResponses, function(tagKey, tagValue) { 	     	 		     	 	
 	 
-	 				console.log(dodump(tagValue));
+	 				alert(dodump(tagValue);
 	 
 			     	$.each(tagValue, function(eachTagKey, eachTagValue) { 	     	 		     	 	
 			     	 	
-			     	 	console.log(dodump(eachTagValue));	     	 	
-		     	 		console.log("tag: " + eachTagValue); 	 
+			     	 	console.log("tag: " + eachTagValue); 	 
 	    	 
 	    	 			});       	 				 			
     	 			    	 
