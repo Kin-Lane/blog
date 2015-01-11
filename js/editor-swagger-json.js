@@ -560,13 +560,26 @@ function loadSwaggerditor()
      	$.each($SwaggerAPIPaths, function(pathKey, pathValue) { 
 
      	 	$SwaggerAPIPathName = pathKey;
-     	 	$SwaggerAPIPathDetail = pathValue;
      	 	
      	 	console.log($SwaggerAPIPathName);
-     	 	console.log($SwaggerAPIPathDetail);
      	 
+		 	// Verbs
+	     	$.each(pathValue, function(verbKey, verbValue) { 
+	
+	     	 	$SwaggerAPIPathVerb = verbKey;
+	     	 	
+				$SwaggerAPIPathVerbSummary = verbValue['summary'];
+				$SwaggerAPIPathVerbDesc = verbValue['description'];	     	 	
+				$SwaggerAPIPathVerbOperationId = verbValue['operationId'];	     	 	
+				$SwaggerAPIPathVerbParameters = verbValue['parameters'];
+				$SwaggerAPIPathVerbResponses = verbValue['responses'];	
+				$SwaggerAPIPathVerbTags = verbValue['tags'];		     	 		     	 	
+	     	 	
+	     	 	console.log($SwaggerAPIPathVerb);
+	     	 	console.log($SwaggerAPIPathVerbParameters);     	 
+    	 
+     	 		});     	 
      	 	});		 	
-
 	});	
 
 	// Set another completion function for the request above
