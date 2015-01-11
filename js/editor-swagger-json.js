@@ -274,12 +274,24 @@ function SwaggerGetPath($path,$pathcount)
 	
 function SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount)
 	{
-	html = '<tr style="background-color:#CCC;">';
-	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';
+	
+	html = html + '<table border="0" width="80%" align="center" style="background-color:#CCC;">';
+	
+    html = html + '<tr>';
+    html = html + '<td>';	
+	
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $SwaggerAPIPathVerb + '</strong>';
 	//html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-icon" title="Add a Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
+	
+    html = html + '</tr>';
+    html = html + '</td>';		
+	
+	html = html + '</table>';
+	
 	html = html + '</td>';
 	html = html + '</tr>';
 	return html; 			
