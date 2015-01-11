@@ -86,7 +86,8 @@ function APISJSONSave()
 			$sha = treeValue['sha'];
 			
 			if($path=='apis.json')
-				{								
+				{	
+				console.log($path + ' - ' + $sha);							
 			    repo.writemanual('gh-pages', 'apis.json', $WriteAPIsJSON, 'Save', $sha, function(err) { });									
 				}
 			});
