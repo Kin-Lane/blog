@@ -15,18 +15,7 @@ title: APIs.json Editor
 	            });
             
 		var repo = github.getRepo('stack-network', 'blogapi');
-  
-		repo.read('master','README.md',function(err, data){	
-			
-			if(err=='not found')
-				{				
-				console.log("NO ACCESS!!");
-				}
-			else
-				{				
-				console.log("ACCESS!!");
-				}						
-		});
+
 						
 		}
 	else
