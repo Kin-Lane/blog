@@ -13,7 +13,7 @@ if(savefile=='1')
 	$backup = getUrlVar('backup');
 
     var github = new Github({
-        token: 'e9c70ad569259da141140cfc41ca2980457683a0',
+        token: $oAuth_Token,
         auth: "oauth"
             });
             
@@ -21,9 +21,9 @@ if(savefile=='1')
 	
 	repo.read('gh-pages', $backup, function(err, data) {
 		
-		console.log('e9c70ad569259da141140cfc41ca2980457683a0');
+		//console.log(data);
 
-	    repo.write('gh-pages','app2.json', data, 'Save', function(err) {
+	    repo.write('gh-pages','app3.json', data, 'Save', function(err) {
 	
 			console.log(err);
 	        console.log("Overwriting!!");
