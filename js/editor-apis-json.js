@@ -370,6 +370,8 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
 function AddAPIProperty($apicount)
 	{
 		
+	console.log("add api property: " + $apicount);	
+		
 	$apiPropertyType = document.getElementById("api-" + $apicount + "-property-type").value;
 	$apiPropertyURL = document.getElementById("api-" + $apicount + "-property-url").value;	
 		
