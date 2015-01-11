@@ -107,7 +107,6 @@ function SwaggerGetHeaderCell(name,description,url,image,apijsonurl)
 	return html; 			
 	}
 
-// Localize Templating, making as editable as possible	
 function SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)
 	{		
     html = '<tr>';
@@ -117,37 +116,37 @@ function SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$Swag
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Swagger Version:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerVersion '</td>';
+    html = html + '<td align="left">' + $SwaggerVersion + '</td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Title:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPITitle '</td>';
+    html = html + '<td align="left">' + $SwaggerAPITitle + '</td>';
     html = html + '</tr>';   
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Description:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPIDesc '</td>';
+    html = html + '<td align="left">' + $SwaggerAPIDesc + '</td>';
     html = html + '</tr>'; 
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Terms of Service:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPITOS '</td>';
+    html = html + '<td align="left">' + $SwaggerAPITOS + '</td>';
     html = html + '</tr>';    
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>API Version:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPIVersion '</td>';
+    html = html + '<td align="left">' + $SwaggerAPIVersion + '</td>';
     html = html + '</tr>';   
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Host:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPIHost '</td>';
+    html = html + '<td align="left">' + $SwaggerAPIHost + '</td>';
     html = html + '</tr>';    
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Base Path:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPIBasePath '</td>';
+    html = html + '<td align="left">' + $SwaggerAPIBasePath + '</td>';
     html = html + '</tr>';                  
 
     html = html + '</table>';
