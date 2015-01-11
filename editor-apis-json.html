@@ -14,8 +14,19 @@ title: APIs.json Editor
 	        auth: "oauth"
 	            });
             
-		var repo = github.getRepo('stack-network', 'blogapi');
-
+		var repo = github.getRepo('Stack-Network', 'blogapi');
+  
+		repo.read('master','README.md',function(err, data){	
+			
+			if(err=='not found')
+				{				
+				console.log("NO ACCESS!!");
+				}
+			else
+				{				
+				console.log("ACCESS!!");
+				}						
+		});
 						
 		}
 	else
