@@ -240,7 +240,7 @@ function SwaggerAddPath()
 		
 	var $PathArray = [$path_name];	 
 
-	$MasterAPISJSON['paths'].push($PathArray);
+	$MasterSwagger['paths'].push($PathArray);
 	
 	// Need a Rebuild
 
