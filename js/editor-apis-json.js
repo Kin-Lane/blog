@@ -54,7 +54,7 @@ function APISJSONSave()
 	$WriteAPIsJSON = JSON.stringify($MasterAPISJSON, null, 4);
 	//console.log("saving: " + $WriteAPIsJSON);
 	
-  	repo.write('gh-pages','/blogapi/data/apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
+  	repo.write('gh-pages','blogapi/data/apis.json', $WriteAPIsJSON, 'Saving APIs.json', function(err) {
                                    
     	});    	
 
