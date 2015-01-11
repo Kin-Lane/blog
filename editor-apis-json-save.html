@@ -23,6 +23,8 @@ if(savefile=='1')
 		
 		console.log(data);
 		
+		repo.remove('gh-pages','apis.json', function(err) {});		
+		
 	    repo.write('gh-pages','apis.json', data, 'Saving...', function(err) {
 	
 	        console.log("Overwriting!!");
