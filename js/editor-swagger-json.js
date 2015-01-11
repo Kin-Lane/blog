@@ -1,6 +1,7 @@
 // Purposely keeping this verbose, and expanded, until I figure out best patterns for config and extensability
 
 $pathcount = 0;  
+$pathverbcount = 0;
 $propertycount = 0;
 	 	
 // The Master 
@@ -271,6 +272,19 @@ function SwaggerGetPath($path,$pathcount)
 	return html; 			
 	}					
 	
+function SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount)
+	{
+	html = '<tr style="background-color:#CCC;">';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + $SwaggerAPIPathVerb + '</strong>';
+	//html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-icon" title="Add a Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '</span>';
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}		
+	
 function SwaggerAddPathVerb()
 	{
 		
@@ -371,18 +385,21 @@ function loadSwaggerditor()
 
      	 	$SwaggerAPIPathName = pathKey;
 
- 			$html = SwaggerGetPath($SwaggerAPIPathName,$pathcount)
+ 			$html = SwaggerGetPath($SwaggerAPIPathName,$pathcount);
     		$('#swaggerEditorTable').append($html);  
     		
- 			$html = SwaggerGetAddPathVerb($pathcount)
+ 			$html = SwaggerGetAddPathVerb($pathcount);
     		$('#swaggerEditorTable').append($html);       		    		  	 	
      	 	
 		 	// Verbs
 	     	$.each(pathValue, function(verbKey, verbValue) { 
 	
 	     	 	$SwaggerAPIPathVerb = verbKey;
-	     	 	console.log("verb: " + $SwaggerAPIPathVerb);	     	 	
-	     	 	
+	     	 	console.log("verb: " + $SwaggerAPIPathVerb);	
+		     	 	
+	 			$html = SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount);
+	    		$('#swaggerEditorTable').append($html); 	     	 	     	 	
+		     	 	
 				$SwaggerAPIPathVerbSummary = verbValue['summary'];
 				$SwaggerAPIPathVerbDesc = verbValue['description'];	     	 	
 				$SwaggerAPIPathVerbOperationId = verbValue['operationId'];	     	 					
@@ -421,6 +438,8 @@ function loadSwaggerditor()
 			     	console.log("tag: " + tagValue);  		    	 				 		    	 			    	 
 
     	 			});       	 				 			
+    	 		
+    	 		$pathverbcount++;
     	 			
      	 		}); 
      	 		
