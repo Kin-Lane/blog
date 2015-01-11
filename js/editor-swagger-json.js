@@ -375,10 +375,7 @@ function loadSwaggerditor()
     		$('#swaggerEditorTable').append($html);  
     		
  			$html = SwaggerGetAddPathVerb($pathcount)
-    		$('#swaggerEditorTable').append($html);  
-    		
- 			$html = SwaggerGetEditPath($SwaggerAPIPathName,$pathcount)
-    		$('#swaggerEditorTable').append($html);      		    		  	 	
+    		$('#swaggerEditorTable').append($html);       		    		  	 	
      	 	
 		 	// Verbs
 	     	$.each(pathValue, function(verbKey, verbValue) { 
