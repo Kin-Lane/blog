@@ -402,8 +402,8 @@ function APIJSONPropertyAddListing($apiName,$apicount)
     $selectoptions = ""
     
     $.each($MasterPropertiesJSON, function(propertyKey, propertyValue) { 
-     	
-     	$selectoptions = $selectoptions + '<option value="' + propertyValue['slug'] + '">' + propertyValue['name'] + '</option>';
+     	console.log(propertyKey + ' - ' + propertyValue)
+     	//$selectoptions = $selectoptions + '<option value="' + propertyValue['slug'] + '">' + propertyValue['name'] + '</option>';
      	
     	});
     
@@ -489,7 +489,7 @@ function loadPropertyTypes()
     
 	$.getJSON($PropertiesURL, function($propertiesJSON) { 													
 
-		console.log($propertiesJSON);
+	  //console.log($propertiesJSON);
 
        $MasterPropertiesJSON = $propertiesJSON;
        
