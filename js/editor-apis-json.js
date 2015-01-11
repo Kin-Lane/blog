@@ -184,7 +184,29 @@ function getAPIListing(name,description,image,url,$apicount)
     	
 	return html; 			
 	}	
-	
+
+function AddAPI()
+	{
+	$apiName = document.getElementById("add-api-name").value;
+	$apiDesc = document.getElementById("add-api-description").value;
+	$apiImage = document.getElementById("add-api-image").value;
+	$apiHumanUrl = document.getElementById("add-api-humanurl").value;
+	$apiBaseUrl = document.getElementById("add-api-baseurl").value;		
+		
+	$APIArray = {};
+	  
+	$APIArray['name'] = "";
+	$APIArray['description'] = "";
+	$APIArray['image'] = "";
+	$APIArray['humanURL'] = "";
+	$APIArray['baseURL'] = "";
+	$APIArray['tags'] = new Array();	
+	$APIArray['properties'] = new Array();
+	$APIArray['contact'] = new Array();
+
+	$MasterAPISJSON['apis'].push($APIArray);
+
+	}
 function getAddAPIListing()
 	{		
 		
@@ -192,22 +214,36 @@ function getAddAPIListing()
 
 	html = html + '<strong>Add API</strong>';
     html = html + '<table border="0" width="90%">';
+    
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-api-name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-api-description" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Image:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>image:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-api-image" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="url" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'    
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>humanURL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-api-humanurl" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>baseURL:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-api-baseurl" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'      
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This API" onclick="AddAPI();" /></td>';
+    html = html + '</tr>'         
+     
     html = html + '</table>';
     
     html = html + '<br /></td></tr>';  
