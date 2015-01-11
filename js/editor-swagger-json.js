@@ -561,23 +561,44 @@ function loadSwaggerditor()
 
      	 	$SwaggerAPIPathName = pathKey;
      	 	
-     	 	console.log($SwaggerAPIPathName);
+     	 	console.log("path: " + $SwaggerAPIPathName);
+     	 	
+     	 	console.log("value: " + pathValue);
      	 
 		 	// Verbs
 	     	$.each(pathValue, function(verbKey, verbValue) { 
 	
 	     	 	$SwaggerAPIPathVerb = verbKey;
+	     	 	console.log("verb: " + $SwaggerAPIPathVerb);	     	 	
 	     	 	
 				$SwaggerAPIPathVerbSummary = verbValue['summary'];
 				$SwaggerAPIPathVerbDesc = verbValue['description'];	     	 	
-				$SwaggerAPIPathVerbOperationId = verbValue['operationId'];	     	 	
-				$SwaggerAPIPathVerbParameters = verbValue['parameters'];
-				$SwaggerAPIPathVerbResponses = verbValue['responses'];	
+				$SwaggerAPIPathVerbOperationId = verbValue['operationId'];	     	 					
+				$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
+				$SwaggerAPIPathVerbResponses = verbValue['responses'];					
 				$SwaggerAPIPathVerbTags = verbValue['tags'];		     	 		     	 	
-	     	 	
-	     	 	console.log($SwaggerAPIPathVerb);
-	     	 	console.log($SwaggerAPIPathVerbParameters);     	 
+	     	 		     	 	
+			 	// Parameters
+		     	$.each($SwaggerAPIPathVerbParameters, function(parameterKey, parameterValue) { 	     	 		     	 	
+		     	 		     	 	
+	     	 		console.log("parameter: " + parameterValue);     	 
     	 
+    	 			});
+    	 			
+			 	// Responses
+		     	$.each($SwaggerAPIPathVerbResponses, function(responseKey, responseValue) { 	     	 		     	 	
+		     	 		     	 	
+	     	 		console.log("response: " + responseValue); 	 
+    	 
+    	 			});    
+    	 			
+			 	// Tags
+		     	$.each($SwaggerAPIPathVerbResponses, function(tagKey, tagValue) { 	     	 		     	 	
+		     	 		     	 	
+	     	 		console.log("tags: " + tagValue); 	 
+    	 
+    	 			});       	 				 			
+    	 			
      	 		});     	 
      	 	});		 	
 	});	
