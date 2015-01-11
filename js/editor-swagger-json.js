@@ -238,9 +238,9 @@ function SwaggerAddPath()
 		
 	$path_name = document.getElementById("add-path-name").value;	
 		
-	$APIArray = { $path_name };	  
+	var $PathArray = [$path_name];	 
 
-	$MasterAPISJSON['paths'].push($APIArray);
+	$MasterAPISJSON['paths'].push($PathArray);
 	
 	// Need a Rebuild
 
