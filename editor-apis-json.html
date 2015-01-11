@@ -35,14 +35,14 @@ title: APIs.json Editor
 			if(err=='not found')
 				{				
 				console.log('NO ACCESS!');				
-				document.getElementById("save-apisjson-icon").style.display == 'none';
-				document.getElementById("login-github-icon").style.display == '';				
+				document.getElementById("save-apisjson-icon").style.display = 'none';
+				document.getElementById("login-github-icon").style.display = '';				
 				}
 			else
 				{				
 				console.log('ACCESS!!!');
-				document.getElementById("save-apisjson-icon").style.display == '';
-				document.getElementById("login-github-icon").style.display == 'none';
+				document.getElementById("save-apisjson-icon").style.display = '';
+				document.getElementById("login-github-icon").style.display = 'none';
 				}						
 			});		
 						
@@ -50,8 +50,8 @@ title: APIs.json Editor
 	else
 		{
 		console.log("No Token!!");
-		document.getElementById("save-apisjson-icon").style.display == 'none';
-		document.getElementById("login-github-icon").style.display == '';		
+		document.getElementById("save-apisjson-icon").style.display = 'none';
+		document.getElementById("login-github-icon").style.display = '';		
 		}
 		
 </script> 
