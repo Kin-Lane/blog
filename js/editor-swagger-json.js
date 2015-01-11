@@ -79,34 +79,6 @@ function SwaggerSave()
 	}
 
 // Header
-
-function SwaggerSwaggerSaveAPIs()
-	{
-	$SwaggerName = document.getElementById("apisjsonName").value;
-	$SwaggerDescription = document.getElementById("apisjsonDescription").value;
-	$SwaggerImage = document.getElementById("apisjsonImage").value;
-	$SwaggerUrl = document.getElementById("apisjsonUrl").value;
-
- 	$MasterSwagger['name'] = $SwaggerName;
- 	$MasterSwagger['description'] = $SwaggerDescription;
- 	$MasterSwagger['image'] = $SwaggerImage;
- 	$MasterSwagger['url'] = $SwaggerUrl;
-
- 	$html = SwaggerGetHeaderCell($SwaggerName,$SwaggerDescription,$SwaggerUrl,$SwaggerImage);
- 	document.getElementById("apisjsonHeaderCell").innerHTML = $html;	
-	}
-
-// Localize Templating, making as editable as possible	
-function SwaggerGetHeaderCell(name,description,url,image,apijsonurl)
-	{		
-	html = "";
-    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
-    html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;  	
-	
-	return html; 			
-	}
-
 function SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)
 	{		
     html = '<tr>';
@@ -118,37 +90,37 @@ function SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$Swag
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Swagger Version:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerVersion + '</td>';
+    html = html + '<td align="left" id="swagger-header-swagger-version-view">' + $SwaggerVersion + '</td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Title:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPITitle + '</td>';
+    html = html + '<td align="left" id="swagger-header-title-view">' + $SwaggerAPITitle + '</td>';
     html = html + '</tr>';   
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Description:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPIDesc + '</td>';
+    html = html + '<td align="left" id="swagger-header-desc-view">' + $SwaggerAPIDesc + '</td>';
     html = html + '</tr>'; 
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Terms of Service:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPITOS + '</td>';
+    html = html + '<td align="left" id="swagger-header-tos-view">' + $SwaggerAPITOS + '</td>';
     html = html + '</tr>';    
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>API Version:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPIVersion + '</td>';
+    html = html + '<td align="left" id="swagger-header-api-version-view">' + $SwaggerAPIVersion + '</td>';
     html = html + '</tr>';   
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Host:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPIHost + '</td>';
+    html = html + '<td align="left" id="swagger-header-host-view">' + $SwaggerAPIHost + '</td>';
     html = html + '</tr>';    
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%"><strong>Base Path:</strong></td>';
-    html = html + '<td align="left">' + $SwaggerAPIBasePath + '</td>';
+    html = html + '<td align="left" id="swagger-header-basepath-view">' + $SwaggerAPIBasePath + '</td>';
     html = html + '</tr>';                  
 
     html = html + '</table>';
@@ -158,6 +130,33 @@ function SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$Swag
 
 	return html; 			
 	}
+	
+function SwaggerSaveHeader()
+	{
+	$swagger_swagger_version = document.getElementById("swagger-header-swagger-version-edit").value;
+	$swagger_title = document.getElementById("swagger-header-title-edit").value;
+	$swagger_desc = document.getElementById("swagger-header-desc-edit").value;
+	$swagger_tos = document.getElementById("swagger-header-tos-edit").value;
+	$swagger_api_version = document.getElementById("swagger-header-api-version-edit").value;
+	$swagger_host = document.getElementById("swagger-header-host-edit").value;
+	$swagger_basepath = document.getElementById("swagger-header-basepath-edit").value;
+
+ 	$MasterSwagger['swagger'] = $swagger_swagger_version;
+ 	$MasterSwagger['info']['title'] = $swagger_title;
+ 	$MasterSwagger['info']['description'] = $swagger_desc;
+ 	$MasterSwagger['info']['termsOfService'] = $swagger_tos;
+ 	$MasterSwagger['info']['version'] = $swagger_api_version;
+ 	$MasterSwagger['host'] = $swagger_host;
+ 	$MasterSwagger['schemes'] = $swagger_basepath;
+
+	document.getElementById("swagger-header-swagger-version-view").innerHTML = $swagger_swagger_version;
+	document.getElementById("swagger-header-title-view").innerHTML = $swagger_title;
+	document.getElementById("swagger-header-desc-view").innerHTML = $swagger_desc;
+	document.getElementById("swagger-header-tos-view").innerHTML = $swagger_tos;
+	document.getElementById("swagger-header-api-version-view").innerHTML = $swagger_api_version;
+	document.getElementById("swagger-header-host-view").innerHTML = $swagger_host;
+	document.getElementById("swagger-header-basepath-view").innerHTML = $swagger_basepath;
+	}	
 	
 function SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)
 	{	
@@ -174,41 +173,41 @@ function SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>Swagger Version:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonName" value="' + $SwaggerVersion + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-swagger-version-edit" value="' + $SwaggerVersion + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Title:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonDescription" value="' + $SwaggerAPITitle + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-title-edit" value="' + $SwaggerAPITitle + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonImage" value="' + $SwaggerAPIDesc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-desc-edit" value="' + $SwaggerAPIDesc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Terms of Service:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + $SwaggerAPITOS + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-tos-edit" value="' + $SwaggerAPITOS + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>API Version:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + $SwaggerAPIVersion + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-api-version-edit" value="' + $SwaggerAPIVersion + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Host:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + $SwaggerAPIHost + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-host-edit" value="' + $SwaggerAPIHost + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>Base Path:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="apisjsonUrl" value="' + $SwaggerAPIBasePath + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-basepath-edit" value="' + $SwaggerAPIBasePath + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'               
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSaveAPIsJSON" value="Save Values" onclick="SwaggerSwaggerSaveAPIs();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSaveSwagger" value="Save Values" onclick="SwaggerSaveHeader();" /></td>';
     html = html + '</tr>'       
         
     html = html + '</table>';
