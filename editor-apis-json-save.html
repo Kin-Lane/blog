@@ -10,6 +10,7 @@ savefile = getUrlVar('savefile');
 if(savefile=='1')
 	{
 	
+	$path = "apis.json";
 	$backup = getUrlVar('backup');
 
     var github = new Github({
@@ -19,20 +20,8 @@ if(savefile=='1')
             
 	var repo = github.getRepo('Stack-Network','blogapi'); 	
 	
-	repo.read('gh-pages', $backup, function(err, data) {
-		
-		//console.log(data);
-
-	    repo.write('gh-pages','apis.json', data, 'Save', function(err) {
+	repo.move('gh-pages',$backup,$path, function(err) {});
 	
-			console.log(err);
-	        console.log("Overwriting!!");
-
-			//location.href = 'editor-apis-json.html?oAuth_Token=' + $oAuth_Token;
-
-	    	});			
-		
-		});	
 	}
 
 </script> 
