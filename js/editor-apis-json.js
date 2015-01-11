@@ -487,7 +487,7 @@ function loadPropertyTypes()
 	     	
 	     	console.log(propertyKey + ' - ' + propertyValue);
 	     	
-	     	$apipropertyoptions = $apipropertyoptions + '<option value="' + propertyValue['slug'] + '">' + propertyValue['name'] + '</option>';
+	     	$apipropertyoptions = $apipropertyoptions + '<option value="' + propertyValue['slug'] + '">' + propertyValue['name'] + ' (' + propertyValue['category'] + ')</option>';
 	     	
 	    	});              
 		});		  
