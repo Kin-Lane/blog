@@ -607,3 +607,4 @@ function rebuildAPIsJSONEditor()
 	});
 	
 	$apisJSONMaintainers = apisJSON['maintainers'];	
+}
