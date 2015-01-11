@@ -361,12 +361,12 @@ function SaveAPIProperty($apicount,$propertycount)
 
 	$html = "";
 	$html = getPropertyListingCell1($propertyType,$propertyURL,$apicount,$propertycount); 
-	console.log($html);			
+	//console.log($html);			
 	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = $html;
 	
 	$html = "";
 	$html = getPropertyListingCell2($propertyType,$propertyUrl,$apicount,$propertycount); 			
-	console.log($html);		
+	//console.log($html);		
 	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = $html;				
 	}	
 	
