@@ -212,6 +212,7 @@ function AddAPI()
 	rebuildAPIsJSONEditor();
 
 	}
+	
 function getAddAPIListing()
 	{		
 		
@@ -366,6 +367,25 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
 	return html; 			
 	}	
 	
+function AddAPIProperty($apicount)
+	{
+		
+	api-' + $apicount + '-property-type	
+		
+	$apiPropertyType = document.getElementById("api-' + $apicount + '-property-type	").value;
+	$apiPropertyURL = document.getElementById("api-' + $apicount + '-property-url	").value;	
+		
+	$APIPropertyArray = {};
+	  
+	$APIPropertyArray['type'] = $apiPropertyType;
+	$APIPropertyArray['url'] = $apiPropertyURL;
+
+	$MasterAPISJSON['apis'][$apicount]['properties'].push($APIPropertyArray);
+	
+	rebuildAPIsJSONEditor();
+
+	}	
+	
 function getPropertyAddListing($apiName,$apicount)
 	{		
 		
@@ -378,14 +398,18 @@ function getPropertyAddListing($apiName,$apicount)
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Type:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="image" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>type:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="api-' + $apicount + '-property-type" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" name="description" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>url:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="api-' + $apicount + '-property-url" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="AddAPIProperty(' + $apicount + ');" /></td>';
+    html = html + '</tr>'     
     
     html = html + '</table>';
     
@@ -426,12 +450,12 @@ function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertyc
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Type:</strong></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>type:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="property-type-' + $apicount + '-' + $propertycount + '" value="' + $thistype + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>URL:</strong></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>url:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="property-url-' + $apicount + '-' + $propertycount + '" value="' + $thisurl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
