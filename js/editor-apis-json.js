@@ -64,6 +64,12 @@ function APISJSONSave()
         
 	var repo = github.getRepo('Stack-Network','blogapi');  	
 
+	    repo.write('gh-pages', 'apis.json', $WriteAPIsJSON, 'Saving...', function(err) {
+	
+	        console.log("Doing Write!!");
+	        
+	    	});	
+
 	}
 
 // Header
