@@ -605,9 +605,14 @@ function loadSwaggerditor()
     	 			
 			 	// Tags
 		     	$.each($SwaggerAPIPathVerbResponses, function(tagKey, tagValue) { 	     	 		     	 	
-		     	 		     	 	
-	     	 		console.log("tags: " + tagValue); 	 
-    	 
+	 
+			     	$.each(tagValue, function(eachTagKey, eachTagValue) { 	     	 		     	 	
+			     	 		     	 	
+		     	 		console.log("tag: " + eachTagValue); 	 
+	    	 
+	    	 			});       	 				 			
+    	 			    	 
+
     	 			});       	 				 			
     	 			
      	 		});     	 
