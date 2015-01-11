@@ -461,7 +461,7 @@ function loadAPIsJSONEditor()
              $('#jsonEditorTable').append($html);              
                          			
 			 $apiProperties = apiVal['properties'];
-			 $.each($apiProperties, function(propertyKey, propertyVal) { 
+			 $.each($apiProperties, function(propertyKey, propertyVal,$apicount) { 
 			 	
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];		
