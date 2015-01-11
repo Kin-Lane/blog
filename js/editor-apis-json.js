@@ -436,7 +436,7 @@ function loadAPIsJSONEditor()
 	 	
 	 	$apicount = 0;      
         
-         $.each(apisJSONAPIs, function(apiKey, apiVal) { 
+         $.each(apisJSONAPIs, function(apiKey, apiVal,$apicount) { 
          	
          	 $propertycount = 0;
          	 
@@ -455,9 +455,11 @@ function loadAPIsJSONEditor()
              
              $html = getEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apicount)
              $('#jsonEditorTable').append($html);              
+             
+             console.log('before apicount: ' + $apicount);            			
                          			
 			 $apiProperties = apiVal['properties'];
-			 $.each($apiProperties, function(propertyKey, propertyVal,$apicount) { 
+			 $.each($apiProperties, function(propertyKey, propertyVal) { 
 			 	
 			 	console.log('in apicount: ' + $apicount);
 			 	
