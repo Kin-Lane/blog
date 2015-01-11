@@ -603,7 +603,10 @@ function loadSwaggerditor()
 	 	$SwaggerAPIBasePath = Swagger['basePath'];
 	 	
  		$html = SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)	 	
-    	$('#swaggerEditorTable').append($html); 	 	
+    	$('#swaggerEditorTable').append($html); 
+    	
+ 		$html = SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath)	 	
+    	$('#swaggerEditorTable').append($html);     		 	
 	 	
 	 	$SwaggerAPISchemes = Swagger['schemes'];
 	 	$SwaggerAPIProduces = Swagger['produces'];
