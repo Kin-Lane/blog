@@ -538,9 +538,9 @@ function loadAPIsJSONEditor()
 function rebuildAPIsJSONEditor()
     {
 
-	document.getElementById("jsonEditor").innerhtml = '';
+	document.getElementById("jsonEditor").innerHTML = '';
 	
-	document.getElementById("jsonEditor").innerhtml = '<table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonEditorTable" style="margin-left: 15px;"></table>';
+	document.getElementById("jsonEditor").innerHTML = '<table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonEditorTable" style="margin-left: 15px;"></table>';
 
 	// Pull From our Master Store
 	apisJSON = $MasterAPISJSON;
