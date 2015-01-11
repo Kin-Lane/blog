@@ -52,8 +52,7 @@ function APISJSONSave()
 	{
 		
 	var date = new Date;
-	date.setTime(result_from_Date_getTime);
-	
+
 	var minutes = date.getMinutes();
 	var hour = date.getHours();
 	
