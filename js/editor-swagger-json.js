@@ -606,12 +606,26 @@ function loadSwaggerditor()
 			 	// Tags
 		     	$.each($SwaggerAPIPathVerbTags, function(tagKey, tagValue) { 	     	 		     	 		 
 	 					 				
-			     	console.log("tag1: " + tagKey + ' = ' + tagValue);  		    	 				 		    	 			    	 
+			     	console.log("tag: " + tagValue);  		    	 				 		    	 			    	 
 
     	 			});       	 				 			
     	 			
      	 		});     	 
-     	 	});		 	
+     	 	});	
+     	 	
+	 	// Definitions
+     	$.each($SwaggerAPIDefinitions, function(definitionKey, definitionValue) {      	 	
+
+			console.log("definition: " + definitionKey);
+			
+		 	// Definition Properties
+	     	$.each(definitionValue, function(definitionProperyKey, definitionPropertyValue) {      	 	
+	
+				console.log("definition property: " + definitionProperyKey);
+	
+				});	 			
+
+			});	     	 		 	
 	});	
 
 	// Set another completion function for the request above
