@@ -457,7 +457,7 @@ function loadAPIsJSONEditor()
 			 $apiProperties = apiVal['properties'];
 			 $.each($apiProperties, function(propertyKey, propertyVal) { 
 			 	
-			 	console.log('in apicount: ' + $apicount);
+			 	console.log('in apicount: ' + $apicount + ' and ' + $propertycount);
 			 	
 			 	$propertyType = propertyVal['type'];
 			 	$propertyURL = propertyVal['url'];		
