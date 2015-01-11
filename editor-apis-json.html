@@ -63,14 +63,16 @@ if(login=='1')
 
 	    repo.read('gh-pages', 'apis.json', function(err, res) {
 	         
-	        console.log("Access!!");
-									
+	        console.log("Doing Access!!");
+		
+		    repo.write('gh-pages', 'api.json', 'do it!', 'Saving API.json', function(err) {
+		
+		        console.log("Doing Write!!");
+		        
+		    	});		
+										
 			});	
-			
-	    repo.write('gh-pages', 'api.json', 'do it!', 'Saving API.json', function(err) {
-	
-	        
-	    	});										
+												
 						
 		}
 	else
