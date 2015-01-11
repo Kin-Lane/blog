@@ -283,7 +283,7 @@ function getPropertyListingCell1($thistype,$thisurl,$apicount,$propertycount)
 	$thisslug = $thistype.replace(" ", "-");
 
 	$html = "";
-    $html = $html + '<a href="' + $thisurl + '" title="foo"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
+    $html = $html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
     	
 	return $html; 			
 	}	
@@ -309,7 +309,8 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
 	
     html = '<tr>';
     html = html + '<td width="25%" align="right" id="api-' + $apicount + '-property-' + $propertycount + '-1">';
-    html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a></td>';
+    html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
+    html = html + '</td>';
     html = html + '<td align="left" id="api-' + $apicount + '-property-' + $propertycount + '-2">';
     html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
     html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
@@ -350,18 +351,20 @@ function getPropertyAddListing($apiName,$thistype,$apicount,$propertycount)
 	
 function SaveAPIProperty($apicount,$propertycount)
 	{
-
+	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = "";	
+	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = ""; 
+	
 	$propertyType = document.getElementById("property-type-"+$apicount+"-"+$propertycount).value;
 	$propertyUrl = document.getElementById("property-url-"+$apicount+"-"+$propertycount).value;
 
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['type'] = $propertyType;
  	$MasterAPISJSON['apis'][$apicount]['properties'][$propertycount]['url'] = $propertyUrl;
 
-	$html = getPropertyListingCell1($propertyType,$propertyUrl,$apicount,$propertycount); 			
-	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = $html;
+	$html2 = getPropertyListingCell1($propertyType,$propertyUrl,$apicount,$propertycount); 			
+	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-1').innerHTML = $html2;
 
-	$html = getPropertyListingCell2($propertyType,$propertyUrl,$apicount,$propertycount); 					
-	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = $html;				
+	$html3 = getPropertyListingCell2($propertyType,$propertyUrl,$apicount,$propertycount); 					
+	document.getElementById('api-' + $apicount + '-property-' + $propertycount + '-2').innerHTML = $html3;				
 	}	
 	
 function getPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$propertycount)
