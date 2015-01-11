@@ -370,8 +370,6 @@ function getPropertyListing($apiName,$thistype,$thisurl,$apicount,$propertycount
 function AddAPIProperty($apicount)
 	{
 		
-	api-' + $apicount + '-property-type	
-		
 	$apiPropertyType = document.getElementById("api-' + $apicount + '-property-type	").value;
 	$apiPropertyURL = document.getElementById("api-' + $apicount + '-property-url	").value;	
 		
@@ -394,7 +392,7 @@ function getPropertyAddListing($apiName,$apicount)
 		
 	html = '<tr id="add-api-property-' + $thisslug + '-' + $apicount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Add Property - add-api-property-' + $thisslug + '-' + $apicount + '-icon</strong>';
+	html = html + '<strong>Add Property</strong>';
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
