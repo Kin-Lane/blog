@@ -77,13 +77,13 @@ function APISJSONSave()
         
 	var repo = github.getRepo('Stack-Network','blogapi');  	
 
-	    repo.write('gh-pages', $backupFile, $WriteAPIsJSON, 'Saving...', function(err) {
-	
-	        console.log("Saving File");
-	        
-	        location.href = 'editor-apis-json.html?oAuth_Token=' + $oAuth_Token + '&savefile=1&backup=' + $backupFile;
-	        
-	    	});	
+    repo.write('gh-pages', $backupFile, $WriteAPIsJSON, 'Saving...', function(err) {
+
+        console.log("Saving File");
+        
+        location.href = 'editor-apis-json-save.html?oAuth_Token=' + $oAuth_Token + '&savefile=1&backup=' + $backupFile;
+        
+    	});	
 
 	}
 
