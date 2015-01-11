@@ -555,6 +555,17 @@ function loadSwaggerditor()
 	 	$SwaggerAPIProduces = Swagger['produces'];
 	 	$SwaggerAPIPaths = Swagger['paths'];
 	 	$SwaggerAPIDefinitions = Swagger['definitions'];
+	 	
+	 	// Paths
+     	$.each($SwaggerAPIPaths, function(pathKey, pathValue) { 
+
+     	 	$SwaggerAPIPathName = pathKey;
+     	 	$SwaggerAPIPathDetail = pathValue;
+     	 	
+     	 	console.log($SwaggerAPIPathName);
+     	 	console.log($SwaggerAPIPathDetail);
+     	 
+     	 	});		 	
 
 	});	
 
