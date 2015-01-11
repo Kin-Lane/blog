@@ -11,7 +11,7 @@ function APIJSONShowMe($row)
 	$thisrow = $row.id;			
 	$thisslug = $thisrow.replace("-icon","");
 	
-	console.log('viewing: ' + $thisslug);
+	//console.log('viewing: ' + $thisslug);
 		
 	$thisrow = document.getElementById($thisslug).style.display;
 
@@ -372,7 +372,7 @@ function getPropertyAddListing($apiName,$apicount)
 	$apiName = $apiName.toLowerCase();
 	$thisslug = $apiName.replace(" ", "-");	
 		
-	html = '<tr id="add-api-property-' + $thisslug + '-' + $apicount + '-icon"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-api-property-' + $thisslug + '-' + $apicount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add Property - add-api-property-' + $thisslug + '-' + $apicount + '-icon</strong>';
     html = html + '<table border="0" width="90%">';
