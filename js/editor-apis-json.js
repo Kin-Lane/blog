@@ -158,14 +158,14 @@ function getAPIListingCell(name,url,description,url,$apicount)
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");			
 
-    html = html + '<span style="font-size:20px;">';
-    html = html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-' + $apicount + '-icon" title="Edit API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-api-property' + $thisslug + '-' + $apicount + '-icon" title="Add API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
-    html = html + '</span>';
-
+	$html = "";
+    $html = $html + '<span style="font-size:20px;">';
+    $html = $html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
+    $html = $html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-' + $apicount + '-icon" title="Edit API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    $html = $html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-api-property' + $thisslug + '-' + $apicount + '-icon" title="Add API""><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    $html = $html + '</span>';
     	
-	return html; 			
+	return $html; 			
 	}		
 	
 function getAPIListing(name,url,description,url,$apicount)
