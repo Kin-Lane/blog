@@ -353,7 +353,6 @@ function SaveAPIProperty($apiName,$apicount,$propertycount)
 
 	$propertyType = document.getElementById("property-type-"+$apicount+"-"+$propertycount).value;
 	$propertyUrl = document.getElementById("property-url-"+$apicount+"-"+$propertycount).value;
-
 				
 	}	
 	
