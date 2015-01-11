@@ -328,9 +328,7 @@ function loadSwaggerditor()
     	    	
  		$html = SwaggerGetAddPath();
     	$('#swaggerEditorTable').append($html);     	
-    	
-    	SwaggerGetAddPathTitle    		 		 	
-	 		 	
+
 	 	// Paths
      	$.each($SwaggerAPIPaths, function(pathKey, pathValue) { 
 
