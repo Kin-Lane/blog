@@ -235,7 +235,7 @@ function SaveAPI($apicount)
  	document.getElementById("api-cell-"+$apicount).innerHTML = $html;	
 	}	
 	
-function getEditAPIListing(name,,description,image,url,$apicount)
+function getEditAPIListing(name,description,image,url,$apicount)
 	{		
 
 	$thisslug = name.toLowerCase();	
