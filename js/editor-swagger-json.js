@@ -277,6 +277,8 @@ function SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount)
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';
 	
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-verb-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
+	
 	html = html + '<table border="0" width="80%" align="center" style="background-color:#CCC;">';
 	
     html = html + '<tr>';
@@ -339,9 +341,7 @@ function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerb
     html = '<tr>';
     html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
 
-	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-verb-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-
-    html = html + '<table cellpadding="3" cellspacing="2" border="1" width="80%">';
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Summary:</strong></td>';
