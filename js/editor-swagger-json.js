@@ -409,7 +409,7 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
 function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
 	{		
 		
-	html = '<tr id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter" style="display: none;"><td align="center" colspan="2" style="">';
 
 	html = html + '<strong>Add a Parameter:</strong>';
     html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
