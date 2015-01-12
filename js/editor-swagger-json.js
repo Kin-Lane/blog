@@ -334,6 +334,38 @@ function SwaggerGetAddPathVerb($pathcount)
 	return html; 			
 	}	
 	
+function SwaggerGetAddPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount)
+	{		
+    html = '<tr>';
+    html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
+
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-verb-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Summary:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-swagger-version-view">' + $SwaggerAPIPathVerbSummary + '</td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Description:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-title-view">' + $SwaggerAPIPathVerbDesc + '</td>';
+    html = html + '</tr>';   
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%"><strong>Operation ID:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-desc-view">' + $SwaggerAPIPathVerbOperationId + '</td>';
+    html = html + '</tr>';                
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}	
+	
 function SwaggerSavePath($pathcount)
 	{
 		
@@ -414,7 +446,11 @@ function loadSwaggerditor()
 		     	 	
 				$SwaggerAPIPathVerbSummary = verbValue['summary'];
 				$SwaggerAPIPathVerbDesc = verbValue['description'];	     	 	
-				$SwaggerAPIPathVerbOperationId = verbValue['operationId'];	     	 					
+				$SwaggerAPIPathVerbOperationId = verbValue['operationId'];
+				
+				$html = SwaggerGetAddPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
+				$('#swaggerEditorTable').append($html); 
+					     	 					
 				$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
 				$SwaggerAPIPathVerbResponses = verbValue['responses'];					
 				$SwaggerAPIPathVerbTags = verbValue['tags'];		     	 		     	 	
