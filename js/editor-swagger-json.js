@@ -1200,6 +1200,72 @@ function SwaggerGetDefinitionProperty($property_name,$property_description,$prop
 
 	return html; 			
 	}	
+	
+function SwaggerEditDefinitionProperty($definitioncountt)
+	{
+
+	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbtagcount + '-tag-edit').value;	
+
+	$p = 0;
+	$v = 0;
+	$pp = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) {  
+			$.each(val2['tags'], function(key3, val3) { 
+				if($pathcount == $p && $pathverbcount == $v && $pathverbtagcount == $pp)
+					{
+					$ref = '$' + 'ref'; 	
+					$MasterSwagger['paths'][key1][key2]['tags'][key3] = $tag;	
+					}
+				 $pp++;
+				});	
+			$v++;	
+		});	
+	 $p++;	
+	});
+
+	// Need a Rebuild
+
+	}	
+	
+function SwaggerGetEditDefinitionProperty($property_name,$property_description,$property_type,$definitioncount)
+	{		
+		
+    html = '<tr id="edit-definition-' + $definitioncount + '" style="display: none;">';
+    html = html + '<td align="center" valign="top" colspan="2">';
+
+    html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Edit Property</strong></td>';
+    html = html + '</tr>'     
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-' + $definitioncount + '-name-edit" value="' + $parameter_name + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'  
+        
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-definition-' + $definitioncount + '-type-edit" value="' + $parameter_desc + '" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'        
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;""><strong>Type:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-api-definition-' + $definitioncount + '-description-edit" style=""><option value="' + $property_type + '">' + $property_type + '</option><option value="string">string</option><option value="integer">integer</option></select></td>';
+    html = html + '</tr>'                        
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditDefinitionPropertyButton" value="Save" onclick="SwaggerEditDefinitionProperty(' + $definitioncount + ');" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}	
 
 function SwaggerSavePath($pathcount)
 	{
