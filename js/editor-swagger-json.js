@@ -6,7 +6,7 @@ $pathverbpropertycount = 0;
 $pathverbresponsecount = 0;
 $pathverbtagcount = 0;
 $definitioncount = 0;
-$definitionparametercount = 0;
+$definitionpropertycount = 0;
 	 	
 // The Master 
 $MasterSwagger = {};
@@ -1005,7 +1005,7 @@ function SwaggerGetDefinitionsTitle()
 	html = '<tr style="background-color:#CCC;">';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>Definitions (Data Models)</strong>';
+	html = html + '<strong>Definitions</strong>';
 	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-definition-icon" title="Add a Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
@@ -1092,24 +1092,25 @@ function SwaggerGetAddDefinition()
 	return html; 			
 	}		
 
-function SwaggerAddDefinitionProperty($definitioncount)
+function SwaggerAddDefinitionProperty($definitioncount,$definitionpropertycount)
 	{
 		 
-	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-add').value;	
+	$property_name = document.getElementById('swagger-api-definition-' + $definitioncount + '-name-add').value;
+	$property_description = document.getElementById('swagger-api-definition-' + $definitioncount + '-description-add').value
+	$property_type = document.getElementById('swagger-api-definition-' + $definitioncount + '-type-add').value	
 
-	//$TagArray = [$tag];
-	
-	$p = 0;
-	$v = 0;
-	$.each($MasterSwagger['paths'], function(key1, val1) {  
+	$dc = 0;
+	$dpc = 0;
+	$.each($MasterSwagger['definitions'], function(key1, val1) {  
 		$.each(val1, function(key2, val2) { 
-			if($pathcount == $p && $pathverbcount == $v)
+			if($definitioncount == $p && $definitionpropertycount == $v)
 				{	
-				$MasterSwagger['paths'][key1][key2]['tags'].push($tag);
+				$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['description'] = $property_description;
+				$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['type'] = $property_type;
 				}	
-			$v++;	
+			$dpc++;	
 		});	
-	 $p++;	
+	 $dc++;	
 	});		
 	
 	// Need a Rebuild
@@ -1441,6 +1442,8 @@ function loadSwaggerditor()
 	 	// Definitions
      	$.each($SwaggerAPIDefinitions, function(definitionKey, definitionValue) {      	 	
 	
+			$definitionpropertycount = 0;
+	
 			$html =  SwaggerGetDefinitions(definitionKey,$definitioncount);
 			$('#swaggerEditorTable').append($html);	
 			
@@ -1466,6 +1469,8 @@ function loadSwaggerditor()
 				$html = SwaggerGetEditDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount);
 				$('#swaggerEditorTable').append($html);							
 
+				$definitionpropertycount++;
+				
 				});	 
 				
 			$definitioncount++;			
