@@ -717,19 +717,19 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 
 	$ThisCodeArray = {};	  
 	$ThisCodeArray[$response_code] = $CodeArray
-
+	
 	$p = 0;
 	$v = 0;
 	$.each($MasterSwagger['paths'], function(key1, val1) {  
 		$.each(val1, function(key2, val2) { 
 			if($pathcount == $p && $pathverbcount == $v)
-				{
-				$MasterSwagger['paths'][key1][key2]['responses'].push($ThisCodeArray);				
+				{	
+				$MasterSwagger['paths'][key1][key2]['responses'].push($APIPropertyArray);				
 				}	
 			$v++;	
 		});	
 	 $p++;	
-	});	
+	});		
 	
 	// Need a Rebuild
 
