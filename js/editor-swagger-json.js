@@ -1115,7 +1115,7 @@ function SwaggerAddDefinitionProperty($definitioncount)
 			{	
 			console.log("property: " + key1);
 			
-			$RebuildPropertyArray = {};
+			$NewPropertyArray = {};
 			
 			$.each($MasterSwagger['definitions'][key1]['properties'], function(key2, val2) { 
 			
@@ -1123,14 +1123,14 @@ function SwaggerAddDefinitionProperty($definitioncount)
 				$RebuildDetailArray['description'] = val2['description'];
 				$RebuildDetailArray['type'] = val2['type'];
 				
-				$PropertyArray = {};	  
-				$PropertyArray[key2] = $RebuildDetailArray;
+				$ThisPropertyArray = {};	  
+				$ThisPropertyArray[key2] = $RebuildDetailArray;
 				
-				$viewer = JSON.stringify($PropertyArray, null, 4);
+				$viewer = JSON.stringify($ThisPropertyArray, null, 4);
 				
 				console.log($viewer);
 				
-				$RebuildPropertyArray.push($PropertyArray);
+				$NewPropertyArray.push($ThisPropertyArray);
 
 				});
 			
