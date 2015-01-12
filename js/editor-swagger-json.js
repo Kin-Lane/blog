@@ -515,7 +515,7 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" value="' + $parameter_name + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
@@ -525,7 +525,7 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $parameter_desc + '" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
