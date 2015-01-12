@@ -514,29 +514,29 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
     html = html + '</tr>'     
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" value="' + $parameter_name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;""><strong>In:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><input type="text" id="swagger-header-host-edit" value="' + $parameter_in + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;""><strong>In:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-header-host-edit" style=""><option value="' + $parameter_in + '">' + $parameter_in + '</option><option value="query">query</option><option value="path">path</option></select></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $parameter_desc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Required:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $parameter_required + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Required:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-header-host-edit" style=""><option value="' + $parameter_required + '">' + $parameter_required + '</option><option value="1">true</option><option value="0">false</option></select></td>';
     html = html + '</tr>'   
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Type:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $parameter_type + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'                    
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Type:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-header-host-edit" style=""><option value="' + $parameter_type + '">' + $parameter_type + '</option><option value="string">string</option><option value="integer">integer</option></select></td>';
+    html = html + '</tr>'                     
     
     html = html + '<tr>';
     html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSaveSwagger" value="Save" onclick="SwaggerSavePathVerbDetail();" /></td>';
