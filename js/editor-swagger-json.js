@@ -1103,7 +1103,7 @@ function SwaggerAddDefinitionProperty($definitioncount,$definitionpropertycount)
 	$dpc = 0;
 	$.each($MasterSwagger['definitions'], function(key1, val1) {  
 		$.each(val1, function(key2, val2) { 
-			if($definitioncount == $p && $definitionpropertycount == $v)
+			if($definitioncount == $dc && $definitionpropertycount == $dpc)
 				{	
 				$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['description'] = $property_description;
 				$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['type'] = $property_type;
