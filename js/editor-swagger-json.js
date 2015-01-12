@@ -1035,7 +1035,7 @@ function SwaggerGetDefinitions($definition,$definitioncount)
     
     html = html + '<tr>';
     html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
-    html = html + '<strong>' + $tag + '</strong>';
+    html = html + '<strong>' + $definition + '</strong>';
     
     html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-property-icon" title="Add Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';			
 	    			 
