@@ -2,7 +2,7 @@
 
 $pathcount = 0;  
 $pathverbcount = 0;
-$propertycount = 0;
+$pathverbpropertycount = 0;
 	 	
 // The Master 
 $MasterSwagger = "";
@@ -406,6 +406,77 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
 	return html; 			
 	}		
 	
+function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount)
+	{		
+    html = '<tr>';
+    html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
+
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property-' + $pathverbpropertycount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';			
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Parameter:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-swagger-version-view" style="font-size: 12px;">' + $parameter_name + '</td>';
+    html = html + '</tr>';              
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}		
+	
+function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount)
+	{		
+		
+    html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property' + $pathverbpropertycount + '" style="display: none;">';
+    html = html + '<td align="center" valign="top" colspan="2">';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%" style="border: 1px solid #000;padding-top5px;">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Edit Details</strong></td>';
+    html = html + '</tr>'     
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" value="' + $parameter_name + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;""><strong>In:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><input type="text" id="swagger-header-host-edit" value="' + $parameter_in + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $parameter_desc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'      
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Required:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $parameter_required + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'   
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Type:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $parameter_type + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'                    
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSaveSwagger" value="Save" onclick="SwaggerSavePathVerbDetail();" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}	
+	
 function SwaggerSavePath($pathcount)
 	{
 		
@@ -507,7 +578,11 @@ function loadSwaggerditor()
             		$parameter_required = parameterValue['required'];
             		$parameter_type = parameterValue['type'];         	 		
 	     	 		
-	     	 		console.log("parameter: " + $parameter_name);     	 
+					$html = SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount);
+					$('#swaggerEditorTable').append($html); 
+									
+					$html = SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount);
+					$('#swaggerEditorTable').append($html);	  	 
     	 
     	 			});
     	 			
