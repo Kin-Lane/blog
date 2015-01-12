@@ -647,7 +647,56 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
 	}	
 	
 // Response
+	
+	
+function SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount)
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';	
 
+	html = html + '<table border="0" width="70%" align="center" style="background-color:#CCC;">';
+	
+    html = html + '<tr>';
+    html = html + '<td>';	
+	
+	html = html + '<span style="font-size:16px;">';
+	html = html + '<strong>Responses</strong>';
+	html = html + '</span>';
+	
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-icon" title="Edit Swagger Response"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';			
+	
+    html = html + '</td>';
+    html = html + '</tr>';		
+	
+	html = html + '</table>';
+	
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}		
+	
+function SwaggerGetPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount)
+	{		
+    html = '<tr>';
+    html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="70%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
+    html = html + '<strong>' + $response_code + '</strong> (' + $response_definition + ') - ' + $response_desc;
+    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
+    html = html + '</td>';
+    html = html + '</tr>';              
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}		
+	
 function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 	{
 		
@@ -689,7 +738,7 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 function SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount)
 	{		
 		
-	html = '<tr id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-response" style="display: none;"><td align="center" colspan="2" style="">';
+	html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response" style="display: none;"><td align="center" colspan="2" style="">';
 
     html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
     
@@ -720,54 +769,6 @@ function SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount)
     
     html = html + '<br /></td></tr>';  
     	
-	return html; 			
-	}		
-	
-function SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount)
-	{
-	html = '<tr>';
-	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';	
-
-	html = html + '<table border="0" width="70%" align="center" style="background-color:#CCC;">';
-	
-    html = html + '<tr>';
-    html = html + '<td>';	
-	
-	html = html + '<span style="font-size:16px;">';
-	html = html + '<strong>Responses</strong>';
-	html = html + '</span>';
-	
-	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-icon" title="Edit Swagger Response"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';			
-	
-    html = html + '</td>';
-    html = html + '</tr>';		
-	
-	html = html + '</table>';
-	
-	html = html + '</td>';
-	html = html + '</tr>';
-	return html; 			
-	}		
-	
-function SwaggerGetPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount)
-	{		
-    html = '<tr>';
-    html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
-
-    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="70%">';
-    
-    html = html + '<tr>';
-    html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
-    html = html + '<strong>' + $response_code + '</strong> (' + $response_definition + ') - ' + $response_desc;
-    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-' + $pathverbresponsecount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
-    html = html + '</td>';
-    html = html + '</tr>';              
-
-    html = html + '</table>';
-
-    html = html + '</td>';
-    html = html + '</tr>';  
-
 	return html; 			
 	}		
 	
