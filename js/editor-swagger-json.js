@@ -715,8 +715,8 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 	$CodeArray['description'] = $response_description;
 	$CodeArray['schema'] = $SchemaArray;
 
-	$ThisCodeArray = {};	  
-	$ThisCodeArray[$response_code] = $CodeArray
+	//$ThisCodeArray = {};	  
+	//$ThisCodeArray[$response_code] = $CodeArray
 	
 	$p = 0;
 	$v = 0;
@@ -724,7 +724,7 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 		$.each(val1, function(key2, val2) { 
 			if($pathcount == $p && $pathverbcount == $v)
 				{	
-				$MasterSwagger['paths'][key1][key2]['responses'].push($ThisCodeArray);				
+				$MasterSwagger['paths'][key1][key2]['responses'][$response_code] = 	$CodeArray;	
 				}	
 			$v++;	
 		});	
