@@ -1332,6 +1332,11 @@ function loadSwaggerditor($apisjsonURL)
 function rebuildSwaggerditor()
     {
     	
+	document.getElementById("swaggerEditor").innerHTML = '';
+	
+	document.getElementById("swaggerEditor").innerHTML = '<table cellpadding="3" cellspacing="2" border="0" width="95%" id="swaggerEditorTable" style="margin-left: 15px;"></table>';
+    	
+    	
 	buildSwaggerEditor($MasterSwagger);	
 		
 	}

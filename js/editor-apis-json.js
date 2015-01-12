@@ -540,71 +540,8 @@ function loadAPIsJSONEditor()
 
 		$viewer = JSON.stringify(apisJSON, null, 4);
 		document.getElementById("jsonViewerDetails").value = $viewer;
-		//$('#jsonViewer').append($viewer); 
 		
-		//$('#jsonViewer').append(apisJSON); 
-
-	 	$apisJSONName = apisJSON['name'];
-	 	//console.log($apisJSONName);
-	 	$apisJSONDesc = apisJSON['description'];
-	 	$apisJSONLogo = apisJSON['image'];
-	 	$apisJSONURL = apisJSON['url'];
-	 	
-	 	// Header	 	
-        $html = APIJSONGetHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
-        $('#jsonEditorTable').append($html); 
-        
-        $html = APIJSONGetEditHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
-        $('#jsonEditorTable').append($html);         
-                
-        apisJSONTags = apisJSON['tags'];            
-        apisJSONAPIs = apisJSON['apis'];
-        
-	 	$html = APIJSONGetAPITitle('APIs');
-	 	$('#jsonEditorTable').append($html);   	 
-	
-	    $html = APIJSONGetAddAPIListing()
-	    $('#jsonEditorTable').append($html);  			 	    
-
-         $.each(apisJSONAPIs, function(apiKey, apiVal) { 
-
-         	 $apiName = apiVal['name']; 
-         	 $apiDesc = apiVal['description'];
-         	 $apiImage = apiVal['image']; 
-         	 $apiHumanURL = apiVal['humanURL']; 
-         	 $apiBaseURL = apiVal['baseURL'];               	                         	 
-			 $apiTags = apiVal['tags'];			 	 
-			 
-             $html = APIJSONGetAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
-             $('#jsonEditorTable').append($html); 	
-                        
-             $html = APIJSONGetEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
-             $('#jsonEditorTable').append($html);              
-
-			 $Property = APIJSONPropertyAddListing($apiName,$apicount); 			
-			 $('#jsonEditorTable').append($Property);                        			
-                         			
-			 $apiProperties = apiVal['properties'];
-			 $.each($apiProperties, function(propertyKey, propertyVal) { 
-
-			 	$propertyType = propertyVal['type'];
-			 	$propertyURL = propertyVal['url'];					 				 			 							 		 					 	
-			 				 	
-				$Property = APIJSONPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-				$('#jsonEditorTable').append($Property); 		
-				
-				$Property = APIJSONGetPropertyEditListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-				$('#jsonEditorTable').append($Property); 			 			 							 		 					 	
-			 	
-			 	$propertycount++;
-			 	
-			 	}); 				 	                                           
-            				 					 				 	 				 					 											
-			 $apiContact = apiVal['contact'];
-			 $apicount++;										
-		});
-		
-		$apisJSONMaintainers = apisJSON['maintainers'];	
+		buildAPIsJSONEditor(apisJSON);
 
 	});	
 
@@ -628,9 +565,15 @@ function rebuildAPIsJSONEditor()
 	document.getElementById("jsonEditor").innerHTML = '<table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonEditorTable" style="margin-left: 15px;"></table>';
 
 	// Pull From our Master Store
-	apisJSON = $MasterAPISJSON;
+ 	buildAPIsJSONEditor($MasterAPISJSON);
+		
+	}
+	
+function buildAPIsJSONEditor(apisJSON)
 
- 	$apisJSONName = apisJSON['name'];
+	{
+	$apisJSONName = apisJSON['name'];
+ 	//console.log($apisJSONName);
  	$apisJSONDesc = apisJSON['description'];
  	$apisJSONLogo = apisJSON['image'];
  	$apisJSONURL = apisJSON['url'];
@@ -662,18 +605,18 @@ function rebuildAPIsJSONEditor()
 		 
          $html = APIJSONGetAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
          $('#jsonEditorTable').append($html); 	
-
+                    
          $html = APIJSONGetEditAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apiBaseURL,$apicount)
          $('#jsonEditorTable').append($html);              
-         
+
 		 $Property = APIJSONPropertyAddListing($apiName,$apicount); 			
-		 $('#jsonEditorTable').append($Property); 	               			
+		 $('#jsonEditorTable').append($Property);                        			
                      			
 		 $apiProperties = apiVal['properties'];
 		 $.each($apiProperties, function(propertyKey, propertyVal) { 
-		 	
+
 		 	$propertyType = propertyVal['type'];
-		 	$propertyURL = propertyVal['url'];				 			 			 							 		 					 	
+		 	$propertyURL = propertyVal['url'];					 				 			 							 		 					 	
 		 				 	
 			$Property = APIJSONPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
 			$('#jsonEditorTable').append($Property); 		
@@ -689,6 +632,5 @@ function rebuildAPIsJSONEditor()
 		 $apicount++;										
 	});
 	
-	$apisJSONMaintainers = apisJSON['maintainers'];
-		
+	$apisJSONMaintainers = apisJSON['maintainers'];		
 	}
