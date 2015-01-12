@@ -412,7 +412,7 @@ function SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount,$pathverbpro
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';
 	
 
-	html = html + '<table border="1" width="70%" align="center" style="background-color:#CCC;">';
+	html = html + '<table border="0" width="70%" align="center" style="background-color:#CCC;">';
 	
     html = html + '<tr>';
     html = html + '<td>';	
@@ -439,10 +439,10 @@ function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_de
     html = '<tr>';
     html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
 
-    html = html + '<table cellpadding="3" cellspacing="2" border="1" width="70%">';
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="70%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="15%" style="font-size: 12px;"></td>';
+    html = html + '<td align="right" width="5%" style="font-size: 12px;"></td>';
     html = html + '<td align="left" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
     html = html + '<strong>' + $parameter_name + '</strong> (' + $parameter_in + ')' + ' (' + $parameter_type + ') - ' + $parameter_desc;
     html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property-' + $pathverbpropertycount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
@@ -463,10 +463,10 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
     html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property-' + $pathverbpropertycount + '" style="display: none;">';
     html = html + '<td align="center" valign="top" colspan="2">';
 
-    html = html + '<table cellpadding="3" cellspacing="2" border="1" width="70%" style="border: 1px solid #000;padding-top5px;">';
+    html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
     
     html = html + '<tr>';
-    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Edit Details</strong></td>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Edit Parameter</strong></td>';
     html = html + '</tr>'     
     
     html = html + '<tr>';
