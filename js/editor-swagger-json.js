@@ -1115,6 +1115,7 @@ function SwaggerAddDefinitionProperty($definitioncount)
 			{	
 			console.log("property: " + key1);
 			
+			$NewPropertyArray = {};
 			$NewPropertyArray['properties'] = {};
 			
 			$.each($MasterSwagger['definitions'][key1]['properties'], function(key2, val2) { 
