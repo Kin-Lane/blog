@@ -496,7 +496,7 @@ function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Required:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-required-add" style=""><option value="1">true</option><option value="0">false</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-required-add" style=""><option value="true">true</option><option value="false">false</option></select></td>';
     html = html + '</tr>'   
     
     html = html + '<tr>';
@@ -631,7 +631,7 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Required:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-required-edit" style=""><option value="' + $parameter_required + '">' + $parameter_required + '</option><option value="1">true</option><option value="0">false</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-required-edit" style=""><option value="' + $parameter_required + '">' + $parameter_required + '</option><option value="true">true</option><option value="false">false</option></select></td>';
     html = html + '</tr>'   
     
     html = html + '<tr>';
