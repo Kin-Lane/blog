@@ -1384,7 +1384,14 @@ function loadSwaggerditor()
 		 	// Definition Properties
 	     	$.each(definitionValue['properties'], function(definitionProperyKey, definitionPropertyValue) {      	 	
 
-          		$definition_property_desc = definitionPropertyValue['description'];
+				if(definitionPropertyValue['description'])
+					{
+          			$definition_property_desc = definitionPropertyValue['description'];
+          			}
+          		else
+          			{
+          			$definition_property_desc = "";	
+          			}
           		$definition_property_type = definitionPropertyValue['type'];	
 
 				$html = SwaggerGetDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount);
