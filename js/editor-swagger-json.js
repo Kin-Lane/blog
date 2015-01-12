@@ -334,7 +334,7 @@ function SwaggerGetAddPathVerb($pathcount)
 	return html; 			
 	}	
 	
-function SwaggerGetAddPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount)
+function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount)
 	{		
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
@@ -448,7 +448,7 @@ function loadSwaggerditor()
 				$SwaggerAPIPathVerbDesc = verbValue['description'];	     	 	
 				$SwaggerAPIPathVerbOperationId = verbValue['operationId'];
 				
-				$html = SwaggerGetAddPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
+				$html = SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
 				$('#swaggerEditorTable').append($html); 
 					     	 					
 				$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
