@@ -894,7 +894,7 @@ function SwaggerAddPathVerbTag($pathcount,$pathverbcount)
 		 
 	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-add').value;	
 
-	$TagArray = [$tag_definition];
+	$TagArray = [$tag];
 	
 	$p = 0;
 	$v = 0;
