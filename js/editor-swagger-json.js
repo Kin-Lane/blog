@@ -1153,6 +1153,53 @@ function SwaggerGetAddDefinitionProperty($definitioncount)
 	return html; 			
 	}
 
+function SwaggerGetDefinitionPropertyTitle($definitioncount)
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';	
+
+	html = html + '<table border="0" width="70%" align="center" style="background-color:#CCC;">';
+	
+    html = html + '<tr>';
+    html = html + '<td>';	
+	
+	html = html + '<span style="font-size:16px;">';
+	html = html + '<strong>Parameters</strong>';
+	html = html + '</span>';
+	
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';			
+	
+    html = html + '</td>';
+    html = html + '</tr>';		
+	
+	html = html + '</table>';
+	
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}		
+	
+function SwaggerGetDefinitionProperty($property_name,$property_description,$property_type,$definitioncount)
+	{		
+    html = '<tr>';
+    html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="70%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
+    html = html + '<strong>' + $parameter_name + '</strong> (' + $parameter_type + ') - ' + $property_description;
+    html = html + '<a href="#" onclick=$property_nameSwaggerShowMe(this); return false;" id="edit-definition-' + $definitioncount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
+    html = html + '</td>';
+    html = html + '</tr>';              
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}	
 
 function SwaggerSavePath($pathcount)
 	{
@@ -1338,7 +1385,10 @@ function loadSwaggerditor()
 	     	$.each(definitionValue['properties'], function(definitionProperyKey, definitionPropertyValue) {      	 	
 
           		$definition_property_desc = definitionPropertyValue['description'];
-          		$definition_property_type = definitionPropertyValue['type'];		
+          		$definition_property_type = definitionPropertyValue['type'];	
+
+				$html = SwaggerGetDefinitionProperty(definitionKey,$definition_property_desc,$definition_property_type,$definitioncount);
+				$('#swaggerEditorTable').append($html);		
 
 				});	 
 				
