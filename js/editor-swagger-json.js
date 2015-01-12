@@ -613,6 +613,8 @@ function loadSwaggerditor()
 					$html = SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount);
 					$('#swaggerEditorTable').append($html);	  	 
     	 
+    	 			$pathverbpropertycount++;
+    	 
     	 			});
     	 			
 			 	// Responses
