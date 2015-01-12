@@ -46,7 +46,7 @@ function APIJSONViewEdit()
 		
 		document.getElementById("jsonViewer").style.display='';
 		document.getElementById("jsonEditor").style.display='none';	
-		document.getElementById("questionsViewer").style.display='non		
+		document.getElementById("questionsViewer").style.display='none';	
 		}
 	}
 	
