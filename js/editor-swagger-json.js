@@ -375,16 +375,18 @@ function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	$path_verb_operationid = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit').value;	
 		
 	$MasterSwagger['paths'][$pathcount][$pathverbcount]['summary'] = $path_verb_summary;
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['description'] = $path_verb_desc;
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['operationId'] = $path_verb_operationid;
+	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['description'] = $path_verb_desc;
+	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['operationId'] = $path_verb_operationid;
 	
+	$Temp = JSON.stringify($MasterSwagger['paths'][$pathcount]);
+	console.log($Temp);
 	// Need a Rebuild
 
 	}		
 	
 function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount)
 	{		
-		
+	console.log($pathcount + ' - ' + $pathverbcount);	
     html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary" style="display: none;">';
     html = html + '<td align="center" valign="top" colspan="2">';
 
