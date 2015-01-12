@@ -1109,7 +1109,8 @@ function SwaggerAddDefinitionProperty($definitioncount)
 	
 	$dc = 0;
 	$dpc = 0;
-	$.each($MasterSwagger['definitions'], function(key1, val1) {   
+	$.each($MasterSwagger['definitions'], function(key1, val1) {  
+		 
 		if($definitioncount == $dc)
 			{	
 			console.log("property: " + key1);
@@ -1129,10 +1130,13 @@ function SwaggerAddDefinitionProperty($definitioncount)
 				});
 			
 			$RebuildPropertyArray.push($PropertyArray);
+			$PropertiesArray = {};
+			$PropertyArray['properties'] = $RebuildPropertyArray;
 			
-			$MasterSwagger['definitions'][key1]['properties'] = $RebuildPropertyArray;
+			$MasterSwagger['definitions'][key1] = $PropertyArray;
 			
 			}	
+			
 		 $dc++;	
 		});		
 	
