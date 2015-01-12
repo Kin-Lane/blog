@@ -958,7 +958,10 @@ function loadSwaggerditor()
     	 			});
     	 			
 				$html = SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount)
-				$('#swaggerEditorTable').append($html);    	 			
+				$('#swaggerEditorTable').append($html);  
+				
+				$html = SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount);
+				$('#swaggerEditorTable').append($html);					  	 			
     	 			
 			 	// Responses
 		     	$.each($SwaggerAPIPathVerbResponses, function(responseKey, responseValue) { 	     	 		     	 	
