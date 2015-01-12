@@ -1120,9 +1120,27 @@ function SwaggerAddDefinitionProperty($definitioncount)
 			
 			$.each($MasterSwagger['definitions'][key1]['properties'], function(key2, val2) { 
 			
+				if(val2['description'])
+					{
+					$description = val2['description'];	
+					}
+				else
+					{
+					$description = "";	
+					}	
+					
+				if(val2['type'])
+					{
+					$type = val2['type'];	
+					}
+				else
+					{
+					$type = "";	
+					}								
+					
 				$RebuildDetailArray = {};	  
-				$RebuildDetailArray['description'] = val2['description'];
-				$RebuildDetailArray['type'] = val2['type'];
+				$RebuildDetailArray['description'] = $description;
+				$RebuildDetailArray['type'] = $type;
 				
 				$ThisPropertyArray = {};	  
 				$ThisPropertyArray[key2] = $RebuildDetailArray;
@@ -1131,7 +1149,7 @@ function SwaggerAddDefinitionProperty($definitioncount)
 				
 				console.log($viewer);
 				
-				$NewPropertyArray['properties'].push($PropertyArray);
+				$NewPropertyArray['properties'].push($ThisPropertyArray);
 
 				});
 			
