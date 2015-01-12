@@ -35,6 +35,7 @@ function APIJSONViewEdit()
 		//console.log('switching to viewer');
 		document.getElementById("jsonViewer").style.display='none';
 		document.getElementById("jsonEditor").style.display='';
+		document.getElementById("questionsViewer").style.display='non
 		}	
 	else
 		{
@@ -44,9 +45,29 @@ function APIJSONViewEdit()
 		document.getElementById("jsonViewerDetails").value = $viewer;		
 		
 		document.getElementById("jsonViewer").style.display='';
-		document.getElementById("jsonEditor").style.display='none';			
+		document.getElementById("jsonEditor").style.display='none';	
+		document.getElementById("questionsViewer").style.display='non		
 		}
 	}
+	
+function Questions()
+	{
+	if(document.getElementById("questionsViewer").style.display=='')
+		{
+		document.getElementById("questionsViewer").style.display='none';
+		document.getElementById("jsonViewer").style.display='none';
+		document.getElementById("jsonEditor").style.display='';
+		}	
+	else
+		{
+		$viewer = JSON.stringify($MasterSwagger, null, 4);
+		document.getElementById("jsonViewerDetails").value = $viewer;		
+		
+		document.getElementById("questionsViewer").style.display='';
+		document.getElementById("jsonViewer").style.display='none';
+		document.getElementById("jsonEditor").style.display='none';			
+		}
+	}	
 
 function APISJSONSave()
 	{
