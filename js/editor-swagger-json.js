@@ -723,7 +723,7 @@ function SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount)
 	return html; 			
 	}		
 	
-function SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount,$pathverbresponsecount)
+function SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount)
 	{
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';	
@@ -956,7 +956,7 @@ function loadSwaggerditor()
     	 
     	 			});
     	 			
-				$html = SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount);
+				$html = SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount)
 				$('#swaggerEditorTable').append($html);    	 			
     	 			
 			 	// Responses
