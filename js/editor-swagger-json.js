@@ -388,14 +388,15 @@ function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 			if($pathcount == $p && $pathverbcount == $v)
 				{
 				console.log(key1 + ' - ' + key2 + ' - ' + val2);
+				$MasterSwagger['paths'][key1][key2]['summary'] = $path_verb_summary;
+				$MasterSwagger['paths'][key1][key2]['description'] = $path_verb_desc;
+				$MasterSwagger['paths'][key1][key2]['operationId'] = $path_verb_operationid;				
 				}
 			$v++;	
 		});	
 	 $p++;	
 	});
 	
-	$Temp = JSON.stringify($MasterSwagger['paths']);
-	console.log("Temp2: " + $Temp);
 	// Need a Rebuild
 
 	}		
