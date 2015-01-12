@@ -1461,7 +1461,10 @@ function loadSwaggerditor()
           		$definition_property_type = definitionPropertyValue['type'];	
 
 				$html = SwaggerGetDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount);
-				$('#swaggerEditorTable').append($html);		
+				$('#swaggerEditorTable').append($html);	
+				
+				$html = SwaggerGetEditDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount);
+				$('#swaggerEditorTable').append($html);							
 
 				});	 
 				
