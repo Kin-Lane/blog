@@ -22,7 +22,7 @@ if(login=='1')
 	
 	    $oAuth_Token = result.access_token;
 	        
-       	redirectURL = "http://stack-network.github.io/blogapi/editor-apis-json.html?oAuth_Token=" + $oAuth_Token;       
+       	redirectURL = "http://stack-network.github.io/blogapi/editor-swagger-json.html?oAuth_Token=" + $oAuth_Token;       
        	setTimeout(callback(redirectURL), 500);  	        
 		        	         
 		});                   			
@@ -39,7 +39,7 @@ if(login=='1')
 			<a href="#" onclick="SwaggerViewEdit(this); return false;" id="apis-json-icon" title="View Raw Swagger"><img src="https://s3.amazonaws.com/kinlane-productions/building-blocks/swagger.png" width="40" align="right" /></a>
 			<a href="#" onclick="SwaggerSave(); return false;" id="save-apisjson-icon-link" title="Save The Swagger"><img id="save-apisjson-icon" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-save-download-250.png" width="36" align="right" /></a>
 			
-			<a href="editor-apis-json.html?login=1"id="login-github-icon-link" title="Login w/ Github to Access"><img style="display: none;" id="login-github-icon" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-github.jpg" width="28" align="right" /></a>		
+			<p><a href="editor-swagger-json.html?login=1"id="login-github-icon-link" title="Login w/ Github to Access"><img style="display: none;" id="login-github-icon" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/bw-github.png" width="28" align="right" /></a></p>		
 		</td>		
 	</tr>
 </table>
