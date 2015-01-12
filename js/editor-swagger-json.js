@@ -410,7 +410,7 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
     html = html + '</tr>'               
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSavePathVerbDetailButton" value="Save" onclick="SwaggerSavePathVerbDetail();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSavePathVerbDetailButton" value="Save" onclick="SwaggerSavePathVerbDetail(' + $pathcount + ',' + $pathverbcount + ');" /></td>';
     html = html + '</tr>'                
 
     html = html + '</table>';
@@ -480,7 +480,7 @@ function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
     html = html + '</tr>'                    
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerAddSwaggerPathVerbParameterButton" value="Add" onclick="SwaggerAddPathVerbParameter();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerAddSwaggerPathVerbParameterButton" value="Add" onclick="SwaggerAddPathVerbParameter(' + $pathcount + ',' + $pathverbcount + ');" /></td>';
     html = html + '</tr>'                
 
     html = html + '</table>';;
@@ -595,7 +595,7 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
     html = html + '</tr>'                     
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditPathVerbParameterButton" value="Save" onclick="SwaggerEditPathVerbParameter();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditPathVerbParameterButton" value="Save" onclick="SwaggerEditPathVerbParameter(' + $pathcount + ',' + $pathverbcount + ',' + $pathverbpropertycount + ');" /></td>';
     html = html + '</tr>'                
 
     html = html + '</table>';
