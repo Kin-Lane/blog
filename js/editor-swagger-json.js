@@ -277,8 +277,7 @@ function SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount)
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';
 	
-	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-verb-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
-	
+
 	html = html + '<table border="0" width="80%" align="center" style="background-color:#CCC;">';
 	
     html = html + '<tr>';
@@ -286,11 +285,13 @@ function SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount)
 	
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $SwaggerAPIPathVerb + '</strong>';
-	//html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-icon" title="Add a Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	
-    html = html + '</tr>';
-    html = html + '</td>';		
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-verb-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
+		
+	
+    html = html + '</td>';
+    html = html + '</tr>';		
 	
 	html = html + '</table>';
 	
