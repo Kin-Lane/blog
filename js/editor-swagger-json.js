@@ -374,7 +374,7 @@ function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	$path_verb_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-edit').value;	
 	$path_verb_operationid = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit').value;	
 		
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['summary'] = $path_verb_summary;
+	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['summary'] = $path_verb_summary;
 	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['description'] = $path_verb_desc;
 	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['operationId'] = $path_verb_operationid;
 	
