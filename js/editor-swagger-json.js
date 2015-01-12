@@ -700,9 +700,9 @@ function SwaggerGetPathVerbResponse($response_code,$response_desc,$response_defi
 function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 	{
 		
-	$response_code = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-code-add').value;	
-	$response_description = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-description-add').value;
-	$response_definition = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-definition-add').value;
+	$response_code = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-code-add').value;	
+	$response_description = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-add').value;
+	$response_definition = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-definition-add').value;
 
 	$RefArray = {};	  
 	$APIPropertyArray['$ref'] = $response_definition
