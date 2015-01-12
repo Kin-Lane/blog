@@ -1144,7 +1144,9 @@ function SwaggerAddDefinitionProperty($definitioncount)
 				$ThisPropertyArray = {};	  
 				$ThisPropertyArray[key2] = $RebuildDetailArray;
 				
-				$NewPropertyArray.push($ThisPropertyArray);
+				//JSON.stringify();
+				
+				$NewPropertyArray = $ThisPropertyArray;
 
 				});
 			
