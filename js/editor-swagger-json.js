@@ -460,7 +460,7 @@ function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_de
 function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount)
 	{		
 		
-    html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property' + $pathverbpropertycount + '" style="display: none;">';
+    html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property-' + $pathverbpropertycount + '" style="display: none;">';
     html = html + '<td align="center" valign="top" colspan="2">';
 
     html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%" style="border: 1px solid #000;padding-top5px;">';
