@@ -287,7 +287,7 @@ function SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount)
 	html = html + '<strong>' + $SwaggerAPIPathVerb + '</strong>';
 	html = html + '</span>';
 	
-	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-verb-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
 		
 	
     html = html + '</td>';
@@ -365,7 +365,41 @@ function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerb
     html = html + '</tr>';  
 
 	return html; 			
-	}	
+	}		
+	
+function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount)
+	{		
+    html = '<tr>';
+    html = html + '<td align="center" valign="top" colspan="2" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary">';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Summary:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-api-version-edit" value="' + $SwaggerAPIPathVerbSummary + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-host-edit" value="' + $SwaggerAPIPathVerbDesc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>Operation ID:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-basepath-edit" value="' + $SwaggerAPIPathVerbOperationId + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'               
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSaveSwagger" value="Save" onclick="SwaggerSavePathVerbDetail();" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}		
 	
 function SwaggerSavePath($pathcount)
 	{
@@ -451,6 +485,9 @@ function loadSwaggerditor()
 				
 				$html = SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
 				$('#swaggerEditorTable').append($html); 
+								
+				$html = SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
+				$('#swaggerEditorTable').append($html);					     	 	
 					     	 					
 				$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
 				$SwaggerAPIPathVerbResponses = verbValue['responses'];					
