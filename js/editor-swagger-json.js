@@ -1077,7 +1077,66 @@ function SwaggerGetAddDefinition()
 	return html; 			
 	}		
 
+function SwaggerAddDefinitionProperty($definitioncount)
+	{
+		 
+	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-add').value;	
 
+	//$TagArray = [$tag];
+	
+	$p = 0;
+	$v = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) { 
+			if($pathcount == $p && $pathverbcount == $v)
+				{	
+				$MasterSwagger['paths'][key1][key2]['tags'].push($tag);
+				}	
+			$v++;	
+		});	
+	 $p++;	
+	});		
+	
+	// Need a Rebuild
+
+	}
+
+function SwaggerGetAddDefinitionProperty($definitioncount)
+	{		
+		
+	html = '<tr id="add-definition-' + $definitioncount + '-property" style="display: none;"><td align="center" colspan="2" style="">';
+
+    html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Add Property</strong></td>';
+    html = html + '</tr>'     
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-' + $definitioncount + '-name-add" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>' 
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-' + $definitioncount + '-description-add" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>' 
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Type:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-' + $definitioncount + '-type-add" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'                              
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerAddSwaggerPathVerbTagButton" value="Add" onclick="SwaggerAddDefinitionProperty(' + $definitioncount + ');" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';;
+    
+    html = html + '<br /></td></tr>';  
+    	
+	return html; 			
+	}
 
 
 function SwaggerSavePath($pathcount)
@@ -1256,6 +1315,9 @@ function loadSwaggerditor()
 	
 			$html =  SwaggerGetDefinitions(definitionKey,$definitioncount);
 			$('#swaggerEditorTable').append($html);	
+			
+			$html =  SwaggerGetAddDefinitionProperty($definitioncount);
+			$('#swaggerEditorTable').append($html);				
 
 		 	// Definition Properties
 	     	$.each(definitionValue['properties'], function(definitionProperyKey, definitionPropertyValue) {      	 	
