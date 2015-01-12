@@ -41,7 +41,8 @@
           }
         },
         "tags": [
-          "Instance"
+          "blog",
+          "blogging"
         ]
       },
       "post": {
@@ -90,7 +91,8 @@
           }
         },
         "tags": [
-          "blog"
+          "blog",
+          "blogging"
         ]
       }
     },
@@ -120,7 +122,8 @@
           }
         },
         "tags": [
-          "blog"
+          "blog",
+          "blogging"
         ]
       },
       "put": {
@@ -134,7 +137,7 @@
             "description": "unique slug for the blog",
             "required": true,
             "type": "string"
-          },        
+          },
           {
             "name": "name",
             "in": "query",
@@ -176,7 +179,8 @@
           }
         },
         "tags": [
-          "blog"
+          "blog",
+          "blogging"
         ]
       },
       "delete": {
@@ -204,7 +208,8 @@
           }
         },
         "tags": [
-          "blog"
+          "blog",
+          "blogging"
         ]
       }
     }
