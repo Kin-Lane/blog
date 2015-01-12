@@ -369,7 +369,7 @@ function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerb
 	
 function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	{
-		
+	console.log($pathcount + ' - ' + $pathverbcount);
 	$path_verb_summary = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-edit').value;	
 	$path_verb_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-edit').value;	
 	$path_verb_operationid = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit').value;	
