@@ -1094,18 +1094,24 @@ function SwaggerGetAddDefinition()
 
 function SwaggerAddDefinitionProperty($definitioncount)
 	{
-	console.log($definitioncount);
+
 	$property_name = document.getElementById('swagger-api-definition-' + $definitioncount + '-name-add').value;
 	$property_description = document.getElementById('swagger-api-definition-' + $definitioncount + '-description-add').value
 	$property_type = document.getElementById('swagger-api-definition-' + $definitioncount + '-type-add').value	
 
+	$PropertyDetailArray = {};	  
+	$PropertyDetailArray['description'] = $property_description;
+	$PropertyDetailArray['type'] = $property_type;
+	
+	$PropertyArray = {};	  
+	$PropertyArray[$property_name] = $PropertyDetailArray;	
+	
 	$dc = 0;
 	$dpc = 0;
 	$.each($MasterSwagger['definitions'], function(key1, val1) {   
 	if($definitioncount == $dc)
 		{	
-		$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['description'] = $property_description;
-		$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['type'] = $property_type;
+		$MasterSwagger['definitions'][key1]['properties'].push($PropertyArray);
 		}	
 	 $dc++;	
 	});		
