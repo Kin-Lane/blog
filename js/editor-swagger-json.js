@@ -565,7 +565,7 @@ function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_de
 	
 function SwaggerEditPathVerbParameter($pathcount,$pathverbcount,$pathverbpropertycount)
 	{
-		
+	console.log("saving!");
 	$parameter_name = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-name-edit').value;	
 	$parameter_in = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-in-edit').value;	
 	$parameter_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-description-edit').value;
