@@ -1018,7 +1018,7 @@ function SwaggerGetDefinitions($definition,$definitioncount)
 	html = '<tr style="background-color:#CCC;">';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $tag + '</strong>';    
+	html = html + '<strong>' + $definition + '</strong>';    
 	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-definition-' + $definitioncount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';							
 	html = html + '</span>';
 	html = html + '</td>';
