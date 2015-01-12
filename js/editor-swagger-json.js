@@ -419,7 +419,7 @@ function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" style="width: 100%; height: 100%; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" style="width: 90%; height: 50px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
@@ -429,7 +429,7 @@ function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" style="width: 100%; height: 100%; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" style="width: 90%; height: 75px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
