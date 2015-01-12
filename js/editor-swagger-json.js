@@ -1211,25 +1211,27 @@ function SwaggerGetDefinitionProperty($property_name,$property_description,$prop
 function SwaggerEditDefinitionProperty($definitioncount,$definitionpropertycount)
 	{
 
-	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbtagcount + '-tag-edit').value;	
+	$property_name = document.getElementById('swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-name-edit').value;
+	$property_description = document.getElementById('swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-description-edit').value;	
+	$property_type = document.getElementById('swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-type-edit').value;		
 
-	$p = 0;
-	$v = 0;
-	$pp = 0;
-	$.each($MasterSwagger['paths'], function(key1, val1) {  
-		$.each(val1, function(key2, val2) {  
-			$.each(val2['tags'], function(key3, val3) { 
-				if($pathcount == $p && $pathverbcount == $v && $pathverbtagcount == $pp)
-					{
-					$ref = '$' + 'ref'; 	
-					$MasterSwagger['paths'][key1][key2]['tags'][key3] = $tag;	
-					}
-				 $pp++;
-				});	
-			$v++;	
+	$dc = 0;
+	$dpc = 0;
+	$.each($MasterSwagger['definitions'], function(key1, val1) {
+		$.each(val1, function(key2, val2) {    
+			 
+			if($definitioncount == $dc && $definitionpropertycount == $dpc)
+				{	
+				console.log(key1 + ' - ' + key2);
+
+				$MasterSwagger['definitions'][key1]['properties'][$property_name]['description'] = $property_description;
+				$MasterSwagger['definitions'][key1]['properties'][$property_name]['type'] = $property_type;
+				
+				}	
+			 $dpc++;	
+			});			
+		 $dc++;	
 		});	
-	 $p++;	
-	});
 
 	// Need a Rebuild
 
@@ -1249,17 +1251,17 @@ function SwaggerGetEditDefinitionProperty($property_name,$property_description,$
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-' + $definitioncount + '-name-edit" value="' + $parameter_name + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-name-edit" value="' + $parameter_name + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'  
         
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-definition-' + $definitioncount + '-type-edit" value="' + $parameter_desc + '" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-description-edit" value="' + $parameter_desc + '" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'        
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;""><strong>Type:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-api-definition-' + $definitioncount + '-description-edit" style=""><option value="' + $property_type + '">' + $property_type + '</option><option value="string">string</option><option value="integer">integer</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-type-edit" style=""><option value="' + $property_type + '">' + $property_type + '</option><option value="string">string</option><option value="integer">integer</option></select></td>';
     html = html + '</tr>'                        
     
     html = html + '<tr>';
