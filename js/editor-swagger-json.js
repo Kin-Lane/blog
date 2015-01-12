@@ -876,7 +876,7 @@ function SwaggerGetPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount)
     
     html = html + '<tr>';
     html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
-    html = html + '<strong>' + $tag_code + '</strong> - ' + $tag_desc + ' - ' + $tag_definition;
+    html = html + '<strong>' + $tag + '</strong>';
     html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-' + $pathverbtagcount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
     html = html + '</td>';
     html = html + '</tr>';              
