@@ -345,18 +345,18 @@ function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerb
     html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Summary:</strong></td>';
-    html = html + '<td align="left" id="swagger-header-swagger-version-view" style="font-size: 12px;">' + $SwaggerAPIPathVerbSummary + '</td>';
+    html = html + '<td align="right" width="25%" style="font-size: 14px;"><strong>Summary:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-swagger-version-view" style="font-size: 14px;">' + $SwaggerAPIPathVerbSummary + '</td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" id="swagger-header-title-view" style="font-size: 12px;">' + $SwaggerAPIPathVerbDesc + '</td>';
+    html = html + '<td align="right" width="25%" style="font-size: 14px;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-title-view" style="font-size: 14px;">' + $SwaggerAPIPathVerbDesc + '</td>';
     html = html + '</tr>';   
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Operation ID:</strong></td>';
-    html = html + '<td align="left" id="swagger-header-desc-view" style="font-size: 12px;">' + $SwaggerAPIPathVerbOperationId + '</td>';
+    html = html + '<td align="right" width="25%" style="font-size: 14px;"><strong>Operation ID:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-desc-view" style="font-size: 14px;">' + $SwaggerAPIPathVerbOperationId + '</td>';
     html = html + '</tr>';                
 
     html = html + '</table>';
@@ -416,7 +416,7 @@ function SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount,$pathverbpro
     html = html + '<tr>';
     html = html + '<td>';	
 	
-	html = html + '<span style="font-size:20px;">';
+	html = html + '<span style="font-size:16px;">';
 	html = html + '<strong>Parameters</strong>';
 	html = html + '</span>';
 	
