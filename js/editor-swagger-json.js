@@ -1094,7 +1094,7 @@ function SwaggerGetAddDefinition()
 
 function SwaggerAddDefinitionProperty($definitioncount,$definitionpropertycount)
 	{
-		 
+	console.log($definitioncount + ' - ' + $definitionpropertycount);
 	$property_name = document.getElementById('swagger-api-definition-' + $definitioncount + '-name-add').value;
 	$property_description = document.getElementById('swagger-api-definition-' + $definitioncount + '-description-add').value
 	$property_type = document.getElementById('swagger-api-definition-' + $definitioncount + '-type-add').value	
@@ -1180,7 +1180,7 @@ function SwaggerGetDefinitionPropertyTitle($definitioncount)
 	return html; 			
 	}		
 	
-function SwaggerGetDefinitionProperty($property_name,$property_description,$property_type,$definitioncount)
+function SwaggerGetDefinitionProperty($property_name,$property_description,$property_type,$definitioncount,$definitionpropertycount)
 	{		
     html = '<tr>';
     html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
@@ -1202,7 +1202,7 @@ function SwaggerGetDefinitionProperty($property_name,$property_description,$prop
 	return html; 			
 	}	
 	
-function SwaggerEditDefinitionProperty($definitioncountt)
+function SwaggerEditDefinitionProperty($definitioncount,$definitionpropertycount)
 	{
 
 	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbtagcount + '-tag-edit').value;	
@@ -1229,7 +1229,7 @@ function SwaggerEditDefinitionProperty($definitioncountt)
 
 	}	
 	
-function SwaggerGetEditDefinitionProperty($property_name,$property_description,$property_type,$definitioncount)
+function SwaggerGetEditDefinitionProperty($property_name,$property_description,$property_type,$definitioncount,$definitionpropertycount)
 	{		
 		
     html = '<tr id="edit-definition-' + $definitioncount + '" style="display: none;">';
@@ -1463,10 +1463,10 @@ function loadSwaggerditor()
           			}
           		$definition_property_type = definitionPropertyValue['type'];	
 
-				$html = SwaggerGetDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount);
+				$html = SwaggerGetDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount,$definitionpropertycount);
 				$('#swaggerEditorTable').append($html);	
 				
-				$html = SwaggerGetEditDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount);
+				$html = SwaggerGetEditDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount,$definitionpropertycount);
 				$('#swaggerEditorTable').append($html);							
 
 				$definitionpropertycount++;
