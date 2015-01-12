@@ -313,6 +313,7 @@ function SwaggerAddPathVerb()
 	$MasterSwagger['paths'].push($PathArray);
 	
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}		
 	
@@ -393,6 +394,7 @@ function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	});
 	
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}		
 	
@@ -465,6 +467,7 @@ function SwaggerAddPathVerbParameter($pathcount,$pathverbcount)
 	});	
 	
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}	
 	
@@ -597,6 +600,7 @@ function SwaggerEditPathVerbParameter($pathcount,$pathverbcount,$pathverbpropert
 	});
 
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}	
 	
@@ -731,6 +735,7 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 	});		
 	
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}
 
@@ -799,6 +804,7 @@ function SwaggerEditPathVerbResponse($pathcount,$pathverbcount,$pathverbresponse
 	});
 
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}	
 	
@@ -912,6 +918,7 @@ function SwaggerAddPathVerbTag($pathcount,$pathverbcount)
 	});		
 	
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}
 
@@ -966,6 +973,7 @@ function SwaggerEditPathVerbTag($pathcount,$pathverbcount,$pathverbtagcount)
 	});
 
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}	
 	
@@ -1062,6 +1070,7 @@ function SwaggerAddDefinition()
 	});		
 	
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}
 
@@ -1120,6 +1129,7 @@ function SwaggerAddDefinitionProperty($definitioncount)
 		});		
 	
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}
 
@@ -1220,10 +1230,10 @@ function SwaggerEditDefinitionProperty($definitioncount,$definitionpropertycount
 	$.each($MasterSwagger['definitions'], function(key1, val1) {
 		$dpc = 0;
 		$.each(val1, function(key2, val2) {    
-			 console.log($definitioncount + ' == ' + $dc + ' && ' + $definitionpropertycount + ' == ' + $dpc);
+			//console.log($definitioncount + ' == ' + $dc + ' && ' + $definitionpropertycount + ' == ' + $dpc);
 			if($definitioncount == $dc && $definitionpropertycount == $dpc)
 				{	
-				console.log(key1 + ' - ' + key2);
+				//console.log(key1 + ' - ' + key2);
 
 				$MasterSwagger['definitions'][key1]['properties'][$property_name]['description'] = $property_description;
 				$MasterSwagger['definitions'][key1]['properties'][$property_name]['type'] = $property_type;
@@ -1235,6 +1245,7 @@ function SwaggerEditDefinitionProperty($definitioncount,$definitionpropertycount
 		});	
 
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}	
 	
@@ -1287,11 +1298,12 @@ function SwaggerSavePath($pathcount)
 	$MasterSwagger['paths'].push($PathArray);
 	
 	// Need a Rebuild
+	rebuildSwaggerditor();
 
 	}		
 	
 
-function loadSwaggerditor()
+function loadSwaggerditor($apisjsonURL)
     {
 
     $apisjsonURL = 'definitions/swagger.json';
@@ -1304,187 +1316,8 @@ function loadSwaggerditor()
 		$viewer = JSON.stringify(Swagger, null, 4);
 		document.getElementById("jsonViewerDetails").value = $viewer;
 
-	 	$SwaggerVersion = Swagger['swagger'];	 	
-	 	$SwaggerAPITitle = Swagger['info']['title'];
-
-	 	$SwaggerAPIDesc = Swagger['info']['description'];
-	 	$SwaggerAPITOS = Swagger['info']['termsOfService'];
-	 	$SwaggerAPIVersion = Swagger['info']['version'];
-	 	
-	 	$SwaggerAPIHost = Swagger['host'];
-	 	$SwaggerAPIBasePath = Swagger['basePath'];
-	 	
- 		$html = SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath);	 	
-    	$('#swaggerEditorTable').append($html); 
-    	
- 		$html = SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath);	 	
-    	$('#swaggerEditorTable').append($html);     		 	
-	 	
-	 	$SwaggerAPISchemes = Swagger['schemes'];
-	 	$SwaggerAPIProduces = Swagger['produces'];
-	 	
-	 	$SwaggerAPIPaths = Swagger['paths'];
-	 	$SwaggerAPIDefinitions = Swagger['definitions'];
-	 		 	
-	    $pathTitle = "Paths";
- 		$html = SwaggerGetPathTitle($pathTitle);
-    	$('#swaggerEditorTable').append($html); 
-    	    	
- 		$html = SwaggerGetAddPath();
-    	$('#swaggerEditorTable').append($html);     	
-
-	 	// Paths
-     	$.each($SwaggerAPIPaths, function(pathKey, pathValue) { 
-
-     	 	$SwaggerAPIPathName = pathKey;
-
- 			$html = SwaggerGetPath($SwaggerAPIPathName,$pathcount);
-    		$('#swaggerEditorTable').append($html);  
-    		
- 			$html = SwaggerGetAddPathVerb($pathcount);
-    		$('#swaggerEditorTable').append($html);       		    		  	 	
-     	 	
-		 	// Verbs
-	     	$.each(pathValue, function(verbKey, verbValue) { 
-	
-	     	 	$SwaggerAPIPathVerb = verbKey;	
-		     	 	
-	 			$html = SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount);
-	    		$('#swaggerEditorTable').append($html); 	     	 	     	 	
-		     	 	
-				$SwaggerAPIPathVerbSummary = verbValue['summary'];
-				$SwaggerAPIPathVerbDesc = verbValue['description'];	     	 	
-				$SwaggerAPIPathVerbOperationId = verbValue['operationId'];
-				
-				$html = SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
-				$('#swaggerEditorTable').append($html); 
-								
-				$html = SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
-				$('#swaggerEditorTable').append($html);					     	 	
-					     	 					
-				$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
-				$SwaggerAPIPathVerbResponses = verbValue['responses'];					
-				$SwaggerAPIPathVerbTags = verbValue['tags'];	
-	 		     
-				$html = SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount);
-				$('#swaggerEditorTable').append($html);	 
-				
-				$html = SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount);
-				$('#swaggerEditorTable').append($html);					
-	     	 	
-			 	// Parameters
-		     	$.each($SwaggerAPIPathVerbParameters, function(parameterKey, parameterValue) { 	     	 		     	 	
-		     		
-            		$parameter_name = parameterValue['name'];
-            		$parameter_in = parameterValue['in']; 
-            		$parameter_desc = parameterValue['description']; 
-            		$parameter_required = parameterValue['required'];
-            		$parameter_type = parameterValue['type'];         	 		
-	     	 		
-					$html = SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount);
-					$('#swaggerEditorTable').append($html); 
-									
-					$html = SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount);
-					$('#swaggerEditorTable').append($html);	  	 
-    	 
-    	 			$pathverbpropertycount++;
-    	 
-    	 			});
-    	 			
-				$html = SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount)
-				$('#swaggerEditorTable').append($html);  
-				
-				$html = SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount);
-				$('#swaggerEditorTable').append($html);					  	 			
-    	 			
-			 	// Responses
-		     	$.each($SwaggerAPIPathVerbResponses, function(responseKey, responseValue) { 	     	 		     	 	
-		     	 		     	 
-		     	 	$response_code = responseKey;	 
-		     	 	$response_desc = responseValue['description'];    	
-		     	 	$ref = '$' + 'ref'; 
-		     	 	$response_definition = responseValue['schema']['items'][$ref];
-
-					$html = SwaggerGetPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount);
-					$('#swaggerEditorTable').append($html); 
-									
-					$html = SwaggerGetEditPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount);
-					$('#swaggerEditorTable').append($html);	     	 		 	 
-    	 
-    	 			$pathverbresponsecount++;
-    	 
-    	 			});    
-    	 			
-				$html = SwaggerGetPathVerbTagTitle($pathcount,$pathverbcount)
-				$('#swaggerEditorTable').append($html);  
-				
-				$html = SwaggerGetAddPathVerbTag($pathcount,$pathverbcount);
-				$('#swaggerEditorTable').append($html);	    	 			
-    	 			
-			 	// Tags
-		     	$.each($SwaggerAPIPathVerbTags, function(tagKey, $tag) { 	     	 		     	 		 
-	 
-					$html = SwaggerGetPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount);
-					$('#swaggerEditorTable').append($html); 
-									
-					$html = SwaggerGetEditPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount);
-					$('#swaggerEditorTable').append($html);	     	 		 	 
-    	 
-    	 			$pathverbtagcount++;			     			    	 				 		    	 			    	 
-
-    	 			});       	 				 			
-    	 		
-    	 		$pathverbcount++;
-    	 			
-     	 		}); 
-     	 		
-     	 	$pathcount++;	
-     	 		    	 
-     	 	});
-     	 	
-		$html = SwaggerGetDefinitionsTitle()
-		$('#swaggerEditorTable').append($html);  
-		
-		$html = SwaggerGetAddDefinition();
-		$('#swaggerEditorTable').append($html);	     	 		
-     	 	
-	 	// Definitions
-     	$.each($SwaggerAPIDefinitions, function(definitionKey, definitionValue) {      	 	
-	
-			$definitionpropertycount = 0;
-	
-			$html =  SwaggerGetDefinitions(definitionKey,$definitioncount);
-			$('#swaggerEditorTable').append($html);	
-			
-			$html =  SwaggerGetAddDefinitionProperty($definitioncount);
-			$('#swaggerEditorTable').append($html);				
-
-		 	// Definition Properties
-	     	$.each(definitionValue['properties'], function(definitionProperyKey, definitionPropertyValue) {      	 	
-
-				if(definitionPropertyValue['description'])
-					{
-          			$definition_property_desc = definitionPropertyValue['description'];
-          			}
-          		else
-          			{
-          			$definition_property_desc = "";	
-          			}
-          		$definition_property_type = definitionPropertyValue['type'];	
-
-				$html = SwaggerGetDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount,$definitionpropertycount);
-				$('#swaggerEditorTable').append($html);	
-				
-				$html = SwaggerGetEditDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount,$definitionpropertycount);
-				$('#swaggerEditorTable').append($html);							
-
-				$definitionpropertycount++;
-				
-				});	 
-				
-			$definitioncount++;			
-
-			});	     	 		 	
+		buildSwaggerEditor(Swagger);
+	     	 		 	
 	});	
 
 	// Set another completion function for the request above
@@ -1499,6 +1332,191 @@ function loadSwaggerditor()
 function rebuildSwaggerditor()
     {
     	
-	
+	buildSwaggerEditor($MasterSwagger);	
 		
+	}
+	
+function buildSwaggerEditor(Swagger)
+	{
+ 	$SwaggerVersion = Swagger['swagger'];	 	
+ 	$SwaggerAPITitle = Swagger['info']['title'];
+
+ 	$SwaggerAPIDesc = Swagger['info']['description'];
+ 	$SwaggerAPITOS = Swagger['info']['termsOfService'];
+ 	$SwaggerAPIVersion = Swagger['info']['version'];
+ 	
+ 	$SwaggerAPIHost = Swagger['host'];
+ 	$SwaggerAPIBasePath = Swagger['basePath'];
+ 	
+	$html = SwaggerGetHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath);	 	
+	$('#swaggerEditorTable').append($html); 
+	
+	$html = SwaggerGetEditHeader($SwaggerVersion,$SwaggerAPITitle,$SwaggerAPIDesc,$SwaggerAPITOS,$SwaggerAPIVersion,$SwaggerAPIHost,$SwaggerAPIBasePath);	 	
+	$('#swaggerEditorTable').append($html);     		 	
+ 	
+ 	$SwaggerAPISchemes = Swagger['schemes'];
+ 	$SwaggerAPIProduces = Swagger['produces'];
+ 	
+ 	$SwaggerAPIPaths = Swagger['paths'];
+ 	$SwaggerAPIDefinitions = Swagger['definitions'];
+ 		 	
+    $pathTitle = "Paths";
+	$html = SwaggerGetPathTitle($pathTitle);
+	$('#swaggerEditorTable').append($html); 
+	    	
+	$html = SwaggerGetAddPath();
+	$('#swaggerEditorTable').append($html);     	
+
+ 	// Paths
+ 	$.each($SwaggerAPIPaths, function(pathKey, pathValue) { 
+
+ 	 	$SwaggerAPIPathName = pathKey;
+
+		$html = SwaggerGetPath($SwaggerAPIPathName,$pathcount);
+		$('#swaggerEditorTable').append($html);  
+		
+		$html = SwaggerGetAddPathVerb($pathcount);
+		$('#swaggerEditorTable').append($html);       		    		  	 	
+ 	 	
+	 	// Verbs
+     	$.each(pathValue, function(verbKey, verbValue) { 
+
+     	 	$SwaggerAPIPathVerb = verbKey;	
+	     	 	
+ 			$html = SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount);
+    		$('#swaggerEditorTable').append($html); 	     	 	     	 	
+	     	 	
+			$SwaggerAPIPathVerbSummary = verbValue['summary'];
+			$SwaggerAPIPathVerbDesc = verbValue['description'];	     	 	
+			$SwaggerAPIPathVerbOperationId = verbValue['operationId'];
+			
+			$html = SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
+			$('#swaggerEditorTable').append($html); 
+							
+			$html = SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount);
+			$('#swaggerEditorTable').append($html);					     	 	
+				     	 					
+			$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
+			$SwaggerAPIPathVerbResponses = verbValue['responses'];					
+			$SwaggerAPIPathVerbTags = verbValue['tags'];	
+ 		     
+			$html = SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount);
+			$('#swaggerEditorTable').append($html);	 
+			
+			$html = SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount);
+			$('#swaggerEditorTable').append($html);					
+     	 	
+		 	// Parameters
+	     	$.each($SwaggerAPIPathVerbParameters, function(parameterKey, parameterValue) { 	     	 		     	 	
+	     		
+        		$parameter_name = parameterValue['name'];
+        		$parameter_in = parameterValue['in']; 
+        		$parameter_desc = parameterValue['description']; 
+        		$parameter_required = parameterValue['required'];
+        		$parameter_type = parameterValue['type'];         	 		
+     	 		
+				$html = SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount);
+				$('#swaggerEditorTable').append($html); 
+								
+				$html = SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount);
+				$('#swaggerEditorTable').append($html);	  	 
+	 
+	 			$pathverbpropertycount++;
+	 
+	 			});
+	 			
+			$html = SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount)
+			$('#swaggerEditorTable').append($html);  
+			
+			$html = SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount);
+			$('#swaggerEditorTable').append($html);					  	 			
+	 			
+		 	// Responses
+	     	$.each($SwaggerAPIPathVerbResponses, function(responseKey, responseValue) { 	     	 		     	 	
+	     	 		     	 
+	     	 	$response_code = responseKey;	 
+	     	 	$response_desc = responseValue['description'];    	
+	     	 	$ref = '$' + 'ref'; 
+	     	 	$response_definition = responseValue['schema']['items'][$ref];
+
+				$html = SwaggerGetPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount);
+				$('#swaggerEditorTable').append($html); 
+								
+				$html = SwaggerGetEditPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount);
+				$('#swaggerEditorTable').append($html);	     	 		 	 
+	 
+	 			$pathverbresponsecount++;
+	 
+	 			});    
+	 			
+			$html = SwaggerGetPathVerbTagTitle($pathcount,$pathverbcount)
+			$('#swaggerEditorTable').append($html);  
+			
+			$html = SwaggerGetAddPathVerbTag($pathcount,$pathverbcount);
+			$('#swaggerEditorTable').append($html);	    	 			
+	 			
+		 	// Tags
+	     	$.each($SwaggerAPIPathVerbTags, function(tagKey, $tag) { 	     	 		     	 		 
+ 
+				$html = SwaggerGetPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount);
+				$('#swaggerEditorTable').append($html); 
+								
+				$html = SwaggerGetEditPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount);
+				$('#swaggerEditorTable').append($html);	     	 		 	 
+	 
+	 			$pathverbtagcount++;			     			    	 				 		    	 			    	 
+
+	 			});       	 				 			
+	 		
+	 		$pathverbcount++;
+	 			
+ 	 		}); 
+ 	 		
+ 	 	$pathcount++;	
+ 	 		    	 
+ 	 	});
+ 	 	
+	$html = SwaggerGetDefinitionsTitle()
+	$('#swaggerEditorTable').append($html);  
+	
+	$html = SwaggerGetAddDefinition();
+	$('#swaggerEditorTable').append($html);	     	 		
+ 	 	
+ 	// Definitions
+ 	$.each($SwaggerAPIDefinitions, function(definitionKey, definitionValue) {      	 	
+
+		$definitionpropertycount = 0;
+
+		$html =  SwaggerGetDefinitions(definitionKey,$definitioncount);
+		$('#swaggerEditorTable').append($html);	
+		
+		$html =  SwaggerGetAddDefinitionProperty($definitioncount);
+		$('#swaggerEditorTable').append($html);				
+
+	 	// Definition Properties
+     	$.each(definitionValue['properties'], function(definitionProperyKey, definitionPropertyValue) {      	 	
+
+			if(definitionPropertyValue['description'])
+				{
+      			$definition_property_desc = definitionPropertyValue['description'];
+      			}
+      		else
+      			{
+      			$definition_property_desc = "";	
+      			}
+      		$definition_property_type = definitionPropertyValue['type'];	
+
+			$html = SwaggerGetDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount,$definitionpropertycount);
+			$('#swaggerEditorTable').append($html);	
+			
+			$html = SwaggerGetEditDefinitionProperty(definitionProperyKey,$definition_property_desc,$definition_property_type,$definitioncount,$definitionpropertycount);
+			$('#swaggerEditorTable').append($html);							
+
+			$definitionpropertycount++;
+			
+			});	 
+			
+		$definitioncount++;			
+
+		});	
 	}
