@@ -1005,7 +1005,7 @@ function SwaggerGetDefinitionsTitle()
 	html = '<tr style="background-color:#CCC;">';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
-	html = html + '<strong>' + $pathTitle + '</strong>';
+	html = html + '<strong>Definitions (Data Models)</strong>';
 	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-definition-icon" title="Add a Path"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
