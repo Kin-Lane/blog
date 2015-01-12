@@ -4,6 +4,7 @@ $pathcount = 0;
 $pathverbcount = 0;
 $pathverbpropertycount = 0;
 $pathverbresponsecount = 0;
+$pathverbtagcount = 0;
 	 	
 // The Master 
 $MasterSwagger = {};
@@ -646,9 +647,8 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
 	return html; 			
 	}	
 	
-// Response
 	
-	
+// Response	
 function SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount)
 	{
 	html = '<tr>';
@@ -684,7 +684,7 @@ function SwaggerGetPathVerbResponse($response_code,$response_desc,$response_defi
     
     html = html + '<tr>';
     html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
-    html = html + '<strong>' + $response_code + '</strong> (' + $response_definition + ') - ' + $response_desc;
+    html = html + '<strong>' + $response_code + '</strong> - ' + $response_desc + ' - ' + $response_definition;
     html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-' + $pathverbresponsecount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
     html = html + '</td>';
     html = html + '</tr>';              
@@ -708,16 +708,13 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 	$RefArray['$ref'] = $response_definition
 
 	$SchemaArray = {};	  
-	$SchemaArray['type'] = $response_definition
+	$SchemaArray['type'] = "array";
 	$SchemaArray['items'] = $RefArray
 
 	$CodeArray = {};	  
 	$CodeArray['description'] = $response_description;
 	$CodeArray['schema'] = $SchemaArray;
 
-	//$ThisCodeArray = {};	  
-	//$ThisCodeArray[$response_code] = $CodeArray
-	
 	$p = 0;
 	$v = 0;
 	$.each($MasterSwagger['paths'], function(key1, val1) {  
@@ -832,6 +829,163 @@ function SwaggerGetEditPathVerbResponse($response_code,$response_desc,$response_
     
     html = html + '<tr>';
     html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditPathVerbParameterButton" value="Save" onclick="SwaggerEditPathVerbParameter(' + $pathcount + ',' + $pathverbcount + ',' + $pathverbresponsecount + ');" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}	
+	
+
+// Tags
+function SwaggerGetPathVerbTagTitle($pathcount,$pathverbcount)
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';	
+
+	html = html + '<table border="0" width="70%" align="center" style="background-color:#CCC;">';
+	
+    html = html + '<tr>';
+    html = html + '<td>';	
+	
+	html = html + '<span style="font-size:16px;">';
+	html = html + '<strong>Tags</strong>';
+	html = html + '</span>';
+	
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-icon" title="Edit Swagger Tag"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';			
+	
+    html = html + '</td>';
+    html = html + '</tr>';		
+	
+	html = html + '</table>';
+	
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}		
+	
+function SwaggerGetPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount)
+	{		
+    html = '<tr>';
+    html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="70%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
+    html = html + '<strong>' + $tag_code + '</strong> - ' + $tag_desc + ' - ' + $tag_definition;
+    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-' + $pathverbtagcount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
+    html = html + '</td>';
+    html = html + '</tr>';              
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}		
+	
+function SwaggerAddPathVerbTag($pathcount,$pathverbcount)
+	{
+		 
+	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-add').value;	
+
+	$TagArray = [$tag_definition];
+	
+	$p = 0;
+	$v = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) { 
+			if($pathcount == $p && $pathverbcount == $v)
+				{	
+				$MasterSwagger['paths'][key1][key2]['tags'].push($TagArray);
+				}	
+			$v++;	
+		});	
+	 $p++;	
+	});		
+	
+	// Need a Rebuild
+
+	}
+
+function SwaggerGetAddPathVerbTag($pathcount,$pathverbcount)
+	{		
+		
+	html = '<tr id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag" style="display: none;"><td align="center" colspan="2" style="">';
+
+    html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Add Tag</strong></td>';
+    html = html + '</tr>'     
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Tag:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-add" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'                      
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerAddSwaggerPathVerbTagButton" value="Add" onclick="SwaggerAddPathVerbTag(' + $pathcount + ',' + $pathverbcount + ');" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';;
+    
+    html = html + '<br /></td></tr>';  
+    	
+	return html; 			
+	}		
+	
+function SwaggerEditPathVerbTag($pathcount,$pathverbcount,$pathverbtagcount)
+	{
+
+	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbtagcount + '-tag-edit').value;	
+
+	$p = 0;
+	$v = 0;
+	$pp = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) {  
+			$.each(val2['tags'], function(key3, val3) { 
+				if($pathcount == $p && $pathverbcount == $v && $pathverbtagcount == $pp)
+					{
+					$ref = '$' + 'ref'; 	
+					$MasterSwagger['paths'][key1][key2]['tags'][key3] = $tag;	
+					}
+				 $pp++;
+				});	
+			$v++;	
+		});	
+	 $p++;	
+	});
+
+	// Need a Rebuild
+
+	}	
+	
+function SwaggerGetEditPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount)
+	{		
+		
+    html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-' + $pathverbtagcount + '" style="display: none;">';
+    html = html + '<td align="center" valign="top" colspan="2">';
+
+    html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Edit Tag</strong></td>';
+    html = html + '</tr>'     
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Code:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbtagcount + '-tag-edit" value="' + $tag + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'                              
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditPathVerbParameterButton" value="Save" onclick="SwaggerEditPathVerbParameter(' + $pathcount + ',' + $pathverbcount + ',' + $pathverbtagcount + ');" /></td>';
     html = html + '</tr>'                
 
     html = html + '</table>';
@@ -981,10 +1135,24 @@ function loadSwaggerditor()
     	 
     	 			});    
     	 			
+				$html = SwaggerGetPathVerbTagTitle($pathcount,$pathverbcount)
+				$('#swaggerEditorTable').append($html);  
+				
+				$html = SwaggerGetAddPathVerbTag($pathcount,$pathverbcount);
+				$('#swaggerEditorTable').append($html);	    	 			
+    	 			
 			 	// Tags
 		     	$.each($SwaggerAPIPathVerbTags, function(tagKey, tagValue) { 	     	 		     	 		 
 	 					 				
-			     	console.log("tag: " + tagValue);  		    	 				 		    	 			    	 
+			     	console.log("tag: " + tagValue);  
+			     	
+					$html = SwaggerGetPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount);
+					$('#swaggerEditorTable').append($html); 
+									
+					$html = SwaggerGetEditPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount);
+					$('#swaggerEditorTable').append($html);	     	 		 	 
+    	 
+    	 			$pathverbtagcount++;			     			    	 				 		    	 			    	 
 
     	 			});       	 				 			
     	 		
