@@ -1265,7 +1265,7 @@ function SwaggerGetEditDefinitionProperty($property_name,$property_description,$
     html = html + '</tr>'                        
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditDefinitionPropertyButton" value="Save" onclick="SwaggerEditDefinitionProperty(' + $definitioncount + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditDefinitionPropertyButton" value="Save" onclick="SwaggerEditDefinitionProperty(' + $definitioncount + ',' + $definitionpropertycount + ');" /></td>';
     html = html + '</tr>'                
 
     html = html + '</table>';
