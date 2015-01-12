@@ -341,21 +341,21 @@ function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerb
 
 	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-verb-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
 
-    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="90%">';
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%"><strong>Summary:</strong></td>';
-    html = html + '<td align="left" id="swagger-header-swagger-version-view">' + $SwaggerAPIPathVerbSummary + '</td>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Summary:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-swagger-version-view" style="font-size: 12px;">>' + $SwaggerAPIPathVerbSummary + '</td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%"><strong>Description:</strong></td>';
-    html = html + '<td align="left" id="swagger-header-title-view">' + $SwaggerAPIPathVerbDesc + '</td>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;">><strong>Description:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-title-view" style="font-size: 12px;">>' + $SwaggerAPIPathVerbDesc + '</td>';
     html = html + '</tr>';   
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%"><strong>Operation ID:</strong></td>';
-    html = html + '<td align="left" id="swagger-header-desc-view">' + $SwaggerAPIPathVerbOperationId + '</td>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;">><strong>Operation ID:</strong></td>';
+    html = html + '<td align="left" id="swagger-header-desc-view" style="font-size: 12px;">>' + $SwaggerAPIPathVerbOperationId + '</td>';
     html = html + '</tr>';                
 
     html = html + '</table>';
