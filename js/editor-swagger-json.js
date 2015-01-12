@@ -894,7 +894,7 @@ function SwaggerAddPathVerbTag($pathcount,$pathverbcount)
 		 
 	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-add').value;	
 
-	$TagArray = [$tag];
+	//$TagArray = [$tag];
 	
 	$p = 0;
 	$v = 0;
@@ -902,7 +902,7 @@ function SwaggerAddPathVerbTag($pathcount,$pathverbcount)
 		$.each(val1, function(key2, val2) { 
 			if($pathcount == $p && $pathverbcount == $v)
 				{	
-				$MasterSwagger['paths'][key1][key2]['tags'].push($TagArray);
+				$MasterSwagger['paths'][key1][key2]['tags'].push($tag);
 				}	
 			$v++;	
 		});	
