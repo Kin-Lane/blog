@@ -699,7 +699,7 @@ function SwaggerGetPathVerbResponse($response_code,$response_desc,$response_defi
 	
 function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 	{
-		
+		 
 	$response_code = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-code-add').value;	
 	$response_description = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-add').value;
 	$response_definition = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-definition-add').value;
@@ -716,7 +716,7 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 	$CodeArray['schema'] = $SchemaArray;
 
 	$ThisCodeArray = {};	  
-	$APIPropertyArray[$response_code] = $CodeArray
+	$ThisCodeArray[$response_code] = $CodeArray
 
 	$p = 0;
 	$v = 0;
