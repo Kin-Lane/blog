@@ -705,11 +705,11 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 	$response_definition = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-definition-add').value;
 
 	$RefArray = {};	  
-	$APIPropertyArray['$ref'] = $response_definition
+	$RefArray['$ref'] = $response_definition
 
 	$SchemaArray = {};	  
 	$SchemaArray['type'] = $response_definition
-	$SchemaArray['items'] = $APIPropertyArray
+	$SchemaArray['items'] = $RefArray
 
 	$CodeArray = {};	  
 	$CodeArray['description'] = $response_description;
