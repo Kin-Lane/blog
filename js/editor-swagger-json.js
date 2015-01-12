@@ -438,7 +438,7 @@ function SwaggerAddPathVerbParameter($pathcount,$pathverbcount)
 		
 	$parameter_name = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-name-add').value;	
 	$parameter_in = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-in-add').value;
-	$parameter_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-description-add').value;
+	$parameter_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-description-name-add').value;
 	$parameter_required = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-required-add').value;
 	$parameter_type = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-type-add').value;
 
@@ -490,7 +490,7 @@ function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-name-add" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-description-name-add" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
