@@ -1142,9 +1142,9 @@ function loadSwaggerditor()
 				$('#swaggerEditorTable').append($html);	    	 			
     	 			
 			 	// Tags
-		     	$.each($SwaggerAPIPathVerbTags, function(tagKey, tagValue) { 	     	 		     	 		 
+		     	$.each($SwaggerAPIPathVerbTags, function(tagKey, $tag) { 	     	 		     	 		 
 	 					 				
-			     	console.log("tag: " + tagValue);  
+			     	console.log("tag: " + $tag);  
 			     	
 					$html = SwaggerGetPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount);
 					$('#swaggerEditorTable').append($html); 
