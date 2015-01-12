@@ -369,21 +369,14 @@ function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerb
 	
 function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	{
-	console.log($pathcount + ' - ' + $pathverbcount);
+	
 	$path_verb_summary = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-edit').value;	
 	$path_verb_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-edit').value;	
 	$path_verb_operationid = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit').value;	
-		
-	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['summary'] = $path_verb_summary;
-	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['description'] = $path_verb_desc;
-	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['operationId'] = $path_verb_operationid;
-	
-	console.log("Path Count: " + $pathcount);
 
 	$p = 0;
 	$v = 0;
 	$.each($MasterSwagger['paths'], function(key1, val1) {  
-		//console.log(key1 + ' - ' + val1);
 		$.each(val1, function(key2, val2) {  
 			if($pathcount == $p && $pathverbcount == $v)
 				{
@@ -456,7 +449,19 @@ function SwaggerAddPathVerbParameter($pathcount,$pathverbcount)
 	$APIPropertyArray['required'] = $parameter_required;	
 	$APIPropertyArray['type'] = $parameter_type;		
 
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'].push($APIPropertyArray);
+	$p = 0;
+	$v = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) {  { 
+			if($pathcount == $p && $pathverbcount == $v)
+				{
+				console.log(key1 + ' - ' + key2 + ' - ' + val2);
+				$MasterSwagger['paths'][key1][key2]['properties'].push($APIPropertyArray);				
+				}	
+			$v++;	
+		});	
+	 $p++;	
+	});	
 	
 	// Need a Rebuild
 
@@ -566,12 +571,32 @@ function SwaggerEditPathVerbParameter($pathcount,$pathverbcount,$pathverbpropert
 	$parameter_required = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-required-edit').value;	
 	$parameter_type = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-type-edit').value;		
 
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['name'] = $parameter_name;
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['in'] = $parameter_in;
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['description'] = $parameter_desc;
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['required'] = $parameter_required;
-	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['type'] = $parameter_type;
-	
+	$path_verb_summary = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-edit').value;	
+	$path_verb_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-edit').value;	
+	$path_verb_operationid = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit').value;	
+
+	$p = 0;
+	$v = 0;
+	$pp = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) {  
+			$.each(val2['parameters'], function(key3, val3) { 
+				if($pathcount == $p && $pathverbcount == $v && $pathverbpropertycount == $pp)
+					{
+					console.log(key1 + ' - ' + key2 + ' - ' + key3 + ' - ' + val3);
+					$MasterSwagger['paths'][key1][key2]['properties'][key3]['name'] = $parameter_name;
+					$MasterSwagger['paths'][key1][key2]['properties'][key3]['in'] = $parameter_in;
+					$MasterSwagger['paths'][key1][key2]['properties'][key3]['description'] = $parameter_desc;
+					$MasterSwagger['paths'][key1][key2]['properties'][key3]['required'] = $parameter_required;
+					$MasterSwagger['paths'][key1][key2]['properties'][key3]['type'] = $parameter_type;				
+					}
+				 $pp++;
+				});	
+			$v++;	
+		});	
+	 $p++;	
+	});
+
 	// Need a Rebuild
 
 	}	
