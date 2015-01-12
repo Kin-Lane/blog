@@ -62,7 +62,7 @@ function Questions()
 		{
 		$viewer = JSON.stringify($MasterSwagger, null, 4);
 		document.getElementById("jsonViewerDetails").value = $viewer;		
-		
+		console.long('show');
 		document.getElementById("questionsViewer").style.display='';
 		document.getElementById("jsonViewer").style.display='none';
 		document.getElementById("jsonEditor").style.display='none';			
