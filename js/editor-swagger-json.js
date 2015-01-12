@@ -379,7 +379,7 @@ function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	//$MasterSwagger['paths'][$pathcount][$pathverbcount]['operationId'] = $path_verb_operationid;
 	
 	console.log("Path Count: " + $pathcount);
-	console.log("Path Count2: " + count($MasterSwagger['paths']));
+	console.log("Path Count2: " + $MasterSwagger['paths'].length);
 	$Temp = JSON.stringify($MasterSwagger['paths']);
 	console.log("Temp: " + $Temp);
 	// Need a Rebuild
