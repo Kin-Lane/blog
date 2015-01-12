@@ -3,6 +3,7 @@
 $pathcount = 0;  
 $pathverbcount = 0;
 $pathverbpropertycount = 0;
+$pathverbresponsecount = 0;
 	 	
 // The Master 
 $MasterSwagger = {};
@@ -651,6 +652,205 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
 	return html; 			
 	}	
 	
+// Response
+
+function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
+	{
+		
+	$response_code = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-code-add').value;	
+	$response_description = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-description-add').value;
+	$response_definition = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-definition-add').value;
+
+	$RefArray = {};	  
+	$APIPropertyArray['$ref'] = $response_definition
+
+	$SchemaArray = {};	  
+	$SchemaArray['type'] = $response_definition
+	$SchemaArray['items'] = $APIPropertyArray
+
+	$CodeArray = {};	  
+	$CodeArray['description'] = $response_description;
+	$CodeArray['schema'] = $SchemaArray;
+
+	$ThisCodeArray = {};	  
+	$APIPropertyArray[$response_code] = $CodeArray
+
+	$p = 0;
+	$v = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) { 
+			if($pathcount == $p && $pathverbcount == $v)
+				{
+				//console.log(key1 + ' - ' + key2);				
+				//console.log(JSON.stringify($MasterSwagger['paths'][key1][key2]['parameters']));	
+				$MasterSwagger['paths'][key1][key2]['responses'].push($ThisCodeArray);				
+				}	
+			$v++;	
+		});	
+	 $p++;	
+	});	
+	
+	// Need a Rebuild
+
+	}
+
+function SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount)
+	{		
+		
+	html = '<tr id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-response" style="display: none;"><td align="center" colspan="2" style="">';
+
+    html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Add Parameter</strong></td>';
+    html = html + '</tr>'     
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Code:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-code-add" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-add"  style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>' 
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Definition:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-definition-add" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'                    
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerAddSwaggerPathVerbResponseButton" value="Add" onclick="SwaggerAddPathVerbResponse(' + $pathcount + ',' + $pathverbcount + ');" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';;
+    
+    html = html + '<br /></td></tr>';  
+    	
+	return html; 			
+	}		
+	
+function SwaggerGetPathVerbResponseTitle($pathcount,$pathverbcount,$pathverbresponsecount)
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';	
+
+	html = html + '<table border="0" width="70%" align="center" style="background-color:#CCC;">';
+	
+    html = html + '<tr>';
+    html = html + '<td>';	
+	
+	html = html + '<span style="font-size:16px;">';
+	html = html + '<strong>Responses</strong>';
+	html = html + '</span>';
+	
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-icon" title="Edit Swagger Response"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';			
+	
+    html = html + '</td>';
+    html = html + '</tr>';		
+	
+	html = html + '</table>';
+	
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}		
+	
+function SwaggerGetPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount)
+	{		
+    html = '<tr>';
+    html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="70%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
+    html = html + '<strong>' + $response_code + '</strong> (' + $response_definition + ') - ' + $response_desc;
+    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-' + $pathverbresponsecount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
+    html = html + '</td>';
+    html = html + '</tr>';              
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}		
+	
+function SwaggerEditPathVerbResponse($pathcount,$pathverbcount,$pathverbresponsecount)
+	{
+
+	$response_code = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbresponsecount + '-code-edit').value;	
+	$response_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbresponsecount + '-description-edit').value;	
+	$response_definition = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbresponsecount + '-definition-edit').value;	
+
+	$p = 0;
+	$v = 0;
+	$pp = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) {  
+			$.each(val2['responses'], function(key3, val3) { 
+				if($pathcount == $p && $pathverbcount == $v && $pathverbresponsecount == $pp)
+					{
+					$ref = '$' + 'ref'; 	
+					console.log(key1 + ' - ' + key2 + ' - ' + key3 + ' - ' + val3);
+					$MasterSwagger['paths'][key1][key2]['responses'][key3]['code'] = $response_code;
+					$MasterSwagger['paths'][key1][key2]['responses'][key3]['description'] = $response_desc;
+					$MasterSwagger['paths'][key1][key2]['responses'][key3]['schema']['items'][$ref]; = $response_definition;		
+					}
+				 $pp++;
+				});	
+			$v++;	
+		});	
+	 $p++;	
+	});
+
+	// Need a Rebuild
+
+	}	
+	
+function SwaggerGetEditPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount)
+	{		
+		
+    html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property-' + $pathverbresponsecount + '" style="display: none;">';
+    html = html + '<td align="center" valign="top" colspan="2">';
+
+    html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Edit Response</strong></td>';
+    html = html + '</tr>'     
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Code:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbresponsecount + '-code-edit" value="' + $response_code + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbresponsecount + '-description-edit" value="' + $response_desc + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>' 
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Definition:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbresponsecount + '-definition-edit" value="' + $response_definition + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'                             
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditPathVerbParameterButton" value="Save" onclick="SwaggerEditPathVerbParameter(' + $pathcount + ',' + $pathverbcount + ',' + $pathverbresponsecount + ');" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}	
+	
+	
 function SwaggerSavePath($pathcount)
 	{
 		
@@ -768,6 +968,9 @@ function loadSwaggerditor()
     	 
     	 			});
     	 			
+				$html = SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount);
+				$('#swaggerEditorTable').append($html);    	 			
+    	 			
 			 	// Responses
 		     	$.each($SwaggerAPIPathVerbResponses, function(responseKey, responseValue) { 	     	 		     	 	
 		     	 		     	 
@@ -776,7 +979,15 @@ function loadSwaggerditor()
 		     	 	$ref = '$' + 'ref'; 
 		     	 	$response_definition = responseValue['schema']['items'][$ref];
 		     	 		     	 	
-	     	 		console.log("response: " + $response_code + " - " + $response_desc + " - " + $response_definition); 	 
+	     	 		//console.log("response: " + $response_code + " - " + $response_desc + " - " + $response_definition);
+	     	 		
+					$html = SwaggerGetPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount);
+					$('#swaggerEditorTable').append($html); 
+									
+					$html = SwaggerGetEditPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount);
+					$('#swaggerEditorTable').append($html);	     	 		 	 
+    	 
+    	 			$pathverbresponsecount++;
     	 
     	 			});    
     	 			
