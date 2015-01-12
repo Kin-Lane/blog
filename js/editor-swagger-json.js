@@ -1122,6 +1122,8 @@ function SwaggerAddDefinitionProperty($definitioncount)
 			$showme = JSON.stringify($showme);
 			console.log($showme);				
 			
+			$MasterSwagger['definitions'][key1]['properties'].push($PropertyArray);
+			
 			}	
 			
 		 $dc++;	
