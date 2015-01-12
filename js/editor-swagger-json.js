@@ -585,11 +585,11 @@ function SwaggerEditPathVerbParameter($pathcount,$pathverbcount,$pathverbpropert
 				if($pathcount == $p && $pathverbcount == $v && $pathverbpropertycount == $pp)
 					{
 					console.log(key1 + ' - ' + key2 + ' - ' + key3 + ' - ' + val3);
-					$MasterSwagger['paths'][key1][key2]['properties'][key3]['name'] = $parameter_name;
-					$MasterSwagger['paths'][key1][key2]['properties'][key3]['in'] = $parameter_in;
-					$MasterSwagger['paths'][key1][key2]['properties'][key3]['description'] = $parameter_desc;
-					$MasterSwagger['paths'][key1][key2]['properties'][key3]['required'] = $parameter_required;
-					$MasterSwagger['paths'][key1][key2]['properties'][key3]['type'] = $parameter_type;				
+					$MasterSwagger['paths'][key1][key2]['parameters'][key3]['name'] = $parameter_name;
+					$MasterSwagger['paths'][key1][key2]['parameters'][key3]['in'] = $parameter_in;
+					$MasterSwagger['paths'][key1][key2]['parameters'][key3]['description'] = $parameter_desc;
+					$MasterSwagger['paths'][key1][key2]['parameters'][key3]['required'] = $parameter_required;
+					$MasterSwagger['paths'][key1][key2]['parameters'][key3]['type'] = $parameter_type;				
 					}
 				 $pp++;
 				});	
