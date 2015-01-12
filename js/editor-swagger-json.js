@@ -406,6 +406,34 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
 	return html; 			
 	}		
 	
+function SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount,$pathverbpropertycount
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';
+	
+
+	html = html + '<table border="0" width="80%" align="center" style="background-color:#CCC;">';
+	
+    html = html + '<tr>';
+    html = html + '<td>';	
+	
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>Parameters</strong>';
+	html = html + '</span>';
+	
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
+		
+	
+    html = html + '</td>';
+    html = html + '</tr>';		
+	
+	html = html + '</table>';
+	
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}		
+	
 function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount)
 	{		
     html = '<tr>';
@@ -414,8 +442,7 @@ function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_de
     html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Parameter:</strong></td>';
-    html = html + '<td align="left" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
+    html = html + '<td align="center" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
     html = html + $parameter_name;
     html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property-' + $pathverbpropertycount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';			 
     html = html + '</td>';
@@ -568,7 +595,10 @@ function loadSwaggerditor()
 					     	 					
 				$SwaggerAPIPathVerbParameters = verbValue['parameters'];				
 				$SwaggerAPIPathVerbResponses = verbValue['responses'];					
-				$SwaggerAPIPathVerbTags = verbValue['tags'];		     	 		     	 	
+				$SwaggerAPIPathVerbTags = verbValue['tags'];	
+	 		     
+				$html = SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount);
+				$('#swaggerEditorTable').append($html);	 	 		     	     	 		     
  	 		     	     	 		     	 	
 			 	// Parameters
 		     	$.each($SwaggerAPIPathVerbParameters, function(parameterKey, parameterValue) { 	     	 		     	 	
