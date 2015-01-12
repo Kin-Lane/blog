@@ -798,7 +798,7 @@ function SwaggerEditPathVerbResponse($pathcount,$pathverbcount,$pathverbresponse
 					console.log(key1 + ' - ' + key2 + ' - ' + key3 + ' - ' + val3);
 					$MasterSwagger['paths'][key1][key2]['responses'][key3]['code'] = $response_code;
 					$MasterSwagger['paths'][key1][key2]['responses'][key3]['description'] = $response_desc;
-					$MasterSwagger['paths'][key1][key2]['responses'][key3]['schema']['items'][$ref]; = $response_definition;		
+					$MasterSwagger['paths'][key1][key2]['responses'][key3]['schema']['items'][$ref] = $response_definition;		
 					}
 				 $pp++;
 				});	
