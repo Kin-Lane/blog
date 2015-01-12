@@ -5,6 +5,8 @@ $pathverbcount = 0;
 $pathverbpropertycount = 0;
 $pathverbresponsecount = 0;
 $pathverbtagcount = 0;
+$definitioncount = 0;
+$definitionparametercount = 0;
 	 	
 // The Master 
 $MasterSwagger = {};
@@ -997,6 +999,111 @@ function SwaggerGetEditPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagco
 	}	
 	
 	
+// Definitions
+function SwaggerGetDefinitionsTitle()
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';	
+
+	html = html + '<table border="0" width="70%" align="center" style="background-color:#CCC;">';
+	
+    html = html + '<tr>';
+    html = html + '<td>';	
+	
+	html = html + '<span style="font-size:16px;">';
+	html = html + '<strong>Definitions</strong>';
+	html = html + '</span>';
+	
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-definition-icon" title="Edit Swagger Tag"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';			
+	
+    html = html + '</td>';
+    html = html + '</tr>';		
+	
+	html = html + '</table>';
+	
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}		
+	
+function SwaggerGetDefinitions($definition,$definitioncount)
+	{		
+    html = '<tr>';
+    html = html + '<td align="center" valign="top" colspan="2" id="apisjsonHeaderCell">';
+
+    html = html + '<table cellpadding="3" cellspacing="2" border="0" width="70%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
+    html = html + '<strong>' + $tag + '</strong>';
+    
+    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="add-property-icon" title="Add Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';			
+	    			 
+    html = html + '</td>';
+    html = html + '</tr>';              
+
+    html = html + '</table>';
+
+    html = html + '</td>';
+    html = html + '</tr>';  
+
+	return html; 			
+	}		
+	
+function SwaggerAddDefinition()
+	{
+		 
+	$tag = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-tag-add').value;	
+
+	//$TagArray = [$tag];
+	
+	$p = 0;
+	$v = 0;
+	$.each($MasterSwagger['paths'], function(key1, val1) {  
+		$.each(val1, function(key2, val2) { 
+			if($pathcount == $p && $pathverbcount == $v)
+				{	
+				$MasterSwagger['paths'][key1][key2]['tags'].push($tag);
+				}	
+			$v++;	
+		});	
+	 $p++;	
+	});		
+	
+	// Need a Rebuild
+
+	}
+
+function SwaggerGetAddDefinition()
+	{		
+		
+	html = '<tr id="add-definition" style="display: none;"><td align="center" colspan="2" style="">';
+
+    html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" colspan="2" style="font-size: 12px;"><strong>Add Definition</strong></td>';
+    html = html + '</tr>'     
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Definition:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-add" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '</tr>'                      
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerAddSwaggerPathVerbTagButton" value="Add" onclick="SwaggerAddDefinition();" /></td>';
+    html = html + '</tr>'                
+
+    html = html + '</table>';;
+    
+    html = html + '<br /></td></tr>';  
+    	
+	return html; 			
+	}		
+
+
+
+
 function SwaggerSavePath($pathcount)
 	{
 		
@@ -1143,9 +1250,7 @@ function loadSwaggerditor()
     	 			
 			 	// Tags
 		     	$.each($SwaggerAPIPathVerbTags, function(tagKey, $tag) { 	     	 		     	 		 
-	 					 				
-			     	console.log("tag: " + $tag);  
-			     	
+	 
 					$html = SwaggerGetPathVerbTag($tag,$pathcount,$pathverbcount,$pathverbtagcount);
 					$('#swaggerEditorTable').append($html); 
 									
@@ -1162,20 +1267,29 @@ function loadSwaggerditor()
      	 		
      	 	$pathcount++;	
      	 		    	 
-     	 	});	
+     	 	});
+     	 	
+		$html = SwaggerGetDefinitionsTitle()
+		$('#swaggerEditorTable').append($html);  
+		
+		$html = SwaggerGetAddDefinition();
+		$('#swaggerEditorTable').append($html);	     	 		
      	 	
 	 	// Definitions
      	$.each($SwaggerAPIDefinitions, function(definitionKey, definitionValue) {      	 	
+	
+			$html =  SwaggerGetDefinitions(definitionKey,$definitioncount);
+			$('#swaggerEditorTable').append($html);	
 
-			console.log("definition: " + definitionKey);
-			
 		 	// Definition Properties
 	     	$.each(definitionValue['properties'], function(definitionProperyKey, definitionPropertyValue) {      	 	
 
           		$definition_property_desc = definitionPropertyValue['description'];
           		$definition_property_type = definitionPropertyValue['type'];		
 
-				});	 			
+				});	 
+				
+			$definitioncount++;			
 
 			});	     	 		 	
 	});	
