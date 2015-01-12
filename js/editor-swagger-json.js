@@ -72,8 +72,7 @@ function SwaggerSave()
 			$sha = treeValue['sha'];
 			
 			if($path=='apis.json')
-				{	
-				console.log($path + ' - ' + $sha);							
+				{							
 			    repo.writemanual('gh-pages', 'apis.json', $WriteAPIsJSON, 'Save', $sha, function(err) { });									
 				}
 			});
@@ -380,8 +379,7 @@ function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	$.each($MasterSwagger['paths'], function(key1, val1) {  
 		$.each(val1, function(key2, val2) {  
 			if($pathcount == $p && $pathverbcount == $v)
-				{
-				console.log(key1 + ' - ' + key2 + ' - ' + val2);
+				{;
 				$MasterSwagger['paths'][key1][key2]['summary'] = $path_verb_summary;
 				$MasterSwagger['paths'][key1][key2]['description'] = $path_verb_desc;
 				$MasterSwagger['paths'][key1][key2]['operationId'] = $path_verb_operationid;				
@@ -397,7 +395,7 @@ function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	
 function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount)
 	{		
-	console.log($pathcount + ' - ' + $pathverbcount);	
+			
     html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary" style="display: none;">';
     html = html + '<td align="center" valign="top" colspan="2">';
 
@@ -455,9 +453,7 @@ function SwaggerAddPathVerbParameter($pathcount,$pathverbcount)
 	$.each($MasterSwagger['paths'], function(key1, val1) {  
 		$.each(val1, function(key2, val2) { 
 			if($pathcount == $p && $pathverbcount == $v)
-				{
-				//console.log(key1 + ' - ' + key2);				
-				//console.log(JSON.stringify($MasterSwagger['paths'][key1][key2]['parameters']));	
+				{	
 				$MasterSwagger['paths'][key1][key2]['parameters'].push($APIPropertyArray);				
 				}	
 			$v++;	
@@ -566,7 +562,6 @@ function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_de
 	
 function SwaggerEditPathVerbParameter($pathcount,$pathverbcount,$pathverbpropertycount)
 	{
-	console.log("saving!");
 	$parameter_name = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-name-edit').value;	
 	$parameter_in = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-in-edit').value;	
 	$parameter_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-description-edit').value;
@@ -585,7 +580,6 @@ function SwaggerEditPathVerbParameter($pathcount,$pathverbcount,$pathverbpropert
 			$.each(val2['parameters'], function(key3, val3) { 
 				if($pathcount == $p && $pathverbcount == $v && $pathverbpropertycount == $pp)
 					{
-					console.log(key1 + ' - ' + key2 + ' - ' + key3 + ' - ' + val3);
 					$MasterSwagger['paths'][key1][key2]['parameters'][key3]['name'] = $parameter_name;
 					$MasterSwagger['paths'][key1][key2]['parameters'][key3]['in'] = $parameter_in;
 					$MasterSwagger['paths'][key1][key2]['parameters'][key3]['description'] = $parameter_desc;
@@ -681,8 +675,6 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 		$.each(val1, function(key2, val2) { 
 			if($pathcount == $p && $pathverbcount == $v)
 				{
-				//console.log(key1 + ' - ' + key2);				
-				//console.log(JSON.stringify($MasterSwagger['paths'][key1][key2]['parameters']));	
 				$MasterSwagger['paths'][key1][key2]['responses'].push($ThisCodeArray);				
 				}	
 			$v++;	
@@ -795,7 +787,6 @@ function SwaggerEditPathVerbResponse($pathcount,$pathverbcount,$pathverbresponse
 				if($pathcount == $p && $pathverbcount == $v && $pathverbresponsecount == $pp)
 					{
 					$ref = '$' + 'ref'; 	
-					console.log(key1 + ' - ' + key2 + ' - ' + key3 + ' - ' + val3);
 					$MasterSwagger['paths'][key1][key2]['responses'][key3]['code'] = $response_code;
 					$MasterSwagger['paths'][key1][key2]['responses'][key3]['description'] = $response_desc;
 					$MasterSwagger['paths'][key1][key2]['responses'][key3]['schema']['items'][$ref] = $response_definition;		
@@ -870,19 +861,17 @@ function loadSwaggerditor()
 
     $apisjsonURL = 'definitions/swagger.json';
 
-    //console.log($apisjsonURL);
-    
 	var jqxhr = $.getJSON($apisjsonURL, function(Swagger) { 													
 
 		// Set our Master Store
 		$MasterSwagger = Swagger;
-		console.log("Swagger:" + Swagger);
+
 		$viewer = JSON.stringify(Swagger, null, 4);
 		document.getElementById("jsonViewerDetails").value = $viewer;
 
 	 	$SwaggerVersion = Swagger['swagger'];	 	
 	 	$SwaggerAPITitle = Swagger['info']['title'];
-	 	console.log($SwaggerAPITitle);
+
 	 	$SwaggerAPIDesc = Swagger['info']['description'];
 	 	$SwaggerAPITOS = Swagger['info']['termsOfService'];
 	 	$SwaggerAPIVersion = Swagger['info']['version'];
@@ -923,8 +912,7 @@ function loadSwaggerditor()
 		 	// Verbs
 	     	$.each(pathValue, function(verbKey, verbValue) { 
 	
-	     	 	$SwaggerAPIPathVerb = verbKey;
-	     	 	console.log("verb: " + $SwaggerAPIPathVerb);	
+	     	 	$SwaggerAPIPathVerb = verbKey;	
 		     	 	
 	 			$html = SwaggerGetPathVerb($SwaggerAPIPathVerb,$pathcount,$pathverbcount);
 	    		$('#swaggerEditorTable').append($html); 	     	 	     	 	
@@ -978,9 +966,7 @@ function loadSwaggerditor()
 		     	 	$response_desc = responseValue['description'];    	
 		     	 	$ref = '$' + 'ref'; 
 		     	 	$response_definition = responseValue['schema']['items'][$ref];
-		     	 		     	 	
-	     	 		//console.log("response: " + $response_code + " - " + $response_desc + " - " + $response_definition);
-	     	 		
+
 					$html = SwaggerGetPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount);
 					$('#swaggerEditorTable').append($html); 
 									
@@ -1016,9 +1002,7 @@ function loadSwaggerditor()
 
           		$definition_property_desc = definitionPropertyValue['description'];
           		$definition_property_type = definitionPropertyValue['type'];		
-					
-				console.log("definition property: " + definitionProperyKey + " - " + $definition_property_desc + " - " + $definition_property_type);
-	
+
 				});	 			
 
 			});	     	 		 	
