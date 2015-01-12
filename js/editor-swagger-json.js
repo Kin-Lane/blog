@@ -1251,12 +1251,12 @@ function SwaggerGetEditDefinitionProperty($property_name,$property_description,$
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-name-edit" value="' + $parameter_name + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-name-edit" value="' + $property_name + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'  
         
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-description-edit" value="' + $parameter_desc + '" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-definition-' + $definitioncount + '-property-' + $definitionpropertycount + '-description-edit" value="' + $property_description + '" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'        
     
     html = html + '<tr>';
