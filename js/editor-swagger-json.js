@@ -418,27 +418,27 @@ function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
     html = html + '</tr>'     
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="45%" style="font-size: 12px;"><strong>Name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" style="width: 100%; height: 100%; border: 1px solid #FFF;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;""><strong>In:</strong></td>';
+    html = html + '<td align="right" width="45%" style="font-size: 12px;""><strong>In:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-header-host-edit" style=""><option value="query">query</option><option value="path">path</option></select></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="45%" style="font-size: 12px;"><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" style="width: 100%; height: 100%; border: 1px solid #FFF;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Required:</strong></td>';
+    html = html + '<td align="right" width="45%" style="font-size: 12px;"><strong>Required:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-header-host-edit" style=""><option value="1">true</option><option value="0">false</option></select></td>';
     html = html + '</tr>'   
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Type:</strong></td>';
+    html = html + '<td align="right" width="45%" style="font-size: 12px;"><strong>Type:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-header-host-edit" style=""><option value="string">string</option><option value="integer">integer</option></select></td>';
     html = html + '</tr>'                    
     
