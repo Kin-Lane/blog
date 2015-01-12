@@ -457,11 +457,9 @@ function SwaggerAddPathVerbParameter($pathcount,$pathverbcount)
 				{
 				console.log(key1 + ' - ' + key2);
 				
-				console.log(JSON.stringify($MasterSwagger['paths'][key1][key2]['properties']));
-				
-				console.log($MasterSwagger['paths'][key1][key2]['summary']);
-				
-				//$MasterSwagger['paths'][key1][key2]['properties'].push($APIPropertyArray);				
+				console.log(JSON.stringify($MasterSwagger['paths'][key1][key2]['parameters']));
+	
+				$MasterSwagger['paths'][key1][key2]['parameters'].push($APIPropertyArray);				
 				}	
 			$v++;	
 		});	
