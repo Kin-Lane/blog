@@ -31,14 +31,19 @@ if(login=='1')
    
 </script> 
 
-<p><a href="#" onclick="APISJSONQuestions(); return false;" id="questions-icon-link" title="Questions"><img id="question-icon" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-question-mark.png" width="35" align="right" /></a></p>
-
-<p><a href="#" onclick="APIJSONViewEdit(this); return false;" id="apis-json-icon" title="APIs.json"><img src="https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png" width="50" align="right" /></a></p>
-<p><a href="#" onclick="APISJSONSave(); return false;" id="save-apisjson-icon-link" title="Save The APIs.json"><img id="save-apisjson-icon" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-save-download-250.png" width="36" align="right" /></a></p>
-
-<p><a href="editor-apis-json.html?login=1"id="login-github-icon-link" title="Login w/ Github to Access"><img style="display: none;" id="login-github-icon" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-github.jpg" width="28" align="right" /></a></p>
-
-<h1>APIs.json Editor</h1>
+<table cellpadding="3" cellspacing="2" width="100%">
+	<tr>
+		<td width="50%"><h1>APIs.json Editor</h1></td>
+		<td width="50%">
+			<p><a href="#" onclick="APISJSONQuestions(); return false;" id="questions-icon-link" title="Questions"><img id="question-icon" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-question-mark.png" width="35" align="right" /></a></p>
+			
+			<p><a href="#" onclick="APIJSONViewEdit(this); return false;" id="apis-json-icon" title="APIs.json"><img src="https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png" width="50" align="right" /></a></p>
+			<p><a href="#" onclick="APISJSONSave(); return false;" id="save-apisjson-icon-link" title="Save The APIs.json"><img id="save-apisjson-icon" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-save-download-250.png" width="36" align="right" /></a></p>
+			
+			<p><a href="editor-apis-json.html?login=1"id="login-github-icon-link" title="Login w/ Github to Access"><img style="display: none;" id="login-github-icon" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-github.jpg" width="28" align="right" /></a></p>			
+		</td>		
+	</tr>
+</table>
 
 <div id="jsonEditor" style="display: none;"><table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonEditorTable" style="margin-left: 15px;"></table></div>
 
