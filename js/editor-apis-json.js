@@ -35,7 +35,7 @@ function APIJSONViewEdit()
 		//console.log('switching to viewer');
 		document.getElementById("jsonViewer").style.display='none';
 		document.getElementById("jsonEditor").style.display='';
-		document.getElementById("questionsViewer").style.display='non
+		document.getElementById("questionsViewer").style.display='none';
 		}	
 	else
 		{
