@@ -452,7 +452,7 @@ function SwaggerAddPathVerbParameter($pathcount,$pathverbcount)
 	$p = 0;
 	$v = 0;
 	$.each($MasterSwagger['paths'], function(key1, val1) {  
-		$.each(val1, function(key2, val2) {  { 
+		$.each(val1, function(key2, val2) { 
 			if($pathcount == $p && $pathverbcount == $v)
 				{
 				console.log(key1 + ' - ' + key2 + ' - ' + val2);
