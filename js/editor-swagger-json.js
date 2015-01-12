@@ -32,24 +32,41 @@ function SwaggerShowMe($row)
 	
 function SwaggerViewEdit()
 	{
-	//console.log(document.getElementById("jsonViewer"));
 	if(document.getElementById("jsonViewer").style.display=='')
 		{
-		//console.log('switching to viewer');
+		document.getElementById("jsonViewer").style.display='none';
+		document.getElementById("swaggerEditor").style.display='';
+		document.getElementById("questionsViewer").style.display='none';
+		}	
+	else
+		{
+		$viewer = JSON.stringify($MasterSwagger, null, 4);
+		document.getElementById("jsonViewerDetails").value = $viewer;		
+		
+		document.getElementById("jsonViewer").style.display='';
+		document.getElementById("swaggerEditor").style.display='none';
+		document.getElementById("questionsViewer").style.display='none';		
+		}
+	}
+	
+function Questions()
+	{
+	if(document.getElementById("questionsViewer").style.display=='')
+		{
+		document.getElementById("questionsViewer").style.display='none'
 		document.getElementById("jsonViewer").style.display='none';
 		document.getElementById("swaggerEditor").style.display='';
 		}	
 	else
 		{
-		//console.log('switching to editor');		
-
 		$viewer = JSON.stringify($MasterSwagger, null, 4);
 		document.getElementById("jsonViewerDetails").value = $viewer;		
 		
+		document.getElementById("questionsViewer").style.display=''
 		document.getElementById("jsonViewer").style.display='';
 		document.getElementById("swaggerEditor").style.display='none';			
 		}
-	}
+	}	
 
 function SwaggerSave()
 	{
@@ -73,10 +90,10 @@ function SwaggerSave()
 			
 			$path = treeValue['path'];
 			$sha = treeValue['sha'];
-			
-			if($path=='apis.json')
+			console.log($path);
+			if($path=='definitions/swagger.json')
 				{							
-			    repo.writemanual('gh-pages', 'apis.json', $WriteAPIsJSON, 'Save', $sha, function(err) { });									
+			    repo.writemanual('gh-pages', 'definitions/swagger.json', $WriteAPIsJSON, 'Save', $sha, function(err) { });									
 				}
 			});
 		});  	    	
