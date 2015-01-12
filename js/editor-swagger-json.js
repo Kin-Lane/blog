@@ -685,7 +685,7 @@ function SwaggerGetPathVerbResponse($response_code,$response_desc,$response_defi
     html = html + '<tr>';
     html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
     html = html + '<strong>' + $response_code + '</strong> (' + $response_definition + ') - ' + $response_desc;
-    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
+    html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-' + $pathverbresponsecount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
     html = html + '</td>';
     html = html + '</tr>';              
 
@@ -738,7 +738,7 @@ function SwaggerAddPathVerbResponse($pathcount,$pathverbcount)
 function SwaggerGetAddPathVerbResponse($pathcount,$pathverbcount)
 	{		
 		
-	html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response" style="display: none;"><td align="center" colspan="2" style="">';
+	html = '<tr id="add-path-' + $pathcount + '-verb-' + $pathverbcount + '-response" style="display: none;"><td align="center" colspan="2" style="">';
 
     html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
     
@@ -806,7 +806,7 @@ function SwaggerEditPathVerbResponse($pathcount,$pathverbcount,$pathverbresponse
 function SwaggerGetEditPathVerbResponse($response_code,$response_desc,$response_definition,$pathcount,$pathverbcount,$pathverbresponsecount)
 	{		
 		
-    html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property-' + $pathverbresponsecount + '" style="display: none;">';
+    html = '<tr id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-response-' + $pathverbresponsecount + '" style="display: none;">';
     html = html + '<td align="center" valign="top" colspan="2">';
 
     html = html + '<table cellpadding="1" cellspacing="1" border="0" width="70%" style="border: 1px solid #000;padding-top5px;">';
