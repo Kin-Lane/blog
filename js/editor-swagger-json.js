@@ -383,7 +383,7 @@ function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
 	
 	$.each($MasterSwagger['paths'], function(key1, val1) {  
 		console.log(key1 + ' - ' + val1);
-		$.each(key1, function(key2, val2) {  
+		$.each(val1, function(key2, val2) {  
 			console.log(key2 + ' - ' + val2);
 		});		
 	});
