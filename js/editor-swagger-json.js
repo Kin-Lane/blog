@@ -455,10 +455,8 @@ function SwaggerAddPathVerbParameter($pathcount,$pathverbcount)
 		$.each(val1, function(key2, val2) { 
 			if($pathcount == $p && $pathverbcount == $v)
 				{
-				console.log(key1 + ' - ' + key2);
-				
-				console.log(JSON.stringify($MasterSwagger['paths'][key1][key2]['parameters']));
-	
+				//console.log(key1 + ' - ' + key2);				
+				//console.log(JSON.stringify($MasterSwagger['paths'][key1][key2]['parameters']));	
 				$MasterSwagger['paths'][key1][key2]['parameters'].push($APIPropertyArray);				
 				}	
 			$v++;	
