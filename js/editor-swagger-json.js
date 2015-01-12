@@ -63,7 +63,7 @@ function Questions()
 		document.getElementById("jsonViewerDetails").value = $viewer;		
 		
 		document.getElementById("questionsViewer").style.display=''
-		document.getElementById("jsonViewer").style.display='';
+		document.getElementById("jsonViewer").style.display='none';
 		document.getElementById("swaggerEditor").style.display='none';			
 		}
 	}	
