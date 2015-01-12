@@ -367,6 +367,21 @@ function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerb
 	return html; 			
 	}		
 	
+function SwaggerSavePathVerbDetail($pathcount,$pathverbcount)
+	{
+		
+	$path_verb_summary = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-edit').value;	
+	$path_verb_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-edit').value;	
+	$path_verb_operationid = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit').value;	
+		
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['summary'] = $path_verb_summary;
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['description'] = $path_verb_desc;
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['operationId'] = $path_verb_operationid;
+	
+	// Need a Rebuild
+
+	}		
+	
 function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount)
 	{		
 		
@@ -381,21 +396,21 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
     
     html = html + '<tr>';
     html = html + '<td align="right" width="45%" style="font-size: 12px;"><strong>Summary:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" value="' + $SwaggerAPIPathVerbSummary + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-edit" value="' + $SwaggerAPIPathVerbSummary + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" width="45%" style="font-size: 12px;""><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><input type="text" id="swagger-header-host-edit" value="' + $SwaggerAPIPathVerbDesc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-edit" value="' + $SwaggerAPIPathVerbDesc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" width="45%" style="font-size: 12px;"><strong>Operation ID:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $SwaggerAPIPathVerbOperationId + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="sswagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit" value="' + $SwaggerAPIPathVerbOperationId + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'               
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSaveSwagger" value="Save" onclick="SwaggerSavePathVerbDetail();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSavePathVerbDetailButton" value="Save" onclick="SwaggerSavePathVerbDetail();" /></td>';
     html = html + '</tr>'                
 
     html = html + '</table>';
@@ -405,6 +420,28 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
 
 	return html; 			
 	}		
+	
+function SwaggerAddPathVerbParameter($pathcount,$pathverbcount)
+	{
+		
+	$parameter_name = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-name-add').value;	
+	$parameter_in = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-in-add').value;
+	$parameter_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-description-add').value;
+	$parameter_required = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-required-add').value;
+	$parameter_type = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-type-add').value;
+
+	$APIPropertyArray = {};	  
+	$APIPropertyArray['name'] = $parameter_name;
+	$APIPropertyArray['in'] = $parameter_in;
+	$APIPropertyArray['description'] = $parameter_desc;	
+	$APIPropertyArray['required'] = $parameter_required;	
+	$APIPropertyArray['type'] = $parameter_type;		
+
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'].push($APIPropertyArray);
+	
+	// Need a Rebuild
+
+	}	
 	
 function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
 	{		
@@ -419,31 +456,31 @@ function SwaggerGetAddPathVerbParameter($pathcount,$pathverbcount)
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-name-add" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;""><strong>In:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-header-host-edit" style=""><option value="query">query</option><option value="path">path</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-in-add" style=""><option value="query">query</option><option value="path">path</option></select></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-description-name-add" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Required:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-header-host-edit" style=""><option value="1">true</option><option value="0">false</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-required-add" style=""><option value="1">true</option><option value="0">false</option></select></td>';
     html = html + '</tr>'   
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Type:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-header-host-edit" style=""><option value="string">string</option><option value="integer">integer</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-parameter-type-add" style=""><option value="string">string</option><option value="integer">integer</option></select></td>';
     html = html + '</tr>'                    
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerAddSwaggerPathVerbParameter" value="Add" onclick="SwaggerAddPathVerbParameterl();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerAddSwaggerPathVerbParameterButton" value="Add" onclick="SwaggerAddPathVerbParameter();" /></td>';
     html = html + '</tr>'                
 
     html = html + '</table>';;
@@ -501,6 +538,25 @@ function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_de
 	return html; 			
 	}		
 	
+function SwaggerEditPathVerbParameter($pathcount,$pathverbcount,$pathverbpropertycount)
+	{
+		
+	$parameter_name = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-name-edit').value;	
+	$parameter_in = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-in-edit').value;	
+	$parameter_desc = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-description-edit').value;
+	$parameter_required = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-required-edit').value;	
+	$parameter_type = document.getElementById('swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-type-edit').value;		
+
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['name'] = $parameter_name;
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['in'] = $parameter_in;
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['description'] = $parameter_desc;
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['required'] = $parameter_required;
+	$MasterSwagger['paths'][$pathcount][$pathverbcount]['properties'][$pathverbpropertycount]['type'] = $parameter_type;
+	
+	// Need a Rebuild
+
+	}	
+	
 function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$parameter_desc,$parameter_required,$parameter_type,$pathcount,$pathverbcount,$pathverbpropertycount)
 	{		
 		
@@ -515,31 +571,31 @@ function SwaggerGetEditPathVerbParameter($parameter_name,$parameter_in,$paramete
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" value="' + $parameter_name + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-name-edit" value="' + $parameter_name + '" style="width: 75%; height: 25px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;""><strong>In:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-header-host-edit" style=""><option value="' + $parameter_in + '">' + $parameter_in + '</option><option value="query">query</option><option value="path">path</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-in-edit" style=""><option value="' + $parameter_in + '">' + $parameter_in + '</option><option value="query">query</option><option value="path">path</option></select></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $parameter_desc + '" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-description-edit" value="' + $parameter_desc + '" style="width: 75%; height: 75px; border: 1px solid #000;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Required:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-header-host-edit" style=""><option value="' + $parameter_required + '">' + $parameter_required + '</option><option value="1">true</option><option value="0">false</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-required-edit" style=""><option value="' + $parameter_required + '">' + $parameter_required + '</option><option value="1">true</option><option value="0">false</option></select></td>';
     html = html + '</tr>'   
     
     html = html + '<tr>';
     html = html + '<td align="right" width="35%" style="font-size: 12px;"><strong>Type:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-header-host-edit" style=""><option value="' + $parameter_type + '">' + $parameter_type + '</option><option value="string">string</option><option value="integer">integer</option></select></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><select id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-' + $pathverbpropertycount + '-type-edit" style=""><option value="' + $parameter_type + '">' + $parameter_type + '</option><option value="string">string</option><option value="integer">integer</option></select></td>';
     html = html + '</tr>'                     
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerSaveSwagger" value="Save" onclick="SwaggerSavePathVerbDetail();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="SwaggerEditPathVerbParameterButton" value="Save" onclick="SwaggerEditPathVerbParameter();" /></td>';
     html = html + '</tr>'                
 
     html = html + '</table>';
