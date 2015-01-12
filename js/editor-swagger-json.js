@@ -5,7 +5,7 @@ $pathverbcount = 0;
 $pathverbpropertycount = 0;
 	 	
 // The Master 
-$MasterSwagger = "";
+$MasterSwagger = {};
 
 function SwaggerShowMe($row)
 	{
