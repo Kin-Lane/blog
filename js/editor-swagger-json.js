@@ -373,21 +373,23 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
     html = '<tr>';
     html = html + '<td align="center" valign="top" colspan="2" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary">';
 
+	html = html + '<strong>Edit Details:</strong>';
+
     html = html + '<table cellpadding="3" cellspacing="2" border="0" width="80%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Summary:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-api-version-edit" value="' + $SwaggerAPIPathVerbSummary + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Summary:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF; font-size: 12px;"><input type="text" id="swagger-header-api-version-edit" value="' + $SwaggerAPIPathVerbSummary + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-host-edit" value="' + $SwaggerAPIPathVerbDesc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;""><strong>Description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;font-size: 12px;"><input type="text" id="swagger-header-host-edit" value="' + $SwaggerAPIPathVerbDesc + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>Operation ID:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="swagger-header-basepath-edit" value="' + $SwaggerAPIPathVerbOperationId + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="25%" style="font-size: 12px;"><strong>Operation ID:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-header-basepath-edit" value="' + $SwaggerAPIPathVerbOperationId + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'               
     
     html = html + '<tr>';
