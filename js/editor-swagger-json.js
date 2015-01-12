@@ -409,8 +409,7 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
 function SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount,$pathverbpropertycount)
 	{
 	html = '<tr>';
-	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';
-	
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';	
 
 	html = html + '<table border="0" width="70%" align="center" style="background-color:#CCC;">';
 	
@@ -421,8 +420,7 @@ function SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount,$pathverbpro
 	html = html + '<strong>Parameters</strong>';
 	html = html + '</span>';
 	
-	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
-		
+	html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';			
 	
     html = html + '</td>';
     html = html + '</tr>';		
@@ -442,8 +440,7 @@ function SwaggerGetPathVerbParameter($parameter_name,$parameter_in,$parameter_de
     html = html + '<table cellpadding="3" cellspacing="2" border="0" width="70%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" width="5%" style="font-size: 12px;"></td>';
-    html = html + '<td align="left" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
+    html = html + '<td align="left" colspan="2" id="swagger-header-swagger-version-view" style="font-size: 12px;">';
     html = html + '<strong>' + $parameter_name + '</strong> (' + $parameter_in + ')' + ' (' + $parameter_type + ') - ' + $parameter_desc;
     html = html + '<a href="#" onclick="SwaggerShowMe(this); return false;" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-property-' + $pathverbpropertycount + '-icon" title="Edit Swagger Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';			 
     html = html + '</td>';
