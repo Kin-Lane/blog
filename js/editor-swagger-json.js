@@ -406,7 +406,7 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
     
     html = html + '<tr>';
     html = html + '<td align="right" width="45%" style="font-size: 12px;"><strong>Operation ID:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="sswagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit" value="' + $SwaggerAPIPathVerbOperationId + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"font-size: 12px;><input type="text" id="swagger-api-path-' + $pathcount + '-verb-' + $pathverbcount + '-operationid-edit" value="' + $SwaggerAPIPathVerbOperationId + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>'               
     
     html = html + '<tr>';
