@@ -49,7 +49,7 @@ function SwaggerViewEdit()
 		}
 	}
 	
-function Questions()
+function SwaggerQuestions()
 	{
 	if(document.getElementById("questionsViewer").style.display=='')
 		{

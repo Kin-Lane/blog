@@ -50,7 +50,7 @@ function APIJSONViewEdit()
 		}
 	}
 	
-function Questions()
+function APISJSONQuestions()
 	{
 	console.long('questions');	
 	if(document.getElementById("questionsViewer").style.display=='')
