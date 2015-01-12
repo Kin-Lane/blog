@@ -369,6 +369,7 @@ function SwaggerGetPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerb
 	
 function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPathVerbDesc,$SwaggerAPIPathVerbOperationId,$pathcount,$pathverbcount)
 	{		
+		
     html = '<tr>';
     html = html + '<td align="center" valign="top" colspan="2" id="edit-path-' + $pathcount + '-verb-' + $pathverbcount + '-summary">';
 
