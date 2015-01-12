@@ -1092,24 +1092,21 @@ function SwaggerGetAddDefinition()
 	return html; 			
 	}		
 
-function SwaggerAddDefinitionProperty($definitioncount,$definitionpropertycount)
+function SwaggerAddDefinitionProperty($definitioncount)
 	{
-	console.log($definitioncount + ' - ' + $definitionpropertycount);
+	console.log($definitioncount);
 	$property_name = document.getElementById('swagger-api-definition-' + $definitioncount + '-name-add').value;
 	$property_description = document.getElementById('swagger-api-definition-' + $definitioncount + '-description-add').value
 	$property_type = document.getElementById('swagger-api-definition-' + $definitioncount + '-type-add').value	
 
 	$dc = 0;
 	$dpc = 0;
-	$.each($MasterSwagger['definitions'], function(key1, val1) {  
-		$.each(val1, function(key2, val2) { 
-			if($definitioncount == $dc && $definitionpropertycount == $dpc)
-				{	
-				$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['description'] = $property_description;
-				$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['type'] = $property_type;
-				}	
-			$dpc++;	
-		});	
+	$.each($MasterSwagger['definitions'], function(key1, val1) {   
+	if($definitioncount == $dc)
+		{	
+		$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['description'] = $property_description;
+		$MasterSwagger['definitions'][key1]['properties'][$parameter_name]['type'] = $property_type;
+		}	
 	 $dc++;	
 	});		
 	
