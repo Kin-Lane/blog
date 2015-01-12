@@ -406,7 +406,7 @@ function SwaggerGetEditPathVerbDetail($SwaggerAPIPathVerbSummary,$SwaggerAPIPath
 	return html; 			
 	}		
 	
-function SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount,$pathverbpropertycount
+function SwaggerGetPathVerbParameterTitle($pathcount,$pathverbcount,$pathverbpropertycount)
 	{
 	html = '<tr>';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;" align="center">';
