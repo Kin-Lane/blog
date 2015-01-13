@@ -2,46 +2,6 @@
 //$.ajax({   url: 'path.php',   type: 'PUT',   success: function(data) {     //play with data }});
 
 $WorkingResponse = "";
-
-function getBlogs()
-	{
-	
-	$response = "";
-	
-	$hosturl = 'http://blog.api.kinlane.com';
-	$baseurl = '/';
-	
-	$resource = 'blog/';
-
-	$query = '?appid=5ed48098';
-	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
-	
-	$apiurl = $hosturl + $baseurl + $resource + $query;
-	console.log($apiurl);
-
-	var jqxhr = $.ajax({
-		url: $apiurl,   
-		type: 'GET',   
-		success: function(data) {
-			$WorkingResponse = data;
-			console.log("1) " + $WorkingResponse);			
-			}
-		})
-	  .done(function() {
-	    alert( "success" );
-	  })
-	  .fail(function() {
-	    alert( "error" );
-	  })
-	  .always(function() {
-	    alert( "complete" );
-	  });
-	jqxhr.always(function() {
-	  alert( "second complete" );
-	  return $WorkingResponse;
-	});				
-		
-	}
 	
 function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
 	{
@@ -64,11 +24,46 @@ function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_
 
 function loadBlogEditor()
     {
-    	
-	$showme = getBlogs();
 
-	console.log("2) " + $showme);
+	$response = "";
+	
+	$hosturl = 'http://blog.api.kinlane.com';
+	$baseurl = '/';
+	
+	$resource = 'blog/';
 
+	$query = '?appid=5ed48098';
+	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
+	
+	$apiurl = $hosturl + $baseurl + $resource + $query;
+	console.log($apiurl);
+	
+	$.ajax({
+		url: $apiurl,   
+		type: 'GET',   
+		success: function(data) {
+			
+			$WorkingResponse = data;
+			console.log("1) " + data);
+				
+			$blogcount = 0;
+			
+			$.each(data, function(blogKey, blogValue) {
+				
+				$blog_name = blogValue['name'];
+				$blog_description = blogValue['description'];
+				$blog_url = blogValue['url'];
+				$blog_tags = blogValue['tags'];
+				$blog_slug = blogValue['slug'];
+				
+				$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug);
+				$('#jsonBlogEditorTable').append($html); 
+				
+				$blogcount++;
+				});
 
+			
+			}
+		});		
 
 	}
