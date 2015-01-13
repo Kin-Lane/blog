@@ -51,6 +51,7 @@ function loadBlogEditor()
 			$.each(data, function(blogKey, blogValue) {
 				
 				$blog_name = blogValue['name'];
+				console.log($blog_name);
 				$blog_description = blogValue['description'];
 				$blog_url = blogValue['url'];
 				$blog_tags = blogValue['tags'];
