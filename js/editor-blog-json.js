@@ -7,11 +7,13 @@ function getBlogs()
 	
 	$hosturl = 'http://blog.api.kinlane.com';
 	baseurl = '/';
+	
+	$resource = 'blog/';
 
 	$query = '?appid=5ed48098';
 	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
 	
-	$apiurl = $hosturl + baseurl + $query;
+	$apiurl = $hosturl + baseurl + $resource + $query;
 	
 	$.ajax({
 		url: $apiurl,   
