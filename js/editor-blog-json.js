@@ -18,7 +18,7 @@ function getAddBlogPost()
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-name" value="" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-name" value="" width="100%" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
@@ -28,17 +28,17 @@ function getAddBlogPost()
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>url:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-url" value="" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-url" value="" width="100%" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>tags:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-tags" value="" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-tags" value="" width="100%" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>slug:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-slug" value="" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-slug" value="" width="100%" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
