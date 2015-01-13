@@ -3,6 +3,55 @@
 
 $WorkingResponse = "";
 	
+function addBlogPost()
+	{
+		
+	}	
+	
+function getAddBlogPost()
+	{		
+		
+	html = '<tr id="add-blog-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Add Blog Post</strong>';
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>description:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-description" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>url:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-url" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>tags:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-tags" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'  
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>slug:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-slug" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'      
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add" onclick="addBlogPost();" /></td>';
+    html = html + '</tr>'         
+     
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>';  
+    	
+	return html; 			
+	}	
+	
 function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
 	{
 		
@@ -26,6 +75,9 @@ function loadBlogEditor()
     {
 
 	$response = "";
+	
+	$html = getAddBlogPost();
+	$('#jsonBlogEditorTable').append($html); 
 	
 	$hosturl = 'http://blog.api.kinlane.com';
 	$baseurl = '/';
@@ -51,7 +103,6 @@ function loadBlogEditor()
 			$.each(data, function(blogKey, blogValue) {
 				
 				$blog_name = blogValue['name'];
-				console.log($blog_name);
 				$blog_description = blogValue['description'];
 				$blog_url = blogValue['url'];
 				$blog_tags = blogValue['tags'];
