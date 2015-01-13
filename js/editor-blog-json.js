@@ -1,6 +1,7 @@
 
 //$.ajax({   url: 'path.php',   type: 'PUT',   success: function(data) {     //play with data }});
 
+$WorkingResponse = "";
 
 function getBlogs()
 	{
@@ -23,8 +24,8 @@ function getBlogs()
 		type: 'GET',   
 		success: function(data) {
 
-			$response = data;
-			console.log("1) " + $response);			;
+			$WorkingResponse = data;
+			console.log("1) " + $WorkingResponse);			;
 			
 			}
 		});	
@@ -60,10 +61,10 @@ function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_
 function loadBlogEditor()
     {
     	
-	$response = getBlogs();
+	getBlogs();
 	
-	$responseJSON = JSON.stringify($response);
-	console.log("2) " + $response);
+	$responseJSON = JSON.stringify($WorkingResponse);
+	console.log("2) " + $WorkingResponse);
 		
 	$blogcount = 0;
 	
