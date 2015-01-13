@@ -17,6 +17,9 @@
               <a href="index.html" id="home-nav">Home</a>
             </li>
             <li>
+              <a href="editor-blog.html" id="blog-editor-nav">Blog Editor</a>
+            </li>            
+            <li>
               <a href="editor-apis-json.html" id="apis-json-editor-nav">APIs.json Editor</a>
             </li>   
             <li style="padding-top: 15px;">
@@ -171,10 +174,10 @@
   	<!-- what do we do with these? -->
   	<script src="/blogapi/js/editor-apis-json.js" type="text/javascript"></script>
   	<script src="/blogapi/js/editor-swagger-json.js" type="text/javascript"></script>      	
-	<script type="text/javascript">
-		loadPropertyTypes();
+	<script type="text/javascript">		
 		if(document.getElementById("jsonEditor"))
 			{
+			loadPropertyTypes();	
 			loadAPIsJSONEditor();
 			}
 		if(document.getElementById("swaggerEditor"))
@@ -182,6 +185,11 @@
 			$apisjsonURL = 'definitions/swagger.json';	
 			loadSwaggerditor($apisjsonURL);
 			}
+		if(document.getElementById("jsonBlogEditor"))
+			{			
+			loadBlogEditor();
+			}			
+			
 	</script>
   </body>
 </html>
