@@ -19,7 +19,7 @@ function getBlogs()
 	$apiurl = $hosturl + $baseurl + $resource + $query;
 	console.log($apiurl);
 	
-	var jqxhr = $.ajax({
+	$.ajax({
 		url: $apiurl,   
 		type: 'GET',   
 		success: function(data) {
@@ -28,14 +28,7 @@ function getBlogs()
 			console.log("1) " + $WorkingResponse);			;
 			
 			}
-		});	
-		
-	// Set another completion function for the request above
-	jqxhr.complete(function() {
-		
-	  	return $response;
-	  	                 
-        });				
+		});				
 		
 	}
 	
@@ -65,23 +58,6 @@ function loadBlogEditor()
 	
 	$responseJSON = JSON.stringify($WorkingResponse);
 	console.log("2) " + $WorkingResponse);
-		
-	$blogcount = 0;
-	
-	$.each($response, function(blogKey, blogValue) {
-		
-		$blog_name = blogValue['name'];
-		$blog_description = blogValue['description'];
-		$blog_url = blogValue['url'];
-		$blog_tags = blogValue['tags'];
-		$blog_slug = blogValue['slug'];
-		
-		$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug);
-		$('#jsonBlogEditorTable').append($html); 
-		
-		$blogcount++;
-		});
-
 
 
 	}
