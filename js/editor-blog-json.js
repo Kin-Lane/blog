@@ -18,17 +18,28 @@ function getBlogs()
 	
 	$apiurl = $hosturl + $baseurl + $resource + $query;
 	console.log($apiurl);
-	
-	$.ajax({
+
+	var jqxhr = $.ajax({
 		url: $apiurl,   
 		type: 'GET',   
 		success: function(data) {
 			$WorkingResponse = data;
-			console.log("1) " + $WorkingResponse);			;
-			return $WorkingResponse;
-			
+			console.log("1) " + $WorkingResponse);			
 			}
-		});				
+		})
+	  .done(function() {
+	    alert( "success" );
+	  })
+	  .fail(function() {
+	    alert( "error" );
+	  })
+	  .always(function() {
+	    alert( "complete" );
+	  });
+	jqxhr.always(function() {
+	  alert( "second complete" );
+	  return $WorkingResponse;
+	});				
 		
 	}
 	
