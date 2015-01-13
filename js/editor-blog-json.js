@@ -17,7 +17,7 @@ function getAddBlogPost()
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>name:</strong></td>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="5%"><strong>name:</strong></td>';
     html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
