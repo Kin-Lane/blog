@@ -13,7 +13,7 @@ function getAddBlogPost()
 		
 	html = '<tr id="add-blog-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Add Blog Post</strong>';
+	html = html + '<strong>Add New Blog Post</strong>';
     html = html + '<table border="0" width="90%" id="add-blog-post-table">';
     
     html = html + '<tr>';
