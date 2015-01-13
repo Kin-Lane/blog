@@ -5,28 +5,30 @@
 function getBlogs()
 	{
 	
+	$response = "":
+	
 	$hosturl = 'http://blog.api.kinlane.com';
-	baseurl = '/';
+	$baseurl = '/';
 	
 	$resource = 'blog/';
 
 	$query = '?appid=5ed48098';
 	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
 	
-	$apiurl = $hosturl + baseurl + $resource + $query;
+	$apiurl = $hosturl + $baseurl + $resource + $query;
+	console.log($apiurl);
 	
 	$.ajax({
 		url: $apiurl,   
 		type: 'GET',   
 		success: function(data) {
-		
-			console.log(data);
+
 			$response = data;
-		
-			return $response;
 			
 			}
 		});	
+	
+	return data;
 		
 	}
 	
@@ -51,9 +53,8 @@ function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_
 function loadBlogEditor()
     {
     	
-    console.log('loading blog editor');	
-
 	$response = getBlogs();
+	
 	$responseJSON = JSON.stringify($response);	
 	$blogcount = 0;
 	$.each($response, function(blogKey, blogValue) {
