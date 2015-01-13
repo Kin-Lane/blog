@@ -46,6 +46,7 @@ function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_
 	
 	html = html + '</td>';
 	html = html + '</tr>';
+	
 	return html; 
 				
 	}	
@@ -55,8 +56,11 @@ function loadBlogEditor()
     	
 	$response = getBlogs();
 	
-	$responseJSON = JSON.stringify($response);	
+	$responseJSON = JSON.stringify($response);
+	console.log($responseJSON);
+		
 	$blogcount = 0;
+	
 	$.each($response, function(blogKey, blogValue) {
 		
 		$blog_name = blogValue['name'];
