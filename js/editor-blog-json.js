@@ -63,7 +63,7 @@ function loadBlogEditor()
 	$response = getBlogs();
 	
 	$responseJSON = JSON.stringify($response);
-	console.log("2) " + $responseJSON);
+	console.log("2) " + $response);
 		
 	$blogcount = 0;
 	
