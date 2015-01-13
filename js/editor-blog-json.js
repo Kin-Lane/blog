@@ -5,7 +5,7 @@
 function getBlogs()
 	{
 	
-	$apiurl = 'http://blog.api.stack.network/';
+	$apiurl = 'http://blog.api.kinlane.com/';
 
 	$query = '?appid=5ed48098';
 	$query = '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
