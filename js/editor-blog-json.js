@@ -121,19 +121,3 @@ function loadBlogEditor()
 
 	}
 	
-	tinyMCE.init({
-	   	mode : "exact",
-	    elements : "add-bog-url",    
-		theme : "advanced",
-		relative_url : false,
-		plugins : "spellchecker,pagebreak,layer,table,advhr,advimage,autosave,advlist,advlink,inlinepopups,insertdatetime,preview,media,contextmenu,paste,nonbreaking",
-		theme_advanced_buttons1 : "save,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,cut,copy,pastetext,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,anchor,cleanup,code,|,hr,|,spellchecker",
-		theme_advanced_buttons2 : "",
-		theme_advanced_buttons3 : "",
-		theme_advanced_toolbar_location : "top",
-		theme_advanced_toolbar_align : "left",
-		theme_advanced_statusbar_location : "bottom",
-		extended_valid_elements : "iframe[src|width|height|name|align]",
-		width : "900px",
-		height : "300px"
-	});
