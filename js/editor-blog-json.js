@@ -23,7 +23,7 @@ function getAddBlogPost()
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-description" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><textarea id="add-bog-url" name="Page_Body" rows="15" cols="50" class="mceEditor" style="width: 100%;"></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
@@ -120,3 +120,20 @@ function loadBlogEditor()
 		});		
 
 	}
+	
+	tinyMCE.init({
+	   	mode : "exact",
+	    elements : "add-bog-url",    
+		theme : "advanced",
+		relative_url : false,
+		plugins : "spellchecker,pagebreak,layer,table,advhr,advimage,autosave,advlist,advlink,inlinepopups,insertdatetime,preview,media,contextmenu,paste,nonbreaking",
+		theme_advanced_buttons1 : "save,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,cut,copy,pastetext,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,anchor,cleanup,code,|,hr,|,spellchecker",
+		theme_advanced_buttons2 : "",
+		theme_advanced_buttons3 : "",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		extended_valid_elements : "iframe[src|width|height|name|align]",
+		width : "900px",
+		height : "300px"
+	});
