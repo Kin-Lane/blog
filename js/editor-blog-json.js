@@ -55,9 +55,9 @@ function loadBlogEditor()
     {
     	
 	getBlogs();
-	
-	$responseJSON = JSON.stringify($WorkingResponse);
-	console.log("2) " + $WorkingResponse);
+
+	console.log("3) " + $WorkingResponse);
+
 
 
 	}
