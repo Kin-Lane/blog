@@ -24,6 +24,7 @@ function getBlogs()
 		success: function(data) {
 
 			$response = data;
+			console.log("1) " + $response);
 			
 			}
 		});	
@@ -57,7 +58,7 @@ function loadBlogEditor()
 	$response = getBlogs();
 	
 	$responseJSON = JSON.stringify($response);
-	console.log($responseJSON);
+	console.log("2) " + $responseJSON);
 		
 	$blogcount = 0;
 	
