@@ -20,6 +20,7 @@ function getBlogs()
 		type: 'GET',   
 		success: function(data) {
 		
+			console.log(data);
 			$response = data;
 		
 			return $response;
