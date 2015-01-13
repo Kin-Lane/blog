@@ -26,10 +26,10 @@ function getBlogs()
 			$response = data;
 			console.log("1) " + $response);
 			
+			return $response;
+			
 			}
-		});	
-	
-	return $response;
+		});		
 		
 	}
 	
