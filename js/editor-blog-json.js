@@ -23,9 +23,9 @@ function getBlogs()
 		url: $apiurl,   
 		type: 'GET',   
 		success: function(data) {
-
 			$WorkingResponse = data;
 			console.log("1) " + $WorkingResponse);			;
+			return $WorkingResponse;
 			
 			}
 		});				
@@ -54,9 +54,9 @@ function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_
 function loadBlogEditor()
     {
     	
-	getBlogs();
+	$showme = getBlogs();
 
-	console.log("3) " + $WorkingResponse);
+	console.log("2) " + $showme);
 
 
 
