@@ -17,28 +17,28 @@ function getAddBlogPost()
     html = html + '<table border="0" width="90%" id="add-blog-post-table">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="5%"><strong>name:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-name" value="" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><textarea id="add-bog-description" name="Page_Body" rows="20" cols="50" class="mceEditor"></textarea></td>';
+    html = html + '<td align="right"><strong>description:</strong></td>';
+    html = html + '<td align="left"><textarea id="add-bog-description" name="Page_Body" rows="20" cols="50" class="mceEditor"></textarea></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>url:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-url" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right"><strong>url:</strong></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-url" value="" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>tags:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-tags" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right"><strong>tags:</strong></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-tags" value="" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>slug:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-blog-slug" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right"><strong>slug:</strong></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-slug" value="" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
