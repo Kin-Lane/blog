@@ -28,7 +28,7 @@ function getBlogs()
 			}
 		});	
 	
-	return data;
+	return $response;
 		
 	}
 	
