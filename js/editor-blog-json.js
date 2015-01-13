@@ -23,7 +23,7 @@ function getAddBlogPost()
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>description:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><textarea id="add-bog-description" name="Page_Body" rows="10" cols="50" class="mceEditor" style="width: 100%;"></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><textarea id="add-bog-description" name="Page_Body" rows="10" cols="25" class="mceEditor"></textarea></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
