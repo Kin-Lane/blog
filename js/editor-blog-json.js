@@ -7,7 +7,7 @@ function getBlogs()
 	
 	$apiurl = 'http://blog.api.stack.network/';
 
-	$query = '?appid=5ed48098';'
+	$query = '?appid=5ed48098';
 	$query = '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
 	
 	$.ajax({
