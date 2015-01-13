@@ -5,7 +5,7 @@
 function getBlogs()
 	{
 	
-	$response = "":
+	$response = "";
 	
 	$hosturl = 'http://blog.api.kinlane.com';
 	$baseurl = '/';
