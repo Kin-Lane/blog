@@ -5,20 +5,79 @@ $WorkingResponse = "";
 	
 function addBlogPost()
 	{
+	$blog_name = document.getElementById("add-blog-name").value;
+	$blog_description = document.getElementById("add-blog-description").value;
+	$blog_url = document.getElementById("add-blog-url").value;
+	$blog_tags = document.getElementById("add-blog-tags").value;
+	$blog_slug = document.getElementById("add-blog-slug").value;	
+	
+	$postData = {};
+	  
+	$postData['appid'] = '5ed48098';
+	$postData['appkey'] = 'b6c8c8cba92815a6cdfe6e780bb0d2f5';
+
+	$postData['name'] = $blog_name;
+	$postData['description'] = $blog_description;
+	$postData['url'] = $blog_url;
+	$postData['tags'] = $blog_tags;
+	$postData['slug'] = $blog_slug
+		
+	$hosturl = 'http://blog.api.kinlane.com';
+	$baseurl = '/';
+	
+	$resource = 'blog/';
+
+	$query = '?appid=5ed48098';
+	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
+	
+	$apiurl = $hosturl + $baseurl + $resource + $query;
+	console.log($apiurl);
+	
+	$.ajax({
+		url: $apiurl,   
+		type: 'GET', 
+		data: $postData,
+		success: function(data) {
+			
+			$WorkingResponse = data;
+			console.log("1) " + data);
+				
+			$blogcount = 0;
+			
+			$.each(data, function(blogKey, blogValue) {
+				
+				$blog_name = blogValue['name'];
+				$blog_description = blogValue['description'];
+				$blog_url = blogValue['url'];
+				$blog_tags = blogValue['tags'];
+				$blog_slug = blogValue['slug'];
+				
+				$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug);
+				$('#jsonBlogEditorTable').append($html); 
+				
+				$blogcount++;
+				
+				});
+
+			
+			}
+		});		
+
+
 		
 	}	
 	
 function getAddBlogPost()
 	{		
 		
-	html = '<tr id="add-blog-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="add-blog-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
 
-	html = html + '<strong>Add New Blog Post</strong>';
+	html = html + '<span style="font-size: 18px;"><strong>Add New Blog</span></strong>';
     html = html + '<table border="0" width="90%" id="add-blog-post-table">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-name" value="" width="100%" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-name" value="" style="width:100%;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
@@ -28,17 +87,17 @@ function getAddBlogPost()
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>url:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-url" value="" width="100%" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-url" value="" style="width:100%;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>tags:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-tags" value="" width="100%" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-tags" value="" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>slug:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-slug" value="" width="100%" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-slug" value="" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
