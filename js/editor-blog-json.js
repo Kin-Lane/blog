@@ -6,7 +6,17 @@ $WorkingResponse = "";
 function addBlogPost()
 	{
 	$blog_name = document.getElementById("add-blog-name").value;
-	$blog_description = document.getElementById("add-blog-description").value;
+
+	tinyInstance = 'add-blog-name';
+	var ThisField = tinyInstance;		
+	var ed = tinyMCE.get(tinyInstance);
+	ed.setProgressState(1);
+	window.setTimeout(function() {
+		ed.setProgressState(0);
+		$blog_description = ed.getContent();
+	}, 3000);
+
+
 	$blog_url = document.getElementById("add-blog-url").value;
 	$blog_tags = document.getElementById("add-blog-tags").value;
 	$blog_slug = document.getElementById("add-blog-slug").value;	
