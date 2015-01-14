@@ -2,6 +2,7 @@
 //$.ajax({   url: 'path.php',   type: 'PUT',   success: function(data) {     //play with data }});
 
 $WorkingResponse = "";
+$blogcount = 0;
 
 function BlogShowme($row)
 	{
@@ -277,8 +278,6 @@ function loadBlogEditor()
 		success: function(data) {
 			
 			$WorkingResponse = data;
-	
-			$blogcount = 0;
 			
 			$.each(data, function(blogKey, blogValue) {
 				
@@ -288,7 +287,7 @@ function loadBlogEditor()
 				$blog_tags = blogValue['tags'];
 				$blog_slug = blogValue['slug'];
 				
-				$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug);
+				$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount);
 				$('#jsonBlogEditorTable').append($html); 
 				
 				$html = getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
