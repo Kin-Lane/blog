@@ -2,6 +2,25 @@
 //$.ajax({   url: 'path.php',   type: 'PUT',   success: function(data) {     //play with data }});
 
 $WorkingResponse = "";
+
+function BlogShowme($row)
+	{
+	$thisrow = $row.id;			
+	$thisslug = $thisrow.replace("-icon","");
+	
+	//console.log('viewing: ' + $thisslug);
+		
+	$thisrow = document.getElementById($thisslug).style.display;
+
+	if($thisrow=='none')
+		{
+		document.getElementById($thisslug).style.display = '';	
+		}
+	else
+		{
+		document.getElementById($thisslug).style.display = 'none';	
+		}			
+	}	
 	
 function addBlogPost(tinyInstance)
 	{
