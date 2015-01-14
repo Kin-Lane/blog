@@ -48,7 +48,7 @@ function addBlogPost()
 		success: function(data) {
 			
 			$WorkingResponse = data;
-			console.log("1) " + data);
+			//console.log("1) " + data);
 				
 			$blogcount = 0;
 			
