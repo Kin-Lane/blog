@@ -35,7 +35,7 @@ function addBlogPost()
 	
 	$.ajax({
 		url: $apiurl,   
-		type: 'GET', 
+		type: 'POST', 
 		data: $postData,
 		success: function(data) {
 			
