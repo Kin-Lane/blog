@@ -195,32 +195,50 @@ function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog
 		
 	html = '<tr id="edit-blog-post-' + $blogcount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
 
+	html = html + '<script type="text/javascript">';
+	html = html + 'tinyMCE.init({';
+	html = html + 'mode : "exact",';
+	html = html + 'elements : "edit-blog-description-' + $blogcount + '",';    
+	html = html + 'theme : "advanced",';
+	html = html + 'relative_url : false,';
+	html = html + 'plugins : "spellchecker,pagebreak,layer,table,advhr,advimage,autosave,advlist,advlink,inlinepopups,insertdatetime,preview,media,contextmenu,paste,nonbreaking",';
+	html = html + 'theme_advanced_buttons1 : "save,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,code,|,hr,|,spellchecker",';
+	html = html + 'theme_advanced_buttons2 : "",';
+	html = html + 'theme_advanced_buttons3 : "",';
+	html = html + 'theme_advanced_toolbar_location : "top",';
+	html = html + 'theme_advanced_toolbar_align : "left",';
+	html = html + 'theme_advanced_statusbar_location : "bottom",';
+	html = html + 'extended_valid_elements : "iframe[src|width|height|name|align]",';
+	html = html + 'width : "500px",';
+	html = html + 'height : "300px"';
+	html = html + '});';	
+
 	html = html + '<span style="font-size: 18px;"><strong>Edit Blog</span></strong>';
     html = html + '<table border="0" width="90%" id="edit-blog-post-table' + $blogcount + '">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="edit-blog-name" value="' + $blog_name + '" style="width:95%;" /></td>';
+    html = html + '<td align="left"><input type="text" id="edit-blog-name-' + $blogcount + '" value="' + $blog_name + '" style="width:95%;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>description:</strong></td>';
-    html = html + '<td align="left"><textarea id="edit-blog-description" name="Page_Body" rows="20" cols="50" class="mceEditor">' + $blog_description + '</textarea></td>';
+    html = html + '<td align="left"><textarea id="edit-blog-description-' + $blogcount + '" name="Page_Body" rows="20" cols="50" class="mceEditor">' + $blog_description + '</textarea></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>url:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="edit-blog-url" value="' + $blog_url + '" style="width:95%;" /></td>';
+    html = html + '<td align="left"><input type="text" id="edit-blog-url-' + $blogcount + '" value="' + $blog_url + '" style="width:95%;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>tags:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="edit-blog-tags" value="' + $blog_tags + '" style="width:95%;" /></td>';
+    html = html + '<td align="left"><input type="text" id="edit-blog-tags-' + $blogcount + '" value="' + $blog_tags + '" style="width:95%;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>slug:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="edit-blog-slug" value="' + $blog_slug + '" style="width:95%;" /></td>';
+    html = html + '<td align="left"><input type="text" id="edit-blog-slug-' + $blogcount + '" value="' + $blog_slug + '" style="width:95%;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
@@ -240,7 +258,7 @@ function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_
 	html = '<tr>';
 	html = html + '<td style="padding-top: 5px; padding-bottom: 5px;">';	
 
-    html = html + '<a href="#" onclick="BlogShowme(this); return false;" id="edit-blog-post-' + $blogcount + '-icon" title="Edit Blog Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
+    html = html + '<a href="#" onclick="BlogShowme(this); return false;" id="	html = html + '-icon" title="Edit Blog Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
 	
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $blog_name + '</strong>';
