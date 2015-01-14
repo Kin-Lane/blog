@@ -5,71 +5,71 @@ $WorkingResponse = "";
 	
 function addBlogPost(tinyInstance)
 	{
-	$blog_name = document.getElementById("add-blog-name").value;
 
 	var ed = tinyMCE.get(tinyInstance);
 	window.setTimeout(function() {
-		$blog_description = ed.getContent();
-	}, 3000);
-
-
-	$blog_url = document.getElementById("add-blog-url").value;
-	$blog_tags = document.getElementById("add-blog-tags").value;
-	$blog_slug = document.getElementById("add-blog-slug").value;	
-	
-	$postData = {};
-	  
-	$postData['appid'] = '5ed48098';
-	$postData['appkey'] = 'b6c8c8cba92815a6cdfe6e780bb0d2f5';
-
-	$postData['name'] = $blog_name;
-	$postData['description'] = $blog_description;
-	$postData['url'] = $blog_url;
-	$postData['tags'] = $blog_tags;
-	$postData['slug'] = $blog_slug
 		
-	$hosturl = 'http://blog.api.kinlane.com';
-	$baseurl = '/';
+		$blog_name = document.getElementById("add-blog-name").value;
+		
+		$blog_description = ed.getContent();
 	
-	$resource = 'blog/';
-
-	//$query = '?appid=5ed48098';
-	//$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
+		$blog_url = document.getElementById("add-blog-url").value;
+		$blog_tags = document.getElementById("add-blog-tags").value;
+		$blog_slug = document.getElementById("add-blog-slug").value;	
+		
+		$postData = {};
+		  
+		$postData['appid'] = '5ed48098';
+		$postData['appkey'] = 'b6c8c8cba92815a6cdfe6e780bb0d2f5';
 	
-	$apiurl = $hosturl + $baseurl + $resource;
-	
-	console.log($apiurl);
-	
-	$.ajax({
-		url: $apiurl,   
-		type: 'POST', 
-		data: $postData,
-		success: function(data) {
+		$postData['name'] = $blog_name;
+		$postData['description'] = $blog_description;
+		$postData['url'] = $blog_url;
+		$postData['tags'] = $blog_tags;
+		$postData['slug'] = $blog_slug
 			
-			$WorkingResponse = data;
+		$hosturl = 'http://blog.api.kinlane.com';
+		$baseurl = '/';
+		
+		$resource = 'blog/';
+	
+		//$query = '?appid=5ed48098';
+		//$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
+		
+		$apiurl = $hosturl + $baseurl + $resource;
+		
+		console.log($apiurl);
+		
+		$.ajax({
+			url: $apiurl,   
+			type: 'POST', 
+			data: $postData,
+			success: function(data) {
 				
-			$blogcount = 0;
-			
-			$.each(data, function(blogKey, blogValue) {
+				$WorkingResponse = data;
+					
+				$blogcount = 0;
 				
-				$blog_name = blogValue['name'];
-				$blog_description = blogValue['description'];
-				$blog_url = blogValue['url'];
-				$blog_tags = blogValue['tags'];
-				$blog_slug = blogValue['slug'];
+				$.each(data, function(blogKey, blogValue) {
+					
+					$blog_name = blogValue['name'];
+					$blog_description = blogValue['description'];
+					$blog_url = blogValue['url'];
+					$blog_tags = blogValue['tags'];
+					$blog_slug = blogValue['slug'];
+					
+					$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug);
+					$('#jsonBlogEditorTable').append($html); 
+					
+					$blogcount++;
+					
+					});
+	
 				
-				$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug);
-				$('#jsonBlogEditorTable').append($html); 
-				
-				$blogcount++;
-				
-				});
+				}
+			});		
 
-			
-			}
-		});		
-
-
+	}, 3000);
 		
 	}	
 	
