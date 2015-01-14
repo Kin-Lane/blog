@@ -192,7 +192,7 @@ function addBlogPost($blogcount)
 function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
 	{				
 		
-	html = '<tr id="add-blog-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
+	html = '<tr id="add-blog-post-' + $blogcount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
 
 	html = html + '<span style="font-size: 18px;"><strong>Edit Blog</span></strong>';
     html = html + '<table border="0" width="90%" id="edit-blog-post-table-' + $blogcount + '">';
@@ -239,7 +239,7 @@ function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_
 	html = '<tr>';
 	html = html + '<td style="padding-top: 5px; padding-bottom: 5px;">';	
 
-    html = html + '<a href="#" onclick="BlogShowme(this); return false;" id="edit-blog-post-table-' + $blogcount + '-icon" title="Edit Blog Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
+    html = html + '<a href="#" onclick="BlogShowme(this); return false;" id="add-blog-post-' + $blogcount + '-icon" title="Edit Blog Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
 	
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $blog_name + '</strong>';
