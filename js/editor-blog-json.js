@@ -6,7 +6,13 @@ $WorkingResponse = "";
 function addBlogPost()
 	{
 	$blog_name = document.getElementById("add-blog-name").value;
-	$blog_description = document.getElementById("add-blog-description").value;
+
+	var ed = tinyMCE.get('add-blog-description');
+	ed.setProgressState(1);
+	window.setTimeout(function() {
+	ed.setProgressState(0);
+	$blog_description = ed.getContent();	
+	
 	$blog_url = document.getElementById("add-blog-url").value;
 	$blog_tags = document.getElementById("add-blog-tags").value;
 	$blog_slug = document.getElementById("add-blog-slug").value;	
@@ -77,7 +83,7 @@ function getAddBlogPost()
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-name" value="" style="width:90%;" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-name" value="" style="width:95%;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
@@ -87,17 +93,17 @@ function getAddBlogPost()
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>url:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-url" value="" style="width:90%;" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-url" value="" style="width:95%;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>tags:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-tags" value="" style="width:90%;" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-tags" value="" style="width:95%;" /></td>';
     html = html + '</tr>'  
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>slug:</strong></td>';
-    html = html + '<td align="left"><input type="text" id="add-blog-slug" value="" style="width:90%;" /></td>';
+    html = html + '<td align="left"><input type="text" id="add-blog-slug" value="" style="width:95%;" /></td>';
     html = html + '</tr>'      
     
     html = html + '<tr>';
