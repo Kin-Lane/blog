@@ -193,25 +193,7 @@ function addBlogPost($blogcount)
 function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
 	{				
 		
-	html = '<tr id="edit-blog-post-' + $blogcount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
-
-	html = html + '<script type="text/javascript">';
-	html = html + 'tinyMCE.init({';
-	html = html + 'mode : "exact",';
-	html = html + 'elements : "edit-blog-description-' + $blogcount + '",';    
-	html = html + 'theme : "advanced",';
-	html = html + 'relative_url : false,';
-	html = html + 'plugins : "spellchecker,pagebreak,layer,table,advhr,advimage,autosave,advlist,advlink,inlinepopups,insertdatetime,preview,media,contextmenu,paste,nonbreaking",';
-	html = html + 'theme_advanced_buttons1 : "save,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,outdent,indent,blockquote,|,link,unlink,code,|,hr,|,spellchecker",';
-	html = html + 'theme_advanced_buttons2 : "",';
-	html = html + 'theme_advanced_buttons3 : "",';
-	html = html + 'theme_advanced_toolbar_location : "top",';
-	html = html + 'theme_advanced_toolbar_align : "left",';
-	html = html + 'theme_advanced_statusbar_location : "bottom",';
-	html = html + 'extended_valid_elements : "iframe[src|width|height|name|align]",';
-	html = html + 'width : "500px",';
-	html = html + 'height : "300px"';
-	html = html + '});';	
+	html = '<tr id="edit-blog-post-' + $blogcount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';	
 
 	html = html + '<span style="font-size: 18px;"><strong>Edit Blog</span></strong>';
     html = html + '<table border="0" width="90%" id="edit-blog-post-table' + $blogcount + '">';
