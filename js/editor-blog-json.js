@@ -3,16 +3,12 @@
 
 $WorkingResponse = "";
 	
-function addBlogPost()
+function addBlogPost(tinyInstance)
 	{
 	$blog_name = document.getElementById("add-blog-name").value;
 
-	tinyInstance = 'add-blog-name';
-	var ThisField = tinyInstance;		
 	var ed = tinyMCE.get(tinyInstance);
-	ed.setProgressState(1);
 	window.setTimeout(function() {
-		ed.setProgressState(0);
 		$blog_description = ed.getContent();
 	}, 3000);
 
