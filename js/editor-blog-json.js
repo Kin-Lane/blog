@@ -5,9 +5,10 @@ $WorkingResponse = "";
 	
 function addBlogPost(tinyInstance)
 	{
-
-	var ed = tinyMCE.get(tinyInstance);
+	
 	window.setTimeout(function() {
+		
+		var ed = tinyMCE.get(tinyInstance);
 		
 		$blog_name = document.getElementById("add-blog-name").value;
 		
