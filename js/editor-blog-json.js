@@ -82,7 +82,7 @@ function getAddBlogPost()
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>description:</strong></td>';
-    html = html + '<td align="left"><textarea id="add-bog-description" name="Page_Body" rows="20" cols="50" class="mceEditor"></textarea></td>';
+    html = html + '<td align="left"><textarea id="add-blog-description" name="Page_Body" rows="20" cols="50" class="mceEditor"></textarea></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
