@@ -156,8 +156,7 @@ function loadBlogEditor()
 		success: function(data) {
 			
 			$WorkingResponse = data;
-			console.log("1) " + data);
-				
+	
 			$blogcount = 0;
 			
 			$.each(data, function(blogKey, blogValue) {
