@@ -33,10 +33,11 @@ function addBlogPost(tinyInstance)
 	
 	$resource = 'blog/';
 
-	$query = '?appid=5ed48098';
-	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
+	//$query = '?appid=5ed48098';
+	//$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
 	
-	$apiurl = $hosturl + $baseurl + $resource + $query;
+	$apiurl = $hosturl + $baseurl + $resource;
+	
 	console.log($apiurl);
 	
 	$.ajax({
@@ -46,7 +47,6 @@ function addBlogPost(tinyInstance)
 		success: function(data) {
 			
 			$WorkingResponse = data;
-			console.log("1) " + data);
 				
 			$blogcount = 0;
 			
