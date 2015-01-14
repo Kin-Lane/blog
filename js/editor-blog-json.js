@@ -9,7 +9,6 @@ function addBlogPost()
 	
 	var ed = tinyMCE.get('add-blog-description');
 	ed.setProgressState(1);
-	
 	window.setTimeout(function() {
 		ed.setProgressState(0);
 		$blog_description = ed.getContent();	
@@ -48,7 +47,7 @@ function addBlogPost()
 		success: function(data) {
 			
 			$WorkingResponse = data;
-			//console.log("1) " + data);
+			console.log("1) " + data);
 				
 			$blogcount = 0;
 			
