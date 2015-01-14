@@ -6,7 +6,6 @@ $WorkingResponse = "";
 function addBlogPost()
 	{
 	$blog_name = document.getElementById("add-blog-name").value;
-	$blog_description = document.getElementById("add-blog-description").value;
 	
 	var ed = tinyMCE.get('add-blog-description');
 	$blog_description = ed.getContent();	
