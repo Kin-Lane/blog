@@ -6,11 +6,9 @@ $WorkingResponse = "";
 function addBlogPost()
 	{
 	$blog_name = document.getElementById("add-blog-name").value;
-
+	$blog_description = document.getElementById("add-blog-description").value;
+	
 	var ed = tinyMCE.get('add-blog-description');
-	ed.setProgressState(1);
-	window.setTimeout(function() {
-	ed.setProgressState(0);
 	$blog_description = ed.getContent();	
 	
 	$blog_url = document.getElementById("add-blog-url").value;
