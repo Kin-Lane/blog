@@ -8,7 +8,12 @@ function addBlogPost()
 	$blog_name = document.getElementById("add-blog-name").value;
 	
 	var ed = tinyMCE.get('add-blog-description');
-	$blog_description = ed.getContent();	
+	ed.setProgressState(1);
+	
+	window.setTimeout(function() {
+		ed.setProgressState(0);
+		$blog_description = ed.getContent();	
+	}, 3000);		
 	
 	$blog_url = document.getElementById("add-blog-url").value;
 	$blog_tags = document.getElementById("add-blog-tags").value;
