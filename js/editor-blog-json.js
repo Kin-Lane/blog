@@ -3,6 +3,7 @@
 
 $WorkingResponse = "";
 $blogcount = 0;
+$textEditors = "";
 
 function BlogShowme($row)
 	{
@@ -260,6 +261,7 @@ function loadBlogEditor()
 	
 	$html = getAddBlogPost();
 	$('#jsonBlogEditorTable').append($html); 
+	$textEditors = "add-blog-post";
 	
 	$hosturl = 'http://blog.api.kinlane.com';
 	$baseurl = '/';
@@ -291,7 +293,8 @@ function loadBlogEditor()
 				$('#jsonBlogEditorTable').append($html); 
 				
 				$html = getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
-				$('#jsonBlogEditorTable').append($html); 
+				$('#jsonBlogEditorTable').append($html);
+				$textEditors .= ",edit-blog-post-" . $blogcount;
 				
 				$blogcount++;
 				
