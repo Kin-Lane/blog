@@ -159,11 +159,9 @@ function deleteBlogPost($blogcount)
 		url: $apiurl,   
 		type: 'DELETE', 
 		success: function(data) {
-	      var tr = $('#edit-blog-post-' + $blogcount).closest('tr');
-	        tr.css("background-color","#FF3700");
-	        tr.fadeOut(400, function(){
-	            tr.remove();
-	        });											
+			
+	       	$(#edit-blog-post-' + $blogcount).remove();
+	        										
 			}
 		});		
 	
