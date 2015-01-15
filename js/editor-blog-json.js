@@ -95,7 +95,7 @@ function getAddBlogPost()
 	html = '<tr id="add-blog-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
 
 	html = html + '<span style="font-size: 18px;"><strong>Add New Blog</span></strong>';
-    html = html + '<table border="0" width="90%" id="add-blog-post-table">';
+    html = html + '<table border="0" width="90%" cellpadding="1" cellspacing="1"  id="add-blog-post-table">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
@@ -197,7 +197,7 @@ function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog
 	html = '<tr id="edit-blog-post-' + $blogcount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';	
 
 	html = html + '<span style="font-size: 18px;"><strong>Edit Blog</span></strong>';
-    html = html + '<table border="0" width="90%" id="edit-blog-post-table' + $blogcount + '">';
+    html = html + '<table border="0" width="90%" cellpadding="1" cellspacing="1" id="edit-blog-post-table' + $blogcount + '">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
@@ -206,7 +206,7 @@ function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>description:</strong></td>';
-    html = html + '<td align="left"><textarea id="edit-blog-description-' + $blogcount + '" name="Page_Body" rows="20" cols="50" class="mceEditor">' + $blog_description + '</textarea></td>';
+    html = html + '<td align="left"><textarea id="edit-blog-description-' + $blogcount + '" rows="20" cols="50" class="mceEditor">' + $blog_description + '</textarea></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
