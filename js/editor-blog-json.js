@@ -160,7 +160,7 @@ function deleteBlogPost($blogcount)
 		type: 'DELETE', 
 		success: function(data) {
 			
-	       	$(#edit-blog-post-' + $blogcount).remove();
+	       	$('#edit-blog-post-' + $blogcount).remove();
 	        										
 			}
 		});		
