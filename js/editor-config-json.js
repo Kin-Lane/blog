@@ -73,12 +73,12 @@ function loadConfigEditor()
         token: $oAuth_Token,
         auth: "oauth"
             });
-        
+    console.log($oAuth_Token);   
 	var gConfigRepo = gConfig.getRepo('Stack-Network','blogapi');  
 
     gConfigRepo.read('master', 'api-config.json', function(err, res) {
 	
-	 		buildConfigEditor(res);
+	 		//buildConfigEditor(res);
 									
 		});		  
          	  	
