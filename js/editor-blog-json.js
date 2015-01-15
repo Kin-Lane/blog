@@ -140,6 +140,45 @@ function getAddBlogPost()
 	return html; 			
 	}
 	
+function deleteBlogPost($blogcount)
+	{
+	;
+	$blog_slug = document.getElementById("edit-blog-slug-" + $blogcount).value;	
+	
+	$hosturl = 'http://blog.api.kinlane.com';
+	$baseurl = '/';
+	
+	$resource = 'blog/';
+
+	$query = '?appid=5ed48098';
+	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
+	
+	$apiurl = $hosturl + $baseurl + $resource + $query + $blog_slug + '/';
+
+	$.ajax({
+		url: $apiurl,   
+		type: 'delete', 
+		data: $postData,
+		success: function(data) {
+			
+			$.each(data, function(blogKey, blogValue) {
+				
+				edit-blog-post-' + $blogcount + '
+				
+			      var tr = $('#edit-blog-post-' + $blogcount).closest('tr');
+			        tr.css("background-color","#FF3700");
+			        tr.fadeOut(400, function(){
+			            tr.remove();
+			        });				
+							
+				
+				});
+							
+			}
+		});		
+	
+	}	
+	
 function editBlogPost($blogcount)
 	{
 	
