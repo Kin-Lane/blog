@@ -157,7 +157,7 @@ function editBlogPost($blogcount)
 	
 	$resource = 'blog/';
 
-	$apiurl = $hosturl + $baseurl + $resource + '/:' + $blog_slug + '/';
+	$apiurl = $hosturl + $baseurl + $resource + $blog_slug + '/';
 	
 	console.log($apiurl);
 	
