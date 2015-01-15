@@ -294,7 +294,7 @@ function loadBlogEditor()
 				
 				$html = getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
 				$('#jsonBlogEditorTable').append($html);
-				$textEditors .= ",edit-blog-post-" . $blogcount;
+				$textEditors = $textEditors + ",edit-blog-post-" + $blogcount;
 				
 				$blogcount++;
 				
