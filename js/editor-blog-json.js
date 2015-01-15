@@ -163,7 +163,7 @@ function editBlogPost($blogcount)
 	
 	$.ajax({
 		url: $apiurl,   
-		type: 'PUT', 
+		type: 'put', 
 		data: $postData,
 		success: function(data) {
 			
@@ -178,13 +178,9 @@ function editBlogPost($blogcount)
 				$blog_url = blogValue['url'];
 				$blog_tags = blogValue['tags'];
 				$blog_slug = blogValue['slug'];
-				
-				//$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug);
-				//$('#jsonBlogEditorTable').append($html); 
-				
-				});
 
-			
+				});
+							
 			}
 		})
 		    .done(function() {
