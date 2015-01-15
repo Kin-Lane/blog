@@ -96,6 +96,13 @@ if(login=='1')
 			document.getElementById("login-github-icon").style.display = 'none';	
 										
 			});	
+			
+		repo.read('master', 'api-config.json', function(err, res) {
+		    	
+		    	console.log(res + ' - ' + res);
+		 		//buildConfigEditor(res);
+										
+			});				
 																		
 		}
 	else
