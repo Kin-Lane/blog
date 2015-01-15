@@ -10,8 +10,6 @@ function BlogShowme($row)
 	$thisrow = $row.id;			
 	$thisslug = $thisrow.replace("-icon","");
 	
-	//console.log('viewing: ' + $thisslug);
-		
 	$thisrow = document.getElementById($thisslug).style.display;
 
 	if($thisrow=='none')
@@ -55,9 +53,7 @@ function addBlogPost(tinyInstance)
 	//$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
 	
 	$apiurl = $hosturl + $baseurl + $resource;
-	
-	console.log($apiurl);
-	
+
 	$.ajax({
 		url: $apiurl,   
 		type: 'POST', 
@@ -158,8 +154,6 @@ function editBlogPost($blogcount)
 	$resource = 'blog/';
 
 	$apiurl = $hosturl + $baseurl + $resource + $blog_slug + '/';
-	
-	console.log($apiurl);
 	
 	$.ajax({
 		url: $apiurl,   
@@ -267,7 +261,6 @@ function loadBlogEditor()
 	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
 	
 	$apiurl = $hosturl + $baseurl + $resource + $query;
-	console.log($apiurl);
 	
 	$.ajax({
 		url: $apiurl,   
@@ -286,7 +279,6 @@ function loadBlogEditor()
 				
 				$html = getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount);
 				$('#jsonBlogEditorTable').append($html); 
-				console.log($blog_description);
 				$html = getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
 				$('#jsonBlogEditorTable').append($html);
 				$textEditors = $textEditors + ",edit-blog-post-" + $blogcount;
