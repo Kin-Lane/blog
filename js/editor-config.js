@@ -66,7 +66,7 @@ function ConfigQuestions()
 		}
 	}	
 	
-function loadAPIsJSONEditor()
+function loadConfigEditor()
     {
 
     var gConfig = new Github({
