@@ -151,14 +151,13 @@ function editBlogPost($blogcount)
 	$postData['description'] = $blog_description;
 	$postData['url'] = $blog_url;
 	$postData['tags'] = $blog_tags;
-	$postData['slug'] = $blog_slug
 		
 	$hosturl = 'http://blog.api.kinlane.com';
 	$baseurl = '/';
 	
 	$resource = 'blog/';
 
-	$apiurl = $hosturl + $baseurl + $resource;
+	$apiurl = $hosturl + $baseurl + $resource + '/:' + $blog_slug + '/';
 	
 	console.log($apiurl);
 	
