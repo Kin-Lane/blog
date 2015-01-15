@@ -69,15 +69,15 @@ function ConfigQuestions()
 function loadConfigEditor()
     {
 
-    var gConfig = new Github({
+    var github = new Github({
         token: $oAuth_Token,
         auth: "oauth"
             });
-    console.log($oAuth_Token);   
-	var gConfigRepo = gConfig.getRepo('Stack-Network','blogapi');  
+            
+	var repo = github.getRepo('Stack-Network','blogapi');  
 
-    gConfigRepo.read('master', 'api-config.json', function(err, res) {
-	
+	repo.read('master', 'api-config.json', function(err, res) {
+	    	
 	 		//buildConfigEditor(res);
 									
 		});		  
