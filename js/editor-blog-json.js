@@ -133,7 +133,7 @@ function getAddBlogPost()
 	return html; 			
 	}
 	
-function addBlogPost($blogcount)
+function editBlogPost($blogcount)
 	{
 	
 	$blog_name = document.getElementById("edit-blog-name-" + $blogcount).value;	
