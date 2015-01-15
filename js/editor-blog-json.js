@@ -95,7 +95,7 @@ function getAddBlogPost()
 	html = '<tr id="add-blog-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
 
 	html = html + '<span style="font-size: 18px;"><strong>Add New Blog</span></strong>';
-    html = html + '<table border="0" width="90%" cellpadding="1" cellspacing="1" id="blog-post-table">';
+    html = html + '<table border="0" width="90%" cellpadding="3" cellspacing="2" id="blog-post-table">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
@@ -197,7 +197,7 @@ function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog
 	html = '<tr id="edit-blog-post-' + $blogcount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';	
 
 	html = html + '<span style="font-size: 18px;"><strong>Edit Blog</span></strong>';
-    html = html + '<table border="0" width="90%" cellpadding="1" cellspacing="1" id="blog-post-table">';
+    html = html + '<table border="0" width="90%" cellpadding="3" cellspacing="2" id="blog-post-table">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
