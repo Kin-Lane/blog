@@ -129,7 +129,7 @@ function getAddBlogPost()
 	return html; 			
 	}
 	
-function ConfirmDelete($blogcount,$row)
+function ConfirmDelete($blogcount)
 	{
 	if(confirm("Are you Sure?"))
 		{
@@ -140,7 +140,7 @@ function ConfirmDelete($blogcount,$row)
 		}	
 	}		
 	
-function deleteBlogPost($blogcount,$row)
+function deleteBlogPost($blogcount)
 	{
 	;
 	$blog_slug = document.getElementById("edit-blog-slug-" + $blogcount).value;	
@@ -160,7 +160,9 @@ function deleteBlogPost($blogcount,$row)
 		type: 'DELETE', 
 		success: function(data) {
 			
-	       	$($row).remove();
+	       	$('#blog-post-' + $blogcount).remove();
+	       	$('#add-blog-post-' + $blogcount).remove();
+	       	$('#edit-blog-post-' + $blogcount).remove();
 	        										
 			}
 		});		
@@ -265,10 +267,10 @@ function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog
 function getBlogListing($blog_name,$blog_description,$blog_url,$blog_tags,$blog_slug,$blogcount)
 	{
 		
-	html = '<tr>';
+	html = '<tr id="blog-post-' + $blogcount + '">';
 	html = html + '<td style="padding-top: 5px; padding-bottom: 5px;">';	
 
-	html = html + '<a href="#" onclick="ConfirmDelete(' + $blogcount + ',this); return false;" id="delete-blog-post-' + $blogcount + '-icon" title="Delete Blog Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="35" align="right"  /></a>';		
+	html = html + '<a href="#" onclick="ConfirmDelete(' + $blogcount + '); return false;" id="delete-blog-post-' + $blogcount + '-icon" title="Delete Blog Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="35" align="right"  /></a>';		
     html = html + '<a href="#" onclick="BlogShowme(this); return false;" id="edit-blog-post-' + $blogcount + '-icon" title="Edit Blog Post"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';	
 	
 	html = html + '<span style="font-size:20px;">';
