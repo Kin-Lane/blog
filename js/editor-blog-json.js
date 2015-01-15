@@ -158,7 +158,6 @@ function deleteBlogPost($blogcount)
 	$.ajax({
 		url: $apiurl,   
 		type: 'delete', 
-		data: $postData,
 		success: function(data) {
 			
 			$.each(data, function(blogKey, blogValue) {
