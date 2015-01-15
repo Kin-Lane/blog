@@ -153,7 +153,7 @@ function deleteBlogPost($blogcount)
 	$query = '?appid=5ed48098';
 	$query = $query + '&appkey=b6c8c8cba92815a6cdfe6e780bb0d2f5';
 	
-	$apiurl = $hosturl + $baseurl + $resource + $query + $blog_slug + '/';
+	$apiurl = $hosturl + $baseurl + $resource + $blog_slug + '/' + $query;
 
 	$.ajax({
 		url: $apiurl,   
