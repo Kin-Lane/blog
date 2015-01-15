@@ -157,22 +157,13 @@ function deleteBlogPost($blogcount)
 
 	$.ajax({
 		url: $apiurl,   
-		type: 'delete', 
+		type: 'DELETE', 
 		success: function(data) {
-			
-			$.each(data, function(blogKey, blogValue) {
-				
-				edit-blog-post-' + $blogcount + '
-				
-			      var tr = $('#edit-blog-post-' + $blogcount).closest('tr');
-			        tr.css("background-color","#FF3700");
-			        tr.fadeOut(400, function(){
-			            tr.remove();
-			        });				
-							
-				
-				});
-							
+	      var tr = $('#edit-blog-post-' + $blogcount).closest('tr');
+	        tr.css("background-color","#FF3700");
+	        tr.fadeOut(400, function(){
+	            tr.remove();
+	        });											
 			}
 		});		
 	
