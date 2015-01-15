@@ -186,7 +186,14 @@ function editBlogPost($blogcount)
 
 			
 			}
-		});		
+		})
+		    .done(function() {
+		    alert("success");
+		})
+		    .fail(function() {
+		    alert("error");
+		})		
+		;		
 	
 	}		
 	
