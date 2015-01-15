@@ -206,7 +206,7 @@ function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog
     
     html = html + '<tr>';
     html = html + '<td align="right"><strong>description:</strong></td>';
-    html = html + '<td align="left"><textarea id="edit-blog-description-' + $blogcount + '" rows="20" cols="50" class="mceEditor">' + $blog_description + '</textarea></td>';
+    html = html + '<td align="left"><textarea id="edit-blog-description-' + $blogcount + '" rows="20" cols="50" class="mceEditor">hello</textarea></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
