@@ -95,7 +95,7 @@ function getAddBlogPost()
 	html = '<tr id="add-blog-post" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
 
 	html = html + '<span style="font-size: 18px;"><strong>Add New Blog</span></strong>';
-    html = html + '<table border="0" width="90%" cellpadding="1" cellspacing="1" id="add-blog-post-table">';
+    html = html + '<table border="0" width="90%" cellpadding="1" cellspacing="1" id="blog-post-table">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
@@ -197,7 +197,7 @@ function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog
 	html = '<tr id="edit-blog-post-' + $blogcount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';	
 
 	html = html + '<span style="font-size: 18px;"><strong>Edit Blog</span></strong>';
-    html = html + '<table border="0" width="90%" cellpadding="1" cellspacing="1" id="edit-blog-post-table' + $blogcount + '">';
+    html = html + '<table border="0" width="90%" cellpadding="1" cellspacing="1" id="blog-post-table' + $blogcount + '">';
     
     html = html + '<tr>';
     html = html + '<td align="right" width="5%"><strong>name:</strong></td>';
@@ -225,7 +225,7 @@ function getEditBlogPost($blog_name,$blog_description,$blog_url,$blog_tags,$blog
     html = html + '</tr>'      
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="editAPIButton" value="Save" onclick="editBlogPost(' + $blogcount + ')" /></td>';
+    html = html + '<td align="center" colspan="2"><input type="button" name="editAPIButton" value="Save" onclick="editBlogPost(' + $blogcount + ')" /></td>';
     html = html + '</tr>'         
      
     html = html + '</table>';
@@ -311,7 +311,7 @@ function loadBlogEditor()
 				theme_advanced_toolbar_align : "left",
 				theme_advanced_statusbar_location : "bottom",
 				extended_valid_elements : "iframe[src|width|height|name|align]",
-				width : "500px",
+				width : "550px",
 				height : "300px"
 			});	
 
