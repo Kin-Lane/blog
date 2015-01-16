@@ -227,7 +227,6 @@ function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_c
 function loadConfigEditor()
     {
 
-	console.log("1");
     buildConfigEditor();	  
          	  	
     } 	
