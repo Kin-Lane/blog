@@ -115,17 +115,7 @@ function buildConfigEditor()
 				{							
 			    repo.manualread('master', $url, $sha, function(err, data) {
 			    	
-					$.each(data, function(configGroupKey, $values) { 
-						
-						console.log(configGroupKey);
-						
-						$.each($values, function(configKey, configValues) { 
-						
-							console.log(configKey + ' = ' + configValues);
-							
-						});		
-						
-					});			    	
+					console.log(data);			    	
 							    	
 			    	
 			    	});							
