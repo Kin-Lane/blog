@@ -232,14 +232,14 @@ function buildConfigEditor()
 			if($path=='api-config.json')
 				{							
 			    repo.manualread('master', $url, $sha, function(err, data) {
+			    				    			    				    			    	
+			    	$ConfigJSON = JSON.stringify($APIConfig, null, 4);
 			    	
-			    	$APIConfig = JSON.parse(data);			    				    
+			    	$ConfigArray = JSON.parse($ConfigJSON);	
 			    	
-			    	$viewer = JSON.stringify($APIConfig, null, 4);
+			    	$MasterConfig = $ConfigArray;
 			    	
-			    	$MasterConfig = $viewer;
-			    	
-			    	document.getElementById('jsonConfigViewer').innerHTML = data;
+			    	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;
 			    	
 					$.each($APIConfig, function(configGroupKey, $values) { 
 						
