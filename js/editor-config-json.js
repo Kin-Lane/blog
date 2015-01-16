@@ -86,17 +86,6 @@ function addThisConfig($ThisGroup,$config_group_count)
 	{
 
 	console.log("HERE NOW: " + $ThisGroup);
-
-	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
-	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
-
-	$configArray = {};	  
-	$configArray[$config_key] = $config_value;
-
-	console.log('Master: ' + $MasterConfig);
-	//console.log('group: ' + $configGroupKey);
-	
- 	$MasterConfig[$ThisGroup].push($configArray);
 			
 	}		
 	
