@@ -198,6 +198,7 @@ function saveConfig($button)
 	$configGroupKey = $idArray[1];
 	$config_group_count = $idArray[2];
 	$config_count = $idArray[3];
+	
 	console.log('111');
 	console.log('config-' + $configGroupKey + '-' + $config_count + '-value');
 	$config_value = document.getElementById('config-' + $configGroupKey + '-' + $config_count + '-value').value;
@@ -231,7 +232,7 @@ function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_c
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" id="config-' + $config_group_count + '-' + $config_group_count + '-' + $config_count + '-value-button" name="ConfigSave-' + $config_group_count + '-' + $config_count + '-button" value="Save Changes" onclick="saveConfig(this);" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" id="config-' + $configGroupKey + '-' + $config_group_count + '-' + $config_count + '-value-button" name="ConfigSave-' + $config_group_count + '-' + $config_count + '-button" value="Save Changes" onclick="saveConfig(this);" /></td>';
     html = html + '</tr>'    
     
     html = html + '</table>';
