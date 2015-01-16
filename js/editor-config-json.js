@@ -157,7 +157,7 @@ function buildConfigEditor()
 						
 						console.log(configGroupKey);
 
-						$HTML = ConfigGroup($config_group_name,$config_group_count)	;			
+						$HTML = getConfigGroup($config_group_name,$config_group_count)	;			
 						$('#jsonConfigEditorTable').append($HTML);    						
 										
 						$.each($values, function(configKey, configValue) { 
