@@ -108,7 +108,7 @@ function addThisConfig($config)
  	//$APIConfig[$ThisGroup].push($configArray);
  	
  	$ThisGroupArray = {}
- 	$ThisGroupArray.push($configArray);
+ 	$ThisGroupArray = $configArray;
  	
  	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
  		
