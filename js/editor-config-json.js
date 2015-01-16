@@ -96,19 +96,9 @@ function getAddConfig($configGroupKey,$config_group_count)
 
 	html = html + '<strong>Add Config in ' + $configGroupKey + '</strong>';
     html = html + '<table border="0" width="90%">';
-    
+
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>key:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-config-' + $config_group_count + '-key" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>';      
-    
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>value:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-config-' + $config_group_count + '-value" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>';
-    
-    html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="addNewConfig(' + $configGroupKey + '); return false;" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Config" onclick="addNewConfig(' + $configGroupKey + '); return false;" /></td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
