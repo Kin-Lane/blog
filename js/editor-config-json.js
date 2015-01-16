@@ -99,9 +99,9 @@ function addThisConfig($config)
 	$ConfigJSON = JSON.stringify($configArray);
 	$MasterConfigJSON = JSON.stringify($MasterConfig);
 
-	console.log('Master: ' + $MasterConfigJSON);
-	console.log('Group: ' + $ThisGroup);
-	console.log('Config: ' + $ConfigJSON);
+	c//onsole.log('Master: ' + $MasterConfigJSON);
+	//console.log('Group: ' + $ThisGroup);
+	//console.log('Config: ' + $ConfigJSON);
 	
 	$APIConfig = JSON.parse($MasterConfigJSON);	
 	
@@ -110,19 +110,20 @@ function addThisConfig($config)
  	$ThisGroupArray = {};
  	$ThisGroupArray = [];
  	
+ 	$ThisGroupArray.push($configArray);
+ 	
  	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
  		
  		$rebuildconfigArray = {};	
  		$rebuildconfigArray[paramKey] = paramValue;
  		$displayJSON = JSON.stringify($rebuildconfigArray);
  		
- 		console.log($displayJSON);
+ 		//console.log($displayJSON);
  		
  		$ThisGroupArray.push($rebuildconfigArray);
  		
  		});
 	
-	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	$ShowJSON = JSON.stringify($MasterConfig);
 	document.getElementById('jsonConfigViewer').innerHTML = $ShowJSON;	
 	}		
