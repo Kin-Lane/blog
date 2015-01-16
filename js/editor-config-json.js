@@ -82,6 +82,35 @@ function getConfigGroup($config_group_name,$config_group_count)
 	return html;   				
 	}	
 	
+function getAddConfig($config_group_count)
+	{		
+		
+	html = '<tr id="add-config-' + $config_group_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Add Property</strong>';
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>key:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="edit-config-' + $config_group_count + '-key" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';      
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>value:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="edit-config-' + $config_group_count + '-value" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="APIJSONAddAPIProperty(' + $config_group_count + ');" /></td>';
+    html = html + '</tr>'     
+    
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>'; 
+    	
+	return html; 			
+	}		
+	
 function getConfig($config_key,$config_value,$config_group_count,$config_count)
 	{	
 	console.log("running...");
@@ -98,7 +127,7 @@ function getConfig($config_key,$config_value,$config_group_count,$config_count)
     
     html = html + $config_value;
      
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="config-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="config-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';
       
     html = html + '</td>';
     html = html + '</tr>';
@@ -107,6 +136,35 @@ function getConfig($config_key,$config_value,$config_group_count,$config_count)
     
     html = html + '</td></tr>'; 	
 	
+	return html; 			
+	}	
+	
+function getEditConfig($config_key,$config_value,$config_group_count,$config_count)
+	{		
+
+	html = '<tr id="edit-' + $config_group_count + '-' + $config_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Edit Config</strong>';
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>key:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="config-' + $config_group_count + '-' + $config_count + '" value="' + $config_key + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'      
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>value:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="config-' + $config_group_count + '-' + $config_count + '" value="' + $config_value + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="APIJSONSaveAPIsJSON" value="Save Changes" onclick="APIJSONSaveAPIProperty(' + $config_group_count + ',' + $config_count + ');" /></td>';
+    html = html + '</tr>'    
+    
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>'; 
+    	
 	return html; 			
 	}	
 	
@@ -165,15 +223,23 @@ function buildConfigEditor()
 						
 						console.log(configGroupKey);
 
-						$HTML = getConfigGroup(configGroupKey,$config_group_count)	;			
+						$HTML = getConfigGroup(configGroupKey,$config_group_count);			
 						$('#jsonConfigEditorTable').append($HTML);    						
+										
+						$HTML = getAddConfig($config_group_count)			
+						$('#jsonConfigEditorTable').append($HTML);    																										
 										
 						$.each($values, function(configKey, configValue) { 
 							
 							console.log(configKey + ' - ' + configValue);					
 							
 							$HTML = getConfig(configKey,configValue,$config_group_count,$config_count);		
+							$('#jsonConfigEditorTable').append($HTML);   	
+							
+							$HTML = getEditConfig(configKey,configValue,$config_group_count,$config_count)		
 							$('#jsonConfigEditorTable').append($HTML);   							
+							
+							getEditConfig($config_key,$config_value,$config_group_count,$config_count)						
 								
 							$config_count++;	
 								
