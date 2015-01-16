@@ -69,7 +69,8 @@ function ConfigQuestions()
 function loadConfigEditor()
     {
 
-    buildConfigEditor($APIConfig);	  
+	console.log("1");
+    buildConfigEditor();	  
          	  	
     } 	
     
@@ -88,10 +89,10 @@ function rebuildConfigEditor()
 		
 	}
 	
-function buildConfigEditor($Config)
+function buildConfigEditor()
 
 	{
-
+	console.log("2");
 	$.each($APIConfig, function(configGroupKey, $values) { 
 		
 		console.log(configGroupKey);
