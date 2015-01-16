@@ -82,7 +82,7 @@ function getConfigGroup($config_group_name,$config_group_count)
 	return html;   				
 	}	
 	
-function getConfig($config_key,$config_value)
+function getConfig($config_key,$config_value,$config_group_count,$config_count)
 	{	
 	console.log("running...");
 	$thisslug = $config_key.toLowerCase();	
@@ -93,8 +93,14 @@ function getConfig($config_key,$config_value)
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="" width="25%"><strong>' + $config_key + ':</strong></td>';
-    html = html + '<td align="left" style="">' + $config_value + '</td>';
+    html = html + '<td align="right" style="" width="18%"><strong>' + $config_key + ':</strong></td>';
+    html = html + '<td align="left" style="">'
+    
+    html = html + $config_value;
+     
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="config-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+      
+    html = html + '</td>';
     html = html + '</tr>';
 
     html = html + '</table>';
@@ -166,7 +172,7 @@ function buildConfigEditor()
 							
 							console.log(configKey + ' - ' + configValue);					
 							
-							$HTML = getConfig(configKey,configValue);		
+							$HTML = getConfig(configKey,configValue,$config_group_count,$config_count);		
 							$('#jsonConfigEditorTable').append($HTML);   							
 								
 							$config_count++;	
@@ -174,6 +180,7 @@ function buildConfigEditor()
 							});						
 							
 							$config_group_count++;	
+							$config_count = 0;
 																
 						});													    	
 							    				    	
