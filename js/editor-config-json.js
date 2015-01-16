@@ -92,9 +92,33 @@ function rebuildConfigEditor()
 function buildConfigEditor()
 	{
 		
-	$.each($APIConfig, function(configKey, configValue) {
-						
-		console.log(configValue);		
+    var github = new Github({
+        token: $oAuth_Token,
+        auth: "oauth"
+            });
+        
+	var repo = github.getRepo('Stack-Network','blogapi'); 		
+		
+	// go through master branch
+	repo.getTree('master', function(err, tree) {
+		$.each(tree, function(treeKey, treeValue) {
+							
+			// not sure why I have to do through the tree, but it is only way that works				
+			$path = treeValue['path'];
+			$url = treeValue['url'];
+			$sha = treeValue['sha'];
 
-		});							
+			// Pull in api-config
+			if($path=='api-config.json')
+				{							
+			    repo.manualread('master', $url, $sha, function(err, data) {
+			    	
+			    	$APIConfig = JSON.parse(data);		    								    	
+			    	
+			    	});							
+				}
+
+			});							
+		});						
+	
 	}
