@@ -88,13 +88,13 @@ function getConfig($config_key,$config_value)
 	$thisslug = $config_key.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");			
 
-	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px;">';
 
-    html = html + '<table border="1" width="90%">';
+    html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>' + $config_key + ':</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;">' + $config_value + '</td>';
+    html = html + '<td align="right" style="" width="25%"><strong>' + $config_key + ':</strong></td>';
+    html = html + '<td align="left" style="">' + $config_value + '</td>';
     html = html + '</tr>';
 
     html = html + '</table>';
