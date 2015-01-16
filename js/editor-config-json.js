@@ -127,7 +127,7 @@ function addThisConfig($config)
 	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	
 	$ShowJSON = JSON.stringify($MasterConfig);
-	console.log($ShowJSON);
+	//console.log($ShowJSON);
 	document.getElementById('jsonConfigViewer').innerHTML = $ShowJSON;	
 	}		
 	
@@ -190,26 +190,28 @@ function getConfig($config_key,$config_value,$config_group_count,$config_count)
 	return html; 			
 	}	
 	
+function saveConfig($configGroupKey,$config_key,$config_count)
+	{
+	$config_value = document.getElementById('config-' + $config_group_count + '-' + $config_count + '-value').value;
+	
+ 	$MasterAPISJSON[$configGroupKey][$config_key] = $config_value;
+	}	
+	
 function getEditConfig($config_key,$config_value,$config_group_count,$config_count)
 	{		
 
 	html = '<tr id="edit-' + $config_group_count + '-' + $config_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Edit Config</strong>';
-    html = html + '<table border="0" width="90%">';
+    html = html + '<table border="0" width="90%">';  
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>key:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="config-' + $config_group_count + '-' + $config_count + '" value="' + $config_key + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
-    html = html + '</tr>'      
-    
-    html = html + '<tr>';
-    html = html + '<td align="right" style="background-color:#FFF;"><strong>value:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="config-' + $config_group_count + '-' + $config_count + '" value="' + $config_value + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>' + $config_key + ':</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="config-' + $config_group_count + '-' + $config_count + '-value" value="' + $config_value + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="ConfigSave" value="Save Changes" onclick="ConfigSaveAPIProperty(' + $config_group_count + ',' + $config_count + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="ConfigSave" value="Save Changes" onclick="saveConfig(' + $configGroupKey + ',' + $config_key + ',' + $config_count + ');" /></td>';
     html = html + '</tr>'    
     
     html = html + '</table>';
