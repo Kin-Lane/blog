@@ -82,7 +82,7 @@ function getConfigGroup($config_group_name,$config_group_count)
 	return html;   				
 	}	
 	
-function addNewConfig($key)
+function addNewConfig()
 	{		
 	console.log($key);	
 	}		
@@ -108,7 +108,7 @@ function getAddConfig($configGroupKey,$config_group_count)
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Config" onclick="addNewConfig(' + $configGroupKey + '); return false;" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Config" onclick="addNewConfig(' + $configGroupKey + '); return false;" />-' + $configGroupKey + '</td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
