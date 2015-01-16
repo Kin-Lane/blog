@@ -112,6 +112,8 @@ function addThisConfig($config)
  	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
  		$rebuildconfigArray = {};	
  		$rebuildconfigArray[paramKey] = paramValue;
+ 		$displayJSON = JSON.stringify($rebuildconfigArray);
+ 		console.log($displayJSON);
  		$ThisGroupArray.push($rebuildconfigArray);
  		});
 	$ThisGroupArray.push($configArray);
