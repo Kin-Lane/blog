@@ -40,8 +40,8 @@ function ConfigViewEdit()
 		{
 		//console.log('switching to editor');		
 
-		$viewer = JSON.stringify($MasterConfig, null, 4);
-		document.getElementById("jsonConfigViewerDetails").value = $viewer;		
+		//$viewer = JSON.stringify($MasterConfig, null, 4);
+		//document.getElementById("jsonConfigViewerDetails").value = $viewer;		
 		
 		document.getElementById("jsonConfigViewer").style.display='';
 		document.getElementById("jsonConfigEditor").style.display='none';	
@@ -59,8 +59,8 @@ function ConfigQuestions()
 		}	
 	else
 		{
-		$viewer = JSON.stringify($MasterSwagger, null, 4);
-		document.getElementById("jsonConfigViewerDetails").value = $viewer;		
+		//$viewer = JSON.stringify($MasterSwagger, null, 4);
+		//document.getElementById("jsonConfigViewerDetails").value = $viewer;		
 
 		document.getElementById("questionsViewer").style.display='';
 		document.getElementById("jsonConfigViewer").style.display='none';
