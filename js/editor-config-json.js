@@ -115,7 +115,13 @@ function buildConfigEditor()
 				{							
 			    repo.manualread('master', $url, $sha, function(err, data) {
 			    	
-					console.log(data);			    	
+			    	$APIConfig = JSON.parse(json);
+			    	
+					$.each($APIConfig, function(configGroupKey, $values) { 
+						
+						console.log(configGroupKey);					
+						
+					});			    	
 							    	
 			    	
 			    	});							
