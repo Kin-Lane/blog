@@ -195,7 +195,11 @@ function saveConfig($configGroupKey,$config_key,$config_group_count,$config_coun
 	console.log('config-' + $config_group_count + '-' + $config_count + '-value');
 	$config_value = document.getElementById('config-' + $config_group_count + '-' + $config_count + '-value').value;
 	
-	console.log('saving!');
+	console.log('saving-2!');
+	
+	$displayJSON = JSON.stringify($MasterConfig[$configGroupKey]);
+	
+	console.log($displayJSON);
 	
  	$.each($MasterConfig[$configGroupKey], function(paramKey, paramValue) {
  		
