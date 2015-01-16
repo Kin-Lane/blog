@@ -119,7 +119,14 @@ function buildConfigEditor()
 			    	
 					$.each($APIConfig, function(configGroupKey, $values) { 
 						
-						console.log(configGroupKey);					
+						console.log(configGroupKey);	
+						
+						$.each($values, function(configKey, configValue) { 
+							
+							console.log(configKey + ' - ' + configValue);					
+							
+						})						
+										
 						
 					});			    	
 							    	
