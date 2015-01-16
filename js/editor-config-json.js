@@ -103,7 +103,9 @@ function addThisConfig($config)
 	console.log('Group: ' + $ThisGroup);
 	console.log('Config: ' + $ConfigJSON);
 	
- 	$MasterConfig[$ThisGroup].push($configArray);
+	$APIConfig = JSON.parse($$MasterConfigJSON);	
+	
+ 	$APIConfig[$ThisGroup].push($configArray);
 			
 	}		
 	
