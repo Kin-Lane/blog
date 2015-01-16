@@ -99,7 +99,7 @@ function getConfig($config_key,$config_value)
 
     html = html + '</table>';
     
-    html = html + '<br /></td></tr>'; 	
+    html = html + '</td></tr>'; 	
 	
 	return html; 			
 	}	
