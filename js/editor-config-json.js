@@ -85,6 +85,8 @@ function getConfigGroup($config_group_name,$config_group_count)
 function addConfig($configGroupKey,$config_group_count)
 	{
 
+	console.log("HERE: " = $configGroupKey);
+
 	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
 	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
 
