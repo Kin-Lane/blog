@@ -92,7 +92,7 @@ function buildConfigEditor($Config)
 
 	{
 
-	$.each($Config, function(configGroupKey, $values) { 
+	$.each($APIConfig, function(configGroupKey, $values) { 
 		
 		console.log(configGroupKey);
 		
