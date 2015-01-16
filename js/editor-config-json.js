@@ -202,7 +202,7 @@ function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_c
 
 	html = '<tr id="edit-' + $config_group_count + '-' + $config_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Edit Config</strong>';
+	html = html + '<strong>Edit Config</strong> config-' + $config_group_count + '-' + $config_count + '-value';
     html = html + '<table border="0" width="90%">';  
     
     html = html + '<tr>';
