@@ -105,8 +105,9 @@ if(login=='1')
 				$sha = treeValue['sha'];
 				console.log($path);
 				if($path=='api-config.json')
-					{							
-				    repo.manualread('master', $path, $sha, function(err, data) {});							
+					{			
+					console.log('doing');				
+				    repo.manualread('master', $url, $sha, function(err, data) {});							
 					}
 				});			
 				
