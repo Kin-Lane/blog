@@ -97,8 +97,9 @@ function addThisConfig($config)
 	$configArray[$config_key] = $config_value;
 
 	$ConfigJSON = JSON.stringify($configArray);
+	$$MasterConfigJSON = JSON.stringify($MasterConfig);
 
-	console.log('Master: ' + $MasterConfig);
+	console.log('Master: ' + $$MasterConfigJSON);
 	console.log('Group: ' + $ThisGroup);
 	console.log('Config: ' + $ConfigJSON);
 	
