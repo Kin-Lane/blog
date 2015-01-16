@@ -93,7 +93,7 @@ function addConfig($configGroupKey,$config_group_count)
 
 	console.log($configArray);
 	console.log($MasterConfig);
-
+	console.log($configGroupKey);
  	$MasterConfig[$configGroupKey].push($configArray);
 			
 	}		
