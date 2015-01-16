@@ -107,14 +107,28 @@ function buildConfigEditor()
 			$path = treeValue['path'];
 			$url = treeValue['url'];
 			$sha = treeValue['sha'];
-
+			
+			//console.log('path: ' + $path);
+			
 			// Pull in api-config
 			if($path=='api-config.json')
 				{							
 			    repo.manualread('master', $url, $sha, function(err, data) {
 			    	
-			    	$APIConfig = JSON.parse(data);		    								    	
+			    	$APIConfig = JSON.parse(data);
 			    	
+					$.each($APIConfig, function(configGroupKey, $values) { 
+						
+						console.log(configGroupKey);	
+						
+						$.each($values, function(configKey, configValue) { 
+							
+							console.log(configKey + ' - ' + configValue);					
+							
+							});						
+																
+						});			    	
+							    				    	
 			    	});							
 				}
 
