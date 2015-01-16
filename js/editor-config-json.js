@@ -69,7 +69,7 @@ function ConfigQuestions()
 function loadConfigEditor()
     {
 
-    	  
+    buildConfigEditor($APIConfig);	  
          	  	
     } 	
     

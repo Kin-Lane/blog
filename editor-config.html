@@ -5,6 +5,10 @@ title: APIs.json Editor
 
 <script type="text/javascript">  
 
+var $APIKeys = "";
+var $APIConfig = "":
+var $APIQuestions = "":
+
 login = getUrlVar('login');
 
 if(login=='1')
@@ -89,32 +93,48 @@ if(login=='1')
             
 		var repo = github.getRepo('Stack-Network','blogapi');  
 
-	    repo.read('gh-pages', 'apis.json', function(err, res) {
-		
+		// Load apis.json
+	    repo.read('gh-pages', 'apis.json', function(err, res) {		
 		 	document.getElementById("save-apisjson-icon").style.display = '';
-			document.getElementById("login-github-icon").style.display = 'none';	
-										
+			document.getElementById("login-github-icon").style.display = 'none';											
 			});	
 			
-			repo.getTree('master', function(err, tree) {
-
+		// Load api-questions
+	    repo.read('gh-pages', 'api-questions.json', function(err, res) {		
+		 	$APIQuestions = res;											
+			});				
+		
+		// go through master branch
+		repo.getTree('master', function(err, tree) {
 			$.each(tree, function(treeKey, treeValue) {
-				
+								
+				// not sure why I have to do through the tree, but it is only way that works				
 				$path = treeValue['path'];
 				$url = treeValue['url'];
 				$sha = treeValue['sha'];
-				console.log($path);
-				if($path=='api-config.json')
-					{			
-					console.log('doing');				
-				    repo.manualread('master', $url, $sha, function(err, data) {});							
-					}
-				});			
 				
-			});			
-			
-		//repo.read('master', 'README.md', function(err, res) { console.log(res + ' - ' + res); });				
-																		
+				// Pull in api-config
+				if($path=='api-config.json')
+					{							
+				    repo.manualread('master', $url, $sha, function(err, data) {
+				    	
+						var $APIConfig = data;
+				    	
+				    	});							
+					}
+				
+				// Pull in api-keys	
+				if($path=='api-keys.json')
+					{						
+				    repo.manualread('master', $url, $sha, function(err, data) {
+				    	
+				    	var $APIKeys = data;			    	
+				    	
+				    	});							
+					}					
+					
+				});							
+			});																			
 		}
 	else
 		{
