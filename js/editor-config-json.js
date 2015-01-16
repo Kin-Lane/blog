@@ -93,6 +93,7 @@ function buildConfigEditor()
 
 	{
 	console.log("2");
+	console.log($APIConfig);
 	$.each($APIConfig, function(configGroupKey, $values) { 
 		
 		console.log(configGroupKey);
