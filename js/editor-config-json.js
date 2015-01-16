@@ -88,7 +88,7 @@ function getConfig($config_key,$config_value)
 	$thisslug = $config_key.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");			
 
-	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
     html = html + '<table border="1" width="90%">';
     
