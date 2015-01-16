@@ -103,7 +103,7 @@ function addThisConfig($ThisGroup,$config_group_count)
 function getAddConfig($configGroupKey,$config_group_count)
 	{	
 		
-	console.log('group1: ' + $configGroupKey);	
+	//console.log('group1: ' + $configGroupKey);	
 		
 	html = '<tr id="add-config-' + $config_group_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -121,7 +121,7 @@ function getAddConfig($configGroupKey,$config_group_count)
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="addThisConfig(' + $configGroupKey + ',' + $config_group_count + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2">' + $configGroupKey + '<input type="button" name="addAPIButton" value="Add This Property" onclick="addThisConfig(' + $configGroupKey + ',' + $config_group_count + ');" /></td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
