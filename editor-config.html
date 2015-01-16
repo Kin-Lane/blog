@@ -118,8 +118,8 @@ if(login=='1')
 					{							
 				    repo.manualread('master', $url, $sha, function(err, data) {
 				    	
-						var $APIConfig = data;
-				    	
+						$APIConfig = data;
+				    	console.log("apiconfig: " + $APIConfig);
 				    	});							
 					}
 				
@@ -128,8 +128,8 @@ if(login=='1')
 					{						
 				    repo.manualread('master', $url, $sha, function(err, data) {
 				    	
-				    	var $APIKeys = data;			    	
-				    	
+				    	$APIKeys = data;			    	
+				    	console.log("apikeys: " + $APIKeys);
 				    	});							
 					}					
 					
