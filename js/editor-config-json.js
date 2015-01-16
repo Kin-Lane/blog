@@ -82,11 +82,9 @@ function getConfigGroup($config_group_name,$config_group_count)
 	return html;   				
 	}	
 	
-function addThisConfig($ThisGroup,$config_group_count)
-	{
-
-	console.log("HERE NOW: " + $ThisGroup);
-			
+function addNewConfig($configGroupKey,$config_group_coun)
+	{		
+	console.log($configGroupKey);	
 	}		
 	
 function getAddConfig($configGroupKey,$config_group_count)
@@ -110,7 +108,7 @@ function getAddConfig($configGroupKey,$config_group_count)
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2">' + $configGroupKey + '<input type="button" name="addAPIButton" value="Add This Property" onclick="addThisConfig(' + $configGroupKey + ',' + $config_group_count + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2">' + $configGroupKey + '<input type="button" name="addAPIButton" value="Add This Property" onclick="addNewConfig(' + $configGroupKey + ',' + $config_group_count + ');" /></td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
