@@ -195,7 +195,7 @@ function saveConfig($configGroupKey,$config_key,$config_count)
 	$config_value = document.getElementById('config-' + $config_group_count + '-' + $config_count + '-value').value;
 	
 	$show = JSON.stringify(MasterAPISJSON[$configGroupKey]);
-	console.log($show);
+	console.log("HERE: " + $show);
  	$MasterAPISJSON[$configGroupKey][$config_key] = $config_value;
 	}	
 	
