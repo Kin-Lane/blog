@@ -82,15 +82,31 @@ function getConfigGroup($config_group_name,$config_group_count)
 	return html;   				
 	}	
 	
-function addNewConfig($config)
-	{		
-	console.log($config.id);	
+function addThisConfig($config)
+	{
+
+	$ThisGroup = $config.id;
+	$config_group_count = $config.name;
+
+	console.log("HERE NOW: " + $ThisGroup);
+
+	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
+	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
+
+	$configArray = {};	  
+	$configArray[$config_key] = $config_value;
+
+	console.log('Master: ' + $MasterConfig);
+	//console.log('group: ' + $configGroupKey);
+	
+ 	$MasterConfig[$ThisGroup].push($configArray);
+			
 	}		
 	
 function getAddConfig($configGroupKey,$config_group_count)
 	{	
 		
-	console.log('group1: ' + $configGroupKey);	
+	//console.log('group1: ' + $configGroupKey);	
 		
 	html = '<tr id="add-config-' + $config_group_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
@@ -108,7 +124,7 @@ function getAddConfig($configGroupKey,$config_group_count)
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton-' + $configGroupKey + '" id="' + $configGroupKey + '" value="Add This Config" onclick="addNewConfig(this); return false;" />-' + $configGroupKey + '</td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton-' + $configGroupKey + '" id="' + $configGroupKey + '" value="Add This Property" onclick="addThisConfig(this);" /></td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
@@ -235,13 +251,11 @@ function buildConfigEditor()
 					$.each($APIConfig, function(configGroupKey, $values) { 
 						
 						//console.log(configGroupKey);
-						
-						$Key = configGroupKey;
 
-						$HTML = getConfigGroup($Key,$config_group_count);			
+						$HTML = getConfigGroup(configGroupKey,$config_group_count);			
 						$('#jsonConfigEditorTable').append($HTML);    						
 										
-						$HTML = getAddConfig($Key,$config_group_count)			
+						$HTML = getAddConfig(configGroupKey,$config_group_count)			
 						$('#jsonConfigEditorTable').append($HTML);    																										
 										
 						$.each($values, function(configKey, configValue) { 
