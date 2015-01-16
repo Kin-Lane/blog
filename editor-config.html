@@ -96,7 +96,21 @@ if(login=='1')
 										
 			});	
 			
-		repo.getTree('master', function(err, tree) {});			
+			repo.getTree('master', function(err, tree) {
+
+			$.each(tree, function(treeKey, treeValue) {
+				
+				$path = treeValue['path'];
+				$url = treeValue['url'];
+				$sha = treeValue['sha'];
+				console.log($path);
+				if($path=='api-config.json')
+					{							
+				    repo.read('master', $path, function(err, data) {});							
+					}
+				});			
+				
+			});			
 			
 		//repo.read('master', 'README.md', function(err, res) { console.log(res + ' - ' + res); });				
 																		
