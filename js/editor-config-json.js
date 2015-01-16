@@ -91,9 +91,8 @@ function addConfig($configGroupKey,$config_group_count)
 	$configArray = {};	  
 	$configArray[$config_key] = $config_value;
 
-	console.log($configArray);
 	console.log($MasterConfig);
-	console.log($configGroupKey);
+
  	$MasterConfig[$configGroupKey].push($configArray);
 			
 	}		
@@ -232,16 +231,16 @@ function buildConfigEditor()
 			if($path=='api-config.json')
 				{							
 			    repo.manualread('master', $url, $sha, function(err, data) {
-			    				    			    				    			    	
-			    	$ConfigJSON = JSON.stringify(data, null, 4);
 			    	
-			    	$ConfigArray = JSON.parse($ConfigJSON);	
+			    	$APIConfig = JSON.parse(data);
 			    	
-			    	$MasterConfig = $ConfigArray;
+			    	$MasterConfig = $APIConfig;
 			    	
-			    	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;
+			    	$viewer = JSON.stringify($APIConfig, null, 4);
 			    	
-					$.each($ConfigJSON, function(configGroupKey, $values) { 
+			    	document.getElementById('jsonConfigViewer').innerHTML = data;
+			    	
+					$.each($APIConfig, function(configGroupKey, $values) { 
 						
 						console.log(configGroupKey);
 
