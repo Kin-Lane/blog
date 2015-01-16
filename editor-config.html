@@ -96,12 +96,9 @@ if(login=='1')
 										
 			});	
 			
-		repo.read('master', 'README.md', function(err, res) {
-		    	
-		    	console.log(res + ' - ' + res);
-		 		//buildConfigEditor(res);
-										
-			});				
+		repo.getTree('master', function(err, tree) {});			
+			
+		//repo.read('master', 'README.md', function(err, res) { console.log(res + ' - ' + res); });				
 																		
 		}
 	else
