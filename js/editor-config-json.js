@@ -190,8 +190,15 @@ function getConfig($configGroupKey,$config_key,$config_value,$config_group_count
 	return html; 			
 	}	
 	
-function saveConfig($configGroupKey,$config_key,$config_group_count,$config_count)
+function saveConfig($button)
 	{
+	$id = $button.id;
+	var $idArray = $id.split('-');	
+	
+	$configGroupKey = $idArray[1];
+	$config_group_count = $idArray[2];
+	$config_count = $idArray[3];
+		
 	console.log('config-' + $config_group_count + '-' + $config_count + '-value');
 	$config_value = document.getElementById('config-' + $config_group_count + '-' + $config_count + '-value').value;
 	
@@ -220,11 +227,11 @@ function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_c
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>' + $config_key + ':</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="config-' + $config_group_count + '-' + $config_count + '-value" value="' + $config_value + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="config-' + $configGroupKey + '-' + $config_count + '-value" value="' + $config_value + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" id="config-' + $config_group_count + '-' + $config_count + '-value-button" name="ConfigSave-' + $config_group_count + '-' + $config_count + '-button" value="Save Changes" onclick="saveConfig(' + $configGroupKey + ',' + $config_key + ',' + $config_group_count + ',' + $config_count + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" id="config-' + $config_group_count + '-' + $config_group_count + '-' + $config_count + '-value-button" name="ConfigSave-' + $config_group_count + '-' + $config_count + '-button" value="Save Changes" onclick="saveConfig(this);" /></td>';
     html = html + '</tr>'    
     
     html = html + '</table>';
