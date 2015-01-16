@@ -124,7 +124,10 @@ function addThisConfig($config)
  		
  		});
 	
+	$MasterConfig[$ThisGroup] = $ThisGroupArray;
+	
 	$ShowJSON = JSON.stringify($MasterConfig);
+	console.log($ShowJSON);
 	document.getElementById('jsonConfigViewer').innerHTML = $ShowJSON;	
 	}		
 	
