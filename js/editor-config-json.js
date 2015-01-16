@@ -214,7 +214,7 @@ function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_c
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="ConfigSave-' + $config_group_count + '-' + $config_count + '" value="Save Changes" onclick="saveConfig(' + $configGroupKey + ',' + $config_key + ',' + $config_group_count + ',' + $config_count + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" id="config-' + $config_group_count + '-' + $config_count + '-value-button" name="ConfigSave-' + $config_group_count + '-' + $config_count + '-button" value="Save Changes" onclick="saveConfig(' + $configGroupKey + ',' + $config_key + ',' + $config_group_count + ',' + $config_count + ');" /></td>';
     html = html + '</tr>'    
     
     html = html + '</table>';
