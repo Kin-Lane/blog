@@ -1,6 +1,8 @@
 // Purposely keeping this verbose, and expanded, until I figure out best patterns for config and extensability
 
-$configcount = 0;  
+$config_group_count = 0;
+$config_count = 0;
+
 	 	
 // The Master 
 $MasterConfig = "";
@@ -157,7 +159,7 @@ function buildConfigEditor()
 						
 						console.log(configGroupKey);
 
-						$HTML = getConfigGroup($config_group_name,$config_group_count)	;			
+						$HTML = getConfigGroup(configGroupKey,$config_group_count)	;			
 						$('#jsonConfigEditorTable').append($HTML);    						
 										
 						$.each($values, function(configKey, configValue) { 
@@ -167,9 +169,13 @@ function buildConfigEditor()
 							$HTML = getConfig(configKey,configValue);		
 							$('#jsonConfigEditorTable').append($HTML);   							
 								
+							$config_count++;	
+								
 							});						
+							
+							$config_group_count++;	
 																
-						});			    	
+						});													    	
 							    				    	
 			    	});							
 				}
