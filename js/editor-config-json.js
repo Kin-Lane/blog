@@ -90,7 +90,7 @@ function getConfig($config_key,$config_value)
 
 	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-    html = html + '<table border="0" width="90%">';
+    html = html + '<table border="1" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>' + $config_key + ':</strong></td>';
