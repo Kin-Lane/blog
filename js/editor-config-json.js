@@ -233,11 +233,11 @@ function buildConfigEditor()
 				{							
 			    repo.manualread('master', $url, $sha, function(err, data) {
 			    	
-			    	$APIConfig = JSON.parse(data);
-			    	
-			    	$MasterConfig = $APIConfig;
+			    	$APIConfig = JSON.parse(data);			    				    
 			    	
 			    	$viewer = JSON.stringify($APIConfig, null, 4);
+			    	
+			    	$MasterConfig = $viewer;
 			    	
 			    	document.getElementById('jsonConfigViewer').innerHTML = data;
 			    	
