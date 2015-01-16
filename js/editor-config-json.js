@@ -88,7 +88,7 @@ function addThisConfig($config)
 	$ThisGroup = $config.id;
 	$config_group_count = $config.name;
 
-	console.log("HERE NOW: " + $ThisGroup);
+	console.log("HERE NOW: " + $ThisGroup + ' - ' + $config_group_count);
 
 	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
 	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
