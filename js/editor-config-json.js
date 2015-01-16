@@ -195,9 +195,15 @@ function saveConfig($configGroupKey,$config_key,$config_group_count,$config_coun
 	console.log('config-' + $config_group_count + '-' + $config_count + '-value');
 	$config_value = document.getElementById('config-' + $config_group_count + '-' + $config_count + '-value').value;
 	
-	$show = JSON.stringify($MasterConfig[$configGroupKey]);
-	console.log("HERE: " + $show);
- 	$MasterConfig[$configGroupKey][$config_key] = $config_value;
+	console.log('saving!');
+	
+ 	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
+ 		
+ 		$displayJSON = JSON.stringify(paramValue);
+ 		
+ 		console.log($displayJSON);
+ 		
+ 		});
 	}	
 	
 function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_count,$config_count)
