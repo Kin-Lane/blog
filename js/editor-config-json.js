@@ -88,7 +88,7 @@ function addThisConfig($config)
 	$ThisGroup = $config.id;
 	$config_group_count = $config.name;
 
-	console.log("HERE NOW: " + $ThisGroup + ' - ' + $config_group_count);
+	//console.log("HERE NOW: " + $ThisGroup + ' - ' + $config_group_count);
 
 	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
 	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
@@ -99,7 +99,7 @@ function addThisConfig($config)
 	$ConfigJSON = JSON.stringify($configArray);
 	$MasterConfigJSON = JSON.stringify($MasterConfig);
 
-	c//onsole.log('Master: ' + $MasterConfigJSON);
+	//onsole.log('Master: ' + $MasterConfigJSON);
 	//console.log('Group: ' + $ThisGroup);
 	//console.log('Config: ' + $ConfigJSON);
 	
@@ -161,7 +161,7 @@ function getAddConfig($configGroupKey,$config_group_count)
 	
 function getConfig($config_key,$config_value,$config_group_count,$config_count)
 	{	
-	console.log("running...");
+
 	$thisslug = $config_key.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");			
 
