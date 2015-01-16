@@ -122,7 +122,9 @@ function addThisConfig($config)
  		
  		});
 	
-	$MasterConfig[$ThisGroup] = $ThisGroupArray;	
+	$MasterConfig[$ThisGroup] = $ThisGroupArray;
+	$ShowJSON = JSON.stringify($MasterConfig);
+	document.getElementById('jsonConfigViewer').innerHTML = $ShowJSON;	
 	}		
 	
 function getAddConfig($configGroupKey,$config_group_count)
