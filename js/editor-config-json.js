@@ -82,26 +82,39 @@ function getConfigGroup($config_group_name,$config_group_count)
 	return html;   				
 	}	
 	
-function getAddConfig($config_group_count)
+function addConfig($configGroupKey,$config_group_count)
+	{
+
+	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
+	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
+
+	$configArray = {};	  
+	$configArray[$config_key] = $config_value;
+
+ 	$MasterConfig[$configGroupKey].push($configArray);
+			
+	}		
+	
+function getAddConfig($configGroupKey,$config_group_count)
 	{		
 		
 	html = '<tr id="add-config-' + $config_group_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Add Property</strong>';
+	html = html + '<strong>Add Config in ' + $configGroupKey + '</strong>';
     html = html + '<table border="0" width="90%">';
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>key:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="edit-config-' + $config_group_count + '-key" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-config-' + $config_group_count + '-key" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';      
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>value:</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="edit-config-' + $config_group_count + '-value" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-config-' + $config_group_count + '-value" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="APIJSONAddAPIProperty(' + $config_group_count + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="APIJSONAddAPIProperty(' + $configGroupKey + ','' + $config_group_count + ');" /></td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
@@ -219,6 +232,8 @@ function buildConfigEditor()
 			    	
 			    	$APIConfig = JSON.parse(data);
 			    	
+			    	document.getElementById('jsonConfigViewer').innerHTML = data;
+			    	
 					$.each($APIConfig, function(configGroupKey, $values) { 
 						
 						console.log(configGroupKey);
@@ -226,7 +241,7 @@ function buildConfigEditor()
 						$HTML = getConfigGroup(configGroupKey,$config_group_count);			
 						$('#jsonConfigEditorTable').append($HTML);    						
 										
-						$HTML = getAddConfig($config_group_count)			
+						$HTML = getAddConfig(configGroupKey,$config_group_count)			
 						$('#jsonConfigEditorTable').append($HTML);    																										
 										
 						$.each($values, function(configKey, configValue) { 
