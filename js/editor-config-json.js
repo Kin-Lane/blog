@@ -233,7 +233,7 @@ function buildConfigEditor()
 				{							
 			    repo.manualread('master', $url, $sha, function(err, data) {
 			    				    			    				    			    	
-			    	$ConfigJSON = JSON.stringify($APIConfig, null, 4);
+			    	$ConfigJSON = JSON.stringify(data, null, 4);
 			    	
 			    	$ConfigArray = JSON.parse($ConfigJSON);	
 			    	
