@@ -17,7 +17,6 @@ if(login=='1')
 	}  
 
 	OAuth.initialize('fCDUUc1DmpCKkzuAhr0LUy4szHg');
-	
 	OAuth.popup('github').done(function(result) {
 	
 	    $oAuth_Token = result.access_token;
@@ -97,7 +96,7 @@ if(login=='1')
 										
 			});	
 			
-		repo.read('master', 'apiconfig.json', function(err, res) {
+		repo.read('master', 'README.md', function(err, res) {
 		    	
 		    	console.log(res + ' - ' + res);
 		 		//buildConfigEditor(res);
