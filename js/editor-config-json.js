@@ -198,9 +198,9 @@ function saveConfig($button)
 	$configGroupKey = $idArray[1];
 	$config_group_count = $idArray[2];
 	$config_count = $idArray[3];
-		
-	console.log('config-' + $config_group_count + '-' + $config_count + '-value');
-	$config_value = document.getElementById('config-' + $config_group_count + '-' + $config_count + '-value').value;
+	console.log('111');
+	console.log('config-' + $configGroupKey + '-' + $config_count + '-value');
+	$config_value = document.getElementById('config-' + $configGroupKey + '-' + $config_count + '-value').value;
 	
 	console.log('saving-4-'+$configGroupKey);
 	
