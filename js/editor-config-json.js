@@ -239,7 +239,7 @@ function buildConfigEditor()
 							$HTML = getEditConfig(configKey,configValue,$config_group_count,$config_count)		
 							$('#jsonConfigEditorTable').append($HTML);   							
 							
-							getEditConfig($config_key,$config_value,$config_group_count,$config_count)						
+							getEditConfig(configKey,configValue,$config_group_count,$config_count)						
 								
 							$config_count++;	
 								
