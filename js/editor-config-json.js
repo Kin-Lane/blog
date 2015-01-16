@@ -112,7 +112,7 @@ function addThisConfig($config)
  	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
  		$rebuildconfigArray = {};	
  		$rebuildconfigArray[paramKey] = paramValue;
- 		$ThisGroupArray.push($rebuildconfigArray)
+ 		$ThisGroupArray.push($rebuildconfigArray);
  		});
 	$ThisGroupArray.push($configArray);
 	
