@@ -75,7 +75,7 @@ function getConfigGroup($config_group_name,$config_group_count)
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $config_group_name + '</strong>';
-	html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-config-' + $config_group_count + '-icon" title="Toggle Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '<a href="#" onclick="ConfigShowMe(this); return false;" id="add-config-' + $config_group_count + '-icon" title="Toggle Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
@@ -114,7 +114,7 @@ function getAddConfig($configGroupKey,$config_group_count)
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="APIJSONAddAPIProperty(' + $configGroupKey + ',' + $config_group_count + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addAPIButton" value="Add This Property" onclick="ConfigAddAPIProperty(' + $configGroupKey + ',' + $config_group_count + ');" /></td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
@@ -140,7 +140,7 @@ function getConfig($config_key,$config_value,$config_group_count,$config_count)
     
     html = html + $config_value;
      
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';
+    html = html + '<a href="#" onclick="ConfigShowMe(this); return false;" id="edit-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';
       
     html = html + '</td>';
     html = html + '</tr>';
@@ -171,7 +171,7 @@ function getEditConfig($config_key,$config_value,$config_group_count,$config_cou
     html = html + '</tr>';
     
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="APIJSONSaveAPIsJSON" value="Save Changes" onclick="APIJSONSaveAPIProperty(' + $config_group_count + ',' + $config_count + ');" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="ConfigSave" value="Save Changes" onclick="ConfigSaveAPIProperty(' + $config_group_count + ',' + $config_count + ');" /></td>';
     html = html + '</tr>'    
     
     html = html + '</table>';
