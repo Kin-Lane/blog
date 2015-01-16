@@ -66,6 +66,42 @@ function ConfigQuestions()
 		}
 	}	
 	
+// Localize Templating, making as editable as possible	
+function getConfigGroup($config_group_name,$config_group_count)
+	{		
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + $config_group_name + '</strong>';
+	html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-api-listing-icon" title="Toggle Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '</span>';
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html;   				
+	}	
+	
+function getConfig($config_key,$config_value)
+	{	
+		
+	$thisslug = $config_key.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");			
+
+	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>' + $config_key + ':</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;">' + $config_value + '</td>';
+    html = html + '</tr>';
+
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>'; 	
+	
+	return html; 			
+	}	
+	
 function loadConfigEditor()
     {
 
@@ -119,12 +155,18 @@ function buildConfigEditor()
 			    	
 					$.each($APIConfig, function(configGroupKey, $values) { 
 						
-						console.log(configGroupKey);	
-						
+						console.log(configGroupKey);
+
+						$HTML = ConfigGroup($config_group_name,$config_group_count)	;			
+						$('#jsonConfigEditorTable').append($HTML);    						
+										
 						$.each($values, function(configKey, configValue) { 
 							
 							console.log(configKey + ' - ' + configValue);					
 							
+							$HTML = getConfig(configKey,configValue);		
+							$('#jsonConfigEditorTable').append($HTML);   							
+								
 							});						
 																
 						});			    	
