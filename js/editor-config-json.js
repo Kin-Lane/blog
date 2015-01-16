@@ -82,7 +82,7 @@ function getConfigGroup($config_group_name,$config_group_count)
 	return html;   				
 	}	
 	
-function addNewConfig($configGroupKey,$config_group_coun)
+function addNewConfig($configGroupKey,$config_group_count)
 	{		
 	console.log($configGroupKey);	
 	}		
