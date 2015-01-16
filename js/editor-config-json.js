@@ -84,7 +84,7 @@ function getConfigGroup($config_group_name,$config_group_count)
 	
 function getConfig($config_key,$config_value)
 	{	
-		
+	console.log("running...");
 	$thisslug = $config_key.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");			
 
