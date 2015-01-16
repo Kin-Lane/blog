@@ -96,7 +96,7 @@ function addThisConfig($ThisGroup,$config_group_count)
 	console.log('Master: ' + $MasterConfig);
 	//console.log('group: ' + $configGroupKey);
 	
- 	$MasterConfig[$configGroupKey].push($configArray);
+ 	$MasterConfig[$ThisGroup].push($configArray);
 			
 	}		
 	
