@@ -235,11 +235,13 @@ function buildConfigEditor()
 					$.each($APIConfig, function(configGroupKey, $values) { 
 						
 						//console.log(configGroupKey);
+						
+						$Key = configGroupKey;
 
-						$HTML = getConfigGroup(configGroupKey,$config_group_count);			
+						$HTML = getConfigGroup($Key,$config_group_count);			
 						$('#jsonConfigEditorTable').append($HTML);    						
 										
-						$HTML = getAddConfig(configGroupKey,$config_group_count)			
+						$HTML = getAddConfig($Key,$config_group_count)			
 						$('#jsonConfigEditorTable').append($HTML);    																										
 										
 						$.each($values, function(configKey, configValue) { 
