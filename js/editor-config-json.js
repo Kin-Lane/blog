@@ -197,7 +197,7 @@ function saveConfig($configGroupKey,$config_key,$config_group_count,$config_coun
 	
 	console.log('saving!');
 	
- 	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
+ 	$.each($MasterConfig[$configGroupKey], function(paramKey, paramValue) {
  		
  		$displayJSON = JSON.stringify(paramValue);
  		
