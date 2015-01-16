@@ -92,14 +92,16 @@ function addConfig($configGroupKey,$config_group_count)
 	$configArray[$config_key] = $config_value;
 
 	console.log('Master: ' + $MasterConfig);
-	console.log('group: ' + $configGroupKey);
+	//console.log('group: ' + $configGroupKey);
 	
  	$MasterConfig[$configGroupKey].push($configArray);
 			
 	}		
 	
 function getAddConfig($configGroupKey,$config_group_count)
-	{		
+	{	
+		
+	console.log('group1: ' + $configGroupKey);	
 		
 	html = '<tr id="add-config-' + $config_group_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
