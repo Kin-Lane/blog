@@ -241,7 +241,7 @@ function buildConfigEditor()
 			    	
 			    	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;
 			    	
-					$.each($ConfigArray, function(configGroupKey, $values) { 
+					$.each(data, function(configGroupKey, $values) { 
 						
 						console.log(configGroupKey);
 
