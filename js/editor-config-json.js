@@ -202,7 +202,7 @@ function saveConfig($button)
 	console.log('config-' + $config_group_count + '-' + $config_count + '-value');
 	$config_value = document.getElementById('config-' + $config_group_count + '-' + $config_count + '-value').value;
 	
-	console.log('saving-3-'+$configGroupKey);
+	console.log('saving-4-'+$configGroupKey);
 	
 	$displayJSON = JSON.stringify($MasterConfig[$configGroupKey]);
 	
