@@ -162,7 +162,7 @@ function getAddConfig($configGroupKey,$config_group_count)
 	return html; 			
 	}		
 	
-function getConfig($config_key,$config_value,$config_group_count,$config_count)
+function getConfig($configGroupKey,$config_key,$config_value,$config_group_count,$config_count)
 	{	
 
 	$thisslug = $config_key.toLowerCase();	
@@ -197,7 +197,7 @@ function saveConfig($configGroupKey,$config_key,$config_count)
  	$MasterAPISJSON[$configGroupKey][$config_key] = $config_value;
 	}	
 	
-function getEditConfig($config_key,$config_value,$config_group_count,$config_count)
+function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_count,$config_count)
 	{		
 
 	html = '<tr id="edit-' + $config_group_count + '-' + $config_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
@@ -292,10 +292,10 @@ function buildConfigEditor()
 							
 							//console.log(configKey + ' - ' + configValue);					
 							
-							$HTML = getConfig(configKey,configValue,$config_group_count,$config_count);		
+							$HTML = getConfig(configGroupKey,configKey,configValue,$config_group_count,$config_count);		
 							$('#jsonConfigEditorTable').append($HTML);   	
 							
-							$HTML = getEditConfig(configKey,configValue,$config_group_count,$config_count)		
+							$HTML = getEditConfig(configGroupKey,configKey,configValue,$config_group_count,$config_count)		
 							$('#jsonConfigEditorTable').append($HTML);   							
 							
 							getEditConfig(configKey,configValue,$config_group_count,$config_count)						
