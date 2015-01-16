@@ -146,10 +146,6 @@ function APIJSONGetHeader(name,description,url,image,apijsonurl)
 	
 function APIJSONGetEditHeader(name,description,url,image,apijsonurl)
 	{	
-		
-	$thisslug = name.toLowerCase();	
-	$thisslug = $thisslug.replace(" ", "-");
-	//console.log("-api (get) slug: " + $thisslug);				
 
 	html = '<tr id="edit-header" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
