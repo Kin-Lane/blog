@@ -97,16 +97,26 @@ function addThisConfig($config)
 	$configArray[$config_key] = $config_value;
 
 	$ConfigJSON = JSON.stringify($configArray);
-	$$MasterConfigJSON = JSON.stringify($MasterConfig);
+	$MasterConfigJSON = JSON.stringify($MasterConfig);
 
-	console.log('Master: ' + $$MasterConfigJSON);
+	console.log('Master: ' + $MasterConfigJSON);
 	console.log('Group: ' + $ThisGroup);
 	console.log('Config: ' + $ConfigJSON);
 	
-	$APIConfig = JSON.parse($$MasterConfigJSON);	
+	$APIConfig = JSON.parse($MasterConfigJSON);	
 	
- 	$APIConfig[$ThisGroup].push($configArray);
-			
+ 	//$APIConfig[$ThisGroup].push($configArray);
+ 	
+ 	$ThisGroupArray = {}
+ 	
+ 	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
+ 		$rebuildconfigArray = {};	
+ 		$rebuildconfigArray[paramKey] = paramValue;
+ 		$ThisGroupArray.push($rebuildconfigArray)
+ 		});
+	$ThisGroupArray.push($configArray);
+	
+	$MasterConfig[$ThisGroup] = $ThisGroupArray;	
 	}		
 	
 function getAddConfig($configGroupKey,$config_group_count)
