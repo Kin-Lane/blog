@@ -91,6 +91,9 @@ function addConfig($configGroupKey,$config_group_count)
 	$configArray = {};	  
 	$configArray[$config_key] = $config_value;
 
+	console.log($configArray);
+	console.log($MasterConfig);
+
  	$MasterConfig[$configGroupKey].push($configArray);
 			
 	}		
