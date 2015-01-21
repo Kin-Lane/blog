@@ -125,6 +125,51 @@ function getAddConfigGroup()
     html = html + '<br /></td></tr>'; 
     	
 	return html; 			
+	}	
+	
+function deleteConfigGroup($button)
+	{
+		
+	$id = $button.id;
+	var $idArray = $id.split('-');	
+	
+	$config_group_count = $idArray[2];
+
+	$FullArray = $MasterConfig; 
+	$FullArrayCount =  Object.keys($FullArray).length;
+
+	$MasterConfig = {};
+	$thisCount = 0;
+ 	$.each($FullArray, function(paramKey, paramValue) {
+ 		
+ 		$thisKey = paramKey;
+ 		$thisValue = paramValue;
+ 		
+ 		if($thisCount != $config_group_count)
+ 			{
+
+			$configGroupObject = [];	  
+			$configGroupObject[$thisKey] = $thisValue;
+
+		 	$.extend($MasterConfig, $configGroupObject);
+	
+			}
+		
+		$thisCount++;
+		
+		if($thisCount == $FullArrayCount)
+			{
+				
+			$viewer = JSON.stringify($MasterConfig, null, 4);
+	
+			document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
+ 	
+ 			rebuildConfigEditor($MasterConfig);
+ 			 			
+			}
+		
+ 		});
+ 	
 	}		
 	
 // Localize Templating, making as editable as possible	
@@ -134,7 +179,11 @@ function getConfigGroup($config_group_name,$config_group_count)
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + $config_group_name + '</strong>';
-	html = html + '<a href="#" onclick="ConfigShowMe(this); return false;" id="add-config-' + $config_group_count + '-icon" title="Toggle Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	
+	html = html + '<a href="#" onclick="deleteConfigGroup(this); return false;" id="delete-config-' + $config_group_count + '-icon" title="Delete Config Group"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="35" align="right"  /></a>';
+			
+	html = html + '<a href="#" onclick="ConfigShowMe(this); return false;" id="add-config-' + $config_group_count + '-icon" title="Add Config"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
