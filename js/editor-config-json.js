@@ -208,7 +208,7 @@ function deleteConfig($button)
 			$configArray = [];	  
 			$configArray[$thisKey] = $thisValue;
 		
-		 	$MasterConfig[$ThisGroup].push($configArray);
+		 	$MasterConfig[$configGroupKey].push($configArray);
 		 	
 		 	//$.extend($MasterConfig[$configGroupKey], $configArray);
 					
