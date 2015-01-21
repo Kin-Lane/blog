@@ -201,11 +201,13 @@ function deleteConfig($button)
  				
 			console.log($thisKey + ' - ' + $thisValue);
 			
-			$rebuildConfigArray = [];	  
-			$rebuildConfigArray[$thisKey] = $thisValue;
+			$rebuildConfigObject = {};	  
+			$rebuildConfigObject[$thisKey] = $thisValue;
 
-			$debug = JSON.stringify($rebuildConfigArray);
+			$debug = JSON.stringify($rebuildConfigObject);
 			console.log($debug);
+			
+			$rebuildConfigArray = JSON.parse($debug);
 			
 			$newArray.push($rebuildConfigArray);
 			
