@@ -40,7 +40,7 @@
   ],
   "include": [
     {
-      "name": "Comment API",
+      "name": "Comment APi",
       "url": "https://github.com/Stack-Network/commentapi/apis.json"
     }
   ],
