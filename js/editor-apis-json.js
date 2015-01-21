@@ -560,13 +560,13 @@ function APIJSONGetIncludeListing($includeName,$includeUrl,$includecount)
 	$thisslug = $includeName.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");			
 
-    html = '<tr style="background-color:#CCC;">';
+    html = '<tr style="background-color:#FFF;">';
     html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2" id="include-cell-' + $includecount + '">';
     
-    html = html + '<span style="font-size:20px;">';
+    html = html + '<span style="font-size:16px;">';
     html = html + '<a href="' + $includeUrl + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + $includeName + '"><strong>' + $includeName + '</strong></a> - ' + $includeUrl;
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-' + $includecount + '-icon" title="Edit Include"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-include-property-' + $thisslug + '-' + $includecount + '-icon" title="Add Include Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-' + $includecount + '-icon" title="Edit Include"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="25" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-include-property-' + $thisslug + '-' + $includecount + '-icon" title="Add Include Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="25" align="right"  /></a>';
     html = html + '</span>';
     
     html = html + '</td>';
