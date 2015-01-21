@@ -136,7 +136,10 @@ function addThisConfig($config)
  		
  		});
 	
-	$MasterConfig[$ThisGroup] = $ThisGroupObject;
+	$ThisGroupJSON = JSON.stringify($ThisGroupObject);
+	$ThisGroupArray = JSON.parse($ThisGroupJSON);
+	
+	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	
 	$ConfigJSON = JSON.stringify($MasterConfig);
 	
