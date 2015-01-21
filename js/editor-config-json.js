@@ -145,6 +145,7 @@ function addThisConfig($config)
 	{
 
 	$ThisGroup = $config.id;
+	console.log($ThisGroup);
 	$config_group_count = $config.name;
 
 	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
