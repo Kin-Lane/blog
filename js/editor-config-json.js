@@ -81,7 +81,11 @@ function saveConfigFile()
 			
 			if($path=='api-config.json')
 				{							
-			    repo.writemanual('master', 'api-config.json', $ConfigJSON, 'Saving config.json', $sha, function(err) { });									
+			    repo.writemanual('master', 'api-config.json', $ConfigJSON, 'Saving config.json', $sha, function(err) { 
+			    	
+			    	document.getElementById("alertarea").innerHTML = 'api-config.json file has been saved';
+			    	
+			    	});									
 				}
 			});
 		}); 	
@@ -99,7 +103,8 @@ function addConfigGroup()
  	$.extend($MasterConfig, $configGroupArray);
 
 	rebuildConfigEditor($MasterConfig);
-			
+	
+	document.getElementById("alertarea").innerHTML = 'config group has been added';			
 		
 	}	
 	
@@ -169,6 +174,8 @@ function deleteConfigGroup($button)
 			}
 		
  		});
+ 		
+ 	document.getElementById("alertarea").innerHTML = 'config group has been deleted';		
  	
 	}		
 	
@@ -208,6 +215,8 @@ function addThisConfig($config)
  	$.extend($MasterConfig[$ThisGroup], $configArray);
 
 	rebuildConfigEditor($MasterConfig);
+	
+	document.getElementById("alertarea").innerHTML = 'config has been added';	
 	
 	}		
 	
@@ -310,6 +319,8 @@ function deleteConfig($button)
 			document.getElementById('jsonConfigViewerDetails').innerHTML = $viewer; 	
  	
  			rebuildConfigEditor($MasterConfig);
+ 			
+ 			document.getElementById("alertarea").innerHTML = 'config has been deleted';	
  			 			
 			}
 		
@@ -333,6 +344,8 @@ function saveConfig($button)
  	$MasterConfig[$configGroupKey][$config_key] = $config_value;
  		
  	rebuildConfigEditor($MasterConfig);
+ 	
+ 	document.getElementById("alertarea").innerHTML = 'config has been saved';	
  	
 	}	
 	
