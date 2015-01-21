@@ -182,6 +182,7 @@ function deleteConfig($button)
 	{
 		
 	$id = $button.id;
+	console.log($id);
 	var $idArray = $id.split('-');	
 	
 	$configGroupKey = $idArray[1];
