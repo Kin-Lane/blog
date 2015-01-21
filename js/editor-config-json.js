@@ -104,11 +104,37 @@ function addThisConfig($config)
 	
 	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	
-	$ShowJSON = JSON.stringify($MasterConfig);
+	$ConfigJSON = JSON.stringify($MasterConfig);
 
-	document.getElementById('jsonConfigViewer').innerHTML = $ShowJSON;	
+	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;	
 	
-	//rebuildConfigEditor();
+	// Save The File
+    var github = new Github({
+        token: $oAuth_Token,
+        auth: "oauth"
+            });
+        
+	var repo = github.getRepo('Stack-Network','blogapi');  	
+
+	repo.getTree('master', function(err, tree) {
+		
+		// This is a workaround hack to get sha, as the github.js getSha doesn't seem to be working and I couldn't fix.
+		// I'm looping through the tree to get sha, and then manually passing it to updates, and deletes
+		
+		$.each(tree, function(treeKey, treeValue) {
+			
+			$path = treeValue['path'];
+			$sha = treeValue['sha'];
+			
+			if($path=='config.json')
+				{	
+				console.log($path + ' - ' + $sha);							
+			    repo.writemanual('master', 'config.json', $ConfigJSON, 'Saving config.json', $sha, function(err) { });									
+				}
+			});
+		}); 	
+	
+	rebuildConfigEditor();
 	
 	}		
 	
