@@ -312,7 +312,7 @@ function buildConfigEditor($APIConfig)
 	
 	$viewer = JSON.stringify($APIConfig, null, 4);
 	
-	document.getElementById('jsonConfigViewer').innerHTML = data;
+	document.getElementById('jsonConfigViewer').innerHTML = $APIConfig;
 	
 	$.each($APIConfig, function(configGroupKey, $values) { 
 		
