@@ -199,8 +199,7 @@ function deleteConfig($button)
  		console.log($thisCount + ' != ' + $config_count);	
  		if($thisCount != $config_count)
  			{
- 			console.log($displayJSON);	
- 				
+
  			$configArray = [];	  
 			$configArray[paramKey] = paramValue;
 
@@ -209,6 +208,12 @@ function deleteConfig($button)
 		
 		$thisCount++;
  		});
+ 		
+ 	$MasterConfig[$configGroupKey] = $newArray;
+ 	
+	$viewer = JSON.stringify($MasterConfig, null, 4);
+	
+	document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
  	
 	}	
 	
