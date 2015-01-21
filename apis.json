@@ -38,7 +38,20 @@
       ]
     }
   ],
-  "include": [],
+  "include": [
+    {
+      "name": "Comment API",
+      "url": "http://stack-network.github.io/commentapi/apis.json"
+    },
+    {
+      "name": "Page API",
+      "url": "https://github.com/Stack-Network/pageapi"
+    },
+    {
+      "name": "Note API",
+      "url": "https://github.com/Stack-Network/noteapi"
+    }
+  ],
   "maintainers": [
     {
       "FN": "API Evangliest",
