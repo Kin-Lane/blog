@@ -1,8 +1,7 @@
 {
     "Github": {
         "repo": "blogapi",
-        "user": "Stack-Network",
-        "test1": "test1"
+        "user": "Stack-Network"
     },
     "Domain": {
         "app": "blog.kinlane.com",
