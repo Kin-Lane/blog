@@ -208,30 +208,32 @@ function deleteConfig($button)
  		if($thisCount != $config_count)
  			{
  			
- 			console.log($thisKey + ' - ' + $thisValue);
+ 			//console.log($thisKey + ' - ' + $thisValue);
  				
 			$configObject = [];	  
 			$configObject[$thisKey] = $thisValue;
 		
-			console.log($configObject);
+			//console.log($configObject);
 		
 		 	//$MasterConfig[$configGroupKey].push($configArray);
 		 	
 		 	$.extend($MasterConfig[$configGroupKey], $configObject);
 			
-			console.log($MasterConfig[$configGroupKey]);
+			//console.log($MasterConfig[$configGroupKey]);
 					
 			}
 		
 		$thisCount++;
 		console.log($thisCount + ' == ' + $FullArrayCount);
-		if($thisCount==$FullArrayCount)
+		if($thisCount == $FullArrayCount)
 			{
 			$viewer = JSON.stringify($MasterConfig, null, 4);
 	
 			document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
  	
  			rebuildConfigEditor($MasterConfig);
+ 			
+ 			console.log($MasterConfig[$configGroupKey]);
 			}
 		
  		});
