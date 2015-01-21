@@ -190,7 +190,7 @@ function deleteConfig($button)
 	$config_count = $idArray[3];
  	console.log("here: " + $configGroupKey);
 
-	$newArray = [];	 
+	$newArray = {};	 
 	$thisCount = 0;
  	$.each($MasterConfig[$configGroupKey], function(paramKey, paramValue) {
  		
@@ -208,7 +208,10 @@ function deleteConfig($button)
 		
 		$thisCount++;
  		});
- 		
+ 	
+ 	$debug = JSON.stringify($newArray);
+ 	console.log($debug);
+ 	
  	$MasterConfig[$configGroupKey] = $newArray;
  	
 	$viewer = JSON.stringify($MasterConfig, null, 4);
