@@ -227,13 +227,15 @@ function deleteConfig($button)
 		console.log($thisCount + ' == ' + $FullArrayCount);
 		if($thisCount == $FullArrayCount)
 			{
+			
+			console.log($MasterConfig);
+			
 			$viewer = JSON.stringify($MasterConfig, null, 4);
 	
 			document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
  	
  			rebuildConfigEditor($MasterConfig);
- 			
- 			console.log($MasterConfig[$configGroupKey]);
+ 			 			
 			}
 		
  		});
