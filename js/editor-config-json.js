@@ -112,32 +112,10 @@ function addThisConfig($config)
 	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
 	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
 
-	$configArray = {};	  
+	$configArray = [];	  
 	$configArray[$config_key] = $config_value;
 
-	$ConfigJSON = JSON.stringify($configArray);
-	$MasterConfigJSON = JSON.stringify($MasterConfig);
-
-	$APIConfig = JSON.parse($MasterConfigJSON);	
-
- 	$ThisGroupObject = [];
- 	
- 	$ThisGroupObject.push($configArray);
- 	
- 	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
- 		
- 		$thisKey = paramKey;
- 		$thisValue = paramValue;
- 		
- 		//console.log($thisKey + ' - ' + $thisValue);
- 		
- 		$rebuildconfigArray = {};	
- 		$rebuildconfigArray[$thisKey] = $thisValue;
- 		$displayJSON = JSON.stringify($rebuildconfigArray);
- 		
- 		$MasterConfig[$ThisGroup].push($rebuildconfigArray);
- 		
- 		});
+ 	$MasterConfig[$ThisGroup].push($configArray);
 
 	rebuildConfigEditor($MasterConfig);
 	
