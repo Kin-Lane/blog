@@ -11,9 +11,7 @@ function ConfigShowMe($row)
 	{
 	$thisrow = $row.id;			
 	$thisslug = $thisrow.replace("-icon","");
-	
-	//console.log('viewing: ' + $thisslug);
-		
+
 	$thisrow = document.getElementById($thisslug).style.display;
 
 	if($thisrow=='none')
@@ -28,21 +26,14 @@ function ConfigShowMe($row)
 	
 function ConfigViewEdit()
 	{
-	//console.log(document.getElementById("jsonConfigViewer"));
 	if(document.getElementById("jsonConfigViewer").style.display=='')
 		{
-		//console.log('switching to viewer');
 		document.getElementById("jsonConfigViewer").style.display='none';
 		document.getElementById("jsonConfigEditor").style.display='';
 		document.getElementById("questionsViewer").style.display='none';
 		}	
 	else
 		{
-		//console.log('switching to editor');		
-
-		//$viewer = JSON.stringify($MasterConfig, null, 4);
-		//document.getElementById("jsonConfigViewerDetails").value = $viewer;		
-		
 		document.getElementById("jsonConfigViewer").style.display='';
 		document.getElementById("jsonConfigEditor").style.display='none';	
 		document.getElementById("questionsViewer").style.display='none';	
@@ -59,9 +50,6 @@ function ConfigQuestions()
 		}	
 	else
 		{
-		//$viewer = JSON.stringify($MasterSwagger, null, 4);
-		//document.getElementById("jsonConfigViewerDetails").value = $viewer;		
-
 		document.getElementById("questionsViewer").style.display='';
 		document.getElementById("jsonConfigViewer").style.display='none';
 		document.getElementById("jsonConfigEditor").style.display='none';			
@@ -88,8 +76,6 @@ function addThisConfig($config)
 	$ThisGroup = $config.id;
 	$config_group_count = $config.name;
 
-	//console.log("HERE NOW: " + $ThisGroup + ' - ' + $config_group_count);
-
 	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
 	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
 
@@ -99,14 +85,8 @@ function addThisConfig($config)
 	$ConfigJSON = JSON.stringify($configArray);
 	$MasterConfigJSON = JSON.stringify($MasterConfig);
 
-	//onsole.log('Master: ' + $MasterConfigJSON);
-	//console.log('Group: ' + $ThisGroup);
-	//console.log('Config: ' + $ConfigJSON);
-	
 	$APIConfig = JSON.parse($MasterConfigJSON);	
-	
- 	//$APIConfig[$ThisGroup].push($configArray);
- 	
+
  	$ThisGroupArray = {};
  	$ThisGroupArray = [];
  	
@@ -118,8 +98,6 @@ function addThisConfig($config)
  		$rebuildconfigArray[paramKey] = paramValue;
  		$displayJSON = JSON.stringify($rebuildconfigArray);
  		
- 		//console.log($displayJSON);
- 		
  		$ThisGroupArray.push($rebuildconfigArray);
  		
  		});
@@ -127,15 +105,13 @@ function addThisConfig($config)
 	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	
 	$ShowJSON = JSON.stringify($MasterConfig);
-	//console.log($ShowJSON);
+
 	document.getElementById('jsonConfigViewer').innerHTML = $ShowJSON;	
 	}		
 	
 function getAddConfig($configGroupKey,$config_group_count)
 	{	
-		
-	//console.log('group1: ' + $configGroupKey);	
-		
+
 	html = '<tr id="add-config-' + $config_group_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
 	html = html + '<strong>Add Config in ' + $configGroupKey + '</strong>';
