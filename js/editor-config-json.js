@@ -245,10 +245,10 @@ function getConfig($configGroupKey,$config_key,$config_value,$config_group_count
 
 	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px;">';
 
-    html = html + '<table border="0" width="90%">';
+    html = html + '<table border="0" width="95%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="" width="18%"><strong>' + $config_key + ':</strong></td>';
+    html = html + '<td align="right" style="" width="10%"><strong>' + $config_key + ':</strong></td>';
     html = html + '<td align="left" style="">'
     
     html = html + $config_value;
