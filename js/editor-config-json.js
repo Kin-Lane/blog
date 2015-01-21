@@ -128,7 +128,7 @@ function addThisConfig($config)
  		
  		//console.log(paramKey + ' - ' + paramValue);
  		
- 		$rebuildconfigArray = {};	
+ 		$rebuildconfigArray = [];	
  		$rebuildconfigArray[paramKey] = paramValue;
  		$displayJSON = JSON.stringify($rebuildconfigArray);
  		
