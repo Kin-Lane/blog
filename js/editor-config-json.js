@@ -140,17 +140,19 @@ function addThisConfig($config)
  		});
 	
 	$ThisGroupJSON = JSON.stringify($ThisGroupObject);
+	console.log($ThisGroupJSON);
 	$ThisGroupArray = JSON.parse($ThisGroupJSON);
 	
 	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	
 	$ConfigJSON = JSON.stringify($MasterConfig);
 	
-	//console.log($ConfigJSON);
+	console.log($ConfigJSON);
 	
 	$ConfigArray = JSON.parse($ConfigJSON);
 
-	$MasterConfig = $ConfigArray;
+	$MasterConfig = {};
+	$MasterConfig = $ThisGroupArray;
 
 	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;		
 	
