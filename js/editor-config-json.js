@@ -164,9 +164,9 @@ function getConfig($configGroupKey,$config_key,$config_value,$config_group_count
     
     html = html + $config_value;
      
-    html = html + '<a href="#" onclick="ConfigShowMe(this); return false;" id="edit-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';
+    html = html + '<a href="#" onclick="ConfigShowMe(this); return false;" id="edit-' + $configGroupKey + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';
      
-    html = html + '<a href="#" onclick="deleteConfig(this);" id="delete-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="20" align="right"  /></a>';           
+    html = html + '<a href="#" onclick="deleteConfig(this);" id="delete-' + $configGroupKey + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="20" align="right"  /></a>';           
       
     html = html + '</td>';
     html = html + '</tr>';
