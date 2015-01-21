@@ -200,7 +200,7 @@ function deleteConfig($button)
  			{
 			//console.log($thisKey + ' - ' + $thisValue);
 			
-			$rebuildConfigArray = {};	  
+			$rebuildConfigArray = [];	  
 			$rebuildConfigArray[$thisKey] = $thisValue;
 
 			$debug = JSON.stringify($rebuildConfigArray);
