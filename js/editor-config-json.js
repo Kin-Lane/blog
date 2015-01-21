@@ -136,9 +136,9 @@ function addThisConfig($config)
  		
  		});
 	
-	$adding = JSON.stringify($ThisGroupObject);
-	
-	$ThisGroupArray = Object.keys($ThisGroupObject).map(function (key) {return $ThisGroupObject[key]});
+	$ThisGroupJSON = JSON.stringify($ThisGroupObject);
+	console.log($ThisGroupJSON);
+	$ThisGroupArray = JSON.parse($ThisGroupJSON);
 	
 	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	
