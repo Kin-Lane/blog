@@ -187,12 +187,12 @@ function deleteConfig($button)
 	$configGroupKey = $idArray[1];
 	$config_group_count = $idArray[2];
 	$config_count = $idArray[3];
-	
-	$config_value = document.getElementById('config-' + $configGroupKey + '-' + $config_count + '-value').value;
-
-	$displayJSON = JSON.stringify($MasterConfig[$configGroupKey]);
  		
- 	array.splice($MasterConfig[$configGroupKey], $config_count);	
+ 	$.each($MasterConfig[$configGroupKey], function(paramKey, paramValue) {
+ 		
+ 		array.splice($MasterConfig[paramKey], $config_count);	
+
+ 		}); 		
  		
  	//rebuildConfigEditor($MasterConfig);
  	
