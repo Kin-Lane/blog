@@ -198,7 +198,8 @@ function deleteConfig($button)
  		
  		if($thisCount != $config_count)
  			{
-
+			console.log($thisKey + ' - ' + $thisValue);
+			
  			$configArray = [];	  
 			$configArray[$thisKey] = $thisValue;
 
