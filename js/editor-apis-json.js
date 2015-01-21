@@ -538,6 +538,15 @@ function APIJSONGetIncludeTitle(title,$includecount)
 	return html; 			
 	}	
 	
+function APIJSONGetIncludeSpacer()
+	{
+	html = '<tr style="backghround-color:#CCC;">';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;"> ';
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}		
+	
 function APIJSONGetIncludeListingCell($includeName,$includeUrl,$includecount)
 	{	
 		
@@ -794,6 +803,9 @@ function buildAPIsJSONEditor(apisJSON)
 		 $apicount++;										
 	});
 	
+ 	$html = APIJSONGetIncludeSpacer();
+ 	$('#jsonEditorTable').append($html);   	 
+		
  	$html = APIJSONGetIncludeTitle('Include');
  	$('#jsonEditorTable').append($html);   	 
 
