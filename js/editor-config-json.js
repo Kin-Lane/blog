@@ -126,7 +126,7 @@ function addThisConfig($config)
  	
  	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
  		
- 		console.log(paramKey + ' - ' + paramValue);
+ 		//console.log(paramKey + ' - ' + paramValue);
  		
  		$rebuildconfigArray = {};	
  		$rebuildconfigArray[paramKey] = paramValue;
@@ -140,7 +140,7 @@ function addThisConfig($config)
 	
 	$ConfigJSON = JSON.stringify($MasterConfig);
 	
-	console.log($ConfigJSON);
+	//console.log($ConfigJSON);
 	
 	$ConfigArray = JSON.parse($ConfigJSON);
 
@@ -330,7 +330,7 @@ function buildConfigEditor($APIConfig)
 						
 		$.each($values, function(configKey, configValue) { 
 			
-			//console.log(configKey + ' - ' + configValue);					
+			console.log(configKey + ' - ' + configValue);					
 			
 			$HTML = getConfig(configGroupKey,configKey,configValue,$config_group_count,$config_count);		
 			$('#jsonConfigEditorTable').append($HTML);   	
