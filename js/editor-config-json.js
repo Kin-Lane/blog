@@ -137,6 +137,8 @@ function addThisConfig($config)
  		
  		});
 	
+	$adding = JSON.stringify($ThisGroupArray);
+	console.log($adding);
 	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	
 	$ConfigJSON = JSON.stringify($MasterConfig);
