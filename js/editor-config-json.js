@@ -94,7 +94,7 @@ function addConfigGroup()
 	$config_group_key = document.getElementById('add-config-group-name').value;
 
 	$configGroupArray = [];	  
-	$configGroupArray[$config_group_key] = [];	  
+	$configGroupArray[$config_group_key] = {};	  
 
  	$.extend($MasterConfig, $configGroupArray);
 
