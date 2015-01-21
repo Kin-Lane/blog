@@ -205,12 +205,14 @@ function deleteConfig($button)
  			
  			console.log($thisKey + ' - ' + $thisValue);
  				
-			$configArray = [];	  
-			$configArray[$thisKey] = $thisValue;
+			$configObject = [];	  
+			$configObject[$thisKey] = $thisValue;
 		
-		 	$MasterConfig[$configGroupKey].push($configArray);
+			console.log($configObject);
+		
+		 	//$MasterConfig[$configGroupKey].push($configArray);
 		 	
-		 	//$.extend($MasterConfig[$configGroupKey], $configArray);
+		 	$.extend($MasterConfig[$configGroupKey], $configArray);
 					
 			}
 		
