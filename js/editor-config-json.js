@@ -177,9 +177,6 @@ function getAddConfig($configGroupKey,$config_group_count)
 function getConfig($configGroupKey,$config_key,$config_value,$config_group_count,$config_count)
 	{	
 
-	$thisslug = $config_key.toLowerCase();	
-	$thisslug = $thisslug.replace(" ", "-");			
-
 	html = '<tr id="edit-header"><td align="center" colspan="2" style="font-size: 12px;">';
 
     html = html + '<table border="0" width="90%">';
