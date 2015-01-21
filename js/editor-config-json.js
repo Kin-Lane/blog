@@ -300,9 +300,7 @@ function buildConfigEditor($APIConfig)
 		$('#jsonConfigEditorTable').append($HTML);    																										
 						
 		$.each($values, function(configKey, configValue) { 
-			
-			console.log(JSON.stringify(configValue));
-			
+
 			$HTML = getConfig(configGroupKey,configKey,configValue,$config_group_count,$config_count);		
 			$('#jsonConfigEditorTable').append($HTML);   	
 			
