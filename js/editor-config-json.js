@@ -190,7 +190,7 @@ function deleteConfig($button)
 	$config_count = $idArray[3];
 
 	$FullArray = $MasterConfig[$configGroupKey]; 
-	$MasterConfig[$configGroupKey] = [];
+	$MasterConfig[$configGroupKey] = "";
 	$thisCount = 0;
  	$.each($FullArray, function(paramKey, paramValue) {
  		
@@ -200,10 +200,10 @@ function deleteConfig($button)
  		if($thisCount != $config_count)
  			{
  				
-			$C = [];	  
+			$C = {};	  
 			$C[$thisKey] = $thisValue;
 
-			$MasterConfig[$configGroupKey].push($C);
+			$.extend($MasterConfig[$ThisGroup], $C);
 			
 			}
 		
