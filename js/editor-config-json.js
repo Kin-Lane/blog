@@ -125,10 +125,10 @@ function addThisConfig($config)
 			
 			$path = treeValue['path'];
 			$sha = treeValue['sha'];
-			
+			console.log("1) " + $path + ' - ' + $sha);
 			if($path=='config.json')
 				{	
-				console.log($path + ' - ' + $sha);							
+				console.log("2) " + $path + ' - ' + $sha);							
 			    repo.writemanual('master', 'config.json', $ConfigJSON, 'Saving config.json', $sha, function(err) { });									
 				}
 			});
