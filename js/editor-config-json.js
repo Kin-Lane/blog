@@ -210,12 +210,7 @@ function deleteConfig($button)
 		$thisCount++;
 		
  		});
- 	
- 	$debug = JSON.stringify($newArray);
- 	//console.log($debug);
- 	
- 	$MasterConfig[$configGroupKey] = $newArray;
- 	
+
 	$viewer = JSON.stringify($MasterConfig, null, 4);
 	
 	document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
