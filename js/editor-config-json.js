@@ -88,6 +88,21 @@ function saveConfigFile()
 
 	}		
 	
+function addConfigGroup()
+	{
+		
+	$config_group_key = document.getElementById('add-config-group-name').value;
+
+	$configGroupArray = [];	  
+	$configGroupArray[$config_group_key] = [];	  
+
+ 	$.extend($MasterConfig, $configGroupArray);
+
+	rebuildConfigEditor($MasterConfig);
+			
+		
+	}	
+	
 function getAddConfigGroup()
 	{	
 
@@ -102,7 +117,7 @@ function getAddConfigGroup()
     html = html + '</tr>';      
 
     html = html + '<tr>';
-    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="add-config-group-button" id="add-config-group-button" value="Add This Config Group" onclick="addConfigGroup();" /></td>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="add-config-group-button" id="add-config-group-button" value="Add" onclick="addConfigGroup();" /></td>';
     html = html + '</tr>'     
     
     html = html + '</table>';
