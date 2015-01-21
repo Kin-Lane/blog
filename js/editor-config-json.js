@@ -198,14 +198,17 @@ function deleteConfig($button)
  		
  		if($thisCount != $config_count)
  			{
-			//console.log($thisKey + ' - ' + $thisValue);
+ 				
+			console.log($thisKey + ' - ' + $thisValue);
 			
 			$rebuildConfigArray = [];	  
 			$rebuildConfigArray[$thisKey] = $thisValue;
 
 			$debug = JSON.stringify($rebuildConfigArray);
-			//console.log($debug);
+			console.log($debug);
+			
 			$newArray.push($rebuildConfigArray);
+			
 			}
 		
 		$thisCount++;
@@ -213,7 +216,7 @@ function deleteConfig($button)
  		});
  	
  	$debug = JSON.stringify($newArray);
- 	console.log($debug);
+ 	//console.log($debug);
  	
  	$MasterConfig[$configGroupKey] = $newArray;
  	
