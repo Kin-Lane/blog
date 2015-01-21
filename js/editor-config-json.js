@@ -150,11 +150,11 @@ function addThisConfig($config)
 	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
 	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
 
+	console.log($config_key + ' - ' + $config_value);
+
 	$configArray = [];	  
 	$configArray[$config_key] = $config_value;
 
- 	//$MasterConfig[$ThisGroup].push($configArray);
- 	
  	$.extend($MasterConfig[$ThisGroup], $configArray);
 
 	rebuildConfigEditor($MasterConfig);
