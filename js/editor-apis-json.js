@@ -2,6 +2,8 @@
 
 $apicount = 0;  
 $propertycount = 0;
+
+$includecount = 0;
 	 	
 // The Master 
 $MasterAPISJSON = "";
@@ -520,6 +522,147 @@ function APIJSONGetPropertyEditListing($apiName,$thistype,$thisurl,$apicount,$pr
     	
 	return html; 			
 	}								
+					
+// Include Level	
+	
+function APIJSONGetIncludeTitle(title,$includecount)
+	{
+	html = '<tr>';
+	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
+	html = html + '<span style="font-size:20px;">';
+	html = html + '<strong>' + title + '</strong>';
+	html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-include-listing-icon" title="Toggle APIs.json Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+	html = html + '</span>';
+	html = html + '</td>';
+	html = html + '</tr>';
+	return html; 			
+	}	
+	
+function APIJSONGetIncludeListingCell($includeName,$includeUrl,$includecount)
+	{	
+		
+	$thisslug = name.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");			
+
+	$html = "";
+    $html = $html + '<span style="font-size:20px;">';
+    $html = $html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
+    $html = $html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-' + $includecount + '-icon" title="Edit Include"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    $html = $html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-include-property-' + $thisslug + '-' + $includecount + '-icon" title="Add Include Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    $html = $html + '</span>';
+    	
+	return $html; 			
+	}		
+	
+function APIJSONGetIncludeListing($includeName,$includeUrl,$includecount)
+	{	
+		
+	$thisslug = $includeName.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");			
+
+    html = '<tr style="background-color:#CCC;">';
+    html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2" id="include-cell-' + $includecount + '">';
+    
+    html = html + '<span style="font-size:20px;">';
+    html = html + '<a href="' + $includeUrl + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + $includeName + '"><strong>' + $includeName + '</strong></a> - ' + $includeUrl;
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="edit-' + $thisslug + '-' + $includecount + '-icon" title="Edit Include"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="#" onclick="APIJSONShowMe(this); return false;" id="add-include-property-' + $thisslug + '-' + $includecount + '-icon" title="Add Include Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '</span>';
+    
+    html = html + '</td>';
+    html = html + '</tr>';
+    	
+	return html; 			
+	}	
+
+function APIJSONAddInclude()
+	{
+	$includeName = document.getElementById("add-include-name").value;
+	$includeUrl = document.getElementById("add-include-url").value;		
+		
+	$IncludeArray = {};
+	  
+	$IncludeArray['name'] = $includeName;
+	$IncludeArray['url'] = $includeUrl;
+
+	$MasterAPISJSON['include'].push($IncludeArray);
+	
+	rebuildAPIsJSONEditor();
+
+	}
+	
+function APIJSONGetAddIncludeListing()
+	{		
+		
+	html = '<tr id="add-include-listing" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Add Include</strong>';
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-include-name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>url:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-include-url" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>'      
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="addIncludeButton" value="Add This Include" onclick="APIJSONAddInclude();" /></td>';
+    html = html + '</tr>'         
+     
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>';  
+    	
+	return html; 			
+	}	
+	
+function APIJSONSaveInclude($includecount)
+	{
+	$includeName = document.getElementById("includename"+$includecount).value;
+	$includeUrl = document.getElementById("includeurl"+$includecount).value;
+
+ 	$MasterAPISJSON['include'][$includecount]['name'] = $includeName;
+ 	$MasterAPISJSON['include'][$includecount]['url'] = $includeUrl;
+
+ 	$html = APIJSONGetIncludeListingCell($includeName,$includeUrl,$includecount);
+ 	document.getElementById("include-cell-"+$includecount).innerHTML = $html;	
+	}	
+	
+function APIJSONGetEditIncludeListing($includeName,$includeUrl,$includecount)
+	{		
+
+	$thisslug = $includeName.toLowerCase();	
+	$thisslug = $thisslug.replace(" ", "-");
+
+	html = '<tr id="edit-' + $thisslug + '-' + $includecount + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Edit Include</strong>';
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;" width="25%"><strong>name:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="includename' + $includecount + '" value="' + $includeName + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';$
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>url:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="includeurl' + $includecount + '" value="' + $includeUrl + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';   
+    
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="APIJSONSaveIncludesJSON" value="Save Changes" onclick="APIJSONSaveInclude(' + $includecount + ');" /></td>';
+    html = html + '</tr>'
+     
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>';          
+    	
+	return html; 			
+	}
 
 function loadPropertyTypes()
     {
@@ -604,6 +747,8 @@ function buildAPIsJSONEditor(apisJSON)
             
     apisJSONTags = apisJSON['tags'];            
     apisJSONAPIs = apisJSON['apis'];
+    apisJSONIncludes = apisJSON['include'];
+    apisJSONMaintainers = apisJSON['maintainers'];	
     
  	$html = APIJSONGetAPITitle('APIs');
  	$('#jsonEditorTable').append($html);   	 
@@ -649,5 +794,25 @@ function buildAPIsJSONEditor(apisJSON)
 		 $apicount++;										
 	});
 	
-	$apisJSONMaintainers = apisJSON['maintainers'];		
+ 	$html = APIJSONGetIncludeTitle('Include');
+ 	$('#jsonEditorTable').append($html);   	 
+
+    $html = APIJSONGetAddAPIListing()
+    $('#jsonEditorTable').append($html);  		
+	
+     $.each(apisJSONIncludes, function(apiKey, apiVal) { 
+
+     	 $includeName = apiVal['name']; 
+     	 $includeUrl = apiVal['url'];	 	 
+		 
+         $html = APIJSONGetIncludeListing($includeName,$includeUrl,$apicount)
+         $('#jsonEditorTable').append($html); 	
+                    
+         $html = APIJSONGetEditIncludeListing($includeName,$includeUrl,$apicount)
+         $('#jsonEditorTable').append($html);              
+
+		 $includecount++;										
+	});	
+	
+		
 	}
