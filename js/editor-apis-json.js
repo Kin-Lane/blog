@@ -797,7 +797,7 @@ function buildAPIsJSONEditor(apisJSON)
  	$html = APIJSONGetIncludeTitle('Include');
  	$('#jsonEditorTable').append($html);   	 
 
-    $html = APIJSONGetAddAPIListing()
+    $html = APIJSONGetAddIncludeListing()
     $('#jsonEditorTable').append($html);  		
 	
      $.each(apisJSONIncludes, function(apiKey, apiVal) { 
