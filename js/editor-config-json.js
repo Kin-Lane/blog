@@ -346,12 +346,12 @@ function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_c
 
 	html = '<tr id="edit-' + $configGroupKey + '-' + $config_group_count + '-' + $config_count + '" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
 
-	html = html + '<strong>Edit Config</strong> config-' + $config_group_count + '-' + $config_count + '-value';
+	html = html + '<strong>Edit Config</strong>';
     html = html + '<table border="0" width="90%">';  
     
     html = html + '<tr>';
     html = html + '<td align="right" style="background-color:#FFF;"><strong>' + $config_key + ':</strong></td>';
-    html = html + '<td align="left" style="background-color:#FFF;">config-' + $configGroupKey + '-' + $config_count + '-value<input type="text" id="config-' + $configGroupKey + '-' + $config_count + '-value" value="' + $config_value + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="config-' + $configGroupKey + '-' + $config_count + '-value" value="' + $config_value + '" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
     html = html + '</tr>';
     
     html = html + '<tr>';
