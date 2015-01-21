@@ -192,7 +192,7 @@ function deleteConfig($button)
  	
  	$.each($MasterConfig[$configGroupKey], function(paramKey, paramValue) {
  		
- 		array.splice($MasterConfig[paramKey], $config_count);	
+ 		$MasterConfig[paramKey].splice($config_count, 1);	
 
  		}); 		
  		
