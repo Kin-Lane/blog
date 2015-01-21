@@ -217,6 +217,8 @@ function deleteConfig($button)
 		 	//$MasterConfig[$configGroupKey].push($configArray);
 		 	
 		 	$.extend($MasterConfig[$configGroupKey], $configObject);
+			
+			console.log($MasterConfig[$configGroupKey]);
 					
 			}
 		
