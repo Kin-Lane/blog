@@ -3,7 +3,8 @@
         "repo": "blogapi",
         "user": "Stack-Network",
         "test": "test",
-        "test2": "test2"
+        "test2": "test2",
+        "test3": "test3"
     },
     "Domain": {
         "app": "blog.kinlane.com",
