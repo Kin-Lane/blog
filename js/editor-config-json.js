@@ -162,7 +162,7 @@ function deleteConfigGroup($button)
 				
 			$viewer = JSON.stringify($MasterConfig, null, 4);
 	
-			document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
+			document.getElementById('jsonConfigViewerDetails').innerHTML = $viewer; 	
  	
  			rebuildConfigEditor($MasterConfig);
  			 			
@@ -307,7 +307,7 @@ function deleteConfig($button)
 				
 			$viewer = JSON.stringify($MasterConfig, null, 4);
 	
-			document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
+			document.getElementById('jsonConfigViewerDetails').innerHTML = $viewer; 	
  	
  			rebuildConfigEditor($MasterConfig);
  			 			
@@ -425,7 +425,7 @@ function buildConfigEditor($APIConfig)
 	
 	$viewer = JSON.stringify($APIConfig, null, 4);
 	
-	document.getElementById('jsonConfigViewer').innerHTML = $viewer;
+	document.getElementById('jsonConfigViewerDetails').innerHTML = $viewer;
 
 	$HTML = getAddConfigGroup();
 	$('#jsonConfigEditorTable').append($HTML);    	
