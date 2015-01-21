@@ -207,7 +207,7 @@ function deleteConfig($button)
 			$newArray.push($configArray);
 			}
 		
-		$configCount++;
+		$thisCount++;
  		});
  	
 	}	
