@@ -112,7 +112,7 @@ function addThisConfig($config)
 	$config_key = document.getElementById('add-config-' + $config_group_count + '-key').value;
 	$config_value = document.getElementById('add-config-' + $config_group_count + '-value').value;
 
-	$configArray = {};	  
+	$configArray = [];	  
 	$configArray[$config_key] = $config_value;
 
 	$ConfigJSON = JSON.stringify($configArray);
