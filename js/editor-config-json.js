@@ -123,6 +123,8 @@ function addThisConfig($config)
  	$ThisGroupArray = {};
  	$ThisGroupArray = [];
  	
+ 	$MasterConfig[$ThisGroup] = [];
+ 	
  	$ThisGroupArray.push($configArray);
  	
  	$.each($MasterConfig[$ThisGroup], function(paramKey, paramValue) {
@@ -133,7 +135,7 @@ function addThisConfig($config)
  		$rebuildconfigArray[paramKey] = paramValue;
  		$displayJSON = JSON.stringify($rebuildconfigArray);
  		console.log($displayJSON);
- 		$ThisGroupArray.push($rebuildconfigArray);
+ 		$MasterConfig[$ThisGroup].push($rebuildconfigArray);
  		
  		});
 	
