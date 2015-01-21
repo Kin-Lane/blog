@@ -115,7 +115,9 @@ function addThisConfig($config)
 	$configArray = [];	  
 	$configArray[$config_key] = $config_value;
 
- 	$MasterConfig[$ThisGroup].push($configArray);
+ 	//$MasterConfig[$ThisGroup].push($configArray);
+ 	
+ 	$.extend($MasterConfig[$ThisGroup], $configArray);
 
 	rebuildConfigEditor($MasterConfig);
 	
