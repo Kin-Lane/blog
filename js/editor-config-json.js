@@ -166,7 +166,7 @@ function getConfig($configGroupKey,$config_key,$config_value,$config_group_count
      
     html = html + '<a href="#" onclick="ConfigShowMe(this); return false;" id="edit-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';
      
-    html = html + '<a href="#" onclick="deleteConfig(this);" id="edit-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="20" align="right"  /></a>';           
+    html = html + '<a href="#" onclick="deleteConfig(this);" id="delete-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="20" align="right"  /></a>';           
       
     html = html + '</td>';
     html = html + '</tr>';
@@ -187,7 +187,8 @@ function deleteConfig($button)
 	$configGroupKey = $idArray[1];
 	$config_group_count = $idArray[2];
 	$config_count = $idArray[3];
- 		console.log("here: " + $configGroupKey);
+ 	console.log("here: " + $configGroupKey);
+ 	
  	$.each($MasterConfig[$configGroupKey], function(paramKey, paramValue) {
  		
  		array.splice($MasterConfig[paramKey], $config_count);	
