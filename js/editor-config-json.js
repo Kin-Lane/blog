@@ -107,6 +107,9 @@ function addThisConfig($config)
 	$ShowJSON = JSON.stringify($MasterConfig);
 
 	document.getElementById('jsonConfigViewer').innerHTML = $ShowJSON;	
+	
+	rebuildConfigEditor();
+	
 	}		
 	
 function getAddConfig($configGroupKey,$config_group_count)
@@ -168,6 +171,7 @@ function getConfig($configGroupKey,$config_key,$config_value,$config_group_count
 	
 function saveConfig($button)
 	{
+		
 	$id = $button.id;
 	var $idArray = $id.split('-');	
 	
@@ -175,23 +179,18 @@ function saveConfig($button)
 	$config_group_count = $idArray[2];
 	$config_count = $idArray[3];
 	
-	console.log('222');
-	console.log('config-' + $configGroupKey + '-' + $config_count + '-value');
 	$config_value = document.getElementById('config-' + $configGroupKey + '-' + $config_count + '-value').value;
-	
-	console.log('saving-4-'+$configGroupKey);
-	
+
 	$displayJSON = JSON.stringify($MasterConfig[$configGroupKey]);
-	
-	console.log($displayJSON);
-	
+
  	$.each($MasterConfig[$configGroupKey], function(paramKey, paramValue) {
  		
  		$displayJSON = JSON.stringify(paramValue);
- 		
- 		console.log($displayJSON);
- 		
+
  		});
+ 		
+ 	rebuildConfigEditor();
+ 	
 	}	
 	
 function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_count,$config_count)
