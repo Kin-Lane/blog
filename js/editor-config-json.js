@@ -203,7 +203,7 @@ function deleteConfig($button)
 			$C = {};	  
 			$C[$thisKey] = $thisValue;
 
-			$.extend($MasterConfig[$ThisGroup], $C);
+			$.extend($MasterConfig[$configGroupKey], $C);
 			
 			}
 		
