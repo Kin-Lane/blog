@@ -132,14 +132,14 @@ function addThisConfig($config)
  		$rebuildconfigArray = {};	
  		$rebuildconfigArray[paramKey] = paramValue;
  		$displayJSON = JSON.stringify($rebuildconfigArray);
- 		
+ 		console.log($displayJSON);
  		$ThisGroupArray.push($rebuildconfigArray);
  		
  		});
 	
 	$adding = JSON.stringify($ThisGroupArray);
 	console.log($adding);
-	$MasterConfig[$ThisGroup] = $adding;
+	$MasterConfig[$ThisGroup] = $ThisGroupArray;
 	
 	$ConfigJSON = JSON.stringify($MasterConfig);
 
