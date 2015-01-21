@@ -189,13 +189,9 @@ function deleteConfig($button)
 	$config_group_count = $idArray[2];
 	$config_count = $idArray[3];
  	console.log("here: " + $configGroupKey);
- 	
- 	$.each($MasterConfig[$configGroupKey], function(paramKey, paramValue) {
- 		
- 		$MasterConfig[paramKey].splice($config_count, 1);	
 
- 		}); 		
- 		
+	$MasterConfig[$configGroupKey].splice($config_count, 1);	
+
  	//rebuildConfigEditor($MasterConfig);
  	
 	}	
