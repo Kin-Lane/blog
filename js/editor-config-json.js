@@ -131,8 +131,9 @@ function addThisConfig($config)
  		
  		//console.log($thisKey + ' - ' + $thisValue);
  		
- 		$rebuildconfigArray = {};	
+ 		$rebuildconfigArray = [];
  		$rebuildconfigArray[$thisKey] = $thisValue;
+ 		
  		$displayJSON = JSON.stringify($rebuildconfigArray);
  		
  		$ThisGroupObject.push($rebuildconfigArray);
