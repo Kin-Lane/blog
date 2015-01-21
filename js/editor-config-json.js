@@ -165,6 +165,8 @@ function getConfig($configGroupKey,$config_key,$config_value,$config_group_count
     html = html + $config_value;
      
     html = html + '<a href="#" onclick="ConfigShowMe(this); return false;" id="edit-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="20" align="right"  /></a>';
+     
+    html = html + '<a href="#" onclick="deleteConfig(this);" id="edit-' + $config_group_count + '-' + $config_count + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-delete-circle.png" width="20" align="right"  /></a>';           
       
     html = html + '</td>';
     html = html + '</tr>';
@@ -174,6 +176,26 @@ function getConfig($configGroupKey,$config_key,$config_value,$config_group_count
     html = html + '</td></tr>'; 	
 	
 	return html; 			
+	}	
+	
+function deleteConfig($button)
+	{
+		
+	$id = $button.id;
+	var $idArray = $id.split('-');	
+	
+	$configGroupKey = $idArray[1];
+	$config_group_count = $idArray[2];
+	$config_count = $idArray[3];
+	
+	$config_value = document.getElementById('config-' + $configGroupKey + '-' + $config_count + '-value').value;
+
+	$displayJSON = JSON.stringify($MasterConfig[$configGroupKey]);
+ 		
+ 	array.splice($MasterConfig[$configGroupKey], $config_count);	
+ 		
+ 	//rebuildConfigEditor($MasterConfig);
+ 	
 	}	
 	
 function saveConfig($button)
