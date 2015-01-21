@@ -148,7 +148,7 @@ function addThisConfig($config)
 
 	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;		
 	
-	//rebuildConfigEditor();
+	rebuildConfigEditor($ConfigArray);
 	
 	}		
 	
@@ -226,7 +226,7 @@ function saveConfig($button)
 
  		});
  		
- 	rebuildConfigEditor();
+ 	rebuildConfigEditor($MasterConfig);
  	
 	}	
 	
@@ -294,7 +294,7 @@ function loadConfigEditor()
          	  	
     } 	
     
-function rebuildConfigEditor()
+function rebuildConfigEditor($ConfigArray)
     {
     	
 	$apicount = 0;  
@@ -305,7 +305,7 @@ function rebuildConfigEditor()
 	document.getElementById("jsonConfigEditor").innerHTML = '<table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonConfigEditorTable" style="margin-left: 15px;"></table>';
 
 	// Pull From our Master Store
- 	buildConfigEditor($MasterConfig);
+ 	buildConfigEditor($ConfigArray);
 		
 	}
 	
