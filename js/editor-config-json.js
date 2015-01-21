@@ -224,7 +224,7 @@ function deleteConfig($button)
 	
 	document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
  	
- 	rebuildConfigEditor($MasterConfig);
+ 	//rebuildConfigEditor($MasterConfig);
  	
 	}	
 	
