@@ -200,7 +200,7 @@ function deleteConfig($button)
  		if($thisCount != $config_count)
  			{
  				
-			$C = {};	  
+			$C = [];	  
 			$C[$thisKey] = $thisValue;
 
 			$.extend($MasterConfig[$configGroupKey], $C);
