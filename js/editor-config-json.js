@@ -88,6 +88,30 @@ function saveConfigFile()
 
 	}		
 	
+function getAddConfigGroup()
+	{	
+
+	html = '<tr id="add-config-group" style="display: none;"><td align="center" colspan="2" style="font-size: 12px; background-color:#CCC;">';
+
+	html = html + '<strong>Add Config Group</strong>';
+    html = html + '<table border="0" width="90%">';
+    
+    html = html + '<tr>';
+    html = html + '<td align="right" style="background-color:#FFF;"><strong>group:</strong></td>';
+    html = html + '<td align="left" style="background-color:#FFF;"><input type="text" id="add-config-group-name" value="" style="width: 100%; height: 100%; border: 0px solid #FFF;" /></td>';
+    html = html + '</tr>';      
+
+    html = html + '<tr>';
+    html = html + '<td align="center" style="background-color:#FFF;" colspan="2"><input type="button" name="add-config-group-button" id="add-config-group-button" value="Add This Config Group" onclick="addConfigGroup();" /></td>';
+    html = html + '</tr>'     
+    
+    html = html + '</table>';
+    
+    html = html + '<br /></td></tr>'; 
+    	
+	return html; 			
+	}		
+	
 // Localize Templating, making as editable as possible	
 function getConfigGroup($config_group_name,$config_group_count)
 	{		
@@ -337,7 +361,10 @@ function buildConfigEditor($APIConfig)
 	$viewer = JSON.stringify($APIConfig, null, 4);
 	
 	document.getElementById('jsonConfigViewer').innerHTML = $viewer;
-	
+
+	$HTML = getAddConfigGroup();
+	$('#jsonConfigEditorTable').append($HTML);    	
+
 	$.each($APIConfig, function(configGroupKey, $values) { 
 
 		$HTML = getConfigGroup(configGroupKey,$config_group_count);			
