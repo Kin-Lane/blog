@@ -54,7 +54,40 @@ function ConfigQuestions()
 		document.getElementById("jsonConfigViewer").style.display='none';
 		document.getElementById("jsonConfigEditor").style.display='none';			
 		}
-	}	
+	}
+	
+function saveConfigFile()
+	{
+
+	// Save The File
+    var github = new Github({
+        token: $oAuth_Token,
+        auth: "oauth"
+            });
+        
+	var repo = github.getRepo('Stack-Network','blogapi');  	
+
+	repo.getTree('master', function(err, tree) {
+		
+		// This is a workaround hack to get sha, as the github.js getSha doesn't seem to be working and I couldn't fix.
+		// I'm looping through the tree to get sha, and then manually passing it to updates, and deletes
+		
+		$.each(tree, function(treeKey, treeValue) {
+			
+			$path = treeValue['path'];
+			$sha = treeValue['sha'];
+			console.log("1) " + $path + ' - ' + $sha);
+			if($path=='api-config.json')
+				{	
+				console.log("2) " + $path + ' - ' + $sha);							
+			    repo.writemanual('master', 'config.json', $ConfigJSON, 'Saving config.json', $sha, function(err) { });									
+				}
+			});
+		}); 	
+	
+	rebuildConfigEditor();
+	
+	}		
 	
 // Localize Templating, making as editable as possible	
 function getConfigGroup($config_group_name,$config_group_count)
@@ -106,33 +139,7 @@ function addThisConfig($config)
 	
 	$ConfigJSON = JSON.stringify($MasterConfig);
 
-	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;	
-	
-	// Save The File
-    var github = new Github({
-        token: $oAuth_Token,
-        auth: "oauth"
-            });
-        
-	var repo = github.getRepo('Stack-Network','blogapi');  	
-
-	repo.getTree('master', function(err, tree) {
-		
-		// This is a workaround hack to get sha, as the github.js getSha doesn't seem to be working and I couldn't fix.
-		// I'm looping through the tree to get sha, and then manually passing it to updates, and deletes
-		
-		$.each(tree, function(treeKey, treeValue) {
-			
-			$path = treeValue['path'];
-			$sha = treeValue['sha'];
-			console.log("1) " + $path + ' - ' + $sha);
-			if($path=='api-config.json')
-				{	
-				console.log("2) " + $path + ' - ' + $sha);							
-			    repo.writemanual('master', 'config.json', $ConfigJSON, 'Saving config.json', $sha, function(err) { });									
-				}
-			});
-		}); 	
+	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;		
 	
 	rebuildConfigEditor();
 	
@@ -246,28 +253,6 @@ function getEditConfig($configGroupKey,$config_key,$config_value,$config_group_c
 function loadConfigEditor()
     {
 
-    buildConfigEditor();	  
-         	  	
-    } 	
-    
-function rebuildConfigEditor()
-    {
-    	
-	$apicount = 0;  
-	$propertycount = 0;    	
-
-	document.getElementById("jsonConfigEditor").innerHTML = '';
-	
-	document.getElementById("jsonConfigEditor").innerHTML = '<table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonConfigEditorTable" style="margin-left: 15px;"></table>';
-
-	// Pull From our Master Store
- 	buildConfigEditor($MasterConfig);
-		
-	}
-	
-function buildConfigEditor()
-	{
-		
     var github = new Github({
         token: $oAuth_Token,
         auth: "oauth"
@@ -294,46 +279,71 @@ function buildConfigEditor()
 			    	$APIConfig = JSON.parse(data);
 			    	
 			    	$MasterConfig = $APIConfig;
-			    	
-			    	$viewer = JSON.stringify($APIConfig, null, 4);
-			    	
-			    	document.getElementById('jsonConfigViewer').innerHTML = data;
-			    	
-					$.each($APIConfig, function(configGroupKey, $values) { 
-						
-						//console.log(configGroupKey);
-
-						$HTML = getConfigGroup(configGroupKey,$config_group_count);			
-						$('#jsonConfigEditorTable').append($HTML);    						
-										
-						$HTML = getAddConfig(configGroupKey,$config_group_count)			
-						$('#jsonConfigEditorTable').append($HTML);    																										
-										
-						$.each($values, function(configKey, configValue) { 
-							
-							//console.log(configKey + ' - ' + configValue);					
-							
-							$HTML = getConfig(configGroupKey,configKey,configValue,$config_group_count,$config_count);		
-							$('#jsonConfigEditorTable').append($HTML);   	
-							
-							$HTML = getEditConfig(configGroupKey,configKey,configValue,$config_group_count,$config_count)		
-							$('#jsonConfigEditorTable').append($HTML);   							
-							
-							getEditConfig(configKey,configValue,$config_group_count,$config_count)						
-								
-							$config_count++;	
-								
-							});						
-							
-							$config_group_count++;	
-							$config_count = 0;
-																
-						});													    	
-							    				    	
+	
+					buildConfigEditor($APIConfig);
+		    				    	
 			    	});							
 				}
 
 			});							
-		});						
+		});		  
+         	  	
+    } 	
+    
+function rebuildConfigEditor()
+    {
+    	
+	$apicount = 0;  
+	$propertycount = 0;    	
+
+	document.getElementById("jsonConfigEditor").innerHTML = '';
+	
+	document.getElementById("jsonConfigEditor").innerHTML = '<table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonConfigEditorTable" style="margin-left: 15px;"></table>';
+
+	// Pull From our Master Store
+ 	buildConfigEditor($MasterConfig);
+		
+	}
+	
+function buildConfigEditor($APIConfig)
+	{
+			    	
+	$MasterConfig = $APIConfig;
+	
+	$viewer = JSON.stringify($APIConfig, null, 4);
+	
+	document.getElementById('jsonConfigViewer').innerHTML = data;
+	
+	$.each($APIConfig, function(configGroupKey, $values) { 
+		
+		//console.log(configGroupKey);
+
+		$HTML = getConfigGroup(configGroupKey,$config_group_count);			
+		$('#jsonConfigEditorTable').append($HTML);    						
+						
+		$HTML = getAddConfig(configGroupKey,$config_group_count)			
+		$('#jsonConfigEditorTable').append($HTML);    																										
+						
+		$.each($values, function(configKey, configValue) { 
+			
+			//console.log(configKey + ' - ' + configValue);					
+			
+			$HTML = getConfig(configGroupKey,configKey,configValue,$config_group_count,$config_count);		
+			$('#jsonConfigEditorTable').append($HTML);   	
+			
+			$HTML = getEditConfig(configGroupKey,configKey,configValue,$config_group_count,$config_count)		
+			$('#jsonConfigEditorTable').append($HTML);   							
+			
+			getEditConfig(configKey,configValue,$config_group_count,$config_count)						
+				
+			$config_count++;	
+				
+			});						
+			
+			$config_group_count++;	
+			$config_count = 0;
+												
+		});													    	
+	
 	
 	}
