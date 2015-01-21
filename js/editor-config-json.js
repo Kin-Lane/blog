@@ -131,33 +131,15 @@ function addThisConfig($config)
  		
  		//console.log($thisKey + ' - ' + $thisValue);
  		
- 		$rebuildconfigArray = [];
+ 		$rebuildconfigArray = {};	
  		$rebuildconfigArray[$thisKey] = $thisValue;
- 		
  		$displayJSON = JSON.stringify($rebuildconfigArray);
  		
- 		$ThisGroupObject.push($rebuildconfigArray);
+ 		$MasterConfig[$ThisGroup].push($rebuildconfigArray);
  		
  		});
-	
-	$ThisGroupJSON = JSON.stringify($ThisGroupObject);
-	console.log($ThisGroupJSON);
-	$ThisGroupArray = JSON.parse($ThisGroupJSON);
-	
-	$MasterConfig[$ThisGroup] = $ThisGroupArray;
-	
-	$ConfigJSON = JSON.stringify($MasterConfig);
-	
-	console.log($ConfigJSON);
-	
-	$ConfigArray = JSON.parse($ConfigJSON);
 
-	$MasterConfig = {};
-	$MasterConfig = $ThisGroupArray;
-
-	document.getElementById('jsonConfigViewer').innerHTML = $ConfigJSON;		
-	
-	rebuildConfigEditor($ConfigArray);
+	rebuildConfigEditor($MasterConfig);
 	
 	}		
 	
