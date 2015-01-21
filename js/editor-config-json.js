@@ -59,6 +59,8 @@ function ConfigQuestions()
 function saveConfigFile()
 	{
 
+	$ConfigJSON = JSON.stringify($MasterConfig, null, 4);		
+
 	// Save The File
     var github = new Github({
         token: $oAuth_Token,
