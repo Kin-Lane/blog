@@ -224,7 +224,7 @@ function deleteConfig($button)
 			}
 		
 		$thisCount++;
-		
+		console.log($thisCount + ' == ' + $FullArrayCount);
 		if($thisCount==$FullArrayCount)
 			{
 			$viewer = JSON.stringify($MasterConfig, null, 4);
