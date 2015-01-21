@@ -182,13 +182,10 @@ function deleteConfig($button)
 	{
 		
 	$id = $button.id;
-	console.log($id);
 	var $idArray = $id.split('-');	
 	
 	$configGroupKey = $idArray[1];
-	
-	console.log('groupkey: ' + $configGroupKey);
-	
+
 	$config_group_count = $idArray[2];
 	$config_count = $idArray[3];
 
@@ -196,8 +193,7 @@ function deleteConfig($button)
 	$FullArrayCount =  Object.keys($FullArray).length;
 	
 	$checkArray = Array.isArray($MasterConfig[$configGroupKey]);
-	console.log("is array? " + $checkArray);
-	
+
 	$MasterConfig[$configGroupKey] = {};
 	$thisCount = 0;
  	$.each($FullArray, function(paramKey, paramValue) {
@@ -207,29 +203,19 @@ function deleteConfig($button)
  		
  		if($thisCount != $config_count)
  			{
- 			
- 			//console.log($thisKey + ' - ' + $thisValue);
- 				
+
 			$configObject = [];	  
 			$configObject[$thisKey] = $thisValue;
-		
-			//console.log($configObject);
-		
-		 	//$MasterConfig[$configGroupKey].push($configArray);
-		 	
+
 		 	$.extend($MasterConfig[$configGroupKey], $configObject);
-			
-			//console.log($MasterConfig[$configGroupKey]);
-					
+	
 			}
 		
 		$thisCount++;
-		console.log($thisCount + ' == ' + $FullArrayCount);
+		
 		if($thisCount == $FullArrayCount)
 			{
-			
-			console.log($MasterConfig);
-			
+				
 			$viewer = JSON.stringify($MasterConfig, null, 4);
 	
 			document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
@@ -308,9 +294,7 @@ function loadConfigEditor()
 			$path = treeValue['path'];
 			$url = treeValue['url'];
 			$sha = treeValue['sha'];
-			
-			//console.log('path: ' + $path);
-			
+
 			// Pull in api-config
 			if($path=='api-config.json')
 				{							
@@ -355,8 +339,6 @@ function buildConfigEditor($APIConfig)
 	document.getElementById('jsonConfigViewer').innerHTML = $viewer;
 	
 	$.each($APIConfig, function(configGroupKey, $values) { 
-		
-		//console.log(configGroupKey);
 
 		$HTML = getConfigGroup(configGroupKey,$config_group_count);			
 		$('#jsonConfigEditorTable').append($HTML);    						
