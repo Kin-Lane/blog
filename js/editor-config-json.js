@@ -108,7 +108,7 @@ function addThisConfig($config)
 
 	document.getElementById('jsonConfigViewer').innerHTML = $ShowJSON;	
 	
-	rebuildConfigEditor();
+	//rebuildConfigEditor();
 	
 	}		
 	
