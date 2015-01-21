@@ -193,6 +193,7 @@ function deleteConfig($button)
 	$config_count = $idArray[3];
 
 	$FullArray = $MasterConfig[$configGroupKey]; 
+	$FullArrayCount = $FullArray.length;
 	
 	$checkArray = Array.isArray($MasterConfig[$configGroupKey]);
 	console.log("is array? " + $checkArray);
@@ -224,13 +225,16 @@ function deleteConfig($button)
 		
 		$thisCount++;
 		
- 		});
-
-	$viewer = JSON.stringify($MasterConfig, null, 4);
+		if($thisCount==$FullArrayCount)
+			{
+			$viewer = JSON.stringify($MasterConfig, null, 4);
 	
-	document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
+			document.getElementById('jsonConfigViewer').innerHTML = $viewer; 	
  	
- 	//rebuildConfigEditor($MasterConfig);
+ 			//rebuildConfigEditor($MasterConfig);
+			}
+		
+ 		});
  	
 	}	
 	
