@@ -200,12 +200,12 @@ function deleteConfig($button)
  			{
 			console.log($thisKey + ' - ' + $thisValue);
 			
- 			$configArray = [];	  
-			$configArray[$thisKey] = $thisValue;
+			$rebuildConfigArray = [];	  
+			$rebuildConfigArray[$config_key] = $config_value;
 
-			$debug = JSON.stringify($configArray);
+			$debug = JSON.stringify($rebuildConfigArray);
 			console.log($debug);
-			$newArray.push($configArray);
+			$newArray.push($rebuildConfigArray);
 			}
 		
 		$thisCount++;
