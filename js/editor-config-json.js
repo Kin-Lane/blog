@@ -248,7 +248,7 @@ function getConfig($configGroupKey,$config_key,$config_value,$config_group_count
     html = html + '<table border="0" width="95%">';
     
     html = html + '<tr>';
-    html = html + '<td align="right" style="" width="10%"><strong>' + $config_key + ':</strong></td>';
+    html = html + '<td align="right" style="" width="15%"><strong>' + $config_key + ':</strong></td>';
     html = html + '<td align="left" style="">'
     
     html = html + $config_value;
