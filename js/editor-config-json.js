@@ -193,6 +193,10 @@ function deleteConfig($button)
 	$config_count = $idArray[3];
 
 	$FullArray = $MasterConfig[$configGroupKey]; 
+	
+	$checkArray = Array.isArray($MasterConfig[$configGroupKey]);
+	console.log("is array? " + $checkArray);
+	
 	$MasterConfig[$configGroupKey] = [];
 	$thisCount = 0;
  	$.each($FullArray, function(paramKey, paramValue) {
