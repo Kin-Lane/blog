@@ -59,7 +59,7 @@ function APISJSONSave()
         auth: "oauth"
             });
         
-	var repo = github.getRepo('Stack-Network','blogapi');  	
+	var repo = github.getRepo('Stack-Network','blog');  	
 
 	repo.getTree('gh-pages', function(err, tree) {
 		
@@ -274,7 +274,7 @@ function APIJSONNavigatorGetIncludeListing($includeName,$includeUrl,$includecoun
 function loadAPIsJSONNavigator()
     {
 
-    $apisjsonURL = '/blogapi/apis.json';
+    $apisjsonURL = '/blog/apis.json';
 
     //console.log($apisjsonURL);
     

@@ -67,7 +67,7 @@ function saveConfigFile()
         auth: "oauth"
             });
         
-	var repo = github.getRepo('Stack-Network','blogapi');  	
+	var repo = github.getRepo('Stack-Network','blog');  	
 
 	repo.getTree('master', function(err, tree) {
 		
@@ -381,7 +381,7 @@ function loadConfigEditor()
         auth: "oauth"
             });
         
-	var repo = github.getRepo('Stack-Network','blogapi'); 		
+	var repo = github.getRepo('Stack-Network','blog'); 		
 		
 	// go through master branch
 	repo.getTree('master', function(err, tree) {

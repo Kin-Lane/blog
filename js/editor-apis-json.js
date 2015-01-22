@@ -82,7 +82,7 @@ function APISJSONSave()
         auth: "oauth"
             });
         
-	var repo = github.getRepo('Stack-Network','blogapi');  	
+	var repo = github.getRepo('Stack-Network','blog');  	
 
 	repo.getTree('gh-pages', function(err, tree) {
 		
@@ -676,7 +676,7 @@ function APIJSONGetEditIncludeListing($includeName,$includeUrl,$includecount)
 function loadPropertyTypes()
     {
 
-    $PropertiesURL = '/blogapi/data/properties.json';
+    $PropertiesURL = '/blog/data/properties.json';
 
     //console.log($PropertiesURL);
     
@@ -698,7 +698,7 @@ function loadPropertyTypes()
 function loadAPIsJSONEditor()
     {
 
-    $apisjsonURL = '/blogapi/apis.json';
+    $apisjsonURL = '/blog/apis.json';
 
     //console.log($apisjsonURL);
     
