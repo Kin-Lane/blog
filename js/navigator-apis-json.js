@@ -297,9 +297,6 @@ function loadAPIsJSONNavigator()
 		// Set our Master Store
 		$MasterAPISJSON = apisJSON;
 
-		$viewer = JSON.stringify(apisJSON, null, 4);
-		document.getElementById("jsonViewerDetails").value = $viewer;
-		
 		buildAPIsJSONEditor(apisJSON);
 
 	});	
