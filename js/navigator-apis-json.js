@@ -302,7 +302,7 @@ function buildAPIsJSONEditor(apisJSON)
  	$apisJSONURL = apisJSON['url'];
  	
  	// Header	 	
-    $html = APIJSONNavigatorGetHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
+    $html = APIJSONNavigatorGetHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisJSONURL);
     $('#jsonNavigatorTable').append($html);      
             
     apisJSONTags = apisJSON['tags'];            
