@@ -29,36 +29,13 @@ function APIJSONNavigatorShowMe($row)
 		}			
 	}	
 	
-function APIJSONNavigatorViewEdit()
-	{
-	//console.log(document.getElementById("jsonViewer"));
-	if(document.getElementById("jsonViewer").style.display=='')
-		{
-		//console.log('switching to viewer');
-		document.getElementById("jsonViewer").style.display='none';
-		document.getElementById("jsonEditor").style.display='';
-		document.getElementById("questionsViewer").style.display='none';
-		}	
-	else
-		{
-		//console.log('switching to editor');		
-
-		$viewer = JSON.stringify($MasterAPISJSON, null, 4);
-		document.getElementById("jsonViewerDetails").value = $viewer;		
-		
-		document.getElementById("jsonViewer").style.display='';
-		document.getElementById("jsonEditor").style.display='none';	
-		document.getElementById("questionsViewer").style.display='none';	
-		}
-	}
-	
 function APISJSONQuestions()
 	{
 	if(document.getElementById("questionsViewer").style.display=='')
 		{
 		document.getElementById("questionsViewer").style.display='none';
 		document.getElementById("jsonViewer").style.display='none';
-		document.getElementById("jsonEditor").style.display='';
+		document.getElementById("jsonNavigator").style.display='';
 		}	
 	else
 		{
@@ -67,7 +44,7 @@ function APISJSONQuestions()
 
 		document.getElementById("questionsViewer").style.display='';
 		document.getElementById("jsonViewer").style.display='none';
-		document.getElementById("jsonEditor").style.display='none';			
+		document.getElementById("jsonNavigator").style.display='none';			
 		}
 	}	
 
@@ -330,7 +307,7 @@ function loadAPIsJSONNavigator()
 	// Set another completion function for the request above
 	jqxhr.complete(function() {
 		
-	  	document.getElementById("jsonEditor").style.display=''; 
+	  	document.getElementById("jsonNavigator").style.display=''; 
 	  	                 
         });		  
          	  	
@@ -347,7 +324,7 @@ function buildAPIsJSONEditor(apisJSON)
  	
  	// Header	 	
     $html = APIJSONNavigatorGetHeader($apisJSONName,$apisJSONDesc,$apisJSONURL,$apisJSONLogo,$apisjsonURL);
-    $('#jsonEditorTable').append($html);      
+    $('#jsonNavigatorTable').append($html);      
             
     apisJSONTags = apisJSON['tags'];            
     apisJSONAPIs = apisJSON['apis'];
@@ -355,7 +332,7 @@ function buildAPIsJSONEditor(apisJSON)
     apisJSONMaintainers = apisJSON['maintainers'];	
     
  	$html = APIJSONNavigatorGetAPITitle('APIs');
- 	$('#jsonEditorTable').append($html);   	 			 	    
+ 	$('#jsonNavigatorTable').append($html);   	 			 	    
 
      $.each(apisJSONAPIs, function(apiKey, apiVal) { 
 
@@ -367,7 +344,7 @@ function buildAPIsJSONEditor(apisJSON)
 		 $apiTags = apiVal['tags'];			 	 
 		 
          $html = APIJSONNavigatorGetAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
-         $('#jsonEditorTable').append($html); 	
+         $('#jsonNavigatorTable').append($html); 	
 
 		 $apiProperties = apiVal['properties'];
 		 $.each($apiProperties, function(propertyKey, propertyVal) { 
@@ -376,7 +353,7 @@ function buildAPIsJSONEditor(apisJSON)
 		 	$propertyURL = propertyVal['url'];					 				 			 							 		 					 	
 		 				 	
 			$Property = APIJSONNavigatorPropertyListing($apiName,$propertyType,$propertyURL,$apicount,$propertycount); 			
-			$('#jsonEditorTable').append($Property); 				 			 							 		 					 	
+			$('#jsonNavigatorTable').append($Property); 				 			 							 		 					 	
 		 	
 		 	$propertycount++;
 		 	
@@ -387,10 +364,10 @@ function buildAPIsJSONEditor(apisJSON)
 	});
 	
  	$html = APIJSONNavigatorGetIncludeSpacer();
- 	$('#jsonEditorTable').append($html);   	 
+ 	$('#jsonNavigatorTable').append($html);   	 
 		
  	$html = APIJSONNavigatorGetIncludeTitle('Include');
- 	$('#jsonEditorTable').append($html);   	 		
+ 	$('#jsonNavigatorTable').append($html);   	 		
 	
      $.each(apisJSONIncludes, function(apiKey, apiVal) { 
 
@@ -398,7 +375,7 @@ function buildAPIsJSONEditor(apisJSON)
      	 $includeUrl = apiVal['url'];	 	 
 		 
          $html = APIJSONNavigatorGetIncludeListing($includeName,$includeUrl,$apicount)
-         $('#jsonEditorTable').append($html); 	          
+         $('#jsonNavigatorTable').append($html); 	          
 
 		 $includecount++;										
 	});	
