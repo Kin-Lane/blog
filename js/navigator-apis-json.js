@@ -113,7 +113,7 @@ function APIJSONNavigatorGetHeader(name,description,url,image,apijsonurl)
 	{		
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
-    html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
+    html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="100" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;
     html = html + '</td>';
     html = html + '</tr>';   	
@@ -204,7 +204,7 @@ function APIJSONNavigatorPropertyListing($apiName,$thistype,$thisurl,$apicount,$
 	$thisslug = $thistype.replace(" ", "-");
 	
     html = '<tr>';
-    html = html + '<td width="25%" align="right" id="api-' + $apicount + '-property-' + $propertycount + '-1">';
+    html = html + '<td width="20%" align="right" id="api-' + $apicount + '-property-' + $propertycount + '-1">';
     html = html + '<a href="' + $thisurl + '" title="' + $thistype + '"><img style="padding: 5px;" src="https://s3.amazonaws.com/kinlane-productions/building-blocks/' + $thistype + '.png" width="50" align="right" " /></a>';
     html = html + '</td>';
     html = html + '<td align="left" id="api-' + $apicount + '-property-' + $propertycount + '-2">';
