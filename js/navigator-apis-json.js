@@ -102,7 +102,6 @@ function APIJSONNavigatorAPIJSONNavigatorSaveAPIs()
 function APIJSONNavigatorGetHeaderCell(name,description,url,image,apijsonurl)
 	{		
 	html = "";
-    html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;  	
 	
@@ -114,7 +113,6 @@ function APIJSONNavigatorGetHeader(name,description,url,image,apijsonurl)
 	{		
     html = '<tr>';
     html = html + '<td align="left" valign="top" colspan="2" id="apisjsonHeaderCell">';
-    html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="edit-header-icon" title="Edit APIs.json Header"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '<a href="' + url + '" title="' + name + '"><img src="' + image + '" width="175" align="left" style="padding: 15px;" /></a>';
     html = html + '<a href="' + url + '" style="color: #000; font-size: 22px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a><br />' + description;
     html = html + '</td>';
@@ -131,7 +129,6 @@ function APIJSONNavigatorGetAPITitle(title,$apicount)
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + title + '</strong>';
-	html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="add-api-listing-icon" title="Toggle APIs.json Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
@@ -149,9 +146,7 @@ function APIJSONNavigatorGetAPIListingCell(name,description,image,url,$apicount)
 	$html = "";
     $html = $html + '<span style="font-size:20px;">';
     $html = $html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    $html = $html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="edit-' + $thisslug + '-' + $apicount + '-icon" title="Edit API"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    $html = $html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="add-api-property-' + $thisslug + '-' + $apicount + '-icon" title="Add API Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
-    $html = $html + '</span>';
+	$html = $html + '</span>';
     	
 	return $html; 			
 	}		
@@ -162,13 +157,11 @@ function APIJSONNavigatorGetAPIListing(name,description,image,url,$apicount)
 	$thisslug = name.toLowerCase();	
 	$thisslug = $thisslug.replace(" ", "-");			
 
-    html = '<tr style="background-color:#CCC;">';
+    html = '<tr style="">';
     html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2" id="api-cell-' + $apicount + '">';
     
     html = html + '<span style="font-size:20px;">';
-    html = html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="edit-' + $thisslug + '-' + $apicount + '-icon" title="Edit API"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="add-api-property-' + $thisslug + '-' + $apicount + '-icon" title="Add API Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
+    html = html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;;
     html = html + '</span>';
     
     html = html + '</td>';
@@ -200,7 +193,6 @@ function APIJSONNavigatorPropertyListingCell2($thistype,$thisurl,$apicount,$prop
 
 	$thishtml = "";
     $thishtml = $thishtml + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a>';
-    $thishtml = $thishtml + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     	
 	return $thishtml; 			
 	}	
@@ -217,7 +209,6 @@ function APIJSONNavigatorPropertyListing($apiName,$thistype,$thisurl,$apicount,$
     html = html + '</td>';
     html = html + '<td align="left" id="api-' + $apicount + '-property-' + $propertycount + '-2">';
     html = html + '<a href="' + $thisurl + '" style="color: #000; font-size: 16px; text-decoration: none;" title="' + $thistype + '"><strong>' + $thistype + '</strong></a> (<a href="editor-swagger-json.html?url=' + $thisurl + '&oAuth_Token=' + $oAuth_Token + '">edit</a>)';
-    html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="edit-' + $thisslug + '-icon" title="Edit Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
     html = html + '</td>';
     html = html + '</tr>';
     	
@@ -232,7 +223,6 @@ function APIJSONNavigatorGetIncludeTitle(title,$includecount)
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;">';
 	html = html + '<span style="font-size:20px;">';
 	html = html + '<strong>' + title + '</strong>';
-	html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="add-include-listing-icon" title="Toggle APIs.json Editor / Viewer"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
 	html = html + '</span>';
 	html = html + '</td>';
 	html = html + '</tr>';
@@ -241,7 +231,7 @@ function APIJSONNavigatorGetIncludeTitle(title,$includecount)
 	
 function APIJSONNavigatorGetIncludeSpacer()
 	{
-	html = '<tr style="backghround-color:#CCC;">';
+	html = '<tr style="">';
 	html = html + '<td colspan="2" style="padding-top: 5px; padding-bottom: 5px;"> ';
 	html = html + '</td>';
 	html = html + '</tr>';
@@ -257,8 +247,6 @@ function APIJSONNavigatorGetIncludeListingCell($includeName,$includeUrl,$include
 	$html = "";
     $html = $html + '<span style="font-size:20px;">';
     $html = $html + '<a href="' + url + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + name + '"><strong>' + name + '</strong></a> - ' + description;
-    $html = $html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="edit-' + $thisslug + '-' + $includecount + '-icon" title="Edit Include"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="35" align="right"  /></a>';
-    $html = $html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="add-include-property-' + $thisslug + '-' + $includecount + '-icon" title="Add Include Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="35" align="right"  /></a>';
     $html = $html + '</span>';
     	
 	return $html; 			
@@ -275,8 +263,6 @@ function APIJSONNavigatorGetIncludeListing($includeName,$includeUrl,$includecoun
     
     html = html + '<span style="font-size:16px;">';
     html = html + '<a href="' + $includeUrl + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + $includeName + '"><strong>' + $includeName + '</strong></a> - ' + $includeUrl;
-    html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="edit-' + $thisslug + '-' + $includecount + '-icon" title="Edit Include"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-edit-circle.png" width="25" align="right"  /></a>';
-    html = html + '<a href="#" onclick="APIJSONNavigatorShowMe(this); return false;" id="add-include-property-' + $thisslug + '-' + $includecount + '-icon" title="Add Include Property"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-add-circle.png" width="25" align="right"  /></a>';
     html = html + '</span>';
     
     html = html + '</td>';
