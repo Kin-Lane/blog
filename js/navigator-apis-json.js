@@ -262,7 +262,7 @@ function APIJSONNavigatorGetIncludeListing($includeName,$includeUrl,$includecoun
     html = html + '<td align="left" style="padding-left: 50px; padding-top: 5px; padding-bottom: 5px;" colspan="2" id="include-cell-' + $includecount + '">';
     
     html = html + '<span style="font-size:16px;">';
-    html = html + '<a href="' + $includeUrl + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + $includeName + '"><strong>' + $includeName + '</strong></a> - ' + $includeUrl;
+    html = html + '<a href="' + $includeUrl + '" style="color: #000; font-size: 18px; text-decoration: none;" title="' + $includeName + '"><strong>' + $includeName + '</strong></a> - ';
     html = html + '</span>';
     
     html = html + '</td>';
@@ -271,13 +271,9 @@ function APIJSONNavigatorGetIncludeListing($includeName,$includeUrl,$includecoun
 	return html; 			
 	}		
 
-function loadAPIsJSONNavigator()
+function loadAPIsJSONNavigator($apisjsonURL)
     {
 
-    $apisjsonURL = '/blog/apis.json';
-
-    //console.log($apisjsonURL);
-    
 	var jqxhr = $.getJSON($apisjsonURL, function(apisJSON) { 													
 
 		// Set our Master Store
