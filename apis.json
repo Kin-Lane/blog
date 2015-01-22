@@ -40,9 +40,33 @@
   ],
   "include": [
     {
-      "name": "Comment APi",
-      "url": "https://github.com/Stack-Network/commentapi/apis.json"
-    }
+      "name": "Audio API",
+      "url": "https://kin-lane.github.io/blog/apis.json"
+    },
+    {
+      "name": "Comment API",
+      "url": "https://kin-lane.github.io/comment/apis.json"
+    },
+    {
+      "name": "Image API",
+      "url": "https://kin-lane.github.io/image/apis.json"
+    },
+    {
+      "name": "Link API",
+      "url": "https://kin-lane.github.io/link/apis.json"
+    },
+    {
+      "name": "Note API",
+      "url": "https://kin-lane.github.io/note/apis.json"
+    },
+    {
+      "name": "Page API",
+      "url": "https://kin-lane.github.io/page/apis.json"
+    },
+    {
+      "name": "Video API",
+      "url": "https://kin-lane.github.io/video/apis.json"
+    }     
   ],
   "maintainers": [
     {
