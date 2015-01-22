@@ -322,7 +322,7 @@ function buildAPIsJSONEditor(apisJSON)
      	 $apiBaseURL = apiVal['baseURL'];               	                         	 
 		 $apiTags = apiVal['tags'];			 	 
 		 
-         $html = APIJSONNavigatorGetAPIListing($apiName,$apiDesc,$apiDesc,$apiImage,$apicount)
+         $html = APIJSONNavigatorGetAPIListing($apiName,$apiDesc,$apiImage,$apiHumanURL,$apicount)
          $('#jsonNavigatorTable').append($html); 	
 
 		 $apiProperties = apiVal['properties'];
