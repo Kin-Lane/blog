@@ -40,6 +40,10 @@
   ],
   "include": [
     {
+      "name": "Master",
+      "url": "https://kin-lane.github.io/master/apis.json"
+    },  
+    {
       "name": "Audio API",
       "url": "https://kin-lane.github.io/blog/apis.json"
     },
