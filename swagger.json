@@ -106,8 +106,9 @@
             "name": "slug",
             "in": "path",
             "description": "slug for the blog, notice this is in the path, not a query variable",
-            "required": true,
-            "type": "integer"
+            "required": "true",
+            "type": "integer",
+            "format": "id"
           }
         ],
         "responses": {
