@@ -220,7 +220,8 @@
       "properties": {
         "name": {
           "description": "name of the blog",
-          "type": "string"
+          "type": "string",
+          "format": "label"
         },
         "description": {
           "description": "description of the blog",
