@@ -5,6 +5,9 @@ title: APIs.json Editor
 
 <script type="text/javascript">  
 
+var $org = '{{ site.org }}';
+var $repo = '{{ site.repo }}';
+
 login = getUrlVar('login');
 
 if(login=='1')
@@ -22,7 +25,7 @@ if(login=='1')
 	
 	    $oAuth_Token = result.access_token;
 	        
-       	redirectURL = "http://stack-network.github.io/blog/editor-swagger-json.html?oAuth_Token=" + $oAuth_Token;       
+       	redirectURL = 'http://' + $org + '.github.io/' + $repo + '/editor-swagger-json.html?oAuth_Token=' + $oAuth_Token;       
        	setTimeout(callback(redirectURL), 500);  	        
 		        	         
 		});                   			
@@ -87,7 +90,7 @@ if(login=='1')
 	        auth: "oauth"
 	            });
             
-		var repo = github.getRepo('Stack-Network','blog');  
+		var repo = github.getRepo($org,$repo);  
 
 	    repo.read('gh-pages', 'apis.json', function(err, res) {
 		
