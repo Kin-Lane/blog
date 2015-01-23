@@ -25,8 +25,8 @@
       ],
       "properties": [
         {
-          "type": "Swagger",
-          "url": "https://kin-lane.github.io/blog/definitions/swagger.json"
+          "type": "swagger",
+          "url": "https://kin-lane.github.io/blog/swagger.json"
         }
       ],
       "contact": [
@@ -42,7 +42,7 @@
     {
       "name": "Master",
       "url": "https://kin-lane.github.io/master/apis.json"
-    },  
+    },
     {
       "name": "Audio API",
       "url": "https://kin-lane.github.io/blog/apis.json"
@@ -70,7 +70,7 @@
     {
       "name": "Video API",
       "url": "https://kin-lane.github.io/video/apis.json"
-    }     
+    }
   ],
   "maintainers": [
     {
