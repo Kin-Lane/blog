@@ -189,16 +189,15 @@
 		if(document.getElementById("jsonEditor"))
 			{
 			loadPropertyTypes();	
-			loadAPIsJSONEditor('{{ site.org }}','{{ site.repo }}');
+			loadAPIsJSONEditor();
 			}
 		if(document.getElementById("jsonNavigator"))
 			{
-			loadAPIsJSONNavigator('/{{ site.repo }}/apis.json');
+			loadAPIsJSONNavigator();
 			}			
 		if(document.getElementById("swaggerEditor"))
 			{			
-			$apisjsonURL = 'definitions/swagger.json';	
-			loadSwaggerditor($apisjsonURL);
+			loadSwaggerditor();
 			}
 		if(document.getElementById("jsonBlogEditor"))
 			{			
