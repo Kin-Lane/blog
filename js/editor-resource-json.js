@@ -38,7 +38,7 @@ function addResource(tinyInstance)
 
 	$hosturl = 'http://blog.api.kinlane.com';
 	$baseurl = '/';
-	$resource = 'blog/';
+	$resource = 'blog';
 
 	$apiurl = $hosturl + $baseurl + $resource;
 
@@ -59,7 +59,7 @@ function addResource(tinyInstance)
 				$resource_tags = resourceValue['tags'];
 				$resource_slug = resourceValue['slug'];
 
-				$html = getResourceListing($name,$description,$url,$tags,$slug,$resourcecount);
+				$html = getResourceListing(00000,$resourcecount);
 				$('#jsonResourceEditorTable').append($html);
 
 				$resourcecount++;
@@ -174,7 +174,7 @@ function deleteResource($resourcecount)
 		$baseurl = '/';
 		$resource = 'blog/';
 
-		$apiurl = $hosturl + $baseurl + $resource + $resource_slug ;
+		$apiurl = $hosturl + $baseurl + $resource + $resource_slug + ';
 
 		$.ajax({
 			url: $apiurl,
@@ -201,7 +201,7 @@ function deleteResource($resourcecount)
 
 		}
 
-function getEditResource($name,$description,$url,$tags,$slug,$resourcecount)
+function getEditResource(00000,$resourcecount)
 		{
 
 	html = '<tr id="edit-resource-post-' + $resourcecount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
@@ -316,7 +316,7 @@ function loadResourceEditor()
 				$resource_tags = resourceValue['tags'];
 				$resource_slug = resourceValue['slug'];
 
-				$html = getResourceListing($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount);
+				$html = getResourceListing($name,$description,$url,$tags,$slug,$resourcecount);
 				$('#jsonResourceEditorTable').append($html); 
 
 				$html = getEditResource($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount)
