@@ -211,7 +211,7 @@ function getEditResource($name,$description,$url,$tags,$slug,$resourcecount)
 
 	html = html + '<tr>';
 	html = html + '<td align="right" width="5%"><strong>slug:</strong></td>';
-	html = html + '<td align="left"><input type="text" id="edit-resource-slug-' + $resourcecount + '" value="' + $resource_name + '" style="width:95%;" /></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-slug-' + $resourcecount + '" value="' + $resource_slug + '" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
@@ -221,17 +221,17 @@ function getEditResource($name,$description,$url,$tags,$slug,$resourcecount)
 
 	html = html + '<tr>';
 	html = html + '<td align="right" width="5%"><strong>description:</strong></td>';
-	html = html + '<td align="left"><input type="text" id="edit-resource-description-' + $resourcecount + '" value="' + $resource_name + '" style="width:95%;" /></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-description-' + $resourcecount + '" value="' + $resource_description + '" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
 	html = html + '<td align="right" width="5%"><strong>url:</strong></td>';
-	html = html + '<td align="left"><input type="text" id="edit-resource-url-' + $resourcecount + '" value="' + $resource_name + '" style="width:95%;" /></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-url-' + $resourcecount + '" value="' + $resource_url + '" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
 	html = html + '<td align="right" width="5%"><strong>tags:</strong></td>';
-	html = html + '<td align="left"><input type="text" id="edit-resource-tags-' + $resourcecount + '" value="' + $resource_name + '" style="width:95%;" /></td>';
+	html = html + '<td align="left"><input type="text" id="edit-resource-tags-' + $resourcecount + '" value="' + $resource_tags + '" style="width:95%;" /></td>';
 	html = html + '</tr>';
 
 	html = html + '<tr>';
