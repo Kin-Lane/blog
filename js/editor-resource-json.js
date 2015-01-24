@@ -59,7 +59,7 @@ function addResource(tinyInstance)
 				$resource_tags = resourceValue['tags'];
 				$resource_slug = resourceValue['slug'];
 
-				$html = getResourceListing(00000,$resourcecount);
+				$html = getResourceListing($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount);
 				$('#jsonResourceEditorTable').append($html);
 
 				$resourcecount++;
@@ -201,7 +201,7 @@ function deleteResource($resourcecount)
 
 		}
 
-function getEditResource(00000,$resourcecount)
+function getEditResource($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount)
 		{
 
 	html = '<tr id="edit-resource-post-' + $resourcecount + '" style="display: none;"><td align="center" style="font-size: 12px; background-color:#CCC; padding:5px;">';
