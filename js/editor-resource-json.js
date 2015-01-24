@@ -174,7 +174,7 @@ function deleteResource($resourcecount)
 		$baseurl = '/';
 		$resource = 'blog/';
 
-		$apiurl = $hosturl + $baseurl + $resource + $resource_slug + ';
+		$apiurl = $hosturl + $baseurl + $resource + $resource_slug;
 
 		$.ajax({
 			url: $apiurl,
