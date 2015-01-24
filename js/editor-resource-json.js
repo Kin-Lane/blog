@@ -38,7 +38,7 @@ function addResource(tinyInstance)
 
 	$hosturl = 'http://blog.api.kinlane.com';
 	$baseurl = '/';
-	$resource = 'blog';
+	$resource = 'blog/';
 
 	$apiurl = $hosturl + $baseurl + $resource;
 
