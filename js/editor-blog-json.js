@@ -132,7 +132,7 @@ function deleteResource($resourcecount)
 	$resource = 'blog/';
 
 	$query = '?appid=' + $APIConfig['3Scale']['appid'];
-	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
+	$query = $query + '&appkey=' + $APIConfig['3Scale']['&appkey'];
 
 	$apiurl = $hosturl + $baseurl + $resource + $resource_slug + '/' + $query;
 
@@ -297,7 +297,7 @@ function loadResourceEditor()
 	$resource = 'blog/';
 
 	$query = '?appid=' + $APIConfig['3Scale']['appid'];
-	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
+	$query = $query + '&appkey=' + $APIConfig['3Scale']['&appkey'];
 
 	$apiurl = $hosturl + $baseurl + $resource + $query;
 
@@ -311,6 +311,10 @@ function loadResourceEditor()
 			$.each(data, function(resourceKey, resourceValue) {
 
 				$resource_name = resourceValue['name'];
+				$resource_description = resourceValue['description'];
+				$resource_url = resourceValue['url'];
+				$resource_tags = resourceValue['tags'];
+				$resource_slug = resourceValue['slug'];
 
 				$html = getResourceListing($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount);
 				$('#jsonResourceEditorTable').append($html); 
