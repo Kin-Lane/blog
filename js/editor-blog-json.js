@@ -132,7 +132,7 @@ function deleteResource($resourcecount)
 	$resource = 'blog/';
 
 	$query = '?appid=' + $APIConfig['3Scale']['appid'];
-	$query = $query + '&appkey=' + $APIConfig['3Scale']['&appkey'];
+	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
 
 	$apiurl = $hosturl + $baseurl + $resource + $resource_slug + '/' + $query;
 
@@ -297,7 +297,7 @@ function loadResourceEditor()
 	$resource = 'blog/';
 
 	$query = '?appid=' + $APIConfig['3Scale']['appid'];
-	$query = $query + '&appkey=' + $APIConfig['3Scale']['&appkey'];
+	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
 
 	$apiurl = $hosturl + $baseurl + $resource + $query;
 
