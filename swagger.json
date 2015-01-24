@@ -15,7 +15,7 @@
     "bloglication/json"
   ],
   "paths": {
-    "/blog/": {
+    "blog/": {
       "get": {
         "summary": "retrieves all blogs",
         "description": "pulls all blogs, with filter by keyword",
@@ -96,7 +96,7 @@
         ]
       }
     },
-    "/blog/{slug}": {
+    "blog/{slug}": {
       "get": {
         "summary": "Retrieve a blog using its slug",
         "description": "Returns the blog detail",
