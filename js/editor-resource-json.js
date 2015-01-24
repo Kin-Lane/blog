@@ -316,7 +316,7 @@ function loadResourceEditor()
 				$resource_tags = resourceValue['tags'];
 				$resource_slug = resourceValue['slug'];
 
-				$html = getResourceListing($name,$description,$url,$tags,$slug,$resourcecount);
+				$html = getResourceListing($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount);
 				$('#jsonResourceEditorTable').append($html); 
 
 				$html = getEditResource($resource_name,$resource_description,$resource_url,$resource_tags,$resource_slug,$resourcecount)
