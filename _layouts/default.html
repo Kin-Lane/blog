@@ -6,6 +6,12 @@
   <body>
 
     <header class="masthead">
+    	
+      <script type="text/javascript">
+      	// Do we have a token?
+    	$oAuth_Token = getUrlVar('oAuth_Token');
+      </script>	
+    	
       <div class="masthead-inner" align="center">  	      	
 		<h2>{" {{ site.title }} "}</h2>      		
     	<a href="http://bit.ly/1cHBhd5" target="_blank">
@@ -147,10 +153,7 @@
 		if(document.getElementById("jsonConfigEditor"))
 			{			
 			loadConfigEditor();			
-			}			
-			
-		// Do we have a token?
-    	$oAuth_Token = getUrlVar('oAuth_Token');
+			}						
     	
     	if($oAuth_Token!='')
     		{			
