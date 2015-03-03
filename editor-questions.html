@@ -5,6 +5,15 @@ title: APIs.json Editor
 
 <script type="text/javascript">  
 
+var $org = '{{ site.org }}';
+var $repo = '{{ site.repo }}';
+var $oauthio = '{{ site.oauthio }}';
+
+var $apikeys = "";
+var $apiconfig = "";
+var $apiquestions = "";
+var $apipricing = "";
+
 login = getUrlVar('login');
 
 if(login=='1')
@@ -88,20 +97,20 @@ if(login=='1')
 	        auth: "oauth"
 	            });
             
-		var repo = github.getRepo('Stack-Network','blog');  
+		var repo = github.getRepo($org,$repo);  
 
 	    repo.read('gh-pages', 'apis.json', function(err, res) {
 		
-		 	document.getElementById("save-apisjson-icon").style.display = '';
-			document.getElementById("login-github-icon").style.display = 'none';	
+		 	//document.getElementById("save-apisjson-icon").style.display = '';
+			//document.getElementById("login-github-icon").style.display = 'none';	
 										
 			});	
 																		
 		}
 	else
 		{
-		document.getElementById("save-apisjson-icon").style.display = 'none';
-		document.getElementById("login-github-icon").style.display = '';		
+		//document.getElementById("save-apisjson-icon").style.display = 'none';
+		//document.getElementById("login-github-icon").style.display = '';		
 		}
-		
+	
 </script> 
