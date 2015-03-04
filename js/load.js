@@ -6,7 +6,7 @@ var $login = getUrlVar('login');
 
 if($login=='1')
 	{
-
+	console.log("doing it!");
 	function callback(url){
 	    return function(){
 	        location.href=url;
@@ -18,11 +18,7 @@ if($login=='1')
 	OAuth.popup('github').done(function(result) {
 	
 	    $oAuth_Token = result.access_token;
-	        
-       	redirectURL = "https://" + $org + ".github.io/" + $repo + "/index.html?oAuth_Token=" + $oAuth_Token;
-       	console.log(redirectURL);       
-       	//setTimeout(callback(redirectURL), 1500);  	        
-		        	         
+		console.log("oauth2:" + $oAuth_Token);      	         
 		});                   			
 	
    }	
