@@ -73,10 +73,14 @@ if($oAuth_Token!='')
 	document.getElementById("config-editor-nav").href = document.getElementById("config-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;
 	document.getElementById("keys-editor-nav").href = document.getElementById("keys-editor-nav").href + '?oAuth_Token=' + $oAuth_Token;
 	
+	document.getElementById("master-nav").href = document.getElementById("master-nav").href + '?oAuth_Token=' + $oAuth_Token;
+	
 	document.getElementById("resource-editor-nav").style.display = '';
 	document.getElementById("config-editor-nav").style.display = '';
 	document.getElementById("keys-editor-nav").style.display = '';
 	document.getElementById("apis-json-editor-nav").style.display = '';
+	document.getElementById("master-nav").style.display = '';
+	
 							    					    	
 	}
 else
