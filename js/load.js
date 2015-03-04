@@ -21,7 +21,7 @@ if($login=='1')
 	        
        	redirectURL = "https://" + $org + ".github.io/" + $repo + "/index.html?oAuth_Token=" + $oAuth_Token;
        	console.log(redirectURL);       
-       	setTimeout(callback(redirectURL), 500);  	        
+       	//setTimeout(callback(redirectURL), 1500);  	        
 		        	         
 		});                   			
 	
