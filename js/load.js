@@ -2,6 +2,31 @@ var $org = '{{ site.org }}';
 var $repo = '{{ site.repo }}';
 var $oauthio = '{{ site.oauthio }}';
 
+var $login = getUrlVar('login');
+
+if($login=='1')
+	{
+
+	function callback(url){
+	    return function(){
+	        location.href=url;
+	    }
+	}  
+
+	OAuth.initialize($oauthio);
+	
+	OAuth.popup('github').done(function(result) {
+	
+	    $oAuth_Token = result.access_token;
+	        
+       	redirectURL = "https://" + $org + ".github.io/" + $repo + "/index.html?oAuth_Token=" + $oAuth_Token;
+       	console.log(redirectURL);       
+       	setTimeout(callback(redirectURL), 500);  	        
+		        	         
+		});                   			
+	
+   }	
+
 $apiconfig = {};
 $apikeys = {};   
 
