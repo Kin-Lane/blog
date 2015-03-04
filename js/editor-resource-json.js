@@ -28,8 +28,8 @@ function addResource(tinyInstance)
 
 	$postData = {};
 
-	$postData['appid'] = $APIConfig['3Scale']['appid'];
-	$postData['appkey'] = $APIConfig['3Scale']['appkey'];
+	$postData['appid'] = $apikeys['3Scale']['appid'];
+	$postData['appkey'] = $apikeys['3Scale']['appkey'];
 
 	$postData['name'] = $resource_name;
 	$postData['description'] = $resource_description;
@@ -131,8 +131,8 @@ function deleteResource($resourcecount)
 	$baseurl = '/';
 	$resource = 'blog/';
 
-	$query = '?appid=' + $APIConfig['3Scale']['appid'];
-	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
+	$query = '?appid=' + $apikeys['3Scale']['appid'];
+	$query = $query + '&appkey=' + $apikeys['3Scale']['appkey'];
 
 	$apiurl = $hosturl + $baseurl + $resource + $resource_slug + '/' + $query;
 
@@ -161,8 +161,8 @@ function deleteResource($resourcecount)
 
 		$postData = {};
 
-		$postData['appid'] = $APIConfig['3Scale']['appid'];
-		$postData['appkey'] = $APIConfig['3Scale']['appkey'];
+		$postData['appid'] = $apikeys['3Scale']['appid'];
+		$postData['appkey'] = $apikeys['3Scale']['appkey'];
 
 		$postData['slug'] = $resource_slug;
 		$postData['name'] = $resource_name;
@@ -296,8 +296,8 @@ function loadResourceEditor()
 	$baseurl = '/';
 	$resource = 'blog/';
 
-	$query = '?appid=' + $APIConfig['3Scale']['appid'];
-	$query = $query + '&appkey=' + $APIConfig['3Scale']['appkey'];
+	$query = '?appid=' + $apikeys['3Scale']['appid'];
+	$query = $query + '&appkey=' + $apikeys['3Scale']['appkey'];
 
 	$apiurl = $hosturl + $baseurl + $resource + $query;
 
