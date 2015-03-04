@@ -3,42 +3,6 @@ layout: page
 title: api-config.json Editor
 ---
 
-<script type="text/javascript">  
-
-var $org = '{{ site.org }}';
-var $repo = '{{ site.repo }}';
-var $oauthio = '{{ site.oauthio }}';
-
-var $apikeys = "";
-var $apiconfig = "";
-var $apiquestion = "";
-var $apipricing = "";
-
-login = getUrlVar('login');
-
-if(login=='1')
-	{
-
-	function callback(url){
-	    return function(){
-	        location.href=url;
-	    }
-	}  
-
-	OAuth.initialize($oauthio);
-	
-	OAuth.popup('github').done(function(result) {
-	
-	    $oAuth_Token = result.access_token;
-	        
-       	redirectURL = "https://{{ site.org }}.github.io/{{ site.repo }}/editor-apis-json.html?oAuth_Token=" + $oAuth_Token;       
-       	setTimeout(callback(redirectURL), 500);  	        
-		        	         
-		});                   			
-	
-   }
-   
-</script> 
 <div style="text-align: center; color:#FF0000; font-weight: bold; padding-bottom: 5px;" id="alertarea"></div>
 <table cellpadding="1" cellspacing="1" width="100%" style="background-color:#CCC;">
 	<tr>
@@ -60,7 +24,6 @@ if(login=='1')
 <div id="jsonConfigEditor"><table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonConfigEditorTable" style="margin-left: 15px;"></table></div>
 
 <div id="jsonConfigViewer" style="display: none;"><textarea rows="10" cols="50" id="jsonConfigViewerDetails" style="width:100%; height: 400px;"></textarea></div>
-
 
 <div id="questionsViewer" style="display: none;">
 	<p>This is an editor for the api-config.json file contained as part of this repository, making them editable through a web interface, and able to save using the Github API (if you have access to repo)--enable full client-side management of Swagger files.</p>

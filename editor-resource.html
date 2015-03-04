@@ -3,43 +3,6 @@ layout: page
 title: Resource Editor
 ---
 
-<script type="text/javascript">  
-
-var $org = '{{ site.org }}';
-var $repo = '{{ site.repo }}';
-var $oauthio = '{{ site.oauthio }}';
-
-//$APIConfig = {};
-//$APIConfig['3Scale'] = {};
-//$APIConfig['3Scale']['appid'] = "5ed48098";
-//$APIConfig['3Scale']['appkey'] = "b6c8c8cba92815a6cdfe6e780bb0d2f5";
-
-login = getUrlVar('login');
-
-if(login=='1')
-	{
-
-	function callback(url){
-	    return function(){
-	        location.href=url;
-	    }
-	}  
-
-	OAuth.initialize($oauthio);
-	
-	OAuth.popup('github').done(function(result) {
-	
-	    $oAuth_Token = result.access_token;
-	        
-       	redirectURL = "https://" + $org + ".github.io/" + $repo + "/editor-resource.html?oAuth_Token=" + $oAuth_Token;       
-       	setTimeout(callback(redirectURL), 500);  	        
-		        	         
-		});                   			
-	
-   }
-   
-</script> 
-
 <style>
 
 #resource-post-table {

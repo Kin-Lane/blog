@@ -1,4 +1,34 @@
+var $org = '{{ site.org }}';
+var $repo = '{{ site.repo }}';
+var $oauthio = '{{ site.oauthio }}';
+
 $apiconfig = {};
+$apikeys = {};
+
+login = getUrlVar('login');
+
+if(login=='1')
+	{
+
+	function callback(url){
+	    return function(){
+	        location.href=url;
+	    }
+	}  
+
+	OAuth.initialize($oauthio);
+	
+	OAuth.popup('github').done(function(result) {
+	
+	    $oAuth_Token = result.access_token;
+	        
+       	redirectURL = "https://" + $org + ".github.io/" + $repo + "/editor-resource.html?oAuth_Token=" + $oAuth_Token;       
+       	setTimeout(callback(redirectURL), 500);  	        
+		        	         
+		});                   			
+	
+   }
+   
 loadConfig();	
 
 if(document.getElementById("jsonConfigEditor"))
@@ -6,7 +36,6 @@ if(document.getElementById("jsonConfigEditor"))
 	loadConfigEditor();			
 	}	
 
-$apikeys = {};
 loadKeys();	
 
 if(document.getElementById("jsonKeysEditor"))
