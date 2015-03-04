@@ -9,8 +9,15 @@
     	
       <script type="text/javascript">
       	// Do we have a token?
-    	$oAuth_Token = getUrlVar('oAuth_Token');
+    	var $oAuth_Token = getUrlVar('oAuth_Token');
     	console.log("oauth token:" + $oAuth_Token);
+    	
+		var $org = '{{ site.org }}';
+		var $repo = '{{ site.repo }}';
+		var $oauthio = '{{ site.oauthio }}';
+		
+		console.log("oauthio: " + $oauthio);    	
+    	
       </script>	      
     	
       <div class="masthead-inner" align="center">  	      	

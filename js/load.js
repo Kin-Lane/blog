@@ -1,12 +1,10 @@
-var $org = '{{ site.org }}';
-var $repo = '{{ site.repo }}';
-var $oauthio = '{{ site.oauthio }}';
-console.log("oauthio: " + $oauthio);
+
 var $login = getUrlVar('login');
 
 if($login=='1')
 	{
 	console.log("doing it!");
+	
 	function callback(url){
 	    return function(){
 	        location.href=url;
