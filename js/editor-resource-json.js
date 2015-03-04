@@ -295,7 +295,7 @@ function loadResourceEditor()
 	$hosturl = 'https://blog.api.kinlane.com';
 	$baseurl = '/';
 	$resource = 'blog/';
-	console.log($apikeys);
+	console.log(JSON.stringify($apikeys));
 	$query = '?appid=' + $apikeys['API Evangelist']['appid'];
 	$query = $query + '&appkey=' + $apikeys['API Evangelist']['appkey'];
 
