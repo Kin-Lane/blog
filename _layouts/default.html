@@ -139,7 +139,8 @@
 	<script type="text/javascript">		
 	
 		$apiconfig = {};
-		loadConfig();				
+		loadConfig();	
+		console.log("config1" + JSON.stringify($apiconfig));			
 		if(document.getElementById("jsonConfigEditor"))
 			{			
 			loadConfigEditor();			
@@ -147,6 +148,7 @@
 		
 		$apikeys = {};
 		loadKeys();	
+		console.log("keys2" + JSON.stringify($apikeys));
 		if(document.getElementById("jsonKeysEditor"))
 			{			
 			loadKeysEditor();			
