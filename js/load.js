@@ -1,11 +1,5 @@
-var $org = '{{ site.org }}';
-var $repo = '{{ site.repo }}';
-var $oauthio = '{{ site.oauthio }}';
 
-$apiconfig = {};
-$apikeys = {};
-
-login = getUrlVar('login');
+var login = getUrlVar('login');
 
 if(login=='1')
 	{
@@ -29,14 +23,20 @@ if(login=='1')
 	
    }
    
+var $org = '{{ site.org }}';
+var $repo = '{{ site.repo }}';
+var $oauthio = '{{ site.oauthio }}';
+
+$apiconfig = {};
+$apikeys = {};   
+   
 loadConfig();	
+loadKeys();	
 
 if(document.getElementById("jsonConfigEditor"))
 	{			
 	loadConfigEditor();			
 	}	
-
-loadKeys();	
 
 if(document.getElementById("jsonKeysEditor"))
 	{			
