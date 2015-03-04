@@ -4,9 +4,12 @@ var $oauthio = '{{ site.oauthio }}';
 
 $apiconfig = {};
 $apikeys = {};   
-   
-loadConfig();	
-loadKeys();	
+
+if($oAuth_Token!='')
+	{	   
+	loadConfig();	
+	loadKeys();	
+	}
 
 if(document.getElementById("jsonConfigEditor"))
 	{			
