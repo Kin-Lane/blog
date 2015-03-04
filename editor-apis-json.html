@@ -3,34 +3,6 @@ layout: page
 title: APIs.json Editor
 ---
 
-<script type="text/javascript">
-	
-	var login = getUrlVar('login');
-	
-	if(login=='1')
-		{
-	
-		function callback(url){
-		    return function(){
-		        location.href=url;
-		    }
-		}  
-	
-		OAuth.initialize($oauthio);
-		
-		OAuth.popup('github').done(function(result) {
-		
-		    $oAuth_Token = result.access_token;
-		        
-	       	redirectURL = "https://" + $org + ".github.io/" + $repo + "/editor-apis-json.html?oAuth_Token=" + $oAuth_Token;       
-	       	setTimeout(callback(redirectURL), 500);  	        
-			        	         
-			});                   			
-		
-	   }	
-	
-</script>
-
 <table cellpadding="1" cellspacing="1" width="100%" style="background-color:#CCC;">
 	<tr>
 		<td width="50%" style="padding: 5px;"><h1>apis.json editor</h1></td>

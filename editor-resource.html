@@ -3,34 +3,6 @@ layout: page
 title: Resource Editor
 ---
 
-<script type="text/javascript">
-	
-	var login = getUrlVar('login');
-	
-	if(login=='1')
-		{
-	
-		function callback(url){
-		    return function(){
-		        location.href=url;
-		    }
-		}  
-	
-		OAuth.initialize($oauthio);
-		
-		OAuth.popup('github').done(function(result) {
-		
-		    $oAuth_Token = result.access_token;
-		        
-	       	redirectURL = "https://" + $org + ".github.io/" + $repo + "/editor-resource.html?oAuth_Token=" + $oAuth_Token;       
-	       	setTimeout(callback(redirectURL), 500);  	        
-			        	         
-			});                   			
-		
-	   }	
-	
-</script>
-
 <style>
 
 #resource-post-table {
