@@ -1,7 +1,7 @@
 var $org = '{{ site.org }}';
 var $repo = '{{ site.repo }}';
 var $oauthio = '{{ site.oauthio }}';
-
+console.log("oauthio: " + $oauthio);
 var $login = getUrlVar('login');
 
 if($login=='1')
