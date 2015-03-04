@@ -87,31 +87,3 @@ if(login=='1')
 <div id="jsonResourceEditor"><table cellpadding="3" cellspacing="2" border="0" width="95%" id="jsonResourceEditorTable" style="margin-left: 15px;"></table></div>
 
 <div id="jsonResourceViewer" style="display: none;"><textarea rows="10" cols="50" id="jsonResourceViewerDetails" style="width:100%; height: 350px;"></textarea></div>
-
-<script type="text/javascript">   
-
-	if($oAuth_Token!='')
-		{
-
-	    var github = new Github({
-	        token: $oAuth_Token,
-	        auth: "oauth"
-	            });
-            
-		var repo = github.getRepo($org,$repo);  
-
-	    repo.read('gh-pages', 'apis.json', function(err, res) {
-		
-		 	document.getElementById("save-resource-icon").style.display = '';
-			document.getElementById("login-github-icon").style.display = 'none';	
-										
-			});	
-																		
-		}
-	else
-		{
-		document.getElementById("save-resource-icon").style.display = 'none';
-		document.getElementById("login-github-icon").style.display = '';		
-		}
-		
-</script> 
