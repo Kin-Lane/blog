@@ -42,9 +42,9 @@
     {
         "question": "test",
         "answer": "test",
-        "host": "",
-        "baseUrl": "",
-        "path": "",
-        "method": ""
+        "host": "host/",
+        "baseUrl": "base/",
+        "path": "path/",
+        "method": "GET"
     }
 ]
