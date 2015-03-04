@@ -169,12 +169,7 @@
 		if(document.getElementById("swaggerEditor"))
 			{			
 			loadSwaggerditor();
-			}
-			
-		if(document.getElementById("jsonResourceEditor"))
-			{			
-			loadResourceEditor();			
-			}						
+			}									
 			
 		if(document.getElementById("jsonQuestionEditor"))
 			{			
@@ -201,6 +196,11 @@
     		{
     			
     		}
+    		
+		if(document.getElementById("jsonResourceEditor"))
+			{	
+			setTimeout(function() { loadResourceEditor(); },1500);			
+			}    		
 	    		
 	</script>  	
 	
