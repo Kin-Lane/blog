@@ -36,7 +36,7 @@ function addResource(tinyInstance)
 	$postData['url'] = $resource_url;
 	$postData['tags'] = $resource_tags;
 
-	$hosturl = 'http://blog.api.kinlane.com';
+	$hosturl = 'https://blog.api.kinlane.com';
 	$baseurl = '/';
 	$resource = 'blog/';
 
@@ -127,7 +127,7 @@ function deleteResource($resourcecount)
 	$resource_slug = document.getElementById("edit-resource-slug-" + $resourcecount).value;
 
 
-	$hosturl = 'http://blog.api.kinlane.com';
+	$hosturl = 'https://blog.api.kinlane.com';
 	$baseurl = '/';
 	$resource = 'blog/';
 
@@ -170,7 +170,7 @@ function deleteResource($resourcecount)
 		$postData['url'] = $resource_url;
 		$postData['tags'] = $resource_tags;
 
-		$hosturl = 'http://blog.api.kinlane.com';
+		$hosturl = 'https://blog.api.kinlane.com';
 		$baseurl = '/';
 		$resource = 'blog/';
 
@@ -292,7 +292,7 @@ function loadResourceEditor()
 	$textEditors = "add-resource-post";
 
 
-	$hosturl = 'http://blog.api.kinlane.com';
+	$hosturl = 'https://blog.api.kinlane.com';
 	$baseurl = '/';
 	$resource = 'blog/';
 
