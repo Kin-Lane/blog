@@ -158,12 +158,16 @@
 			{			
 			loadResourceEditor();			
 			}	
-					
+		
+		$apiconfig = {};
+		loadConfig();				
 		if(document.getElementById("jsonConfigEditor"))
 			{			
 			loadConfigEditor();			
 			}	
-			
+		
+		$apikeys = {};
+		loadKeys();	
 		if(document.getElementById("jsonKeysEditor"))
 			{			
 			loadKeysEditor();			
