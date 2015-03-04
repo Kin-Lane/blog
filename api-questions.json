@@ -38,13 +38,5 @@
         "baseUrl": "",
         "path": "",
         "method": ""
-    },
-    {
-        "question": "test",
-        "answer": "test",
-        "host": "host/",
-        "baseUrl": "base/",
-        "path": "path/",
-        "method": "GET"
     }
 ]
