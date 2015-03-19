@@ -14,9 +14,20 @@ var $login = getUrlVar('login');
 	      var textboxes = document.getElementsByTagName("input");        
 	      console.log("count: " + textboxes.length);
 	      
-		  console.log("doing each one...");
-		  console.log($apikeys["API Evangelist"]['appid']);
-		  console.log($apikeys["API Evangelist"]['appkey']);
+	      $appid = $apikeys["API Evangelist"]['appid'];
+	      $appkey = $apikeys["API Evangelist"]['appkey'];
+	      
+		  console.log("key: " + $appid);
+		  console.log("key: " + $appkey);
+			
+			for (var i=0;i<textboxes.length;i++)
+			 {
+			    var textbox = textboxes[i];
+			    if (textbox.type.toLowerCase() == "text")
+			       {
+			       console.log("here: " + textbox.name );
+			       }
+			 } 	
 	
 	      $('pre code').each(function(i, e) {
 	        hljs.highlightBlock(e)
