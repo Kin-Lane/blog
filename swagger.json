@@ -22,6 +22,20 @@
         "operationId": "getBlogs",
         "parameters": [
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
+          {
             "name": "query",
             "in": "query",
             "description": "a text query to search across blog",
@@ -49,6 +63,20 @@
         "description": "add a new blog",
         "operationId": "addBlog",
         "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
           {
             "name": "name",
             "in": "query",
@@ -107,7 +135,21 @@
             "required": true,
             "type": "integer",
             "format": "id"
-          }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          }          
         ],
         "responses": {
           "200": {
@@ -137,6 +179,20 @@
             "type": "integer",
             "format": "id"
           },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },           
           {
             "name": "name",
             "in": "query",
@@ -193,7 +249,21 @@
             "required": true,
             "type": "integer",
             "format": "id"
-          }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          }          
         ],
         "responses": {
           "200": {
