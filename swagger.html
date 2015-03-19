@@ -57,10 +57,12 @@ overview: true
 	var textboxes = document.getElementsByTagName("input");
 	for (var i=0;i<textboxes.length;i++)
 	 {
-	    var textbox = textboxes[i];
-	    if (textbox.type.toLowerCase() == "text")
-	       {
-	       console.log("name: " + textbox.name);
-	       }
+	 console.log("In1!");
+	 var textbox = textboxes[i];
+	    
+	 if (textbox.type.toLowerCase() == "text")
+	   {
+	   console.log("name: " + textbox.name);
+	   }
 	 } 
   </script>  
