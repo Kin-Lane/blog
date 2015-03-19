@@ -34,7 +34,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "query",
             "in": "query",
@@ -59,8 +59,8 @@
         ]
       },
       "post": {
-        "summary": "add blog",
-        "description": "add a new blog",
+        "summary": "add a new blog post",
+        "description": "Adds a new blog post",
         "operationId": "addBlog",
         "parameters": [
           {
@@ -76,34 +76,56 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
-            "name": "name",
+            "name": "post_date",
             "in": "query",
-            "description": "name of the blog",
+            "description": "date the blog was posted",
+            "required": true,
+            "type": "date"
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "ttle for the blog",
             "required": true,
             "type": "string"
           },
           {
-            "name": "description",
+            "name": "author",
             "in": "query",
-            "description": "description of the blog",
+            "description": "author of the blog",
             "required": true,
             "type": "string"
           },
           {
-            "name": "url",
+            "name": "summary",
             "in": "query",
-            "description": "url for the blog",
+            "description": "summary for the blog",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tags",
+            "name": "body",
             "in": "query",
-            "description": "tags for the blog",
+            "description": "full text for the blog",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "footer",
+            "in": "query",
+            "description": "curated id the blog originated from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "curated_id",
+            "in": "query",
+            "description": "full text for the blog",
+            "required": true,
+            "type": "integer",
+            "format": "id"
           }
         ],
         "responses": {
@@ -149,7 +171,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -192,34 +214,56 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },           
+          },
           {
-            "name": "name",
+            "name": "post_date",
             "in": "query",
-            "description": "name of the blog",
+            "description": "date the blog was posted",
+            "required": true,
+            "type": "date"
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "ttle for the blog",
             "required": true,
             "type": "string"
           },
           {
-            "name": "description",
+            "name": "author",
             "in": "query",
-            "description": "description of the blog",
+            "description": "author of the blog",
             "required": true,
             "type": "string"
           },
           {
-            "name": "url",
+            "name": "summary",
             "in": "query",
-            "description": "url for the blog",
+            "description": "summary for the blog",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tags",
+            "name": "body",
             "in": "query",
-            "description": "tags for the blog",
+            "description": "full text for the blog",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "footer",
+            "in": "query",
+            "description": "curated id the blog originated from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "curated_id",
+            "in": "query",
+            "description": "full text for the blog",
+            "required": true,
+            "type": "integer",
+            "format": "id"
           }
         ],
         "responses": {
@@ -263,7 +307,51 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          }          
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "blog response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/blog"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Blog"
+        ]
+      }
+    },
+    "/blog/byweek/": {
+      "get": {
+        "summary": "retrieves all blogs",
+        "description": "pulls all blogs, with filter by keyword",
+        "operationId": "getBlogs",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "a text query to search across blog",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -285,26 +373,38 @@
   "definitions": {
     "blog": {
       "properties": {
-        "name": {
-          "description": "name of the blog",
-          "type": "string",
-          "format": "label"
+        "blog_id": {
+          "description": "unique id of the blog",
+          "type": "integer",
+          "format": "id"
         },
-        "description": {
-          "description": "description of the blog",
+        "post_date": {
+          "description": "date the blog was posted",
+          "type": "date"
+        },
+        "title": {
+          "description": "ttle for the blog",
           "type": "string"
         },
-        "url": {
-          "description": "url for the blog",
+        "author": {
+          "description": "author of the blog",
           "type": "string"
         },
-        "tags": {
-          "description": "tags for the blog",
+        "summary": {
+          "description": "summary for the blog",
           "type": "string"
         },
-        "slug": {
-          "description": "slug for the blog",
-          "type": "string",
+        "body": {
+          "description": "full body text of the blog",
+          "type": "string"
+        },
+        "footer": {
+          "description": "footer text for the blog",
+          "type": "string"
+        },
+        "curated_id": {
+          "description": "curated id the blog originated from",
+          "type": "integer",
           "format": "id"
         }
       }
