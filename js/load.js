@@ -12,10 +12,11 @@ var $login = getUrlVar('login');
 	    onComplete: function(swaggerApi, swaggerUi){
 	
 	      var textboxes = document.getElementsByTagName("input");        
-	      //console.log("count: " + textboxes.length);
+	      console.log("count: " + textboxes.length);
+	      
 		  console.log("doing each one...");
-		 // console.log($apikeys["API Evangelist"]['appid']);
-		  //console.log($apikeys["API Evangelist"]['appkey']);
+		  console.log($apikeys["API Evangelist"]['appid']);
+		  console.log($apikeys["API Evangelist"]['appkey']);
 	
 	      $('pre code').each(function(i, e) {
 	        hljs.highlightBlock(e)
@@ -93,9 +94,7 @@ if(document.getElementById("swaggerEditor"))
 if(document.getElementById("jsonQuestionEditor"))
 	{			
 	loadQuestionEditor();			
-	}
-	
-		
+	}			
 	
 if(document.getElementById("swagger-ui-container"))
 	{				  
