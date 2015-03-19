@@ -40,10 +40,15 @@ overview: true
       });
 
       window.swaggerUi.load();
-     
-     console.log("DOING 1");
-     $('[name=appid]').find('input').val("Kin Lane");
-		        
+      
+		var elements = document.getElementsByTagName("input");
+		for (var ii=0; ii < elements.length; ii++) {
+		  if (elements[ii].type == "text") {
+		  	console.log(elements[ii].value);
+		    elements[ii].value = "";
+		  }
+		}      
+				        
   });
   </script>  
 
