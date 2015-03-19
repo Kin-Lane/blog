@@ -566,12 +566,33 @@
         "operationId": "getCurateds",
         "parameters": [
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
+          },        
+          {
             "name": "week",
             "in": "query",
             "description": "the week to retrieve tags by",
             "required": true,
             "type": "string"
-          }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "the year to retrieve tags by",
+            "required": false,
+            "type": "string"
+          }          
         ],
         "responses": {
           "200": {
