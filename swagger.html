@@ -20,9 +20,9 @@ overview: true
 
           var textboxes = document.getElementsByTagName("input");        
           //console.log("count: " + textboxes.length);
-		  console.log("doing!");
-		  $viewKeys = JSON.stringify($apikeys, null, 4);
-		  console.log($viewKeys);
+		  console.log("doing each one...");
+		  console.log($viewKeys["API Evangelist"]['appid']);
+		  console.log($viewKeys["API Evangelist"]['appkey']);
 
           $('pre code').each(function(i, e) {
             hljs.highlightBlock(e)
