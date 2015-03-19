@@ -19,7 +19,9 @@ overview: true
         onComplete: function(swaggerApi, swaggerUi){
 
           var textboxes = document.getElementsByTagName("input");        
-          console.log("count: " + textboxes.length);
+          //console.log("count: " + textboxes.length);
+
+		  console.log($MasterKeys);
 
           $('pre code').each(function(i, e) {
             hljs.highlightBlock(e)
