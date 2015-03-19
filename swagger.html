@@ -8,7 +8,6 @@ overview: true
 	
  <script type="text/javascript">
     $(function () {
-    	
       var url = window.location.search.match(/url=([^&]+)/);
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
@@ -40,13 +39,16 @@ overview: true
         sorter : "alpha"
       });
 
-	  key = "Kin Lane";
-	  window.authorizations.add("appid", new ApiKeyAuthorization("appid", key, "query"));
-
       window.swaggerUi.load();
-
-	 console.log('done 123');
-        
+      
+	var textboxes = document.getElementsByTagName("input");
+	console.log("count: " + textboxes.length);
+	for (var i=0;i<textboxes.length;i++)
+	 {
+	 var textbox = textboxes[i];
+	 console.log(textbox);  
+	 } 
+				        
   });
   </script>  
 
