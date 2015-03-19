@@ -1,5 +1,37 @@
 var $login = getUrlVar('login');
 
+
+  function deploySwagger()
+  	{		
+	  var url = "http://kin-lane.github.io/" + $repo + "/swagger.json";
+	  
+	  window.swaggerUi = new SwaggerUi({
+	    url: url,
+	    dom_id: "swagger-ui-container",
+	    supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+	    onComplete: function(swaggerApi, swaggerUi){
+	
+	      var textboxes = document.getElementsByTagName("input");        
+	      //console.log("count: " + textboxes.length);
+		  console.log("doing each one...");
+		 // console.log($apikeys["API Evangelist"]['appid']);
+		  //console.log($apikeys["API Evangelist"]['appkey']);
+	
+	      $('pre code').each(function(i, e) {
+	        hljs.highlightBlock(e)
+	      });
+	      
+	    },
+	    onFailure: function(data) {
+	      log("Unable to Load SwaggerUI");
+	    },
+	    docExpansion: "none",
+	    sorter : "alpha"
+	  });
+	
+	  window.swaggerUi.load();	
+  }
+
 if($login=='1')
 	{
 
@@ -31,11 +63,6 @@ if($oAuth_Token!='')
 	loadConfig();	
 	loadKeys();	
 	}
-
-$viewer = JSON.stringify($apikeys, null, 4);
-console.log($viewer);
-///console.log($apikeys["API Evangelist"]['appid']);
-//console.log($apikeys["API Evangelist"]['appkey']);
 
 if(document.getElementById("jsonConfigEditor"))
 	{			
@@ -71,34 +98,8 @@ if(document.getElementById("jsonQuestionEditor"))
 		
 	
 if(document.getElementById("swagger-ui-container"))
-	{			
-	  var url = "http://kin-lane.github.io/" + $repo + "/swagger.json";
-	  
-	  window.swaggerUi = new SwaggerUi({
-	    url: url,
-	    dom_id: "swagger-ui-container",
-	    supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
-	    onComplete: function(swaggerApi, swaggerUi){
-	
-	      var textboxes = document.getElementsByTagName("input");        
-	      //console.log("count: " + textboxes.length);
-		  console.log("doing each one...");
-		 // console.log($apikeys["API Evangelist"]['appid']);
-		  //console.log($apikeys["API Evangelist"]['appkey']);
-	
-	      $('pre code').each(function(i, e) {
-	        hljs.highlightBlock(e)
-	      });
-	      
-	    },
-	    onFailure: function(data) {
-	      log("Unable to Load SwaggerUI");
-	    },
-	    docExpansion: "none",
-	    sorter : "alpha"
-	  });
-	
-	  window.swaggerUi.load();				
+	{				  
+	 setTimeout(deploySwagger, 3000);			
 	}											
 
 if($oAuth_Token!='')
