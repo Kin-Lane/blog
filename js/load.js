@@ -12,14 +12,10 @@ var $login = getUrlVar('login');
 	    onComplete: function(swaggerApi, swaggerUi){
 	
 	      var textboxes = document.getElementsByTagName("input");        
-	      console.log("count: " + textboxes.length);
-	      
+
 	      $appid = $apikeys["API Evangelist"]['appid'];
 	      $appkey = $apikeys["API Evangelist"]['appkey'];
-	      
-		  console.log("key: " + $appid);
-		  console.log("key: " + $appkey);
-			
+
 			for (var i=0;i<textboxes.length;i++)
 			 	{
 			    var textbox = textboxes[i];
