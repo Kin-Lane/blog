@@ -21,7 +21,8 @@ overview: true
           var textboxes = document.getElementsByTagName("input");        
           //console.log("count: " + textboxes.length);
 		  console.log("doing!");
-		  console.log($apikeys);
+		  $viewer = JSON.stringify($APIKeys, null, 4);
+		  console.log($viewer);
 
           $('pre code').each(function(i, e) {
             hljs.highlightBlock(e)
