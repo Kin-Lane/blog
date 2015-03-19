@@ -32,6 +32,8 @@ if($oAuth_Token!='')
 	loadConfig();	
 	loadKeys();	
 	}
+	
+
 
 if(document.getElementById("jsonConfigEditor"))
 	{			
@@ -62,7 +64,40 @@ if(document.getElementById("swaggerEditor"))
 if(document.getElementById("jsonQuestionEditor"))
 	{			
 	loadQuestionEditor();			
-	}									
+	}	
+	
+if(document.getElementById("swagger-ui-container"))
+	{			
+  console.log($apikeys);
+  
+  var url = "https://kin-lane.github.io/blog/swagger.json";
+  
+  window.swaggerUi = new SwaggerUi({
+    url: url,
+    dom_id: "swagger-ui-container",
+    supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+    onComplete: function(swaggerApi, swaggerUi){
+
+      var textboxes = document.getElementsByTagName("input");        
+      //console.log("count: " + textboxes.length);
+	  console.log("doing each one...");
+	 // console.log($apikeys["API Evangelist"]['appid']);
+	  //console.log($apikeys["API Evangelist"]['appkey']);
+
+      $('pre code').each(function(i, e) {
+        hljs.highlightBlock(e)
+      });
+      
+    },
+    onFailure: function(data) {
+      log("Unable to Load SwaggerUI");
+    },
+    docExpansion: "none",
+    sorter : "alpha"
+  });
+
+  window.swaggerUi.load();				
+	}											
 
 if($oAuth_Token!='')
 	{			

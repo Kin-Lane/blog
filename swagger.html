@@ -5,42 +5,6 @@ overview: true
 ---
 
 <div class="swagger-section">
-	
- <script type="text/javascript">
- 
-    $(function () {
-    	
-      console.log($apikeys);
-      
-      var url = "https://kin-lane.github.io/blog/swagger.json";
-      
-      window.swaggerUi = new SwaggerUi({
-        url: url,
-        dom_id: "swagger-ui-container",
-        supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
-        onComplete: function(swaggerApi, swaggerUi){
-
-          var textboxes = document.getElementsByTagName("input");        
-          //console.log("count: " + textboxes.length);
-		  console.log("doing each one...");
-		  console.log($apikeys["API Evangelist"]['appid']);
-		  console.log($apikeys["API Evangelist"]['appkey']);
-
-          $('pre code').each(function(i, e) {
-            hljs.highlightBlock(e)
-          });
-        },
-        onFailure: function(data) {
-          log("Unable to Load SwaggerUI");
-        },
-        docExpansion: "none",
-        sorter : "alpha"
-      });
-
-      window.swaggerUi.load();	
-				        
-  });
-  </script>  
 
 <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
 <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
