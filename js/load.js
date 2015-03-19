@@ -21,12 +21,19 @@ var $login = getUrlVar('login');
 		  console.log("key: " + $appkey);
 			
 			for (var i=0;i<textboxes.length;i++)
-			 {
+			 	{
 			    var textbox = textboxes[i];
 			    if (textbox.type.toLowerCase() == "text")
 			       {
-			       console.log("here: " + textbox.name );
-			       }
+			       if(textbox.name=='appid')
+			       	{
+			       	textboxes[i].value = $appid	;
+			       	}
+			       if(textbox.name=='appkey')
+			       	{
+			       	textboxes[i].value = $appkey;	
+			       	}			       	
+			     }
 			 } 	
 	
 	      $('pre code').each(function(i, e) {
