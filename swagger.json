@@ -41,8 +41,7 @@
           }
         },
         "tags": [
-          "blog",
-          "blogging"
+          "Blog"
         ]
       },
       "post": {
@@ -91,8 +90,7 @@
           }
         },
         "tags": [
-          "blog",
-          "blogging"
+          "Blog"
         ]
       }
     },
@@ -123,8 +121,7 @@
           }
         },
         "tags": [
-          "blog",
-          "blogging"
+          "Blog"
         ]
       },
       "put": {
@@ -181,8 +178,7 @@
           }
         },
         "tags": [
-          "blog",
-          "blogging"
+          "Blog"
         ]
       },
       "delete": {
@@ -211,8 +207,7 @@
           }
         },
         "tags": [
-          "blog",
-          "blogging"
+          "Blog"
         ]
       }
     }
