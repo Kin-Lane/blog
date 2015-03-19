@@ -15,7 +15,7 @@
     "bloglication/json"
   ],
   "paths": {
-    "blog/": {
+    "/blog/": {
       "get": {
         "summary": "retrieves all blogs",
         "description": "pulls all blogs, with filter by keyword",
@@ -96,17 +96,17 @@
         ]
       }
     },
-    "blog/{slug}": {
+    "/blog/{blog_id}/": {
       "get": {
         "summary": "Retrieve a blog using its slug",
         "description": "Returns the blog detail",
         "operationId": "getBlog",
         "parameters": [
           {
-            "name": "slug",
+            "name": "blog_id",
             "in": "path",
-            "description": "slug for the blog, notice this is in the path, not a query variable",
-            "required": "true",
+            "description": "the unique id for blog entry",
+            "required": true,
             "type": "integer",
             "format": "id"
           }
@@ -133,11 +133,12 @@
         "operationId": "updateBlog",
         "parameters": [
           {
-            "name": "slug",
+            "name": "blog_id",
             "in": "path",
-            "description": "unique slug for the blog",
+            "description": "the unique id for blog entry",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "format": "id"
           },
           {
             "name": "name",
@@ -190,11 +191,12 @@
         "operationId": "deleteBlog",
         "parameters": [
           {
-            "name": "slug",
+            "name": "blog_id",
             "in": "path",
-            "description": "unique slug for the blog",
+            "description": "the unique id for blog entry",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "format": "id"
           }
         ],
         "responses": {
@@ -239,21 +241,6 @@
           "description": "slug for the blog",
           "type": "string",
           "format": "id"
-        }
-      }
-    },
-    "errorModel": {
-      "required": [
-        "code",
-        "message"
-      ],
-      "properties": {
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
         }
       }
     }
