@@ -645,18 +645,11 @@
             "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "query",
-            "in": "query",
-            "description": "a text query to search across blog",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "blog response",
+            "description": "Blog Response",
             "schema": {
               "type": "array",
               "items": {
