@@ -33,7 +33,7 @@ if($oAuth_Token!='')
 	loadKeys();	
 	}
 	
-
+console.log($apikeys);
 
 if(document.getElementById("jsonConfigEditor"))
 	{			
