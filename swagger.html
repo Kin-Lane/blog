@@ -7,26 +7,23 @@ overview: true
 <div class="swagger-section">
 	
  <script type="text/javascript">
+ 
     $(function () {
-      var url = window.location.search.match(/url=([^&]+)/);
-      if (url && url.length > 1) {
-        url = decodeURIComponent(url[1]);
-      } else {
-        url = "https://kin-lane.github.io/blog/swagger.json";
-      }
+    	
+      var url = "https://kin-lane.github.io/blog/swagger.json";
+      
       window.swaggerUi = new SwaggerUi({
         url: url,
         dom_id: "swagger-ui-container",
         supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
         onComplete: function(swaggerApi, swaggerUi){
           if(typeof initOAuth == "function") {
-            /*
-            initOAuth({
-              clientId: "your-client-id",
-              realm: "your-realms",
-              appName: "your-app-name"
-            });
-            */
+            
+            var textboxes = document.getElementsByTagName("input");
+            
+            console.log("count: " + textboxes.length);
+            
+            
           }
           $('pre code').each(function(i, e) {
             hljs.highlightBlock(e)
@@ -39,15 +36,7 @@ overview: true
         sorter : "alpha"
       });
 
-      window.swaggerUi.load();
-      
-	var textboxes = document.getElementsByTagName("input");
-	console.log("count: " + textboxes.length);
-	for (var i=0;i<textboxes.length;i++)
-	 {
-	 var textbox = textboxes[i];
-	 console.log(textbox);  
-	 } 
+      window.swaggerUi.load();	
 				        
   });
   </script>  
