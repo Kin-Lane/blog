@@ -8,6 +8,7 @@ overview: true
 	
  <script type="text/javascript">
     $(function () {
+    	
       var url = window.location.search.match(/url=([^&]+)/);
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
@@ -40,16 +41,6 @@ overview: true
       });
 
       window.swaggerUi.load();
-      
-	var textboxes = document.getElementsByTagName("input");
-	for (var i=0;i<textboxes.length;i++)
-	 {
-	    var textbox = textboxes[i];
-	    if (textbox.type.toLowerCase() == "text")
-	       {
-	       console.log("here: " + textbox.name);
-	       }
-	 } 
 				        
   });
   </script>  
@@ -59,3 +50,19 @@ overview: true
 
 </div>
 <p><br /></p>
+
+ <script type="text/javascript">
+ 
+ 	console.log("doing it!");
+	var textboxes = document.getElementsByTagName("input");
+	for (var i=0;i<textboxes.length;i++)
+	 {
+	    var textbox = textboxes[i];
+	    if (textbox.type.toLowerCase() == "text")
+	       {
+	       console.log("name: " + textbox.name);
+	       }
+	 } 
+				        
+  });
+  </script>  
