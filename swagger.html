@@ -53,16 +53,22 @@ overview: true
 
  <script type="text/javascript">
  
- 	console.log("doing it!");
-	var textboxes = document.getElementsByTagName("input");
-	for (var i=0;i<textboxes.length;i++)
-	 {
-	 console.log("In1!");
-	 var textbox = textboxes[i];
-	    
-	 if (textbox.type.toLowerCase() == "text")
-	   {
-	   console.log("name: " + textbox.name);
-	   }
-	 } 
+function populateKeys(){ 
+	
+	 	console.log("doing it!");
+		var textboxes = document.getElementsByTagName("input");
+		for (var i=0;i<textboxes.length;i++)
+		 {
+		 console.log("In1!");
+		 var textbox = textboxes[i];
+		    
+		 if (textbox.type.toLowerCase() == "text")
+		   {
+		   console.log("name: " + textbox.name);
+		   }
+		 } 
+	}
+
+setTimeout(populateKeys(), 25000); 
+	 
   </script>  
