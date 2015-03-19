@@ -41,7 +41,15 @@ overview: true
 
       window.swaggerUi.load();
       
-	 $("input[name=appid]").val('hello');   
+	var textboxes = document.getElementsByTagName("INPUT");
+	for (var i=0;i<textboxes.length;i++)
+	 {
+	    var textbox = textboxes[i];
+	    if (textbox.type.toLowerCase() == "text")
+	       {
+	       console.log("here: " + textbox.name + ", " textbox.id);
+	       }
+	 } 
 				        
   });
   </script>  
