@@ -82,7 +82,7 @@
             "in": "query",
             "description": "date the blog was posted",
             "required": true,
-            "type": "date"
+            "type": "string"
           },
           {
             "name": "title",
@@ -220,7 +220,7 @@
             "in": "query",
             "description": "date the blog was posted",
             "required": true,
-            "type": "date"
+            "type": "string"
           },
           {
             "name": "title",
@@ -332,7 +332,7 @@
         "operationId": "getblogTags",
         "parameters": [
           {
-            "name": "api_id",
+            "name": "blog_id",
             "in": "path",
             "description": "id for blog",
             "required": true,
@@ -593,7 +593,7 @@
         },
         "post_date": {
           "description": "date the blog was posted",
-          "type": "date"
+          "type": "string"
         },
         "title": {
           "description": "ttle for the blog",
