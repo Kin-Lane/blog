@@ -41,13 +41,11 @@ overview: true
 
       window.swaggerUi.load();
       
-		var elements = document.getElementsByTagName("input");
-		for (var ii=0; ii < elements.length; ii++) {
-		  if (elements[ii].type == "text") {
-		  	console.log(elements[ii].value);
-		    elements[ii].value = "";
-		  }
-		}      
+		var fields = document.getElementsByTagName('input'),
+		    length = fields.length;
+		while (length--) {
+		    if (fields[length].type === 'text') { fields[length].value = 'hello'; }
+		}    
 				        
   });
   </script>  
