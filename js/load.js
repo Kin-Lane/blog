@@ -72,7 +72,7 @@ if(document.getElementById("jsonQuestionEditor"))
 	
 if(document.getElementById("swagger-ui-container"))
 	{			
-	  var url = "swagger.json";
+	  var url = "http://kin-lane.github.io/' + $repo + '/swagger.json";
 	  
 	  window.swaggerUi = new SwaggerUi({
 	    url: url,
