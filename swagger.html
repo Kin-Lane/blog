@@ -41,11 +41,7 @@ overview: true
 
       window.swaggerUi.load();
       
-		var fields = document.getElementsByTagName('input'),
-		    length = fields.length;
-		while (length--) {
-		    if (fields[length].type === 'text') { fields[length].value = 'hello'; }
-		}    
+	 $("input[name=appid]").val('hello');   
 				        
   });
   </script>  
