@@ -17,14 +17,10 @@ overview: true
         dom_id: "swagger-ui-container",
         supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
         onComplete: function(swaggerApi, swaggerUi){
-          if(typeof initOAuth == "function") {
-            
-            var textboxes = document.getElementsByTagName("input");
-            
-            console.log("count: " + textboxes.length);
-            
-            
-          }
+
+          var textboxes = document.getElementsByTagName("input");        
+          console.log("count: " + textboxes.length);
+
           $('pre code').each(function(i, e) {
             hljs.highlightBlock(e)
           });
