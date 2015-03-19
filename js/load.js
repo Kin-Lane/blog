@@ -28,6 +28,7 @@ $apikeys = {};
 
 if($oAuth_Token!='')
 	{	   
+	console.log("loading config and keys..");
 	loadConfig();	
 	loadKeys();	
 	}
