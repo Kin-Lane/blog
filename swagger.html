@@ -10,6 +10,10 @@ overview: true
  
     $(function () {
     	
+    	
+      $viewer = JSON.stringify($apikeys, null, 4);	
+      console.log($viewer);
+      
       var url = "https://kin-lane.github.io/blog/swagger.json";
       
       window.swaggerUi = new SwaggerUi({
