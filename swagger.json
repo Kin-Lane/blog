@@ -120,12 +120,93 @@
             "type": "string"
           },
           {
+            "name": "status",
+            "in": "query",
+            "description": "status of the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "curated_id",
             "in": "query",
             "description": "full text for the blog",
             "required": true,
             "type": "integer",
             "format": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "blog response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/blog"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Blog"
+        ]
+      }
+    },
+    "/blog/published/": {
+      "get": {
+        "summary": "retrieves all published blogs",
+        "description": "pull all published bogs",
+        "operationId": "getPublishedBlogs",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blog Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/blog"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Blog"
+        ]
+      }
+    },
+    "/blog/draft/": {
+      "get": {
+        "summary": "retrieves all draft blogs",
+        "description": "pulls all draft blogs",
+        "operationId": "getDraftBlogs",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -254,6 +335,13 @@
             "name": "footer",
             "in": "query",
             "description": "curated id the blog originated from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status of the blog",
             "required": true,
             "type": "string"
           },
@@ -613,6 +701,10 @@
         },
         "footer": {
           "description": "footer text for the blog",
+          "type": "string"
+        },
+        "status": {
+          "description": "status of the blog",
           "type": "string"
         },
         "curated_id": {
