@@ -2,9 +2,9 @@
   "swagger": "2.0",
   "info": {
     "title": "Blog",
-    "description": "This is a blog api",
+    "description": "This is an API for all my blog entries. I use a single blog system to manage all my sites. Based upon tagging, I then publish each post out to its respective Github Page based repo.",
     "termsOfService": "http://stack.network/terms-of-service.html",
-    "version": "v1"
+    "version": "v2"
   },
   "host": "blog.api.kinlane.com",
   "basePath": "/",
@@ -12,7 +12,7 @@
     "http"
   ],
   "produces": [
-    "bloglication/json"
+    "application/json"
   ],
   "paths": {
     "/blog/": {
