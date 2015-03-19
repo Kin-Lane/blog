@@ -40,10 +40,13 @@ overview: true
         sorter : "alpha"
       });
 
+	  key = "Kin Lane";
+	  window.authorizations.add("appid", new ApiKeyAuthorization("appid", key, "query"));
+
       window.swaggerUi.load();
-      
-      document.getElementsByName('appid').value = 'Kin Lane';
-	  console.log("done");	        
+
+	 console.log('done 123');
+        
   });
   </script>  
 
