@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Blog",
-    "description": "This is an API for all my blog entries. I use a single blog system to manage all my sites. Based upon tagging, I then publish each post out to its respective Github Page based repo.",
+    "description": "This is an blog for all my blog entries. I use a single blog system to manage all my sites. Based upon tagging, I then publish each post out to its respective Github Page based repo.",
     "termsOfService": "http://stack.network/terms-of-service.html",
     "version": "v2"
   },
@@ -24,14 +24,14 @@
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the API",
+            "description": "your appid for accessing the blog",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the API",
+            "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
           },
@@ -66,14 +66,14 @@
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the API",
+            "description": "your appid for accessing the blog",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the API",
+            "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
           },
@@ -161,14 +161,14 @@
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the API",
+            "description": "your appid for accessing the blog",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the API",
+            "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
           }
@@ -204,14 +204,14 @@
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the API",
+            "description": "your appid for accessing the blog",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the API",
+            "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
           },
@@ -297,14 +297,14 @@
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the API",
+            "description": "your appid for accessing the blog",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the API",
+            "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
           }
@@ -325,6 +325,219 @@
         ]
       }
     },
+    "/blog/{blog_id}/tags/": {
+      "get": {
+        "summary": "retrieve blog tags",
+        "description": "Returns the tags for an blog",
+        "operationId": "getblogTags",
+        "parameters": [
+          {
+            "name": "api_id",
+            "in": "path",
+            "description": "id for blog",
+            "required": true,
+            "type": "integer",
+            "format": "id"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blog Tags Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/tag"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      },
+      "post": {
+        "summary": "add tag to blog",
+        "description": "add tag for blog",
+        "operationId": "addBlogTag",
+        "parameters": [
+          {
+            "name": "blog_id",
+            "in": "path",
+            "description": "id for the blog",
+            "required": true,
+            "type": "integer",
+            "format": "id"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "tag name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blog Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/tag"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
+    "/blog/{blog_id}/tags/{tag}": {
+      "delete": {
+        "summary": "delete a blog tag",
+        "description": "deletes a tag applied to blog",
+        "operationId": "deleteblogTag",
+        "parameters": [
+          {
+            "name": "blog_id",
+            "in": "path",
+            "description": "id for the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "tag to remove from blog",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blog Tag Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/tag"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
+    "/blog/tags/byweek/": {
+      "get": {
+        "summary": "retrieve blog tags by week",
+        "description": "Retrieves a list of tags used across blog posts by the week.",
+        "operationId": "getCurateds",
+        "parameters": [
+          {
+            "name": "week",
+            "in": "query",
+            "description": "the week to retrieve tags by",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blog Tag Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/blog"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
+    "/blog/tags/byweek/{tag}/blog/": {
+      "get": {
+        "summary": "retrieve blog posts by tag and week",
+        "description": "Pulls a list of blog posts by week, and tag.",
+        "operationId": "getBlogTagCurated",
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "the tag to filter by",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "week",
+            "in": "query",
+            "description": "the week to filter by, defaults to this week",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blog Tag BLog Responsee",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/blog"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
     "/blog/byweek/": {
       "get": {
         "summary": "retrieves all blogs",
@@ -334,14 +547,14 @@
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the API",
+            "description": "your appid for accessing the blog",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the API",
+            "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
           },
@@ -406,6 +619,23 @@
           "description": "curated id the blog originated from",
           "type": "integer",
           "format": "id"
+        }
+      }
+    },
+    "tag": {
+      "properties": {
+        "tag_id": {
+          "description": "id for the tag",
+          "type": "integer",
+          "format": "id"
+        },
+        "tag": {
+          "description": "text tag",
+          "type": "string"
+        },
+        "api_count": {
+          "description": "number of items api with tag",
+          "type": "integer"
         }
       }
     }
