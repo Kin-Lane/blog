@@ -32,8 +32,10 @@ if($oAuth_Token!='')
 	loadKeys();	
 	}
 
-console.log($apikeys["API Evangelist"]['appid']);
-console.log($apikeys["API Evangelist"]['appkey']);
+$viewer = JSON.stringify($apikeys, null, 4);
+console.log($viewer);
+///console.log($apikeys["API Evangelist"]['appid']);
+//console.log($apikeys["API Evangelist"]['appkey']);
 
 if(document.getElementById("jsonConfigEditor"))
 	{			
