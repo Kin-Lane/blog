@@ -17,8 +17,8 @@
   "paths": {
     "/blog/": {
       "get": {
-        "summary": "retrieves all blogs",
-        "description": "pulls all blogs, with filter by keyword",
+        "summary": "all blogs",
+        "description": "all blogs",
         "operationId": "getBlogs",
         "parameters": [
           {
@@ -59,8 +59,8 @@
         ]
       },
       "post": {
-        "summary": "add a new blog post",
-        "description": "Adds a new blog post",
+        "summary": "add a blog post",
+        "description": "add a blog post",
         "operationId": "addBlog",
         "parameters": [
           {
@@ -153,8 +153,8 @@
     },
     "/blog/published/": {
       "get": {
-        "summary": "retrieves all published blogs",
-        "description": "pull all published bogs",
+        "summary": "published blogs",
+        "description": "published blogs",
         "operationId": "getPublishedBlogs",
         "parameters": [
           {
@@ -190,8 +190,8 @@
     },
     "/blog/draft/": {
       "get": {
-        "summary": "retrieves all draft blogs",
-        "description": "pulls all draft blogs",
+        "summary": "draft blogs",
+        "description": "draft blogs",
         "operationId": "getDraftBlogs",
         "parameters": [
           {
@@ -371,7 +371,7 @@
       },
       "delete": {
         "summary": "delete blog",
-        "description": "deletes an blog",
+        "description": "delete blog",
         "operationId": "deleteBlog",
         "parameters": [
           {
@@ -415,8 +415,8 @@
     },
     "/blog/{blog_id}/tags/": {
       "get": {
-        "summary": "retrieve blog tags",
-        "description": "Returns the tags for an blog",
+        "summary": "blog tags",
+        "description": "blog tags",
         "operationId": "getblogTags",
         "parameters": [
           {
@@ -459,7 +459,7 @@
       },
       "post": {
         "summary": "add tag to blog",
-        "description": "add tag for blog",
+        "description": "add tag to blog",
         "operationId": "addBlogTag",
         "parameters": [
           {
@@ -510,8 +510,8 @@
     },
     "/blog/{blog_id}/tags/{tag}": {
       "delete": {
-        "summary": "delete a blog tag",
-        "description": "deletes a tag applied to blog",
+        "summary": "delete blog tag",
+        "description": "delete blog tag",
         "operationId": "deleteblogTag",
         "parameters": [
           {
@@ -561,9 +561,9 @@
     },
     "/blog/tags/byweek/": {
       "get": {
-        "summary": "retrieve blog tags by week",
-        "description": "Retrieves a list of tags used across blog posts by the week.",
-        "operationId": "getCurateds",
+        "summary": "blog tags by week",
+        "description": "blog tags by week",
+        "operationId": "getBlogTagsByWeek",
         "parameters": [
           {
             "name": "appid",
@@ -612,9 +612,9 @@
     },
     "/blog/tags/byweek/{tag}/blog/": {
       "get": {
-        "summary": "retrieve blog posts by tag and week",
-        "description": "Pulls a list of blog posts by week, and tag.",
-        "operationId": "getBlogTagCurated",
+        "summary": "blog tags by week blogs",
+        "description":  "blog tags by week blogs",
+        "operationId": "getBlogTagCBlog",
         "parameters": [
           {
             "name": "tag",
@@ -649,9 +649,9 @@
     },
     "/blog/byweek/": {
       "get": {
-        "summary": "retrieves all blogs",
-        "description": "pulls all blogs, with filter by keyword",
-        "operationId": "getBlogs",
+        "summary": "blogs by week",
+        "description": "blogs by week",
+        "operationId": "getBlogsByWeek",
         "parameters": [
           {
             "name": "appid",
