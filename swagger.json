@@ -700,6 +700,20 @@
         "operationId": "getBlogTagCBlog",
         "parameters": [
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
+          },        
+          {
             "name": "tag",
             "in": "path",
             "description": "the tag to filter by",
@@ -736,6 +750,20 @@
         "description":  "build by tag",
         "operationId": "getBlogsToBuildByTag",
         "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
+          },        
           {
             "name": "tag",
             "in": "path",
