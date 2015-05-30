@@ -717,6 +717,36 @@
         ]
       }
     },
+    "/blog/tags/{tag}/build/": {
+      "get": {
+        "summary": "build by tag",
+        "description":  "build by tag",
+        "operationId": "getBlogsToBuildByTag",
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "the tag to filter by",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blog By Tag Build Responsee",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/blog"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tags"
+        ]
+      }
+    },    
     "/blog/byweek/": {
       "get": {
         "summary": "blogs by week",
