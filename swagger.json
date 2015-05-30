@@ -402,20 +402,33 @@
             "type": "string"
           },
           {
-            "name": "curated_id",
-            "in": "query",
-            "description": "full text for the blog",
-            "required": false,
-            "type": "integer",
-            "format": "id"
-          },
-          {
             "name": "build_page",
             "in": "query",
             "description": "whether or not this blog post needs page built",
             "required": false,
             "type": "integer"
           },
+          {
+            "name": "github_build",
+            "in": "query",
+            "description": "the github build string",
+            "required": false,
+            "type": "string"
+          },   
+          {
+            "name": "twitter_build",
+            "in": "query",
+            "description": "the twitter build string",
+            "required": false,
+            "type": "string"
+          }, 
+          {
+            "name": "linkedin_build",
+            "in": "query",
+            "description": "the linkedin build string",
+            "required": false,
+            "type": "string"
+          },                            
           {
             "name": "show_on_site",
             "in": "query",
