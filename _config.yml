@@ -18,9 +18,6 @@ production_url : http://kin-lane.github.io/blog/
 
 BASE_PATH : http://kin-lane.github.io/blog/
 
-categories_path : /categories.html
-tags_path : /tags.html
-
 org: Kin-Lane
 repo: blog
 resource: Blog
