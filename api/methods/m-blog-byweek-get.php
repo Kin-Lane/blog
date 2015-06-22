@@ -82,7 +82,7 @@ $app->get($route, function ()  use ($app){
 				}					
 			}
 		
- 		array_push($ReturnObject, $F)
+ 		array_push($ReturnObject, $F);
 
 		}
 
