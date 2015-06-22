@@ -16,6 +16,8 @@ $app->get($route, function ()  use ($app){
 	$Query .= " WHERE WEEK(b.Post_Date) = " . $week . " AND YEAR(b.Post_Date) = " . $year;
 	$Query .= " GROUP BY t.Tag ORDER BY count(*) DESC";
 
+	echo $Query;
+
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  
 	while ($Database = mysql_fetch_assoc($DatabaseResult))
