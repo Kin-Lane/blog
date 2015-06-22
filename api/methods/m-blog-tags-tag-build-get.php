@@ -43,6 +43,15 @@ $app->get($route, function ($tag)  use ($app){
 		$TagQuery .= " ORDER BY t.tag DESC";
 		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());		  
 
+		if(strlen($githubbuild) > 1) 
+			{
+			$githubbuild .= "," . $tag;
+			}
+		else
+			{
+			$githubbuild .= $tag;
+			}
+
 		$UpdateQuery = "UPDATE blog SET Github_Build = '" . $githubbuild . "' WHERE ID = " . $blog_id;	
 		$UpdateResult = mysql_query($UpdateQuery) or die('Query failed: ' . mysql_error());	  										
 
@@ -79,16 +88,7 @@ $app->get($route, function ($tag)  use ($app){
 				{
 				$archive = 1;	
 				}					
-			}	
-			
-		if(strlen($githubbuild) > 1) 
-			{
-			$githubbuild .= "," . $tag;
-			}
-		else
-			{
-			$githubbuild .= $tag;
-			}
+			}				
 			
 		array_push($ReturnObject, $F);
 		}
