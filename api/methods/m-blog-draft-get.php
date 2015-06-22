@@ -45,6 +45,12 @@ $app->get($route, function ()  use ($app){
 		$showonsite = $Database['Show_On_Site'];
 		$image = $Database['Feature_Image'];		
 				
+		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
+		$TagQuery .= " INNER JOIN blog_tag_pivot btp ON t.tag_id = btp.tag_id";
+		$TagQuery .= " WHERE btp.Blog_ID = " . $blog_id;
+		$TagQuery .= " ORDER BY t.tag DESC";
+		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());		  
+
 		// manipulation zone
 		$host = $_SERVER['HTTP_HOST'];
 		$blog_id = prepareIdOut($blog_id,$host);
@@ -67,12 +73,6 @@ $app->get($route, function ()  use ($app){
 		
 		$F['tags'] = array();
 		
-		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
-		$TagQuery .= " INNER JOIN blog_tag_pivot btp ON t.tag_id = btp.tag_id";
-		$TagQuery .= " WHERE btp.Blog_ID = " . $blog_id;
-		$TagQuery .= " ORDER BY t.tag DESC";
-		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());
-		  
 		while ($Tag = mysql_fetch_assoc($TagResult))
 			{
 			$thistag = $Tag['tag'];
