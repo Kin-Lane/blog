@@ -23,7 +23,7 @@ $app->get($route, function ()  use ($app){
 		$Query = "SELECT * FROM blog";		
 		}
 	$Query .= " ORDER BY " . $sort . " " . $order . " LIMIT " . $page . "," . $count;
-	echo $Query . "<br />";
+	//echo $Query . "<br />";
 	
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  
