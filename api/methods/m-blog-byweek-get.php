@@ -18,7 +18,7 @@ $app->get($route, function ()  use ($app){
 	$Query .= " WHERE WEEK(b.Post_Date) = " . $week . " AND YEAR(b.Post_Date) = " . $year;
 	$Query .= " ORDER BY " . $sort . " " . $order . " LIMIT " . $page . "," . $count;
 
-	echo $Query;
+	//echo $Query;
 
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  
@@ -80,7 +80,10 @@ $app->get($route, function ()  use ($app){
 				{
 				$archive = 1;	
 				}					
-			}	
+			}
+		
+ 		array_push($ReturnObject, $F)
+
 		}
 
 		$app->response()->header("Content-Type", "application/json");
