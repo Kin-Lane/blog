@@ -2,6 +2,8 @@
 $route = '/blog/:blog_id/';
 $app->get($route, function ($blog_id)  use ($app){
 
+	$host = $_SERVER['HTTP_HOST'];
+	$blog_id = prepareIdIn($blog_id,$host);
 
 	$ReturnObject = array();
 		
@@ -29,6 +31,8 @@ $app->get($route, function ($blog_id)  use ($app){
 				
 		// manipulation zone
 		
+		$blog_id = prepareIdOut($blog_id,$host);
+
 		$F = array();
 		$F['blog_id'] = $blog_id;
 		$F['post_date'] = $post_date;

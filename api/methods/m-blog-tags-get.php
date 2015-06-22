@@ -20,6 +20,9 @@ $app->get($route, function ()  use ($app){
 		$tag = $Database['Tag'];
 		$blog_count = $Database['Blog_Count'];
 
+		$host = $_SERVER['HTTP_HOST'];
+		$tag_id = prepareIdOut($tag_id,$host);
+
 		$F = array();
 		$F['tag_id'] = $tag_id;
 		$F['tag'] = $tag;

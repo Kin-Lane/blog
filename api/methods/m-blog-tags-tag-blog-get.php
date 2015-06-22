@@ -36,6 +36,9 @@ $app->get($route, function ($tag)  use ($app){
 		$image = $Database['Feature_Image'];		
 				
 		// manipulation zone
+
+		$host = $_SERVER['HTTP_HOST'];
+		$blog_id = prepareIdOut($blog_id,$host);
 		
 		$F = array();
 		$F['blog_id'] = $blog_id;

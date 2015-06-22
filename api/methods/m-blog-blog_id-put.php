@@ -1,6 +1,9 @@
 <?php
 $route = '/blog/:blog_id/';	
 $app->put($route, function ($blog_id) use ($app){
+
+	$host = $_SERVER['HTTP_HOST'];
+	$blog_id = prepareIdIn($blog_id,$host);
 		
 	$ReturnObject = array();
 	
@@ -47,6 +50,8 @@ $app->put($route, function ($blog_id) use ($app){
 		echo $query . "<br />";
 		mysql_query($query) or die('Query failed: ' . mysql_error());	
 		}
+
+	$blog_id = prepareIdOut($blog_id,$host);
 
 	$F = array();
 	$F['blog_id'] = $blog_id;

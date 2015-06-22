@@ -2,6 +2,9 @@
 $route = '/blog/:blog_id/tags/:tag/';
 $app->delete($route, function ($blog_id,$tag)  use ($app){
 
+	$host = $_SERVER['HTTP_HOST'];
+	$blog_id = prepareIdIn($blog_id,$host);
+
 	$ReturnObject = array();
 		
  	$request = $app->request(); 
@@ -23,6 +26,8 @@ $app->delete($route, function ($blog_id,$tag)  use ($app){
 			$DeleteQuery = "DELETE FROM blog_tag_pivot where Tag_ID = " . trim($tag_id) . " AND Blog_ID = " . trim($blog_id);
 			$DeleteResult = mysql_query($DeleteQuery) or die('Query failed: ' . mysql_error());
 			}
+
+		$tag_id = prepareIdOut($tag_id,$host);
 
 		$F = array();
 		$F['tag_id'] = $tag_id;

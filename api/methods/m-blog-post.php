@@ -40,6 +40,9 @@ $app->post($route, function () use ($app){
 		$blog_id = mysql_insert_id();			
 		}
 
+	$host = $_SERVER['HTTP_HOST'];
+   $blog_id = prepareIdOut($blog_id,$host);
+
 	$ReturnObject['blog_id'] = $blog_id;
 	
 	$app->response()->header("Content-Type", "application/json");
