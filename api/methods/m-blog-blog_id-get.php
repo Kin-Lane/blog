@@ -31,6 +31,12 @@ $app->get($route, function ($blog_id)  use ($app){
 				
 		// manipulation zone
 		
+		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
+		$TagQuery .= " INNER JOIN blog_tag_pivot btp ON t.tag_id = btp.tag_id";
+		$TagQuery .= " WHERE btp.Blog_ID = " . $blog_id;
+		$TagQuery .= " ORDER BY t.tag DESC";
+		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());		  
+
 		$blog_id = prepareIdOut($blog_id,$host);
 
 		$F = array();
@@ -51,12 +57,6 @@ $app->get($route, function ($blog_id)  use ($app){
 		
 		$F['tags'] = array();
 		
-		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
-		$TagQuery .= " INNER JOIN blog_tag_pivot btp ON t.tag_id = btp.tag_id";
-		$TagQuery .= " WHERE btp.Blog_ID = " . $blog_id;
-		$TagQuery .= " ORDER BY t.tag DESC";
-		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());
-		  
 		while ($Tag = mysql_fetch_assoc($TagResult))
 			{
 			$thistag = $Tag['tag'];
