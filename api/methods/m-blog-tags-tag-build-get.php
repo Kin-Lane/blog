@@ -43,6 +43,9 @@ $app->get($route, function ($tag)  use ($app){
 		$TagQuery .= " ORDER BY t.tag DESC";
 		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());		  
 
+		$UpdateQuery = "UPDATE blog SET Github_Build = '" . $githubbuild . "' WHERE ID = " . $blog_id;	
+		$UpdateResult = mysql_query($UpdateQuery) or die('Query failed: ' . mysql_error());	  										
+
 		$host = $_SERVER['HTTP_HOST'];
 		$blog_id = prepareIdOut($blog_id,$host);
 		
@@ -87,9 +90,6 @@ $app->get($route, function ($tag)  use ($app){
 			$githubbuild .= $tag;
 			}
 			
-		$UpdateQuery = "UPDATE blog SET Github_Build = '" . $githubbuild . "' WHERE ID = " . $blog_id;	
-		$UpdateResult = mysql_query($UpdateQuery) or die('Query failed: ' . mysql_error());	  								
-		
 		array_push($ReturnObject, $F);
 		}
 
