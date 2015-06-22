@@ -1,6 +1,6 @@
 <?php
 $route = '/blog/:blog_id/tags/';
-$app->post($route, function ($Blog_ID)  use ($app){
+$app->post($route, function ($blog_id)  use ($app){
 
 	$host = $_SERVER['HTTP_HOST'];
 	$blog_id = prepareIdIn($blog_id,$host);
