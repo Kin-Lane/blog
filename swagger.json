@@ -77,6 +77,14 @@
         },
         "tags": [
           "Blog"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "post": {
@@ -162,6 +170,14 @@
         },
         "tags": [
           "Blog"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -205,7 +221,7 @@
             "description": "which field to sort by",
             "required": false,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -220,6 +236,14 @@
         },
         "tags": [
           "Blog"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -263,7 +287,7 @@
             "description": "which field to sort by",
             "required": false,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -278,6 +302,14 @@
         },
         "tags": [
           "Blog"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -323,6 +355,14 @@
         },
         "tags": [
           "Blog"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "put": {
@@ -414,21 +454,21 @@
             "description": "the github build string",
             "required": false,
             "type": "string"
-          },   
+          },
           {
             "name": "twitter_build",
             "in": "query",
             "description": "the twitter build string",
             "required": false,
             "type": "string"
-          }, 
+          },
           {
             "name": "linkedin_build",
             "in": "query",
             "description": "the linkedin build string",
             "required": false,
             "type": "string"
-          },                            
+          },
           {
             "name": "show_on_site",
             "in": "query",
@@ -450,6 +490,14 @@
         },
         "tags": [
           "Blog"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "delete": {
@@ -493,6 +541,14 @@
         },
         "tags": [
           "Blog"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -538,6 +594,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "post": {
@@ -588,6 +652,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -639,6 +711,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -661,7 +741,7 @@
             "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
-          },        
+          },
           {
             "name": "week",
             "in": "query",
@@ -675,7 +755,7 @@
             "description": "the year to retrieve tags by",
             "required": false,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -690,6 +770,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -712,7 +800,7 @@
             "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
-          },        
+          },
           {
             "name": "tag",
             "in": "path",
@@ -741,6 +829,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -763,7 +859,7 @@
             "description": "your appkey for accessing the blog",
             "required": true,
             "type": "string"
-          },        
+          },
           {
             "name": "tag",
             "in": "path",
@@ -785,9 +881,17 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
-    },    
+    },
     "/blog/byweek/": {
       "get": {
         "summary": "blogs by week",
@@ -822,8 +926,28 @@
         },
         "tags": [
           "Blog"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
+    }
+  },
+  "securityDefinitions": {
+    "appid": {
+      "type": "apiKey",
+      "name": "appid",
+      "in": "query"
+    },
+    "appkey": {
+      "type": "apiKey",
+      "name": "appkey",
+      "in": "query"
     }
   },
   "definitions": {
