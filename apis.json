@@ -29,6 +29,10 @@
           "url": "https://kin-lane.github.io/blog/swagger.json"
         },
         {
+          "type": "Blueprint",
+          "url": "https://kin-lane.github.io/blog/blog.apib"
+        },
+        {
           "type": "x-postman",
           "url": "https://kin-lane.github.io/blog/postman.json"
         },
