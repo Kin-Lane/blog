@@ -19,5 +19,4 @@ $guser = "kinlane";
 $gpass = "kpawwjN4dnJy4j";
 
 $three_scale_provider_key = "9c72d79253c63772cc2a81d4e4bd07f8";
-
 ?>
