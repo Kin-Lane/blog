@@ -7,6 +7,7 @@ require_once('m-blog-published-get.php');
 require_once('m-blog-draft-get.php');
 
 require_once('m-blog-tags-get.php');
+require_once('m-blog-tags-tag-get.php');
 require_once('m-blog-tags-byweek-get.php');
 require_once('m-blog-tags-tag-delete.php');
 

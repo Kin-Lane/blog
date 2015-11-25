@@ -7,9 +7,9 @@ $app->get($route, function ()  use ($app){
  	$request = $app->request(); 
  	$params = $request->params();	
 
-	$Query = "SELECT t.Tag_ID, t.Tag, count(*) AS API_Count from tags t";
+	$Query = "SELECT t.Tag_ID, t.Tag, count(*) AS Blog_Count from tags t";
 	$Query .= " INNER JOIN blog_tag_pivot btp ON t.Tag_ID = btp.Tag_ID";
-	$Query .= " GROUP BY t.Tag ORDER BY count(*) DESC";
+	$Query .= " GROUP BY t.Tag ORDER BY count(*) DESC LIMIT 1000";
 
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  

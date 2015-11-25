@@ -5,16 +5,15 @@ $app->get($route, function ($tag)  use ($app){
 	$ReturnObject = array();
 	
  	$request = $app->request(); 
- 	$params = $request->params();		
-
-	if(isset($_REQUEST['week'])){ $week = $params['week']; } else { $week = date('W'); }
-	if(isset($_REQUEST['year'])){ $year = $params['year']; } else { $year = date('Y'); }	
+ 	$params = $request->params();	
+	
+	$tag = mysql_real_escape_string($tag);	
 
 	$Query = "SELECT b.* from tags t";
 	$Query .= " JOIN blog_tag_pivot btp ON t.Tag_ID = btp.Tag_ID";
 	$Query .= " JOIN blog b ON btp.Blog_ID = b.ID";
-	$Query .= " WHERE WEEK(b.Post_Date) = " . $week . " AND YEAR(b.Post_Date) = " . $year . " AND Tag = '" . $tag . "'";
-
+	$Query .= " WHERE Tag = '" . $tag . "'";
+	//echo $Query . "<br />";
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  
 	while ($Database = mysql_fetch_assoc($DatabaseResult))
