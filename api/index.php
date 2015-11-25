@@ -98,6 +98,7 @@ if ($appid!='' && $appkey!='')
 	}
 else
 	{
+	include "methods/public.php";
 
 	$route = '/update/discovery/';
 	$app->get($route, function ()  use ($app,$contentType,$githuborg,$githubrepo,$rootfolder){
