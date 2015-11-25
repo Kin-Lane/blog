@@ -105,7 +105,7 @@ else
 
 		$apis_json_url = "http://" . $githuborg . ".github.io/" . $githubrepo . "/apis.json";
 		$apis_json = file_get_contents($apis_json_url);
-		$apis_json_file = "/var/www/html/" . $githuborg . "/" . $githubrepo . "/apis.json";
+		$apis_json_file = "/var/www/html/" . $githuborg . "/" . $githubrepo . "/api/apis.json";
 		echo $apis_json_file;
 		$myfile = fopen($apis_json_file, "w") or die("Unable to open file!");
 		fwrite($myfile, $apis_json);
