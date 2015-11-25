@@ -98,10 +98,9 @@ if ($appid!='' && $appkey!='')
 	}
 else
 	{
-	include "config.php";
 
 	$route = '/update/discovery/';
-	$app->get($route, function ()  use ($app,$contentType,$githuborg,$githubrepo){
+	$app->get($route, function ()  use ($app,$contentType,$githuborg,$githubrepo,$rootfolder){
 
 		$apis_json_url = "http://" . $githuborg . ".github.io/" . $githubrepo . "/apis.json";
 		$apis_json = file_get_contents($apis_json_url);
