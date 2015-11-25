@@ -12,6 +12,7 @@ mysql_select_db($dbname);
 
 $datastore = "mysql"; // mysql or github JSON currently
 
+$rootfolder = "kin_lane";
 $githuborg = "Kin-Lane";
 $githubrepo = "blog";
 
