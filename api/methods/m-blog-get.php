@@ -3,7 +3,8 @@ $route = '/blog/';
 $app->get($route, function ()  use ($app,$contentType,$githuborg,$githubrepo){
 
 	$ReturnObject = array();
-	$ReturnObject["contentType"] = $contentType;
+	//$ReturnObject["contentType"] = $contentType;
+	
 	if($contentType == 'application/vnd.apis+json')
 		{
 		$app->response()->header("Content-Type", "application/json");
