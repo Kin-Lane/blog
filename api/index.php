@@ -99,6 +99,22 @@ if ($appid!='' && $appkey!='')
 else
 	{
 	include "methods/public.php";
+
+	$route = '/update/discovery/';
+	$app->get($route, function ()  use ($app,$contentType,$githuborg,$githubrepo){
+
+		$apis_json_url = "http://" . $githuborg . ".github.io/" . $githubrepo . "/apis.json";
+		$apis_json = file_get_contents($apis_json_url);
+		$apis_json_file = "/var/www/html/" . $githuborg . "/" . $githubrepo . "/apis.json";
+		$myfile = fopen($apis_json_file, "w") or die("Unable to open file!");
+		fwrite($myfile, $apis_json);
+		fclose($myfile);
+
+		header('Content-Type: application/apis+json');
+		echo stripslashes(format_json($apis_json));
+
+	});
+
 	$app->run();
 	}
 ?>
