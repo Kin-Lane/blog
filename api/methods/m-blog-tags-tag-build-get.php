@@ -13,7 +13,7 @@ $app->get($route, function ($tag)  use ($app){
 	$Query = "SELECT DISTINCT b.* from tags t";
 	$Query .= " JOIN blog_tag_pivot btp ON t.Tag_ID = btp.Tag_ID";
 	$Query .= " JOIN blog b ON btp.Blog_ID = b.ID";
-	$Query .= " WHERE b.Build_Page = 1 AND (Github_Build NOT LIKE '%" . $tag . "%' OR Github_Build IS NULL) and Tag = '" . $tag . "' LIMIT 25";
+	$Query .= " WHERE YEAR(Post_Date) = " . $year . " AND b.Build_Page = 1 AND (Github_Build NOT LIKE '%" . $tag . "%' OR Github_Build IS NULL) and Tag = '" . $tag . "' LIMIT 25";
 	//echo $Query;
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  
