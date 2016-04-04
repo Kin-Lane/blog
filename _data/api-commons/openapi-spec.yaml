@@ -1,12 +1,12 @@
 - swagger: "2.0"
   info:
-    title: Audio
-    description: This is my audio API for keeping track of audio files I create, and
-      find across the internet. It doesn't store the audio currently, just provides
-      a pointer to where it exists, and some meta data to support.
+    title: Blog
+    description: This is an blog for all my blog entries. I use a single blog system
+      to manage all my sites. Based upon tagging, I then publish each post out to its
+      respective Github Page based repo.
     termsOfService: http://stack.network/terms-of-service.html
-    version: v1
-  host: audio.api.kinlane.com
+    version: v2
+  host: blog.api.kinlane.com
   basePath: /
   schemes:
   - http
@@ -15,231 +15,450 @@
   consumes:
   - application/json
   paths:
-    /audio/:
+    /blog/:
       get:
-        summary: Get All Audio
-        description: pulls all audio, with filter by keyword
-        operationId: getAudio
+        summary: Get All Blog Posts
+        description: all blogs
+        operationId: getBlogs
         parameters:
         - in: query
           name: appid
-          description: your appid for accessing the API
+          description: your appid for accessing the blog
           type: string
           format: string
         - in: query
           name: appkey
-          description: your appkey for accessing the API
+          description: your appkey for accessing the blog
           type: string
           format: string
+        - in: query
+          name: count
+          description: how many to show on page
+        - in: query
+          name: page
+          description: which page of results to show
         - in: query
           name: query
-          description: a text query to search across audio
+          description: a text query to search across blog
           type: string
           format: string
+        - in: query
+          name: sort
+          description: which field to sort by
         responses:
           200:
             description: OK
         tags:
-        - Audio
+        - Blog
         security: []
       post:
-        summary: Add Audio
-        description: add a new audio
-        operationId: addAudio
+        summary: Add Blog Post
+        description: add a blog post
+        operationId: addBlog
         parameters:
-        - in: formData
+        - in: query
           name: appid
-          description: your appid for accessing the API
+          description: your appid for accessing the blog
           type: string
           format: string
-        - in: formData
+        - in: query
           name: appkey
-          description: your appkey for accessing the API
+          description: your appkey for accessing the blog
           type: string
           format: string
         - in: query
-          name: creator
-          description: creator of the audio
-          type: string
-          format: string
-        - in: formData
-          name: description
-          description: description of the audio
-          type: string
-          format: string
-        - in: formData
-          name: name
-          description: name of the audio
+          name: author
+          description: author of the blog
           type: string
           format: string
         - in: query
-          name: thumbnailUrl
-          description: thumbnailUrl of the audio
+          name: body
+          description: full text for the blog
           type: string
           format: string
-        - in: formData
-          name: url
-          description: url of the audio
+        - in: query
+          name: curated_id
+          description: full text for the blog
+          type: string
+          format: string
+        - in: query
+          name: footer
+          description: curated id the blog originated from
+          type: string
+          format: string
+        - in: query
+          name: post_date
+          description: date the blog was posted
+          type: string
+          format: string
+        - in: query
+          name: status
+          description: status of the blog
+          type: string
+          format: string
+        - in: query
+          name: summary
+          description: summary for the blog
+          type: string
+          format: string
+        - in: query
+          name: title
+          description: ttle for the blog
           type: string
           format: string
         responses:
           200:
             description: OK
         tags:
-        - Audio
+        - Blog
         security: []
-    /audio/{audio_id}/:
-      delete:
-        summary: Delete Audio
-        description: deletes an audio
-        operationId: deleteAudio
+    /blog/byweek/:
+      get:
+        summary: Get Blog Posts By Week
+        description: blogs by week
+        operationId: getBlogsByWeek
         parameters:
         - in: query
           name: appid
-          description: your appid for accessing the API
+          description: your appid for accessing the blog
           type: string
           format: string
         - in: query
           name: appkey
-          description: your appkey for accessing the API
+          description: your appkey for accessing the blog
+          type: string
+          format: string
+        responses:
+          200:
+            description: OK
+        tags:
+        - Blog
+        security: []
+    /blog/draft/:
+      get:
+        summary: Get Draft Blog Posts
+        description: draft blogs
+        operationId: getDraftBlogs
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the blog
+          type: string
+          format: string
+        - in: query
+          name: appkey
+          description: your appkey for accessing the blog
+          type: string
+          format: string
+        - in: query
+          name: count
+          description: how many to show on page
+        - in: query
+          name: page
+          description: which page of results to show
+        - in: query
+          name: sort
+          description: which field to sort by
+        responses:
+          200:
+            description: OK
+        tags:
+        - Blog
+        security: []
+    /blog/published/:
+      get:
+        summary: Get Published Blog Posts
+        description: published blogs
+        operationId: getPublishedBlogs
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the blog
+          type: string
+          format: string
+        - in: query
+          name: appkey
+          description: your appkey for accessing the blog
+          type: string
+          format: string
+        - in: query
+          name: count
+          description: how many to show on page
+        - in: query
+          name: page
+          description: which page of results to show
+        - in: query
+          name: sort
+          description: which field to sort by
+        responses:
+          200:
+            description: OK
+        tags:
+        - Blog
+        security: []
+    /blog/tags/byweek/:
+      get:
+        summary: Get Blog Tags by Week
+        description: blog tags by week
+        operationId: getBlogTagsByWeek
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the blog
+          type: string
+          format: string
+        - in: query
+          name: appkey
+          description: your appkey for accessing the blog
+          type: string
+          format: string
+        - in: query
+          name: week
+          description: the week to retrieve tags by
+          type: string
+          format: string
+        - in: query
+          name: year
+          description: the year to retrieve tags by
+          type: string
+          format: string
+        responses:
+          200:
+            description: OK
+        tags:
+        - Tags
+        security: []
+    /blog/tags/byweek/{tag}/blog/:
+      get:
+        summary: Get Blog Tags by Tag and Week
+        description: blog tags by week blogs
+        operationId: getBlogTagCBlog
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the blog
+        - in: query
+          name: appkey
+          description: your appkey for accessing the blog
+        - in: path
+          name: tag
+          description: the tag to filter by
+          type: string
+          format: string
+        - in: query
+          name: week
+          description: the week to filter by, defaults to this week
+          type: string
+          format: string
+        responses:
+          200:
+            description: OK
+        tags:
+        - Tags
+        security: []
+    /blog/tags/{tag}/build/:
+      get:
+        summary: Build By Blog Tag
+        description: build by tag
+        operationId: getBlogsToBuildByTag
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the blog
+        - in: query
+          name: appkey
+          description: your appkey for accessing the blog
+        - in: path
+          name: tag
+          description: the tag to filter by
+        responses:
+          200:
+            description: OK
+        tags:
+        - Tags
+        security: []
+    /blog/{blog_id}/:
+      delete:
+        summary: Delete Blog Post
+        description: delete blog
+        operationId: deleteBlog
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the blog
+          type: string
+          format: string
+        - in: query
+          name: appkey
+          description: your appkey for accessing the blog
           type: string
           format: string
         - in: path
-          name: audio_id
-          description: unique id for the audio
+          name: blog_id
+          description: the unique id for blog entry
           type: string
           format: string
         responses:
           200:
             description: OK
         tags:
-        - Audio
+        - Blog
         security: []
       get:
-        summary: Get Audio
-        description: Returns the audio detail
-        operationId: getAudio
+        summary: Get Blog Post
+        description: Returns the blog detail
+        operationId: getBlog
         parameters:
         - in: query
           name: appid
-          description: your appid for accessing the API
+          description: your appid for accessing the blog
           type: string
           format: string
         - in: query
           name: appkey
-          description: your appkey for accessing the API
+          description: your appkey for accessing the blog
           type: string
           format: string
         - in: path
-          name: audio_id
-          description: unique id for the audio
+          name: blog_id
+          description: the unique id for blog entry
           type: string
           format: string
         responses:
           200:
             description: OK
         tags:
-        - Audio
+        - Blog
         security: []
       put:
-        summary: Update Audio
-        description: update audio
-        operationId: updateAudio
+        summary: Update Blog Post
+        description: update blog
+        operationId: updateBlog
         parameters:
-        - in: formData
+        - in: query
           name: appid
-          description: your appid for accessing the API
+          description: your appid for accessing the blog
           type: string
           format: string
-        - in: formData
+        - in: query
           name: appkey
-          description: your appkey for accessing the API
+          description: your appkey for accessing the blog
+          type: string
+          format: string
+        - in: query
+          name: author
+          description: author of the blog
           type: string
           format: string
         - in: path
-          name: audio_id
-          description: unique id for the audio
+          name: blog_id
+          description: the unique id for blog entry
           type: string
           format: string
         - in: query
-          name: creator
-          description: creator of the audio
-          type: string
-          format: string
-        - in: formData
-          name: description
-          description: description of the audio
-          type: string
-          format: string
-        - in: formData
-          name: name
-          description: name of the audio
+          name: body
+          description: full text for the blog
           type: string
           format: string
         - in: query
-          name: thumbnailUrl
-          description: thumbnailUrl of the audio
+          name: build_page
+          description: whether or not this blog post needs page built
+        - in: query
+          name: curated_id
+          description: full text for the blog
           type: string
           format: string
-        - in: formData
-          name: url
-          description: url of the audio
+        - in: query
+          name: footer
+          description: curated id the blog originated from
           type: string
           format: string
+        - in: query
+          name: github_build
+          description: the github build string
+        - in: query
+          name: linkedin_build
+          description: the linkedin build string
+        - in: query
+          name: post_date
+          description: date the blog was posted
+          type: string
+          format: string
+        - in: query
+          name: show_on_site
+          description: Whether or not this blog post will show on any site
+        - in: query
+          name: status
+          description: status of the blog
+          type: string
+          format: string
+        - in: query
+          name: summary
+          description: summary for the blog
+          type: string
+          format: string
+        - in: query
+          name: title
+          description: ttle for the blog
+          type: string
+          format: string
+        - in: query
+          name: twitter_build
+          description: the twitter build string
         responses:
           200:
             description: OK
         tags:
-        - Audio
+        - Blog
         security: []
-    /audio/{audio_id}/tags/:
+    /blog/{blog_id}/tags/:
       get:
-        summary: Get Tags for Audio
-        description: Returns the tags for an audio
-        operationId: getaudioTags
+        summary: Get Tags for Blog Post
+        description: blog tags
+        operationId: getblogTags
         parameters:
         - in: query
           name: appid
-          description: your appid for accessing the audio
+          description: your appid for accessing the blog
           type: string
           format: string
         - in: query
           name: appkey
-          description: your appkey for accessing the audio
+          description: your appkey for accessing the blog
           type: string
           format: string
         - in: path
-          name: audio_id
-          description: id for audio
+          name: blog_id
+          description: id for blog
           type: string
           format: string
         responses:
           200:
             description: OK
         tags:
-        - Audio
+        - Tags
         security: []
       post:
-        summary: Add Tag for Audio
-        description: add tag for audio
-        operationId: addPeopleTag
+        summary: Add Tag for Blog Post
+        description: add tag to blog
+        operationId: addBlogTag
         parameters:
-        - in: formData
+        - in: query
           name: appid
-          description: your appid for accessing the audio
+          description: your appid for accessing the blog
           type: string
           format: string
-        - in: formData
+        - in: query
           name: appkey
-          description: your appkey for accessing the audio
+          description: your appkey for accessing the blog
           type: string
           format: string
         - in: path
-          name: audio_id
-          description: id for the audio
+          name: blog_id
+          description: id for the blog
           type: string
           format: string
-        - in: formData
+        - in: query
           name: tag
           description: tag name
           type: string
@@ -248,72 +467,122 @@
           200:
             description: OK
         tags:
-        - Audio
+        - Tags
         security: []
-    /audio/{audio_id}/tags/{tag}/:
+    /blog/{blog_id}/tags/{tag}:
       delete:
-        summary: Delete Tag for Audio
-        description: deletes a tag applied to audio
-        operationId: deleteaudioTag
+        summary: delete Tag for Blog Post
+        description: delete blog tag
+        operationId: deleteblogTag
         parameters:
         - in: query
           name: appid
-          description: your appid for accessing the audio
+          description: your appid for accessing the blog
           type: string
           format: string
         - in: query
           name: appkey
-          description: your appkey for accessing the audio
+          description: your appkey for accessing the blog
           type: string
           format: string
         - in: path
-          name: audio_id
-          description: id for the audio
+          name: blog_id
+          description: id for the blog
           type: string
           format: string
         - in: path
           name: tag
-          description: tag to remove from audio
+          description: tag to remove from blog
           type: string
           format: string
         responses:
           200:
             description: OK
         tags:
-        - Audio
+        - Tags
         security: []
   definitions:
-    audio:
+    0:
       properties:
-        id:
+        blog_id:
           description: This is a default description.
-          type: delete
-        name:
+          type: get
+        post_date:
           description: This is a default description.
-          type: delete
-        description:
+          type: get
+        title:
           description: This is a default description.
-          type: delete
-        url:
+          type: get
+        author:
           description: This is a default description.
-          type: delete
-        thumbnailUrl:
+          type: get
+        summary:
           description: This is a default description.
-          type: delete
-        creator:
+          type: get
+        body:
           description: This is a default description.
-          type: delete
-        audio_id:
+          type: get
+        footer:
           description: This is a default description.
-          type: delete
+          type: get
+        status:
+          description: This is a default description.
+          type: get
+        curated_id:
+          description: This is a default description.
+          type: get
+        tag_id:
+          description: This is a default description.
+          type: get
+        tag:
+          description: This is a default description.
+          type: get
+        api_count:
+          description: This is a default description.
+          type: get
+    blog:
+      properties:
+        blog_id:
+          description: This is a default description.
+          type: get
+        post_date:
+          description: This is a default description.
+          type: get
+        title:
+          description: This is a default description.
+          type: get
+        author:
+          description: This is a default description.
+          type: get
+        summary:
+          description: This is a default description.
+          type: get
+        body:
+          description: This is a default description.
+          type: get
+        footer:
+          description: This is a default description.
+          type: get
+        status:
+          description: This is a default description.
+          type: get
+        curated_id:
+          description: This is a default description.
+          type: get
+        build_page:
+          description: This is a default description.
+          type: get
+        show_on_site:
+          description: This is a default description.
+          type: get
     tag:
       properties:
         tag_id:
           description: This is a default description.
-          type: delete
+          type: get
         tag:
           description: This is a default description.
-          type: delete
+          type: get
         api_count:
           description: This is a default description.
-          type: delete
+          type: get
