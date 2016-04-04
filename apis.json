@@ -1,20 +1,20 @@
 [{
-	"name": "APIs",
-	"description": "This is my API for working with the APIs I track on. I use this API to add, update, and delete the APIs, their details, an I am working to create as many API focused endpoints, which let me manage even more APIs, whether they are mine or other publicly available APIs I am interested in.",
-	"image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
+	"name": "Blog API",
+	"description": "I use this API to manage all of my blogs. Since I use Jekyll and Github to manage all my project sites, storing content, JSON, YAML, and server and client side code in each project, I use an API to distribute the blog updates to each project endpoint. You can access all my storytelling across all of the blogs that I maintain here in this API.",
+	"image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-blog-icon.png",
 	"x-open-ranking": "0",
-	"tags": ["Kin Lane API API"],
-	"created": "2016-04-02",
-	"modified": "2016-04-02",
-	"url": "http://kin-lane.github.io/api/"
+	"tags": ["Kin Lane Blog API"],
+	"created": "2016-04-04",
+	"modified": "2016-04-04",
+	"url": "http://kin-lane.github.io/blog/"
 	"specificationVersion": "0.14",
 	"apis": [{
-		"name": "Kin Lane API",
-		"description": "<p><span>This is my API for working with the APIs I track on. I use this API to add, update, and delete the APIs, their details, an I am working to create as many API focused endpoints, which let me manage even more APIs, whether they are mine or other publicly available APis I am interested in.</span></p>",
+		"name": "Kin Lane Blog API",
+		"description": "<p><span>I use this API to manage all of my blogs. Since I use Jekyll and Github to manage all my project sites, storing content, JSON, YAML, and server and client side code in each project, I use an API to distribute the blog updates to each project endpoint. You can access all my storytelling across all of the blogs that I maintain here in this API.</span></p>",
 		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/kin.png",
-		"humanURL": "http://kin-lane.github.io/api/",
-		"baseURL": "/",
-		"tags": ["Kin Lane API API"],
+		"humanURL": "https://kin-lane.github.io/blog/index.html",
+		"baseURL": "https://kin-lane.github.io/blog/index.html",
+		"tags": ["Kin Lane Blog API"],
 		"properties": [{
 			"type": "x-openapi-spec",
 			"url": "api-commons/openapi-spec.json"
@@ -110,7 +110,7 @@
 	}],
 	"include": [{
 		"name": "Parent",
-		"url": "http://kin-lane.github.io/api//apis.yaml"
+		"url": "http://kin-lane.github.io/blog//apis.yaml"
 	}],
 	"maintainers": [{
 		"FN": "Kin Lane",
