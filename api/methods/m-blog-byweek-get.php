@@ -7,8 +7,9 @@ $app->get($route, function ()  use ($app){
  	$request = $app->request(); 
  	$params = $request->params();	
 
-	if(isset($params['week'])){ $week = $params['week']; } else { $week = date('W'); }
-	if(isset($params['year'])){ $year = $params['year']; } else { $year = date('Y'); }
+
+	if(isset($params['week']) && strlen($params['week']) > 1){ $week = $params['week']; } else { $week = date('W'); }
+	if(isset($params['year']) && strlen($params['year']) > 1){ $year = $params['year']; } else { $year = date('Y'); }
 	if(isset($params['page'])){ $page = trim(mysql_real_escape_string($params['page'])); } else { $page = 0;}
 	if(isset($params['count'])){ $count = trim(mysql_real_escape_string($params['count'])); } else { $count = 250;}
 	if(isset($params['sort'])){ $sort = trim(mysql_real_escape_string($params['sort'])); } else { $sort = 'Title';}
@@ -18,7 +19,7 @@ $app->get($route, function ()  use ($app){
 	$Query .= " WHERE WEEK(b.Post_Date) = " . $week . " AND YEAR(b.Post_Date) = " . $year;
 	$Query .= " ORDER BY " . $sort . " " . $order . " LIMIT " . $page . "," . $count;
 
-	//echo $Query;
+	echo $Query;
 
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  

@@ -7,8 +7,8 @@ $app->get($route, function ()  use ($app){
  	$request = $app->request(); 
  	$params = $request->params();	
 
-	if(isset($_REQUEST['week'])){ $week = $params['week']; } else { $week = date('W'); }
-	if(isset($_REQUEST['year'])){ $year = $params['year']; } else { $year = date('Y'); }
+	if(isset($params['week']) && strlen($params['week']) > 1){ $week = $params['week']; } else { $week = date('W'); }
+	if(isset($params['year']) && strlen($params['year']) > 1){ $year = $params['year']; } else { $year = date('Y'); }
 
 	$Query = "SELECT t.Tag_ID, t.Tag, count(*) AS Blog_Count from tags t";
 	$Query .= " JOIN blog_tag_pivot btp ON t.Tag_ID = btp.Tag_ID";

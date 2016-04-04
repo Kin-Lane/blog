@@ -9,11 +9,21 @@ $app->get($route, function ($tag)  use ($app){
 
 	if(isset($_REQUEST['week'])){ $week = $params['week']; } else { $week = date('W'); }
 	if(isset($_REQUEST['year'])){ $year = $params['year']; } else { $year = date('Y'); }	
+	if(isset($_REQUEST['override'])){ $override = $params['override']; } else { $override = 0; }
+	if(isset($_REQUEST['start'])){ $start = $params['start']; } else { $start = 0; }
+	if(isset($_REQUEST['finish'])){ $finish = $params['finish']; } else { $finish = 25; }	
 
 	$Query = "SELECT DISTINCT b.* from tags t";
 	$Query .= " JOIN blog_tag_pivot btp ON t.Tag_ID = btp.Tag_ID";
 	$Query .= " JOIN blog b ON btp.Blog_ID = b.ID";
-	$Query .= " WHERE YEAR(Post_Date) = " . $year . " AND b.Build_Page = 1 AND (Github_Build NOT LIKE '%" . $tag . "%' OR Github_Build IS NULL) and Tag = '" . $tag . "' LIMIT 25";
+	if($override==1)
+		{
+		$Query .= " WHERE Tag = '" . $tag . "' ORDER BY ID DESC LIMIT " . $start . "," . $finish;
+		}
+	else 
+		{
+		$Query .= " WHERE b.Build_Page = 1 AND (Github_Build NOT LIKE '%" . $tag . "%' OR Github_Build IS NULL) and Tag = '" . $tag . "' ORDER BY ID DESC";
+		}
 	//echo $Query;
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  

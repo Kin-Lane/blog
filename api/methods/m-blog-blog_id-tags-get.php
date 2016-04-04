@@ -13,7 +13,7 @@ $app->get($route, function ($blog_id)  use ($app){
 	$Query = "SELECT t.Tag_ID, t.Tag FROM tags t";
 	$Query .= " JOIN blog_tag_pivot btp ON t.Tag_ID = btp.Tag_ID";
 	$Query .= " WHERE btp.Blog_ID = " . $blog_id;
-
+	//echo $Query;
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 		
 	while ($Database = mysql_fetch_assoc($DatabaseResult))
