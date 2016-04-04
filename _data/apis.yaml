@@ -1,21 +1,29 @@
-- name: Audio API
-  description: ""
-  image: https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-audio.png
+- name: Blog API
+  description: I use this API to manage all of my blogs. Since I use Jekyll and Github
+    to manage all my project sites, storing content, JSON, YAML, and server and client
+    side code in each project, I use an API to distribute the blog updates to each
+    project endpoint. You can access all my storytelling across all of the blogs that
+    I maintain here in this API.
+  image: https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-blog-icon.png
   x-open-ranking: "0"
   tags:
-  - Kin Lane Audio API
-  created: "2016-04-03"
-  modified: "2016-04-03"
+  - Kin Lane Blog API
+  created: "2016-04-04"
+  modified: "2016-04-04"
   url: ""
   specificationVersion: "0.14"
   apis:
-  - name: Kin Lane Audio
-    description: This is my master org.
+  - name: Kin Lane Blog API
+    description: <p><span>I use this API to manage all of my blogs. Since I use Jekyll
+      and Github to manage all my project sites, storing content, JSON, YAML, and
+      server and client side code in each project, I use an API to distribute the
+      blog updates to each project endpoint. You can access all my storytelling across
+      all of the blogs that I maintain here in this API.</span></p>
     image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/kin.png
-    humanURL: https://kin-lane.github.io/audio/
-    baseURL: https://kin-lane.github.io/audio/
+    humanURL: https://kin-lane.github.io/blog/index.html
+    baseURL: https://kin-lane.github.io/blog/index.html
     tags:
-    - Kin Lane Audio API
+    - Kin Lane Blog API
     properties:
     - type: x-openapi-spec
       url: api-commons/openapi-spec.json
@@ -66,7 +74,7 @@
     url: api-commons/api-plan.json
   include:
   - name: Parent
-    url: https://kin-lane.github.io/audio//apis.yaml
+    url: http://kin-lane.github.io/blog//apis.yaml
   maintainers:
   - FN: Kin Lane
     x-twitter: apievangelist
